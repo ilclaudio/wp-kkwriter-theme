@@ -6,4 +6,7 @@
 </head>
 
 <body>
-	<h1>KK WRITER THEME</h1>
+	<div class="container" style="border: 1px solid red;">
+		<h1>KK WRITER THEME</h1>
+
+	</div>
