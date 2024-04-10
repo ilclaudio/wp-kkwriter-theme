@@ -9,7 +9,7 @@
  <!-- The HEADER with the site title and the menu -->
 <?php get_header(); ?>
 
-<main class="container" style="border: 1px solid blue;">
+<main class="container">
 
 	<!-- The carousel section -->
 	<?php get_template_part( 'template-parts/home/carousel' ); ?>
