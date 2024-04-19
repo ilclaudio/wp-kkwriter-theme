@@ -28,6 +28,11 @@ require get_template_directory() . '/inc/theme-dependencies.php';
  */
 require get_template_directory() . '/inc/wrappers_polylang.php';
 
+/**
+ * Import the code to create the theme Configuration.
+ */
+require get_template_directory() . '/admin/src/options.php';
+
 
 if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 	function kkw_load_scripts_and_styles()
@@ -86,5 +91,5 @@ if ( ! function_exists( 'kkw_setup' ) ) {
 		}
 
 	}
+	add_action( 'after_setup_theme', 'kkw_setup' );
 }
-add_action( 'after_setup_theme', 'kkw_setup' );
