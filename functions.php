@@ -14,6 +14,11 @@
 require get_template_directory() . '/config_theme.php';
 
 /**
+ * Activation Hooks.
+ */
+require get_template_directory() . '/activation.php';
+
+/**
  * Implement Plugin Activations Rules.
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
@@ -24,8 +29,7 @@ require get_template_directory() . '/inc/theme-dependencies.php';
 require get_template_directory() . '/inc/wrappers_polylang.php';
 
 
-
-if ( ! function_exists( 'kkw_setup' ) ) {
+if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 	function kkw_load_scripts_and_styles()
 	{
 		// Add bootstrap files.
@@ -39,6 +43,14 @@ if ( ! function_exists( 'kkw_setup' ) ) {
 		wp_enqueue_style( 'kkwritertheme_main_styles' );
 	}
 	add_action( 'wp_enqueue_scripts', 'kkw_load_scripts_and_styles' );
+}
+
+if ( ! function_exists( 'kkw_enqueue_admin_custom_css' ) ) {
+	function kkw_enqueue_admin_custom_css(){
+		wp_register_style( 'kkwritertheme_admin_styles', get_template_directory_uri() . '/assets/custom/css/admin.css' );
+		wp_enqueue_style( 'kkwritertheme_admin_styles' );
+	}
+	add_action( 'admin_enqueue_scripts', 'kkw_enqueue_admin_custom_css' );
 }
 
 if ( ! function_exists( 'kkw_setup' ) ) {
@@ -69,11 +81,8 @@ if ( ! function_exists( 'kkw_setup' ) ) {
 			add_image_size( 'item-thumb', 280, 280 , true );
 			add_image_size( 'featured-post', 200, 248 , true );
 			add_image_size( 'small-featured', 196, 96 , true );
-			// add_image_size( 'item-gallery', 730, 485 , true );
-			// add_image_size( 'item-hero-event', 418, 130 , true );
-			// add_image_size( 'item-card-list', 416, 232 , true );
-			// add_image_size( 'item-carousel', 592, 334 , true );
-			// add_image_size( 'banner', 600, 250 , false );
+			add_image_size( 'item-gallery', 730, 485 , true );
+			add_image_size( 'item-card-list', 416, 232 , true );
 		}
 
 	}
