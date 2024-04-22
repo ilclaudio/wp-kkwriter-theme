@@ -4,6 +4,10 @@
 <head>
 	<?php wp_head(); ?>
 </head>
+<?php
+	$title   = kkw_get_option( 'site_title', 'kkw_opt_options' );
+	$tagline = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
+?>
 
 <body>
 	<div class="container">
@@ -13,7 +17,8 @@
 					logo
 				</div>
 				<div class="col-4 text-center">
-					<h1>KK WRITER THEME</h1>
+					<h1><?php echo esc_html( $title, 'kk_writer_theme' ); ?></h1>
+					<div class="kkw_tagline"><?php echo esc_html( $tagline, 'kk_writer_theme' ); ?></div>
 				</div>
 				<div class="col-4 d-flex justify-content-end align-items-center">
 					<a class="link-secondary" href="#" aria-label="Search">

@@ -19,7 +19,7 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_base_option( $prefix, $option_key, $tab_group, $capability )
+	public function add_opt_base_option( $option_key, $tab_group, $capability )
 	{
 		$result = true;
 		$args = array(
@@ -42,7 +42,7 @@ class KKW_ThemeOptionsManager
 
 		$base_options->add_field(
 			array(
-				'id'   => $prefix . 'baseoptions_info',
+				'id'   => 'baseoptions_info',
 				'name' => __( 'Site configuration', 'kk_writer_theme' ),
 				'desc' => __( 'Section to configure base options.' , 'kk_writer_theme' ),
 				'type' => 'title',
@@ -50,7 +50,7 @@ class KKW_ThemeOptionsManager
 		);
 		$base_options->add_field(
 			array(
-				'id'         => $prefix . 'site_title',
+				'id'         => 'site_title',
 				'name'       => __( 'Site title', 'kk_writer_theme' ) . '&nbsp;*',
 				'desc'       => __( 'The title of the site.' , 'kk_writer_theme' ),
 				'type'       => 'text',
@@ -61,7 +61,7 @@ class KKW_ThemeOptionsManager
 		);
 		$base_options->add_field(
 			array(
-				'id'         => $prefix . 'site_tagline',
+				'id'         => 'site_tagline',
 				'name'       => __( 'Tagline', 'kk_writer_theme' ) . '&nbsp;*',
 				'desc'       => __( 'The tagline of the site.' , 'kk_writer_theme' ),
 				'type'       => 'text',
@@ -72,7 +72,7 @@ class KKW_ThemeOptionsManager
 		);
 		$base_options->add_field(
 			array(
-				'id'         => $prefix . 'site_network_name',
+				'id'         => 'site_network_name',
 				'name'       => __( 'Network name', 'kk_writer_theme' ),
 				'desc'       => __( 'The name of the network the site is part of.' , 'kk_writer_theme' ),
 				'type'       => 'text',
@@ -80,7 +80,7 @@ class KKW_ThemeOptionsManager
 		);
 		$base_options->add_field(
 			array(
-				'id'         => $prefix . 'site_network_url',
+				'id'         => 'site_network_url',
 				'name'       => __( 'Network url', 'kk_writer_theme' ),
 				'desc'       => __( 'The url of the network the site is part of.' , 'kk_writer_theme' ),
 				'type'       => 'text',
@@ -88,7 +88,7 @@ class KKW_ThemeOptionsManager
 		);
 		$base_options->add_field(
 			array(
-				'id'         => $prefix . 'site_logo',
+				'id'         => 'site_logo',
 				'name'       => __( 'Logo header', 'kk_writer_theme' ),
 				'desc'       => __( 'The logo of the site, please load an SVG image.' , 'kk_writer_theme' ),
 				'type'       => 'file',
@@ -101,7 +101,7 @@ class KKW_ThemeOptionsManager
 		);
 		$base_options->add_field(
 			array(
-				'id' => $prefix . 'footer_logo_visible',
+				'id' => 'footer_logo_visible',
 				'name' => __( 'Footer logo visible', 'kk_writer_theme' ),
 				'desc' => __( 'Yes if the logo needs to be shown in the footer.', 'kk_writer_theme' ),
 				'type' => 'radio_inline',
@@ -114,7 +114,7 @@ class KKW_ThemeOptionsManager
 		);
 		$base_options->add_field(
 			array(
-				'id'         => $prefix . 'footer_logo',
+				'id'         => 'footer_logo',
 				'name'       => __( 'Logo footer', 'kk_writer_theme' ),
 				'desc'       => __( 'Choose the the footer logo. If it is not present, but the display of the logo in the footer is enabled, the header logo is shown with inverted colors. It is recommended to upload an image in SVG format.' , 'kk_writer_theme' ),
 				'type'       => 'file',
@@ -133,7 +133,7 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_home_messages( $prefix, $option_key, $tab_group, $capability )
+	public function add_opt_home_messages( $option_key, $tab_group, $capability )
 	{
 		$args = array(
 			'id'           => $option_key . '_id',
@@ -153,7 +153,7 @@ class KKW_ThemeOptionsManager
 
 		$messages_options->add_field(
 			array(
-				'id' => $prefix . 'messages_info',
+				'id' => 'messages_info',
 				'name'        => __( 'Home page messages', 'kk_writer_theme' ),
 				'desc' => __( 'Add messages that will be displayed on the homepage.' , 'kk_writer_theme' ),
 				'type' => 'title',
@@ -161,7 +161,7 @@ class KKW_ThemeOptionsManager
 		);
 		$messages_group_id = $messages_options->add_field(
 			array(
-				'id'           => $prefix . 'messages',
+				'id'           => 'messages',
 				'type'        => 'group',
 				'desc' => __( 'Each message is constructed with a short description (max 140 characters) and expiry date (optional).' , 'kk_writer_theme' ),
 				'repeatable'  => true,
@@ -177,7 +177,7 @@ class KKW_ThemeOptionsManager
 			$messages_group_id,
 			array(
 				'name'    =>  __( 'Choose the color', 'kk_writer_theme' ),
-				'id'      => $prefix . 'message_color',
+				'id'      => 'message_color',
 				'type'    => 'radio_inline',
 				'options' => array(
 						'danger' => '<span class="radio-color red"></span>' . __( 'Danger', 'kk_writer_theme' ),
@@ -192,14 +192,14 @@ class KKW_ThemeOptionsManager
 			$messages_group_id,
 			array(
 				'name' => __( 'Show the icon', 'kk_writer_theme' ),
-				'id'   => $prefix . 'message_icon',
+				'id'   => 'message_icon',
 				'type' => 'checkbox',
 			)
 		);
 		$messages_options->add_group_field(
 			$messages_group_id,
 			array(
-				'id'              => $prefix . 'message_date',
+				'id'              => 'message_date',
 				'name'            => __( 'Data fine', 'kk_writer_theme' ),
 				'type'            => 'text_date',
 				'date_format'     => 'd-m-Y',
@@ -211,7 +211,7 @@ class KKW_ThemeOptionsManager
 		$messages_options->add_group_field(
 			$messages_group_id,
 			array(
-				'id' => $prefix . 'message_text',
+				'id' => 'message_text',
 				'name'        => __( 'Text', 'kk_writer_theme' ),
 				'desc' => __( 'Max 140 characters' , 'kk_writer_theme' ),
 				'type' => 'textarea_small',
@@ -224,7 +224,7 @@ class KKW_ThemeOptionsManager
 		$messages_options->add_group_field(
 			$messages_group_id,
 			array(
-				'id' => $prefix . 'message_link',
+				'id' => 'message_link',
 				'name'        => __( 'Link', 'kk_writer_theme' ),
 				'desc' => __( 'Link to an in-depth page also external to the site.' , 'kk_writer_theme' ),
 				'type' => 'text_url',
@@ -237,7 +237,7 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_hp_layout( $prefix, $option_key, $tab_group, $capability )
+	public function add_opt_hp_layout( $option_key, $tab_group, $capability )
 	{
 		$args = array(
 			'id'           => $option_key . '_id',
@@ -258,7 +258,7 @@ class KKW_ThemeOptionsManager
 		// CAROUSEL Section (Home Page)
 		$home_options->add_field(
 			array(
-				'id'   => $prefix . 'home_carousel',
+				'id'   => 'home_carousel',
 				'name' => __( 'Carousel section', 'kk_writer_theme' ),
 				'desc' => __( 'Configure here the carousel section.' , 'kk_writer_theme' ),
 				'type' => 'title',
@@ -266,7 +266,7 @@ class KKW_ThemeOptionsManager
 		);
 		$home_options->add_field(
 			array(
-				'id' => $prefix . 'home_carousel_after_featured_enabled',
+				'id' => 'home_carousel_after_featured_enabled',
 				'name' => __( 'Show carousel before featured content', 'kk_writer_theme' ),
 				'desc' => __( 'If yes, the carouse is shown before the featured content section.', 'kk_writer_theme' ),
 				'type' => 'radio_inline',
@@ -279,9 +279,9 @@ class KKW_ThemeOptionsManager
 		);
 		$home_options->add_field(
 			array(
-				'id' => $prefix . 'home_carousel_enabled',
-				'name' => __( 'Carousel section enabled', 'kk_writer_theme' ),
-				'desc' => __( 'Enable the main carousel in the Home Page.', 'kk_writer_theme' ),
+				'id' => 'home_carousel_visible',
+				'name' => __( 'Show the Carousel section', 'kk_writer_theme' ),
+				'desc' => __( 'Show the main carousel in the Home Page.', 'kk_writer_theme' ),
 				'type' => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
@@ -292,9 +292,9 @@ class KKW_ThemeOptionsManager
 		);
 		$home_options->add_field(
 			array(
-				'id' => $prefix . 'home_carousel_auto_on',
+				'id' => 'home_carousel_auto_on',
 				'name' => __( 'Automatic selection enabled', 'kk_writer_theme' ),
-				'desc' => __( 'If yes, the contents are chosen automatically.', 'kk_writer_theme' ),
+				'desc' => __( 'If yes, the contents of the Home Page carousel are chosen automatically.', 'kk_writer_theme' ),
 				'type' => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
@@ -307,7 +307,7 @@ class KKW_ThemeOptionsManager
 			array(
 				'name'    => __( 'Choose contents', 'kk_writer_theme' ),
 				'desc'    => __( 'Choose the contents to show in the Home Page carousel.', 'kk_writer_theme' ),
-				'id'      => $prefix . 'carousel_content',
+				'id'      => 'carousel_content',
 				'type'    => 'custom_attached_posts',
 				'column'  => true,
 				'options' => array(
@@ -324,7 +324,7 @@ class KKW_ThemeOptionsManager
 		// FEATURED CONTENT Section (Home Page).
 		$home_options->add_field(
 			array(
-				'id' => $prefix . 'home_featured_content',
+				'id' => 'home_featured_content',
 				'name'        => __( 'featured content section', 'kk_writer_theme' ),
 				'desc' => __( 'Manage the featured content in the Home Page.' , 'kk_writer_theme' ),
 				'type' => 'title',
@@ -333,9 +333,9 @@ class KKW_ThemeOptionsManager
 
 		$home_options->add_field(
 			array(
-				'id' => $prefix . 'home_featured_content_visible',
+				'id' => 'home_featured_content_visible',
 				'name' => __( 'Show featured content', 'kk_writer_theme' ),
-				'desc' => __( 'Show featured content section.', 'kk_writer_theme' ),
+				'desc' => __( 'Show featured content section in the Home Page.', 'kk_writer_theme' ),
 				'type' => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
@@ -348,7 +348,7 @@ class KKW_ThemeOptionsManager
 		// Featured content: BOX 1.
 		$featured_content_group_id = $home_options->add_field(
 			array(
-				'id'          => $prefix . 'featured_content_1',
+				'id'          => 'featured_content_1',
 				'type'       => 'group',
 				'repeatable' => false,
 				'options'    => array(
@@ -361,7 +361,7 @@ class KKW_ThemeOptionsManager
 		$home_options->add_group_field(
 			$featured_content_group_id,
 			array(
-				'id'              => $prefix . 'box1_content',
+				'id'              => 'box_content',
 				'name'            => __( 'Content to show' ),
 				'type'            => 'post_search_text',
 				'post_type'       => KKW_SEARCHABLE_POST_TYPES,
@@ -372,7 +372,7 @@ class KKW_ThemeOptionsManager
 		$home_options->add_group_field(
 			$featured_content_group_id,
 			array(
-				'id'               => $prefix . 'box1_image_side',
+				'id'               => 'box_image_side',
 				'name'             => __( 'Thumbnail side', 'kk_writer_theme' ),
 				'desc'             => __( 'On which side the thumbnail wil be shown.' , 'kk_writer_theme' ),
 				'type'             => 'select',
@@ -387,7 +387,7 @@ class KKW_ThemeOptionsManager
 		// Featured content: BOX 2.
 		$featured_content_group_id = $home_options->add_field(
 			array(
-				'id'          => $prefix . 'featured_content_2',
+				'id'          => 'featured_content_2',
 				'type'       => 'group',
 				'repeatable' => false,
 				'options'    => array(
@@ -400,7 +400,7 @@ class KKW_ThemeOptionsManager
 		$home_options->add_group_field(
 			$featured_content_group_id,
 			array(
-				'id'              => $prefix . 'box2_content',
+				'id'              => 'box_content',
 				'name'            => __( 'Content to show' ),
 				'type'            => 'post_search_text',
 				'post_type'       => KKW_SEARCHABLE_POST_TYPES,
@@ -411,7 +411,7 @@ class KKW_ThemeOptionsManager
 		$home_options->add_group_field(
 			$featured_content_group_id,
 			array(
-				'id'               => $prefix . 'box2_image_side',
+				'id'               => 'box_image_side',
 				'name'             => __( 'Thumbnail side', 'kk_writer_theme' ),
 				'desc'             => __( 'On which side the thumbnail wil be shown.' , 'kk_writer_theme' ),
 				'type'             => 'select',
@@ -426,7 +426,7 @@ class KKW_ThemeOptionsManager
 			// Featured content: BOX 3.
 			$featured_content_group_id = $home_options->add_field(
 				array(
-					'id'          => $prefix . 'featured_content_3',
+					'id'          => 'featured_content_3',
 					'type'       => 'group',
 					'repeatable' => false,
 					'options'    => array(
@@ -439,7 +439,7 @@ class KKW_ThemeOptionsManager
 			$home_options->add_group_field(
 				$featured_content_group_id,
 				array(
-					'id'              => $prefix . 'box3_content',
+					'id'              => 'box_content',
 					'name'            => __( 'Content to show' ),
 					'type'            => 'post_search_text',
 					'post_type'       => KKW_SEARCHABLE_POST_TYPES,
@@ -450,7 +450,7 @@ class KKW_ThemeOptionsManager
 			$home_options->add_group_field(
 				$featured_content_group_id,
 				array(
-					'id'               => $prefix . 'box3_image_side',
+					'id'               => 'box_image_side',
 					'name'             => __( 'Thumbnail side', 'kk_writer_theme' ),
 					'desc'             => __( 'On which side the thumbnail wil be shown.' , 'kk_writer_theme' ),
 					'type'             => 'select',
@@ -469,7 +469,7 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_site_contacts( $prefix, $option_key, $tab_group, $capability )
+	public function add_opt_site_contacts( $option_key, $tab_group, $capability )
 	{
 		$args = array(
 			'id'           => $option_key . '_id',
@@ -489,7 +489,7 @@ class KKW_ThemeOptionsManager
 
 		$contacts_options->add_field(
 			array(
-			'id' => $prefix . 'social_info',
+			'id' => 'social_info',
 			'name'        => __( 'Contacts', 'kk_writer_theme' ),
 			'desc' => __( 'The contact shown in the footer.' , 'kk_writer_theme' ),
 			'type' => 'title',
@@ -497,7 +497,7 @@ class KKW_ThemeOptionsManager
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => $prefix . 'site_city',
+				'id'         => 'site_city',
 				'name'       => __( 'City', 'kk_writer_theme' ),
 				'desc'       => __( 'The city of the site.' , 'kk_writer_theme' ),
 				'type'       => 'text',
@@ -505,7 +505,7 @@ class KKW_ThemeOptionsManager
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => $prefix . 'site_address',
+				'id'         => 'site_address',
 				'name'       => __( 'Address', 'kk_writer_theme' ),
 				'desc'       => __( "The address of the site." , 'kk_writer_theme' ),
 				'type'       => 'text',
@@ -513,7 +513,7 @@ class KKW_ThemeOptionsManager
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => $prefix . 'email_laboratorio',
+				'id'         => 'email_laboratorio',
 				'name'       => __( 'Email', 'kk_writer_theme' ),
 				'desc'       => __( 'The email of the site.' , 'kk_writer_theme' ),
 				'type'       => 'text',
@@ -521,7 +521,7 @@ class KKW_ThemeOptionsManager
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => $prefix . 'site_telephone',
+				'id'         => 'site_telephone',
 				'name'       => __( 'Phone number', 'kk_writer_theme' ),
 				'desc'       => __( 'The phone number of the site.' , 'kk_writer_theme' ),
 				'type'       => 'text',
@@ -534,7 +534,7 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_social_media( $prefix, $option_key, $tab_group, $capability )
+	public function add_opt_social_media( $option_key, $tab_group, $capability )
 	{
 		$args = array(
 			'id'           => $option_key . '_id',
@@ -554,7 +554,7 @@ class KKW_ThemeOptionsManager
 
 		$social_options->add_field(
 			array(
-				'id' => $prefix . 'social_info',
+				'id' => 'social_info',
 				'name'        => __( 'Social media', 'kk_writer_theme' ),
 				'desc' => __( 'Insert here the links to your social media.' , 'kk_writer_theme' ),
 				'type' => 'title',
@@ -562,7 +562,7 @@ class KKW_ThemeOptionsManager
 		);
 		$social_options->add_field(
 			array(
-				'id' => $prefix . 'show_socials',
+				'id' => 'show_socials',
 				'name' => __( 'Show social media icons', 'kk_writer_theme' ),
 				'desc' => __( 'Enable the display of social media in the header and footer of the page.', 'kk_writer_theme' ),
 				'type' => 'radio_inline',
@@ -578,56 +578,56 @@ class KKW_ThemeOptionsManager
 		);
 		$social_options->add_field(
 			array(
-				'id' => $prefix . 'facebook',
+				'id' => 'facebook',
 				'name' => 'Facebook',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-				'id' => $prefix . 'youtube',
+				'id' => 'youtube',
 				'name' => 'Youtube',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-				'id' => $prefix . 'instagram',
+				'id' => 'instagram',
 				'name' => 'Instagram',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-				'id' => $prefix . 'twitter',
+				'id' => 'twitter',
 				'name' => 'Twitter',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id' => $prefix . 'ics',
+			'id' => 'ics',
 			'name' => 'X',
 			'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-				'id' => $prefix . 'linkedin',
+				'id' => 'linkedin',
 				'name' => 'Linkedin',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id' => $prefix . 'github',
+			'id' => 'github',
 			'name' => 'GitHub',
 			'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id' => $prefix . 'pinterest',
+			'id' => 'pinterest',
 			'name' => 'Pinterest',
 			'type' => 'text_url',
 			)
@@ -639,7 +639,7 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_advanced_settings( $prefix, $option_key, $tab_group, $capability )
+	public function add_opt_advanced_settings( $option_key, $tab_group, $capability )
 	{
 		$args = array(
 			'id'           => $option_key . '_id',
@@ -659,7 +659,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-					'id' => $prefix . 'advanced_info',
+					'id' => 'advanced_info',
 					'name'        => __( 'Advanced configurations', 'kk_writer_theme' ),
 					'desc' => __( 'Section to configure advanced settings.' , 'kk_writer_theme' ),
 					'type' => 'title',
@@ -668,7 +668,7 @@ class KKW_ThemeOptionsManager
 		
 		$advanced_options->add_field(
 			array(
-				'id'   => $prefix . 'newsletter',
+				'id'   => 'newsletter',
 				'name' => __( 'Newsletter', 'kk_writer_theme' ),
 				'type' => 'title',
 			)
@@ -676,7 +676,7 @@ class KKW_ThemeOptionsManager
 		
 		$advanced_options->add_field(
 			array(
-				'id'      => $prefix . 'newsletter_enabled',
+				'id'      => 'newsletter_enabled',
 				'name'    => __( 'Newsletter', 'kk_writer_theme' ),
 				'type'    => 'radio_inline',
 				'default' => 'false',
@@ -689,7 +689,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'               => $prefix . 'newsletter_manager',
+				'id'               => 'newsletter_manager',
 				'name'             => __( 'Newsletter manager', 'kk_writer_theme' ),
 				'desc'             => __( 'Selection of the program used to manage the newsletter of the site.' , 'kk_writer_theme' ),
 				'type'             => 'select',
@@ -703,7 +703,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'         => $prefix . 'newsletter_api_token',
+				'id'         => 'newsletter_api_token',
 				'name'       => __( 'API token', 'kk_writer_theme' ),
 				'type'       => 'text',
 			)
@@ -711,7 +711,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'              => $prefix . 'newsletter_list_id',
+				'id'              => 'newsletter_list_id',
 				'name'            => __( 'List ID', 'kk_writer_theme' ),
 				'desc'            => __( 'ID of the list associated to the site.' , 'kk_writer_theme' ),
 				'type'            => 'text_small',
@@ -726,7 +726,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'              => $prefix . 'newsletter_template_id',
+				'id'              => 'newsletter_template_id',
 				'name'            => __( 'Template ID', 'kk_writer_theme' ),
 				'desc'            => __( 'Template ID of the page that manages the double OptIn' , 'kk_writer_theme' ),
 				'type'            => 'text_small',
@@ -741,7 +741,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'   => $prefix . 'login',
+				'id'   => 'login',
 				'name' => __( 'Login', 'kk_writer_theme' ),
 				'type' => 'title',
 			)
@@ -749,7 +749,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'      => $prefix . 'login_button_visible',
+				'id'      => 'login_button_visible',
 				'name'    => __( 'Login visible', 'kk_writer_theme' ),
 				'type'    => 'radio_inline',
 				'default' => 'true',
@@ -762,7 +762,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'   => $prefix . 'multilingua',
+				'id'   => 'multilingua',
 				'name' => __( 'Multilanguage', 'kk_writer_theme' ),
 				'type' => 'title',
 			)
@@ -770,7 +770,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'      => $prefix . 'selettore_lingua_visible',
+				'id'      => 'selettore_lingua_visible',
 				'name'    => __( 'Enable language selector', 'kk_writer_theme' ),
 				'type'    => 'radio_inline',
 				'default' => 'true',
@@ -783,7 +783,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'   => $prefix . 'analytics',
+				'id'   => 'analytics',
 				'name' => __( 'Web Analytics Code', 'kk_writer_theme' ),
 				'type' => 'title',
 			)
@@ -791,7 +791,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'   => $prefix . 'analytics_code',
+				'id'   => 'analytics_code',
 				'name' => 'Code',
 				'desc' => __( 'Enter the analytics code.', 'kk_writer_theme' ),
 				'type' => 'textarea_code',
@@ -804,7 +804,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'   => $prefix . 'restapi',
+				'id'   => 'restapi',
 				'name' => __( 'REST API', 'kk_writer_theme' ),
 				'type' => 'title',
 			)
@@ -812,7 +812,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'      => $prefix . 'rest_api_enabled',
+				'id'      => 'rest_api_enabled',
 				'name'    => __( 'Enable the REST API', 'kk_writer_theme' ),
 				'type'    => 'radio_inline',
 				'default' => 'false',
