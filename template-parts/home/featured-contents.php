@@ -1,6 +1,12 @@
 <?php
-require_once( WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'wp-kkwriter-plugin' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'search-manager.php' );
-$sm = KKW_SearchManager::get_books();
+// require_once( WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'wp-kkwriter-plugin' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'search-manager.php' );
+// $sm = KKW_SearchManager::get_books();
+$opt_contents = kkw_get_option( 'carousel_content', 'kkw_opt_hp_layout' );
+$contents     = count( $opt_contents ) > 0 ? $opt_contents : array();
+
+foreach ( $contents as $c ) {
+	echo $c . ' ';
+}
 ?>
 
 <!-- FIRST ROW -->

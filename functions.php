@@ -33,6 +33,11 @@ require get_template_directory() . '/inc/wrappers_polylang.php';
  */
 require get_template_directory() . '/admin/src/options.php';
 
+/**
+ * Utils functions.
+ */
+require get_template_directory() . '/inc/utils.php';
+
 
 if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 	function kkw_load_scripts_and_styles()

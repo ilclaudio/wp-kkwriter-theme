@@ -9,24 +9,24 @@
 
 function kkw_register_main_options_metabox()
 {
-	$prefix      = 'kkw_';
+	// $prefix      = 'kkw_';
 	$tab_group   = 'kkw_options';
 	// $parent_slug = 'kkw_options';
 	$capability  = 'manage_options';
 
 	$opt_manager = new KKW_ThemeOptionsManager();
 	// 1 - Registers options page "Base options".
-	$opt_manager->add_opt_base_option( $prefix, 'kkw_opt_options', $tab_group, $capability );
+	$opt_manager->add_opt_base_option( 'kkw_opt_options', $tab_group, $capability );
 	// 2 - Registers options page "Home Messages".
-	$opt_manager->add_opt_home_messages( $prefix, 'kkw_opt_hp_messages', $tab_group, $capability );
+	$opt_manager->add_opt_home_messages( 'kkw_opt_hp_messages', $tab_group, $capability );
 	// 3 - Registers options page "Home Page Layout".
-	$opt_manager->add_opt_hp_layout( $prefix, 'kkw_opt_hp_layout', $tab_group, $capability );
+	$opt_manager->add_opt_hp_layout( 'kkw_opt_hp_layout', $tab_group, $capability );
 	// 4 - Registers options page "Site Contacts".
-	$opt_manager->add_opt_site_contacts( $prefix, 'kkw_opt_site_contacts', $tab_group, $capability );
+	$opt_manager->add_opt_site_contacts( 'kkw_opt_site_contacts', $tab_group, $capability );
 	// 5 - Registers options page "Social media".
-	$opt_manager->add_opt_social_media( $prefix, 'kkw_opt_social_media', $tab_group, $capability );
+	$opt_manager->add_opt_social_media( 'kkw_opt_social_media', $tab_group, $capability );
 	// 6 - Registers options page "Advanced settings".
-	$opt_manager->add_opt_advanced_settings( $prefix, 'kkw_opt_advanced_settings', $tab_group, $capability );
+	$opt_manager->add_opt_advanced_settings( 'kkw_opt_advanced_settings', $tab_group, $capability );
 }
 add_action( 'cmb2_admin_init', 'kkw_register_main_options_metabox' );
 
