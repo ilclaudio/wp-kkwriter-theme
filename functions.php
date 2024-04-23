@@ -91,8 +91,8 @@ if ( ! function_exists( 'kkw_setup' ) ) {
 			add_image_size( 'item-thumb', 280, 280 , true );
 			add_image_size( 'featured-post', 200, 248 , true );
 			add_image_size( 'small-featured', 196, 96 , true );
-			add_image_size( 'item-gallery', 730, 485 , true );
-			add_image_size( 'item-card-list', 416, 232 , true );
+			add_image_size( 'item-gallery', 800, 400 , true );
+			add_image_size( 'carousel-item', 257, 400 , true );
 		}
 
 	}
