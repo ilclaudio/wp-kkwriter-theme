@@ -3,9 +3,9 @@
  * Hook in and register a metabox to handle a theme options page and adds a menu item.
  */
 
- if ( ! class_exists( 'KKW_ThemeOptionsManager' ) ) {
-	include_once KKW_THEMA_PATH . '/classes/options-manager.php';
-}
+//  if ( ! class_exists( 'KKW_ThemeOptionsManager' ) ) {
+// 	include_once KKW_THEMA_PATH . '/classes/options-manager.php';
+// }
 
 function kkw_register_main_options_metabox()
 {

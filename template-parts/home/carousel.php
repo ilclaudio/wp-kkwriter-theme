@@ -14,6 +14,9 @@ $opt_featured_3 = kkw_get_option( 'featured_content_3', 'kkw_opt_hp_layout' );
 $fc3            = count( $opt_featured_3 ) > 0 ? $opt_featured_3[0] : null;
 $fc3_content    = $fc3 && array_key_exists('box_content', $fc3 ) ? explode( ',', $fc3['box_content'] )[0] : null;
 $fc3_img_side   = $fc3['box_image_side'];
+
+
+$sm = KKW_ContentsManager::get_wrapped_item( intval('103') );
 ?>
 
 <div id="carouselExampleIndicators" class="carousel slide">
