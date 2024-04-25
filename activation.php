@@ -5,9 +5,9 @@
  * @package KK_Writer_Theme
  */
 
- if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
-	include_once KKW_THEMA_PATH . '/classes/theme-activation-manager.php';
-}
+//  if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
+// 	include_once KKW_THEMA_PATH . '/classes/theme-activation-manager.php';
+// }
 
 /**
  * Creation of the link to load default theme data: Reload default theme data.

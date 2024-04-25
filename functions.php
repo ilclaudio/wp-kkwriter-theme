@@ -34,9 +34,30 @@ require get_template_directory() . '/inc/wrappers_polylang.php';
 require get_template_directory() . '/admin/src/options.php';
 
 /**
- * Utils functions.
+ * Import the utils functions.
  */
 require get_template_directory() . '/inc/utils.php';
+
+/**
+ * Import the Contents Manager.
+ */
+if ( ! class_exists( 'KKW_ContentsManager' ) ) {
+	require get_template_directory() . '/classes/contents-manager.php';
+}
+
+/**
+ * Import the Theme Activator Manager.
+ */
+if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
+	include_once KKW_THEMA_PATH . '/classes/theme-activation-manager.php';
+}
+
+/**
+ * Import the Options Manager.
+ */
+if ( ! class_exists( 'KKW_ThemeOptionsManager' ) ) {
+	include_once KKW_THEMA_PATH . '/classes/options-manager.php';
+}
 
 
 if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
