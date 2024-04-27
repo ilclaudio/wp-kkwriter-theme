@@ -21,6 +21,7 @@ class KKW_AuthorizationManager {
 		// Get the base role (Editor).
 		$base_role = get_role( 'editor' );
 		// Check if the role exists.
+
 		if ( $base_role ) {
 
 			// Add a new role based on the Editor role, if not exists.
