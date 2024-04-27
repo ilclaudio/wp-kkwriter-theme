@@ -119,3 +119,15 @@ if ( ! function_exists( 'kkw_setup' ) ) {
 	}
 	add_action( 'after_setup_theme', 'kkw_setup' );
 }
+
+
+
+// @TODO: Move here all the above the configurations in an "object oriented" way.
+
+////// SETUP THE THEME //////
+if ( ! class_exists( 'KKW_ThemeManager' ) ) {
+	include_once 'classes/theme-manager.php';
+	global $theme_manager;
+	$theme_manager = new KKW_ThemeManager();
+	$theme_manager->theme_setup();
+}
