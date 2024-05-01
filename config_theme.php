@@ -15,6 +15,7 @@ define( 'KKW_DEFAULT_LANGUAGE', KKW_IT_SLUG );
 define( 'KKW_ENG_SUFFIX_LANGUAGE', '_eng' );
 define( 'KKW_THEMA_PATH', plugin_dir_path( __FILE__ ) );
 define( 'KKW_THEMA_URL', get_template_directory_uri() );
+define( 'KKW_DEFAULT_DATE_FORMAT' , 'd/m/Y' );
 
 // Define ROLES and PERMISSIONS.
 define( 'KKW_SUPER_EDITOR_ROLE_SLUG', 'kkw_super_editor' );

@@ -20,7 +20,16 @@
 					<h1><?php echo esc_html( $title, 'kk_writer_theme' ); ?></h1>
 					<div class="kkw_tagline"><?php echo esc_html( $tagline, 'kk_writer_theme' ); ?></div>
 				</div>
+				
 				<div class="col-4 d-flex justify-content-end align-items-center">
+					<!-- Language Selector -->
+					<div id="#kkw_language_selector" class="dropdown">
+						<select class="selectpicker" data-width="fit">
+							<option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+							<option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>
+						</select>
+					</div>
+					<!-- Search button -->
 					<a class="link-secondary" href="#" aria-label="Search">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24">
 							<title>Search</title>
