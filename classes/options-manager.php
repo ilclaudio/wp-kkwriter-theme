@@ -659,8 +659,8 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-					'id' => 'advanced_info',
-					'name'        => __( 'Advanced configurations', 'kk_writer_theme' ),
+					'id'   => 'advanced_info',
+					'name' => __( 'Advanced configurations', 'kk_writer_theme' ),
 					'desc' => __( 'Section to configure advanced settings.' , 'kk_writer_theme' ),
 					'type' => 'title',
 			)
@@ -770,7 +770,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'      => 'selettore_lingua_visible',
+				'id'      => 'language_selector_visible',
 				'name'    => __( 'Enable language selector', 'kk_writer_theme' ),
 				'type'    => 'radio_inline',
 				'default' => 'true',
