@@ -26,17 +26,30 @@ if ( ! function_exists( 'kkw_current_language' ) ) {
 	}
 }
 
-// if ( ! function_exists( 'kkw_languages_list' ) ) {
-// 	/**
-// 	 * Retrieves the list of the languages supported by the site.
-// 	 *
-// 	 * @param [type] $args
-// 	 * @return void
-// 	 */
-// 	function kkw_languages_list( $args ) {
-// 		return pll_languages_list( $args );
-// 	}
-// }
+if ( ! function_exists( 'kkw_languages_list' ) ) {
+	/**
+	 * Retrieves the list of the languages supported by the site.
+	 *
+	 * @param [type] $args
+	 * @return void
+	 */
+	function kkw_languages_list( $args ): array {
+		return pll_languages_list( $args );
+	}
+}
+
+if ( ! function_exists( 'kkw_the_languages' ) ) {
+	/**
+	 * Retrieves the list of the languages supported by the site.
+	 *
+	 * @param [type] $args
+	 * @return void
+	 */
+	function kkw_the_languages() {
+		pll_the_languages( array( 'dropdown' => 1 ) );
+	}
+}
+
 
 // if ( ! function_exists( 'kkw_set_term_language' ) ) {
 // 	/**
@@ -116,60 +129,33 @@ if ( ! function_exists( 'kkw_current_language' ) ) {
 // if ( ! function_exists( 'kkw_get_page_selectors' ) ) {
 // 	/**
 // 	 * Returns the list of the elements of the selector based on the page language.
-// 	 * If the page has not a translation there isn't the selector.
 // 	 */
 // 	function kkw_get_page_selectors() {
 // 		global $post;
 // 		$selectors = array();
-
 // 		$site_url         = get_site_url();
-// 		$traduzioni       = kkw_get_post_translations( $post->ID );
-// 		$languages_list   = kkw_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
+// 		$languages_list   = kkw_languages_list(
+// 			array(
+// 				'hide_empty' => 0,
+// 				'fields' => 'slug'
+// 			)
+// 		);
 // 		$default_language = pll_default_language( 'slug' );
-// 		$current_language = kkw_current_language( 'slug' );
-
-// 		// The home page is the same in all languages.
-// 		if ( is_home() ) {
-
-// 			foreach( $languages_list as $lang_slug ) {
-// 				if ( $lang_slug != $default_language ) {
-// 					$url = $site_url . '/' . $lang_slug;
-// 				} else {
-// 					$url =  $site_url;
-// 				}
-// 				array_push(
-// 					$selectors,
-// 					array(
-// 						'slug' => $lang_slug,
-// 						'url'  => $url,
-// 					)
-// 				);
+// 		foreach( $languages_list as $lang_slug ) {
+// 			if ( $lang_slug != $default_language ) {
+// 				$url = $site_url . '/' . $lang_slug;
+// 			} else {
+// 				$url =  $site_url;
 // 			}
-// 			return $selectors;
-
-// 		} else {
-
-// 			$selectors = array(
+// 			array_push(
+// 				$selectors,
 // 				array(
-// 					'slug' => $current_language,
-// 					'url'  => get_permalink( $post ),
-// 				),
+// 					'slug' => $lang_slug,
+// 					'url'  => $url,
+// 				)
 // 			);
-// 			foreach( $languages_list as $lang_slug ) {
-// 				if ( (  $lang_slug !== $current_language ) && array_key_exists(  $lang_slug , $traduzioni ) ){
-// 					array_push(
-// 						$selectors,
-// 						array(
-// 							'slug' => $lang_slug,
-// 							'url'  => get_permalink( $traduzioni[ $lang_slug ] ),
-// 						)
-// 					);
-// 				}
-// 			}
-// 			return $selectors;
-
 // 		}
-
+// 		return $selectors;
 // 	}
 // }
 

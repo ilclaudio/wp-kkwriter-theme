@@ -23,11 +23,21 @@
 				
 				<div class="col-4 d-flex justify-content-end align-items-center">
 					<!-- Language Selector -->
-					<div id="#kkw_language_selector" class="dropdown">
-						<select class="selectpicker" data-width="fit">
-							<option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
-							<option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>
-						</select>
+					<div id="kkw_language_div" class="dropdown">
+						<?php	
+							$selettore_visibile = kkw_get_option( 'language_selector_visible', 'kkw_opt_advanced_settings' );
+							$current_language   = kkw_current_language( 'slug' );
+							if ( 'true' === $selettore_visibile ) {
+							$languages_list = kkw_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
+						?>
+						<?php
+							if ( function_exists( 'pll_the_languages' ) ) {
+								pll_the_languages( array( 'dropdown' => 1 ) );
+							}
+						?>
+						<?php
+							}
+						?>
 					</div>
 					<!-- Search button -->
 					<a class="link-secondary" href="#" aria-label="Search">

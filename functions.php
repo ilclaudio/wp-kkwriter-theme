@@ -74,8 +74,6 @@ if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 		// Add custom styles.
 		wp_register_style( 'kkwritertheme_main_styles', get_template_directory_uri() . '/assets/custom/css/main.css' );
 		wp_enqueue_style( 'kkwritertheme_main_styles' );
-		wp_register_style( 'kkwritertheme_flagicons_styles', get_template_directory_uri() . '/assets/flag-icons/css/flag-icons.css' );
-		wp_enqueue_style( 'kkwritertheme_flagicons_styles' );
 	}
 	add_action( 'wp_enqueue_scripts', 'kkw_load_scripts_and_styles' );
 }
