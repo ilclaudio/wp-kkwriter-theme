@@ -50,6 +50,23 @@ if ( ! function_exists( 'kkw_the_languages' ) ) {
 	}
 }
 
+if ( ! function_exists( 'kkw_get_page_by_slug' ) ) {
+	/**
+	 * Retrieves the ID of the page in the current language.
+	 *
+	 * @param string $slug
+	 * @return void
+	 */
+	function kkw_get_page_by_slug( $slug ) {
+		$page        = get_page_by_path($slug);
+		$page_id     = 0;
+		$current_lang = pll_current_language();
+		if ( $page ) {
+			$page_id      = pll_get_post( $page->ID , $current_lang );
+		}
+		return $page_id;
+	}
+}
 
 // if ( ! function_exists( 'kkw_set_term_language' ) ) {
 // 	/**

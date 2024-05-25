@@ -17,6 +17,8 @@ define( 'KKW_THEMA_PATH', plugin_dir_path( __FILE__ ) );
 define( 'KKW_THEMA_URL', get_template_directory_uri() );
 define( 'KKW_DEFAULT_DATE_FORMAT' , 'd/m/Y' );
 
+define( 'SLUG_SEARCH_SITE_EN', 'search-site' );
+
 // Define ROLES and PERMISSIONS.
 define( 'KKW_SUPER_EDITOR_ROLE_SLUG', 'kkw_super_editor' );
 define( 'KKW_SUPER_EDITOR_ROLE_NAME', 'Super Editor' );
