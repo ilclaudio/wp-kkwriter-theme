@@ -100,8 +100,6 @@ if ( ! function_exists( 'kkw_setup' ) ) {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Design Laboratori Italia, use a find and replace
-		 * to change 'kk_writer_theme' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( 'kk_writer_theme', get_template_directory() . '/languages' );
 
