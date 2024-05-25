@@ -2,6 +2,7 @@
 	Theme Name: WP KK Writer Theme
 */
 
+/* Reset CSS */
 html {
 	margin: 0;
   padding: 0;
@@ -11,6 +12,7 @@ html {
 
 body { }
 
+/* Custom Styles */
 .blog-header-logo {
 	font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
 	font-size: 2.25rem;
@@ -130,4 +132,19 @@ h1, h2, h3, h4, h5, h6 {
 	width: 100%;
 	text-align: center;
 	font-style: italic;
+}
+
+.kkw_tagline a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.kkw_sitetitle a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.kkw_logoheader a {
+	text-decoration: none;
+	color: red;
 }
