@@ -16,9 +16,14 @@ get_header();
 		<div class="container ">
 			<article class="article-wrapper">
 				<div class="box_404 text-center clearfix">
+					<br />
+					<br />
+
 					<h1 class="xl"><?php esc_html_e( '404', 'kk_writer_theme' ); ?></h1>
 					<h2><?php esc_html_e( 'Page not found', 'kk_writer_theme' ); ?></h2>
 
+					<br />
+					<br />
 					<p>
 						<?php esc_html_e( 'Page not found', 'kk_writer_theme' ); ?>
 						<br />
@@ -32,6 +37,9 @@ get_header();
 									$site_url );
 						?>
 					</p>
+					<br />
+					<br />
+
 				</div>
 			</article>
 		</div>
