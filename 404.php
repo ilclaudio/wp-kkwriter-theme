@@ -18,12 +18,18 @@ get_header();
 				<div class="box_404 text-center clearfix">
 					<h1 class="xl"><?php esc_html_e( '404', 'kk_writer_theme' ); ?></h1>
 					<h2><?php esc_html_e( 'Page not found', 'kk_writer_theme' ); ?></h2>
+
 					<p>
-						<?php _e(
-							'Oops! The page you are looking for was not found, <a href="javascript:history.back();"
-									title="Return to previous page">Come back</a> or use the menu to continue browsing.',
-							'kk_writer_theme'
-						);
+						<?php esc_html_e( 'Page not found', 'kk_writer_theme' ); ?>
+						<br />
+						<?php esc_html_e( 'Oops! The page you are looking for was not found', 'kk_writer_theme' ); ?>
+						<br />
+						<?php
+							$site_url = get_site_url();
+							echo sprintf(
+								__( 'Click <a href="%s">here</a> to come back or use the menu to continue browsing,',
+										'kk_writer_theme' ),
+									$site_url );
 						?>
 					</p>
 				</div>
