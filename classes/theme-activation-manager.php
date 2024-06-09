@@ -23,31 +23,71 @@ class KKW_ThemeActivationManager
 	
 		error_log( '@@@ INITIALIZA THEME' );
 
-		// // Verifico se è una prima installazione.
-		// $kkw_has_installed = get_option( 'kkw_has_installed' );
+		// Check if is the first installation.
+		$kkw_has_installed = get_option( 'kkw_has_installed' );
 
-		// // Se non è installato Polylang non si può attivare il tema.
-		// if ( ! function_exists( 'pll_the_languages' ) ) {
-		// 	$msg = 'The plugin Polylang  is missing, please install and activate it: https://wordpress.org/plugins/polylang/';
-		// 	return false;
-		// }
+		// Check the dependencies: without Polylang you can't activate the theme.
+		if ( ! function_exists( 'pll_the_languages' ) ) {
+			$msg = 'The plugin Polylang  is missing, please install and activate it: https://wordpress.org/plugins/polylang/';
+			return false;
+		}
 
-		// Create the default pages.
+		// Create the sections of the site.
+		$this->create_the_sections();
 
-		// Create the tipologia-persona entities.
-
-		// Create all the menus of the site.
-
+	
 		// global $wp_rewrite;
 		// $wp_rewrite->init(); // important...
 		// $wp_rewrite->set_tag_base( 'argomento' );
 		// $wp_rewrite->flush_rules();
 
-		// update_option( 'kkw_has_installed', true );
+		// Set installation executed.
+		update_option( 'kkw_has_installed', true );
 		
 		return $result;
 	}
 
+	private function create_the_sections() {
+		$taxonomy = KKW_SECTION_TAXONOMY;
+		$terms    = KKW_SITE_SECTIONS;
+		$this->build_taxonomies( $taxonomy, $terms );
+		// KKW_COLLECTION_TAXONOMY.
+	}
 
+	/**
+	 * Build the taxonomies.
+	 *
+	 * @return void
+	 */
+	private function build_taxonomies( $taxonomy, $terms ) {
 
+		foreach ( $terms as $term ) {
+
+			$termitem = get_term_by( 'slug', $term['it'], $taxonomy );
+			if ( $termitem ) {
+				$term_it = $termitem->term_id;
+			} else {
+				$termobject = wp_insert_term( $term['it'], $taxonomy );
+				$term_it    = $termobject['term_id'];
+			}
+			kkw_set_term_language( $term_it, 'it' );
+
+			$termitem = get_term_by( 'slug', $term['en'], $taxonomy );
+			if ( $termitem ) {
+				$term_en = $termitem->term_id;
+			} else {
+				$termobject = wp_insert_term( $term['en'], $taxonomy );
+				$term_en    = $termobject['term_id'];
+			}
+			kkw_set_term_language( $term_en, 'en' );
+
+			// Associate it and en translations.
+			$related_taxonomies = array(
+				'it' => $term_it,
+				'en' => $term_en,
+			);
+			kkw_save_term_translations( $related_taxonomies );
+		}
+
+	}
 }

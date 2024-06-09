@@ -68,30 +68,30 @@ if ( ! function_exists( 'kkw_get_page_by_slug' ) ) {
 	}
 }
 
-// if ( ! function_exists( 'kkw_set_term_language' ) ) {
-// 	/**
-// 	 * Sets the language of a taxonomy term.
-// 	 *
-// 	 * @param [type] $term
-// 	 * @param [type] $lang
-// 	 * @return void
-// 	 */
-// 	function kkw_set_term_language( $term, $lang ) {
-// 		return pll_set_term_language( $term, $lang );
-// 	}
-// }
+if ( ! function_exists( 'kkw_set_term_language' ) ) {
+	/**
+	 * Sets the language of a taxonomy term.
+	 *
+	 * @param [type] $term
+	 * @param [type] $lang
+	 * @return void
+	 */
+	function kkw_set_term_language( $term, $lang ) {
+		return pll_set_term_language( $term, $lang );
+	}
+}
 
-// if ( ! function_exists( 'kkw_save_term_translations' ) ) {
-// 	/**
-// 	 * Defines a term as translation of another.
-// 	 *
-// 	 * @param [type] $related_taxonomies
-// 	 * @return void
-// 	 */
-// 	function kkw_save_term_translations( $related_taxonomies ) {
-// 		return pll_save_term_translations( $related_taxonomies );
-// 	}
-// }
+if ( ! function_exists( 'kkw_save_term_translations' ) ) {
+	/**
+	 * Defines a term as translation of another.
+	 *
+	 * @param [type] $related_taxonomies
+	 * @return void
+	 */
+	function kkw_save_term_translations( $related_taxonomies ) {
+		return pll_save_term_translations( $related_taxonomies );
+	}
+}
 
 // if ( ! function_exists( 'kkw_set_post_language' ) ) {
 // 	/**
