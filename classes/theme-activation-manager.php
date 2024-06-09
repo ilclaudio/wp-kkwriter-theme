@@ -33,8 +33,9 @@ class KKW_ThemeActivationManager
 		}
 
 		// Create the sections of the site.
-		$this->create_the_sections();
-
+		$this->create_default_sections();
+		// Create a page for each section.
+		$this->create_section_pages();
 	
 		// global $wp_rewrite;
 		// $wp_rewrite->init(); // important...
@@ -47,22 +48,29 @@ class KKW_ThemeActivationManager
 		return $result;
 	}
 
-	private function create_the_sections() {
+/**
+ * Create default sections (if not already exist).
+ *
+ * @return void
+ */
+	private function create_default_sections() {
 		$taxonomy = KKW_SECTION_TAXONOMY;
 		$terms    = KKW_SITE_SECTIONS;
 		$this->build_taxonomies( $taxonomy, $terms );
-		// KKW_COLLECTION_TAXONOMY.
+	}
+
+	private function create_section_pages() {
+		error_log( '@@@ create_section_pages @@@' );
 	}
 
 	/**
-	 * Build the taxonomies.
+	 * Build the taxonomies: create a taxonomy if not exists.
 	 *
 	 * @return void
 	 */
 	private function build_taxonomies( $taxonomy, $terms ) {
-
 		foreach ( $terms as $term ) {
-
+			// Create it taxonomy.
 			$termitem = get_term_by( 'slug', $term['it'], $taxonomy );
 			if ( $termitem ) {
 				$term_it = $termitem->term_id;
@@ -71,7 +79,7 @@ class KKW_ThemeActivationManager
 				$term_it    = $termobject['term_id'];
 			}
 			kkw_set_term_language( $term_it, 'it' );
-
+			// Create en taxonomy.
 			$termitem = get_term_by( 'slug', $term['en'], $taxonomy );
 			if ( $termitem ) {
 				$term_en = $termitem->term_id;
@@ -80,7 +88,6 @@ class KKW_ThemeActivationManager
 				$term_en    = $termobject['term_id'];
 			}
 			kkw_set_term_language( $term_en, 'en' );
-
 			// Associate it and en translations.
 			$related_taxonomies = array(
 				'it' => $term_it,
@@ -88,6 +95,6 @@ class KKW_ThemeActivationManager
 			);
 			kkw_save_term_translations( $related_taxonomies );
 		}
-
 	}
+
 }
