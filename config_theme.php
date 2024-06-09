@@ -24,6 +24,51 @@ define( 'KKW_SUPER_EDITOR_ROLE_SLUG', 'kkw_super_editor' );
 define( 'KKW_SUPER_EDITOR_ROLE_NAME', 'Super Editor' );
 define( 'KKW_EDIT_CONFIG_PERMISSION', 'kkw_edit_site_configuration' );
 
+// Post Types for PolyLang: defined in wp-kkwriter-plugin.
+define(
+	'KKW_POST_TYPES_TO_TRANSLATE',
+	array(
+		// ID_PT_SECTION,
+		// ID_PT_COLLECTION,
+		ID_PT_BOOK,
+		ID_PT_REVIEW,
+		ID_PT_EXCERPT,
+		ID_PT_MULTIMEDIA,
+		ID_PT_INTERVIEW,
+	)
+);
+
+// Taxonomies for Polylang: defined in wp-kkwriter-plugin.
+define(
+	'KKW_TAXONOMIES_TO_TRANSLATE',
+	array(
+		KKW_SECTION_TAXONOMY,
+		KKW_COLLECTION_TAXONOMY,
+		KKW_BLOG_TYPE_TAXONOMY,
+		KKW_AUTHOR_TAXONOMY,
+		KKW_PUBLISHER_TAXONOMY,
+	)
+);
+
+// Sections of the site.
+define(
+	'KKW_SITE_SECTIONS',
+	array(
+		array(
+			'it' => 'Poesia',
+			'en' => 'Poetry',
+		),
+		array(
+			'it' => 'Saggistica',
+			'en' => 'Essays',
+		),
+		array(
+			'it' => 'Narrativa',
+			'en' => 'Fiction',
+		),
+	)
+);
+
 define(
 	'SUGGESTED_PLUGINS',
 	array(
@@ -32,20 +77,5 @@ define(
 			'slug'     => 'polylang',
 			'required' => true,
 		),
-		// array(
-		// 	'name'     => 'Really Simple CAPTCHA',
-		// 	'slug'     => 'really-simple-captcha',
-		// 	'required' => true,
-		// ),
-		// array(
-		// 	'name'     => 'CookieYes - GDPR Cookie Consent',
-		// 	'slug'     => 'cookie-law-info',
-		// 	'required' => true,
-		// ),
-		// array(
-		// 	'name'     => 'WP Mail SMTP',
-		// 	'slug'     => 'wp-mail-smtp',
-		// 	'required' => true,
-		// ),
 	)
 );
