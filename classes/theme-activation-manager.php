@@ -1,10 +1,11 @@
 <?php
-
 /**
  * KK Writer Theme: Activation Manager definition.
  *
  * @package KK_Writer_Theme
  */
+
+require_once 'polylang-manager.php';
 
 /**
  * The Activation manager.
@@ -78,7 +79,7 @@ class KKW_ThemeActivationManager
 				$termobject = wp_insert_term( $term['it'], $taxonomy );
 				$term_it    = $termobject['term_id'];
 			}
-			kkw_set_term_language( $term_it, 'it' );
+			KKW_PolylangManager::set_term_language( $term_it, 'it' );
 			// Create en taxonomy.
 			$termitem = get_term_by( 'slug', $term['en'], $taxonomy );
 			if ( $termitem ) {
@@ -87,13 +88,13 @@ class KKW_ThemeActivationManager
 				$termobject = wp_insert_term( $term['en'], $taxonomy );
 				$term_en    = $termobject['term_id'];
 			}
-			kkw_set_term_language( $term_en, 'en' );
+			KKW_PolylangManager::set_term_language( $term_en, 'en' );
 			// Associate it and en translations.
 			$related_taxonomies = array(
 				'it' => $term_it,
 				'en' => $term_en,
 			);
-			kkw_save_term_translations( $related_taxonomies );
+			KKW_PolylangManager::save_term_translations( $related_taxonomies );
 		}
 	}
 
