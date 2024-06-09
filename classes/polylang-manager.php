@@ -44,4 +44,25 @@ class KKW_PolylangManager {
 		return KKW_TAXONOMIES_TO_TRANSLATE;
 	}
 
+	/**
+	* Sets the language of a taxonomy term.
+	*
+	* @param [type] $term
+	* @param [type] $lang
+	* @return void
+	*/
+	public static function set_term_language( $term, $lang ) {
+	 return pll_set_term_language( $term, $lang );
+ }
+
+	/**
+	 * Defines a term as translation of another.
+	 *
+	 * @param [type] $related_taxonomies
+	 * @return void
+	 */
+	public static function save_term_translations( $related_taxonomies ) {
+		return pll_save_term_translations( $related_taxonomies );
+	}
+
 }
