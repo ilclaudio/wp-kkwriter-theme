@@ -25,3 +25,16 @@ if( ! function_exists( 'kkw_get_option' ) )
 		return $val;
 	}
 }
+
+if( ! function_exists( 'kkw_get_content' ) ) {
+	function kkw_get_content( $slug, $content_type ) {
+		$args = array(
+			'name'        => $slug,
+			'post_type'   => $content_type,
+			'post_status' => array( 'publish', 'draft', 'trash', 'pending', 'private' ),
+			'numberposts' => 1,
+		);
+		$posts = get_posts( $args );
+		return $posts ? $posts[0] : null;
+	}
+}
