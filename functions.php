@@ -23,10 +23,6 @@ require get_template_directory() . '/activation.php';
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
 
-/**
- * Warappers functions fo Polylang.
- */
-require get_template_directory() . '/inc/wrappers_polylang.php';
 
 /**
  * Import the code to create the theme Configuration.

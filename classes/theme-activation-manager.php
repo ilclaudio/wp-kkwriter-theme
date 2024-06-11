@@ -35,6 +35,10 @@ class KKW_ThemeActivationManager
 
 		// Create the sections of the site.
 		$this->create_default_sections();
+
+		// Create the static pages of the site.
+		$this->create_static_pages();
+
 		// Create a page for each section.
 		$this->create_section_pages();
 	
@@ -63,6 +67,77 @@ class KKW_ThemeActivationManager
 	private function create_section_pages() {
 		error_log( '@@@ create_section_pages @@@' );
 	}
+
+/**
+ * Create the static pages.
+ *
+ * @return void
+ */
+private function create_static_pages() {
+	$static_pages = KKW_SITE_STATIC_PAGES;
+	// $languages    = KKW_PolylangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
+	// Static pages creation.
+	foreach ( $static_pages as $page ) {
+		$new_content_template   = $page['content_template'];
+		// Create the IT page.
+		// Store the above data in an array.
+		$new_page = array(
+			'post_type'    => $page['content_type'],
+			'post_name'    => $page['content_slug_it'],
+			'post_title'   => $page['content_title_it'],
+			'post_content' => $page['content_it'],
+			'post_status'  => $page['content_status'],
+			'post_author'  => intval( $page['content_author'] ),
+			'post_parent'  => 0,
+		);
+		$page_check     = kkw_get_content( $page['content_slug_it'], $page['content_type'] );
+		$new_page_it_id = $page_check ? $page_check->ID : 0;
+		// If the IT page doesn't already exist, create it.
+		if ( ! $new_page_it_id ) {
+			if ( isset( $page['content_parent'] ) ) {
+				$post_parent_id          = intval( get_page_by_path( $page['content_parent'][0] )->ID );
+				$new_page['post_parent'] = $post_parent_id;
+			}
+			$new_page_it_id = wp_insert_post( $new_page );
+			update_post_meta( $new_page_it_id, '_wp_page_template', $new_content_template );
+		}
+		// Assign the IT language to the page.
+		KKW_PolylangManager::set_post_language( $new_page_it_id, 'it' );
+
+		// Create the EN page.
+		// Store the above data in an array.
+		$new_page = array(
+			'post_type'    => $page['content_type'],
+			'post_name'    => $page['content_slug_en'],
+			'post_title'   => $page['content_title_en'],
+			'post_content' => $page['content_en'],
+			'post_status'  => $page['content_status'],
+			'post_author'  => intval( $page['content_author'] ),
+			'post_parent'  => 0,
+		);
+		$page_check     = kkw_get_content( $page['content_slug_en'], $page['content_type'] );
+		$new_page_en_id = $page_check ? $page_check->ID : 0;
+		// If the IT page doesn't already exist, create it.
+		if ( ! $new_page_en_id ) {
+			if ( isset( $page['content_parent'] ) ) {
+				$post_parent_id          = intval( get_page_by_path( $page['content_parent'][1] )->ID );
+				$new_page['post_parent'] = $post_parent_id;
+			}
+			$new_page_en_id = wp_insert_post( $new_page );
+			update_post_meta( $new_page_en_id, '_wp_page_template', $new_content_template );
+		}
+		// Assign the EN language to the page.
+		KKW_PolylangManager::set_post_language( $new_page_en_id, 'en' );
+
+		// Associate it and en translations.
+		$related_posts = array(
+			'it' => $new_page_it_id,
+			'en' => $new_page_en_id,
+		);
+		KKW_PolylangManager::save_post_translations( $related_posts );
+
+	}
+}
 
 	/**
 	 * Build the taxonomies: create a taxonomy if not exists.
