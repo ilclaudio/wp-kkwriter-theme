@@ -65,4 +65,50 @@ class KKW_PolylangManager {
 		return pll_save_term_translations( $related_taxonomies );
 	}
 
+	/**
+	 * Retrieves the default language of the site.
+	 *
+	 * @param string $type
+	 * @return string
+	 */
+	public static function get_current_language( $type = 'slug' ) {
+		$cl = pll_current_language( $type );
+		return $cl ? $cl : KKW_DEFAULT_LANGUAGE;
+	}
+
+	/**
+	 * Retrieves the list of the languages supported by the site.
+	 *
+	 * @param [type] $args
+	 * @return void
+	 */
+	public static function get_languages_list( $args ): array {
+		return pll_languages_list( $args );
+	}
+
+	/**
+	 * Retrieves the list of the languages supported by the site.
+	 *
+	 * @param [type] $args
+	 * @return void
+	 */
+	public static function the_languages() {
+		pll_the_languages( array( 'dropdown' => 1 ) );
+	}
+
+	/**
+	* Retrieves the ID of the page in the current language.
+	*
+	* @param string $slug
+	* @return void
+	*/
+	public static function get_page_by_slug( $slug ) {
+		$page        = get_page_by_path($slug);
+		$page_id     = 0;
+		$current_lang = pll_current_language();
+		if ( $page ) {
+			$page_id      = pll_get_post( $page->ID , $current_lang );
+		}
+		return $page_id;
+	}
 }
