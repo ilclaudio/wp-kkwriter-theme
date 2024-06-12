@@ -75,7 +75,51 @@ class KKW_ThemeActivationManager
 		// $languages    = KKW_PolylangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
 		$sections = KKW_SITE_SECTIONS;
 		foreach ( $sections as $section ) {
-			error_log( 'CIAO' );
+			$slug     = sanitize_title( $section['en'] );
+			$template = 'page-templates/' . $slug . '.php';
+
+			// Create the EN page.
+			// Store the above data in an array.
+			$new_page = array(
+				'post_type'    => 'page',
+				'post_name'    => $slug,
+				'post_title'   => $section['en'],
+				'post_content' => '',
+				'post_status'  => 'publish',
+				// 'post_author'  => 1,
+				'post_parent'  => 0,
+			);
+			$new_page_en_id = $this->create_page( 
+				$new_page, 
+				$template,
+				'en'
+			);
+
+			// Create the IT page.
+			// Store the above data in an array.
+			$slug     = sanitize_title( $section['it'] );
+			$new_page = array(
+				'post_type'    => 'page',
+				'post_name'    => $slug,
+				'post_title'   => $section['it'],
+				'post_content' => '',
+				'post_status'  => 'publish',
+				// 'post_author'  => 1,
+				'post_parent'  => 0,
+			);
+			$new_page_it_id = $this->create_page(
+				$new_page,
+				$template,
+				'it'
+			);
+
+
+		// Associate it and en translations.
+		$related_posts = array(
+			'it' => $new_page_it_id,
+			'en' => $new_page_en_id,
+		);
+		KKW_PolylangManager::save_post_translations( $related_posts );
 		}
 	}
 
