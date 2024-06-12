@@ -126,7 +126,7 @@ define(
 		array(
 			'content_slug_it'    => 'accessibilità',
 			'content_slug_en'    => 'accessibility',
-			'content_title_it'   => 'Dichiarazione',
+			'content_title_it'   => 'Accessibilità',
 			'content_title_en'   => 'Accessibility',
 			'content_it'         => 'La dichiarazione di accessibilità...',
 			'content_en'         => 'The accessibility declaration...',
