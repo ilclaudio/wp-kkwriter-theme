@@ -124,7 +124,7 @@ define(
 			'content_category'   => KKW_CUSTOM_PAGE_CAT,
 		),
 		array(
-			'content_slug_it'    => 'accessibilità',
+			'content_slug_it'    => 'accessibilita',
 			'content_slug_en'    => 'accessibility',
 			'content_title_it'   => 'Accessibilità',
 			'content_title_en'   => 'Accessibility',
