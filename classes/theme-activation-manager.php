@@ -42,6 +42,9 @@ class KKW_ThemeActivationManager
 		// Create the static pages of the site.
 		$this->create_static_pages();
 	
+		// Create the menu.
+		$this->create_menu();
+
 		// global $wp_rewrite;
 		// $wp_rewrite->init(); // important...
 		// $wp_rewrite->set_tag_base( 'argomento' );
@@ -187,7 +190,7 @@ private function create_static_pages() {
 	 * @return number
 	 */
 	private function create_page( $new_page, $template, $lang ){
-		$page_check     = kkw_get_content( $new_page['post_name'], $new_page['post_type'] );
+		$page_check  = kkw_get_content( $new_page['post_name'], $new_page['post_type'] );
 		$new_page_id = $page_check ? $page_check->ID : 0;
 		// If the IT page doesn't already exist, create it.
 		if ( ! $new_page_id ) {
@@ -231,6 +234,12 @@ private function create_static_pages() {
 			);
 			KKW_PolylangManager::save_term_translations( $related_taxonomies );
 		}
+	}
+
+
+	private function create_menu(){
+		$languages = KKW_PolylangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
+
 	}
 
 }
