@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-16 17:37+0000\n"
+"POT-Creation-Date: 2024-07-03 17:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,12 +16,478 @@ msgstr ""
 "X-Loco-Version: 2.6.7; wp-6.5.2\n"
 "X-Domain: kk_writer_theme"
 
+#: 404.php:22
+msgid "404"
+msgstr ""
+
+#: classes/options-manager.php:170
+msgid "Add a mesage"
+msgstr ""
+
+#: classes/options-manager.php:158
+msgid "Add messages that will be displayed on the homepage."
+msgstr ""
+
+#: classes/options-manager.php:509
+msgid "Address"
+msgstr ""
+
+#: classes/options-manager.php:646 classes/options-manager.php:649
+msgid "Advanced"
+msgstr ""
+
+#: classes/options-manager.php:663
+msgid "Advanced configurations"
+msgstr ""
+
+#: classes/options-manager.php:707
+msgid "API token"
+msgstr ""
+
+#: classes/options-manager.php:296
+msgid "Automatic selection enabled"
+msgstr ""
+
+#: classes/options-manager.php:32
+msgid "Base options"
+msgstr ""
+
 #. Author of the theme
 msgid "BatClaudio"
 msgstr ""
 
+#. Name of the template
+#: page-templates/blog.php:2
+msgid "blog"
+msgstr ""
+
+#: classes/options-manager.php:355
+msgid "Box 1 - Featured content"
+msgstr ""
+
+#: classes/options-manager.php:394
+msgid "Box 2 - Featured content"
+msgstr ""
+
+#: classes/options-manager.php:433
+msgid "Box 3 - Featured content"
+msgstr ""
+
+#: classes/options-manager.php:699
+msgid "Brevo"
+msgstr ""
+
+#: classes/options-manager.php:262
+msgid "Carousel section"
+msgstr ""
+
+#: classes/options-manager.php:308
+msgid "Choose contents"
+msgstr ""
+
+#: classes/options-manager.php:179
+msgid "Choose the color"
+msgstr ""
+
+#: classes/options-manager.php:309
+msgid "Choose the contents to show in the Home Page carousel."
+msgstr ""
+
+#: classes/options-manager.php:119
+msgid ""
+"Choose the the footer logo. If it is not present, but the display of the "
+"logo in the footer is enabled, the header logo is shown with inverted colors."
+" It is recommended to upload an image in SVG format."
+msgstr ""
+
+#: classes/options-manager.php:501
+msgid "City"
+msgstr ""
+
+#: 404.php:35
+#, php-format
+msgid ""
+"Click <a href=\"%s\">here</a> to come back or use the menu to continue "
+"browsing,"
+msgstr ""
+
+#: classes/options-manager.php:263
+msgid "Configure here the carousel section."
+msgstr ""
+
+#: classes/options-manager.php:476 classes/options-manager.php:493
+msgid "Contacts"
+msgstr ""
+
+#. Name of the template
+#: page-templates/contacts.php:2
+msgid "contacts"
+msgstr ""
+
+#: classes/options-manager.php:183
+msgid "Danger"
+msgstr ""
+
+#: classes/options-manager.php:203
+msgid "Data fine"
+msgstr ""
+
+#: activation.php:50
+msgid "Data reloaded successfully"
+msgstr ""
+
+#: classes/options-manager.php:171
+msgid "Delete the message"
+msgstr ""
+
+#: classes/options-manager.php:166
+msgid ""
+"Each message is constructed with a short description (max 140 characters) "
+"and expiry date (optional)."
+msgstr ""
+
+#: classes/options-manager.php:517
+msgid "Email"
+msgstr ""
+
+#: classes/options-manager.php:774
+msgid "Enable language selector"
+msgstr ""
+
+#: classes/options-manager.php:567
+msgid ""
+"Enable the display of social media in the header and footer of the page."
+msgstr ""
+
+#: classes/options-manager.php:816
+msgid "Enable the REST API"
+msgstr ""
+
+#: classes/options-manager.php:796
+msgid "Enter the analytics code."
+msgstr ""
+
+#: activation.php:53
+msgid "Error reloading data"
+msgstr ""
+
+#: classes/options-manager.php:328
+msgid "featured content section"
+msgstr ""
+
+#: classes/options-manager.php:105
+msgid "Footer logo visible"
+msgstr ""
+
+#: classes/options-manager.php:244
+msgid "Home Page Layout"
+msgstr ""
+
+#: classes/options-manager.php:157
+msgid "Home page messages"
+msgstr ""
+
+#: classes/options-manager.php:250
+msgid "HP layout"
+msgstr ""
+
+#: classes/options-manager.php:146
+msgid "HP messages"
+msgstr ""
+
 #. Author URI of the theme
-msgid "https://www.claudiobattaglino.it"
+msgid "https://www.wp-recipes.com"
+msgstr ""
+
+#: classes/options-manager.php:716
+msgid "ID of the list associated to the site."
+msgstr ""
+
+#: classes/options-manager.php:271
+msgid "If yes, the carouse is shown before the featured content section."
+msgstr ""
+
+#: classes/options-manager.php:297
+msgid ""
+"If yes, the contents of the Home Page carousel are chosen automatically."
+msgstr ""
+
+#: template-parts/home/featured-contents.php:38
+#: template-parts/home/featured-contents.php:70
+#: template-parts/home/featured-contents.php:107
+msgid "In evidence"
+msgstr ""
+
+#: classes/options-manager.php:186
+msgid "Info"
+msgstr ""
+
+#: classes/options-manager.php:559
+msgid "Insert here the links to your social media."
+msgstr ""
+
+#: template-parts/home/featured-contents.php:50
+#: template-parts/home/featured-contents.php:82
+#: template-parts/home/featured-contents.php:119
+msgid "Keep reading..."
+msgstr ""
+
+#: classes/options-manager.php:27
+msgid "KKW Theme"
+msgstr ""
+
+#: classes/options-manager.php:383 classes/options-manager.php:422
+#: classes/options-manager.php:461
+msgid "Left"
+msgstr ""
+
+#: classes/options-manager.php:228
+msgid "Link"
+msgstr ""
+
+#: classes/options-manager.php:229
+msgid "Link to an in-depth page also external to the site."
+msgstr ""
+
+#: classes/options-manager.php:715
+msgid "List ID"
+msgstr ""
+
+#: classes/options-manager.php:745
+msgid "Login"
+msgstr ""
+
+#: classes/options-manager.php:753
+msgid "Login visible"
+msgstr ""
+
+#: classes/options-manager.php:118
+msgid "Logo footer"
+msgstr ""
+
+#: classes/options-manager.php:92
+msgid "Logo header"
+msgstr ""
+
+#: classes/options-manager.php:329
+msgid "Manage the featured content in the Home Page."
+msgstr ""
+
+#: classes/options-manager.php:216
+msgid "Max 140 characters"
+msgstr ""
+
+#: classes/options-manager.php:169
+msgid "Message"
+msgstr ""
+
+#: classes/options-manager.php:140
+msgid "Messages"
+msgstr ""
+
+#: classes/options-manager.php:766
+msgid "Multilanguage"
+msgstr ""
+
+#: classes/options-manager.php:76
+msgid "Network name"
+msgstr ""
+
+#: classes/options-manager.php:84
+msgid "Network url"
+msgstr ""
+
+#: classes/options-manager.php:672 classes/options-manager.php:680
+msgid "Newsletter"
+msgstr ""
+
+#. Name of the template
+#: page-templates/newsletter.php:2
+msgid "newsletter"
+msgstr ""
+
+#: classes/options-manager.php:693
+msgid "Newsletter manager"
+msgstr ""
+
+#: classes/options-manager.php:111 classes/options-manager.php:276
+#: classes/options-manager.php:289 classes/options-manager.php:302
+#: classes/options-manager.php:343 classes/options-manager.php:572
+#: classes/options-manager.php:685 classes/options-manager.php:758
+#: classes/options-manager.php:779 classes/options-manager.php:821
+msgid "No"
+msgstr ""
+
+#: classes/options-manager.php:377 classes/options-manager.php:416
+#: classes/options-manager.php:455
+msgid "On which side the thumbnail wil be shown."
+msgstr ""
+
+#: 404.php:30
+msgid "Oops! The page you are looking for was not found"
+msgstr ""
+
+#: 404.php:23 404.php:28
+msgid "Page not found"
+msgstr ""
+
+#: classes/options-manager.php:525
+msgid "Phone number"
+msgstr ""
+
+#: activation.php:44
+msgid "Reload default data"
+msgstr ""
+
+#: activation.php:17 activation.php:18
+msgid "Reload theme data"
+msgstr ""
+
+#: activation.php:47
+msgid "Reloads theme activation data (menus, pages, taxonomies, etc.)"
+msgstr ""
+
+#: classes/options-manager.php:808
+msgid "REST API"
+msgstr ""
+
+#: classes/options-manager.php:382 classes/options-manager.php:421
+#: classes/options-manager.php:460
+msgid "Right"
+msgstr ""
+
+#: header.php:47
+msgid "Search"
+msgstr ""
+
+#. Name of the template
+#: page-templates/search.php:2
+msgid "search"
+msgstr ""
+
+#: classes/options-manager.php:664
+msgid "Section to configure advanced settings."
+msgstr ""
+
+#: classes/options-manager.php:47
+msgid "Section to configure base options."
+msgstr ""
+
+#: classes/options-manager.php:694
+msgid "Selection of the program used to manage the newsletter of the site."
+msgstr ""
+
+#: classes/options-manager.php:270
+msgid "Show carousel before featured content"
+msgstr ""
+
+#: classes/options-manager.php:337
+msgid "Show featured content"
+msgstr ""
+
+#: classes/options-manager.php:338
+msgid "Show featured content section in the Home Page."
+msgstr ""
+
+#: classes/options-manager.php:566
+msgid "Show social media icons"
+msgstr ""
+
+#: classes/options-manager.php:283
+msgid "Show the Carousel section"
+msgstr ""
+
+#: classes/options-manager.php:194
+msgid "Show the icon"
+msgstr ""
+
+#: classes/options-manager.php:284
+msgid "Show the main carousel in the Home Page."
+msgstr ""
+
+#: classes/options-manager.php:46
+msgid "Site configuration"
+msgstr ""
+
+#: classes/options-manager.php:482
+msgid "Site contacts"
+msgstr ""
+
+#: classes/options-manager.php:54
+msgid "Site title"
+msgstr ""
+
+#. Name of the template
+#: page-templates/sitemap.php:2
+msgid "sitemap"
+msgstr ""
+
+#: classes/options-manager.php:541 classes/options-manager.php:547
+msgid "Social Media"
+msgstr ""
+
+#: classes/options-manager.php:558
+msgid "Social media"
+msgstr ""
+
+#: classes/options-manager.php:184
+msgid "Success"
+msgstr ""
+
+#: classes/options-manager.php:65
+msgid "Tagline"
+msgstr ""
+
+#: classes/options-manager.php:730
+msgid "Template ID"
+msgstr ""
+
+#: classes/options-manager.php:731
+msgid "Template ID of the page that manages the double OptIn"
+msgstr ""
+
+#: classes/options-manager.php:215
+msgid "Text"
+msgstr ""
+
+#: classes/options-manager.php:510
+msgid "The address of the site."
+msgstr ""
+
+#: classes/options-manager.php:502
+msgid "The city of the site."
+msgstr ""
+
+#: classes/options-manager.php:494
+msgid "The contact shown in the footer."
+msgstr ""
+
+#: classes/options-manager.php:518
+msgid "The email of the site."
+msgstr ""
+
+#: classes/options-manager.php:93
+msgid "The logo of the site, please load an SVG image."
+msgstr ""
+
+#: classes/options-manager.php:77
+msgid "The name of the network the site is part of."
+msgstr ""
+
+#: classes/options-manager.php:526
+msgid "The phone number of the site."
+msgstr ""
+
+#: classes/options-manager.php:66
+msgid "The tagline of the site."
+msgstr ""
+
+#: classes/options-manager.php:55
+msgid "The title of the site."
+msgstr ""
+
+#: classes/options-manager.php:85
+msgid "The url of the network the site is part of."
 msgstr ""
 
 #. Description of the theme
@@ -29,6 +495,31 @@ msgid ""
 "This is a WordPress theme for sites that uses the plugin: KK Writer Plugin."
 msgstr ""
 
+#: classes/options-manager.php:376 classes/options-manager.php:415
+#: classes/options-manager.php:454
+msgid "Thumbnail side"
+msgstr ""
+
+#: classes/options-manager.php:185
+msgid "Warning"
+msgstr ""
+
+#: classes/options-manager.php:787
+msgid "Web Analytics Code"
+msgstr ""
+
 #. Name of the theme
 msgid "WP KK Writer Theme"
+msgstr ""
+
+#: classes/options-manager.php:110 classes/options-manager.php:275
+#: classes/options-manager.php:288 classes/options-manager.php:301
+#: classes/options-manager.php:342 classes/options-manager.php:571
+#: classes/options-manager.php:684 classes/options-manager.php:757
+#: classes/options-manager.php:778 classes/options-manager.php:820
+msgid "Yes"
+msgstr ""
+
+#: classes/options-manager.php:106
+msgid "Yes if the logo needs to be shown in the footer."
 msgstr ""

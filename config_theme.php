@@ -64,16 +64,16 @@ define(
 	'KKW_SITE_SECTIONS',
 	array(
 		array(
-			'it' => 'Poesia',
 			'en' => 'Poetry',
+			'it' => 'Poesia',
 		),
 		array(
-			'it' => 'Saggistica',
 			'en' => 'Essays',
+			'it' => 'Saggistica',
 		),
 		array(
-			'it' => 'Narrativa',
 			'en' => 'Fiction',
+			'it' => 'Narrativa',
 		),
 	)
 );
@@ -93,6 +93,19 @@ define(
 			'content_status'     => 'publish',
 			'content_author'     => 1,
 			'content_template'   => '',
+			'content_type'       => 'page',
+			'content_parent'     => null,
+		),
+		array(
+			'content_slug_it'    => 'biografia',
+			'content_slug_en'    => 'biography',
+			'content_title_it'   => 'Biografia',
+			'content_title_en'   => 'Biography',
+			'content_it'         => 'La biografia...' . KKW_TEXT_TEMPLATE_ACTIVE_IT,
+			'content_en'         => 'The biography...' . KKW_TEXT_TEMPLATE_ACTIVE_EN,
+			'content_status'     => 'publish',
+			'content_author'     => 1,
+			'content_template'   => 'page-templates/biography.php',
 			'content_type'       => 'page',
 			'content_parent'     => null,
 		),
