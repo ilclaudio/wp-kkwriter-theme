@@ -6,6 +6,7 @@
  */
 
 require_once 'polylang-manager.php';
+require_once KKW_THEMA_PATH . '/config_menu.php';
 
 /**
  * The Activation manager.
@@ -192,12 +193,12 @@ private function create_static_pages() {
 	private function create_page( $new_page, $template, $lang ){
 		$page_check  = kkw_get_content( $new_page['post_name'], $new_page['post_type'] );
 		$new_page_id = $page_check ? $page_check->ID : 0;
-		// If the IT page doesn't already exist, create it.
+		// If the page doesn't already exist, create it.
 		if ( ! $new_page_id ) {
 			$new_page_id = wp_insert_post( $new_page );
 			update_post_meta( $new_page_id, '_wp_page_template', $template );
 		}
-		// Assign the IT language to the page.
+		// Assign the $lang language to the page.
 		KKW_PolylangManager::set_post_language( $new_page_id, $lang );
 		return $new_page_id;
 	}
@@ -209,15 +210,6 @@ private function create_static_pages() {
 	 */
 	private function build_taxonomies( $taxonomy, $terms ) {
 		foreach ( $terms as $term ) {
-			// Create it taxonomy.
-			$termitem = get_term_by( 'slug', $term['it'], $taxonomy );
-			if ( $termitem ) {
-				$term_it = $termitem->term_id;
-			} else {
-				$termobject = wp_insert_term( $term['it'], $taxonomy );
-				$term_it    = $termobject['term_id'];
-			}
-			KKW_PolylangManager::set_term_language( $term_it, 'it' );
 			// Create en taxonomy.
 			$termitem = get_term_by( 'slug', $term['en'], $taxonomy );
 			if ( $termitem ) {
@@ -227,6 +219,16 @@ private function create_static_pages() {
 				$term_en    = $termobject['term_id'];
 			}
 			KKW_PolylangManager::set_term_language( $term_en, 'en' );
+			// Create it taxonomy.
+			$termitem = get_term_by( 'slug', $term['it'], $taxonomy );
+			if ( $termitem ) {
+				$term_it = $termitem->term_id;
+			} else {
+				$termobject = wp_insert_term( $term['it'], $taxonomy );
+				$term_it    = $termobject['term_id'];
+			}
+			KKW_PolylangManager::set_term_language( $term_it, 'it' );
+
 			// Associate it and en translations.
 			$related_taxonomies = array(
 				'it' => $term_it,
@@ -237,9 +239,73 @@ private function create_static_pages() {
 	}
 
 
-	private function create_menu(){
-		$languages = KKW_PolylangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
-
+	private function create_menu() {
+		// $languages = KKW_PolylangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
+		$this->create_the_menus( 'en' );
+		$this->create_the_menus( 'it' );
+	}
+	private function create_the_menus( $lang ) {
+		$menu = KKW_MAIN_MENU;
+		$this->build_the_menu( $menu, $lang );
 	}
 
+	private function build_the_menu( $menu, $lang ) {
+		$menu_suffix   = $lang;
+		$menu_name     = $menu['name'];
+		$menu_items    = $menu['items'];
+		$menu_location = $menu['location'];
+		$menu_lang     = $lang;
+		$menu_location = $menu_location . '___' . $menu_suffix;
+
+		$menu_object = wp_get_nav_menu_object( $menu_name );
+
+		if ( $menu_object ) {
+			// Do nothing if the menu exists.
+			$menu_id = $menu_object->term_id;
+			$menu    = get_term_by( 'id', $menu_id, 'nav_menu' );
+		} else {
+	
+			$menu_id  = wp_create_nav_menu( $menu_name );
+			$menu     = get_term_by( 'id', $menu_id, 'nav_menu' );
+	
+			foreach ( $menu_items as $menu_item ) {
+				$result = kkw_get_content( $menu_item['slug'], $menu_item['content_type'] );
+				if ( $result ) {
+					$menu_item_id = $result->ID;
+					if ( ( ! isset( $menu_item['link'] ) ) || ( '' === $menu_item['link'] ) ) {
+						// Link a pagine o post.
+						wp_update_nav_menu_item(
+							$menu->term_id,
+							0,
+							array(
+								'menu-item-title'     => $menu_item['title'],
+								'menu-item-object-id' => $menu_item_id,
+								'menu-item-object'    => $menu_item['content_type'],
+								'menu-item-status'    => $menu_item['status'],
+								'menu-item-type'      => $menu_item['post_type'],
+								'menu-item-url'       => $menu_item['link'],
+							)
+						);
+					} else {
+						// Link esterni.
+						wp_update_nav_menu_item(
+							$menu->term_id,
+							0,
+							array(
+								'menu-item-title'     => $menu_item['title'],
+								'menu-item-status'    => $menu_item['status'],
+								'menu-item-url'       => $menu_item['link'],
+							)
+						);
+					}
+				}
+			}
+	
+			$locations_primary_arr                   = get_theme_mod( 'nav_menu_locations' );
+			$locations_primary_arr[ $menu_location ] = $menu->term_id;
+			set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
+			update_option( 'menu_check', true );
+	
+		}
+	}
 }

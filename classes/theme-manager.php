@@ -33,6 +33,12 @@ class KKW_ThemeManager {
 	 */
 	public function theme_setup() {
 
+		// Disable customizer.
+		$this->disable_customizer();
+
+		// Create the menu.
+		$this->register_menu_locations();
+
 		// Setup roles and permissions
 		$am = new KKW_AuthorizationManager();
 		$am->setup();
@@ -46,4 +52,37 @@ class KKW_ThemeManager {
 		// Same as: Admin->Settings->Permalinks->Save.
 		flush_rewrite_rules();
 	}
+
+	/**
+	 * This theme uses wp_nav_menu().
+	 * Menu location definitions: wp-admin/nav-menus.php?action=locations.
+	 * 
+	 * @return void
+	 */
+	private function register_menu_locations() {
+		error_log( '@@@ HERE WE REGISTER THE MENU POSITIONS @@@' );
+		$name = KKW_MAIN_MENU['name'];
+		register_nav_menus(
+			array(
+				KKW_MAIN_MENU['location'] => _x( $name , 'kkw_menu', 'kk_writer_theme'),
+			)
+		);
+	}
+
+	private function disable_customizer() {
+		add_action( 'admin_menu', array( $this, 'disable_customizer_menu' ) );
+	}
+	public function disable_customizer_menu() {
+		global $submenu;
+		if ( isset( $submenu[ 'themes.php' ] ) ) {
+			foreach ( $submenu[ 'themes.php' ] as $index => $menu_item ) {
+				foreach ( $menu_item as $value ) {
+					if ( strpos( $value,'customize' ) !== false) {
+							unset( $submenu['themes.php'][ $index ] );
+					}
+				}
+			}
+		}
+	}
+
 }
