@@ -61,12 +61,7 @@ class KKW_ThemeManager {
 	 */
 	private function register_menu_locations() {
 		error_log( '@@@ HERE WE REGISTER THE MENU POSITIONS @@@' );
-		$name = KKW_MAIN_MENU['name'];
-		register_nav_menus(
-			array(
-				KKW_MAIN_MENU['location'] => _x( $name , 'kkw_menu', 'kk_writer_theme'),
-			)
-		);
+		KKW_ThemeActivationManager::register_menu_locations();
 	}
 
 	private function disable_customizer() {
