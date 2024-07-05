@@ -13,6 +13,10 @@ if ( ! class_exists( 'KKW_PolylangManager' ) ) {
 	include_once 'polylang-manager.php';
 }
 
+if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
+	include_once 'theme-activation-manager.php';
+}
+
 /**
  * The manager that configures the theme.
  */
@@ -36,9 +40,6 @@ class KKW_ThemeManager {
 		// Disable customizer.
 		$this->disable_customizer();
 
-		// Create the menu.
-		$this->register_menu_locations();
-
 		// Setup roles and permissions
 		$am = new KKW_AuthorizationManager();
 		$am->setup();
@@ -48,20 +49,12 @@ class KKW_ThemeManager {
 		$polylang = new KKW_PolylangManager();
 		$polylang->setup();
 
+		// Register the menus.
+		KKW_ThemeActivationManager::register_menu_locations();
+
 		// Needed to refresh permalinks.
 		// Same as: Admin->Settings->Permalinks->Save.
 		flush_rewrite_rules();
-	}
-
-	/**
-	 * This theme uses wp_nav_menu().
-	 * Menu location definitions: wp-admin/nav-menus.php?action=locations.
-	 * 
-	 * @return void
-	 */
-	private function register_menu_locations() {
-		error_log( '@@@ HERE WE REGISTER THE MENU POSITIONS @@@' );
-		KKW_ThemeActivationManager::register_menu_locations();
 	}
 
 	private function disable_customizer() {

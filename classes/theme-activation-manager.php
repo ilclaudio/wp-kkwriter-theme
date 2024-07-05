@@ -255,6 +255,7 @@ private function create_static_pages() {
 	}
 
 	private function build_the_menu( $menu, $lang ) {
+		error_log( '@@@ build_the_menu @@@' );
 		$menu_name     = $menu['name'];
 		$menu_items    = $menu['items'];
 		$menu_location = $menu['location'];
@@ -309,17 +310,25 @@ private function create_static_pages() {
 		}
 	}
 
+	/**
+	 * This theme uses wp_nav_menu().
+	 * Menu location definitions: wp-admin/nav-menus.php?action=locations.
+	 *
+	 * @return void
+	 */
 	public static function register_menu_locations() {
-		// register_nav_menus(
-		// 	array(
-		// 		KKW_MAIN_MENU_EN['location'] => __( KKW_MAIN_MENU_EN['name'] , 'kk_writer_theme' ),
-		// 	)
-		// );
+		error_log( '@@@ HERE WE REGISTER THE MENU POSITIONS @@@' );
 		register_nav_menus(
 			array(
 				KKW_MAIN_MENU_EN['location'] => __( KKW_MAIN_MENU_EN['name'] , 'kk_writer_theme' ),
 			)
 		);
+		// register_nav_menus(
+		// 	array(
+		// 		'locations-main-menu-location'=> __( KKW_MAIN_MENU_EN['name'] , 'kk_writer_theme' ),
+		// 		'locations-main-menu-location___en'=> __( KKW_MAIN_MENU_EN['name'] , 'kk_writer_theme' ),
+		// 	)
+		// );
 	}
 
 }
