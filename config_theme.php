@@ -92,7 +92,7 @@ define(
 			'content_en'         => 'Our Privacy Policy...',
 			'content_status'     => 'publish',
 			'content_author'     => 1,
-			'content_template'   => '',
+			'content_template'   => 'page-templates/privacy.php',
 			'content_type'       => 'page',
 			'content_parent'     => null,
 		),
