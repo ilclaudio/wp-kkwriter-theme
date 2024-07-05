@@ -242,38 +242,40 @@ private function create_static_pages() {
 	private function create_menu() {
 		// $languages = KKW_PolylangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
 		$this->create_the_menus( 'en' );
-		$this->create_the_menus( 'it' );
+		// $this->create_the_menus( 'it' );
 	}
 	private function create_the_menus( $lang ) {
-		$menu = KKW_MAIN_MENU;
+		$menu = KKW_MAIN_MENU_EN;
+		// if ( $lang == 'en' ) {
+		// 	$menu = KKW_MAIN_MENU_EN;
+		// } else {
+		// 	$menu = KKW_MAIN_MENU_IT;
+		// }
 		$this->build_the_menu( $menu, $lang );
 	}
 
 	private function build_the_menu( $menu, $lang ) {
-		$menu_suffix   = $lang;
 		$menu_name     = $menu['name'];
 		$menu_items    = $menu['items'];
 		$menu_location = $menu['location'];
-		$menu_lang     = $lang;
-		$menu_location = $menu_location . '___' . $menu_suffix;
-
-		$menu_object = wp_get_nav_menu_object( $menu_name );
+		$menu_object   = wp_get_nav_menu_object( $menu_name );
+		// $menu_suffix   = $lang;
+		// $menu_lang     = $lang;
+		// $menu_location = $menu_location . '___' . $menu_suffix;
 
 		if ( $menu_object ) {
 			// Do nothing if the menu exists.
 			$menu_id = $menu_object->term_id;
 			$menu    = get_term_by( 'id', $menu_id, 'nav_menu' );
 		} else {
-	
 			$menu_id  = wp_create_nav_menu( $menu_name );
 			$menu     = get_term_by( 'id', $menu_id, 'nav_menu' );
-	
 			foreach ( $menu_items as $menu_item ) {
-				$result = kkw_get_content( $menu_item['slug'], $menu_item['content_type'] );
-				if ( $result ) {
-					$menu_item_id = $result->ID;
-					if ( ( ! isset( $menu_item['link'] ) ) || ( '' === $menu_item['link'] ) ) {
-						// Link a pagine o post.
+				if ( ( ! isset( $menu_item['link'] ) ) || ( '' === $menu_item['link'] ) ) {
+					// Link a pagine o post.
+					$result = kkw_get_content( $menu_item['slug'], $menu_item['content_type'] );
+					if ( $result ) {
+						$menu_item_id = $result->ID;
 						wp_update_nav_menu_item(
 							$menu->term_id,
 							0,
@@ -286,26 +288,38 @@ private function create_static_pages() {
 								'menu-item-url'       => $menu_item['link'],
 							)
 						);
-					} else {
-						// Link esterni.
-						wp_update_nav_menu_item(
-							$menu->term_id,
-							0,
-							array(
-								'menu-item-title'     => $menu_item['title'],
-								'menu-item-status'    => $menu_item['status'],
-								'menu-item-url'       => $menu_item['link'],
-							)
-						);
 					}
+				} else {
+					// Link esterni.
+					wp_update_nav_menu_item(
+						$menu->term_id,
+						0,
+						array(
+							'menu-item-title'     => $menu_item['title'],
+							'menu-item-status'    => $menu_item['status'],
+							'menu-item-url'       => $menu_item['link'],
+						)
+					);
 				}
 			}
-	
 			$locations_primary_arr                   = get_theme_mod( 'nav_menu_locations' );
 			$locations_primary_arr[ $menu_location ] = $menu->term_id;
 			set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
 			update_option( 'menu_check', true );
-	
 		}
 	}
+
+	public static function register_menu_locations() {
+		// register_nav_menus(
+		// 	array(
+		// 		KKW_MAIN_MENU_EN['location'] => __( KKW_MAIN_MENU_EN['name'] , 'kk_writer_theme' ),
+		// 	)
+		// );
+		register_nav_menus(
+			array(
+				KKW_MAIN_MENU_EN['location'] => __( KKW_MAIN_MENU_EN['name'] , 'kk_writer_theme' ),
+			)
+		);
+	}
+
 }
