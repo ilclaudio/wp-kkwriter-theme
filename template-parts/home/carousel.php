@@ -5,9 +5,8 @@
  * @package KK_Writer_Theme
  */
 
-$opt_contents = kkw_get_option( 'carousel_content', 'kkw_opt_hp_layout' );
-$num_contents = count( $opt_contents );
-$contents     = $num_contents > 0 ? $opt_contents : array();
+$contents     = KKW_ContentsManager::get_home_carousel_contents();
+$num_contents = count( $contents );
 
 if ( $num_contents > 0 ){
 ?>
