@@ -90,7 +90,6 @@ class KKW_ThemeActivationManager
 				'post_title'   => $section['en'],
 				'post_content' => '',
 				'post_status'  => 'publish',
-				// 'post_author'  => 1,
 				'post_parent'  => 0,
 			);
 			$new_page_en_id = $this->create_page( 

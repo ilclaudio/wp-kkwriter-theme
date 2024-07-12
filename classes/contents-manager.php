@@ -91,7 +91,6 @@ class KKW_ContentsManager
 		$book = KKW_SearchManager::get_book( $post->ID );
 		if ( $book ) {
 			$section = count( $book['sections'] ) > 0 ? $book['sections'][0] : '';
-
 			$item['id']             = $book['id'];
 			$item['title']          = $book['title'];
 			$item['type']           = $book['type'];
@@ -119,10 +118,52 @@ class KKW_ContentsManager
 		$item['detail_url']     = $post->guid;
 		$item['images']         = array();
 		return $item;
-
-
-
-
 	}
 	
+	/**
+	 * Retrieves the content to show in the Home Page Carousel.
+	 * @return array
+	 */
+	public static function get_home_carousel_contents(): array {
+		$contents = array();
+		$carousel_auto_on = kkw_get_option( 'home_carousel_auto_on', 'kkw_opt_hp_layout' );
+		if ( $carousel_auto_on === 'true' ) {
+			// Get contents with the flag 'show_in_carousel' set.
+			$opt_content_ids = self::search_carousel_ids();
+		} else {
+			// Get the contents selected ion the backoffice.
+			$opt_content_ids = kkw_get_option( 'carousel_content', 'kkw_opt_hp_layout' );
+		}
+		$num_contents = count( $opt_content_ids );
+		$content_ids  = $num_contents > 0 ? $opt_content_ids : array();
+		foreach ( $content_ids as $id ){
+			$item = self::get_wrapped_item( $id );
+ 			array_push( $contents, $item );
+		}
+		return $contents;
+	}
+
+	/**
+	 * Search the content types of the site having that must be shown in the carousel. 
+	 * @return array
+	 */
+	private static function search_carousel_ids() {
+		$args= array(
+				'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ),
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+				'fields'         => 'ids',
+				'posts_per_page' => -1,
+				'meta_query' => array(
+				 // 'relation' => 'OR',
+					array(
+							'key'     => 'kkw_book_show_in_carousel',
+							'value'   => 'on',
+					),
+				),
+			);
+		$query = new WP_Query( $args );
+		$opt_content_ids = $query->posts;
+		return $opt_content_ids;
+	}
 }
