@@ -320,15 +320,11 @@ private function create_static_pages() {
 		error_log( '@@@ HERE WE REGISTER THE MENU POSITIONS @@@' );
 		register_nav_menus(
 			array(
-				KKW_MAIN_MENU_EN['location'] => __( KKW_MAIN_MENU_EN['name'] , 'kk_writer_theme' ),
+				KKW_MAIN_MENU_EN['location'] => KKW_MAIN_MENU_EN['name'],
+				'primary-footer-location'    => 'Primary Footer',
+				'secondary-footer-location'  => 'Secondary Footer',
 			)
 		);
-		// register_nav_menus(
-		// 	array(
-		// 		'locations-main-menu-location'=> __( KKW_MAIN_MENU_EN['name'] , 'kk_writer_theme' ),
-		// 		'locations-main-menu-location___en'=> __( KKW_MAIN_MENU_EN['name'] , 'kk_writer_theme' ),
-		// 	)
-		// );
 	}
 
 }

@@ -103,12 +103,26 @@ class KKW_PolylangManager {
 	* @return void
 	*/
 	public static function get_page_by_slug( $slug ) {
-		$page        = get_page_by_path($slug);
+		$page        = get_page_by_path( $slug );
 		$page_id     = 0;
 		$current_lang = pll_current_language();
 		if ( $page ) {
 			$page_id      = pll_get_post( $page->ID , $current_lang );
 		}
+		return $page_id;
+	}
+
+/**
+	* Retrieves the ID of the page in the current language.
+	*
+	* @param string $id
+	* @return void
+	*/
+	public static function get_page_by_id( $id ) {
+		$id           = intval( $id );
+		$page_id      = 0;
+		$current_lang = pll_current_language();
+		$page_id      = pll_get_post( $id , $current_lang );
 		return $page_id;
 	}
 
