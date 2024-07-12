@@ -150,14 +150,14 @@ class KKW_ContentsManager
 	private static function search_carousel_ids() {
 		$args= array(
 				'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ),
+				// 'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'], KKW_DEFAULT_POST ),
 				'orderby'        => 'title',
 				'order'          => 'ASC',
 				'fields'         => 'ids',
 				'posts_per_page' => -1,
 				'meta_query' => array(
-				 // 'relation' => 'OR',
 					array(
-							'key'     => 'kkw_book_show_in_carousel',
+							'key'     => 'kkw_show_in_carousel',
 							'value'   => 'on',
 					),
 				),
