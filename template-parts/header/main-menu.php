@@ -19,6 +19,7 @@
 			$page     = get_post( $page_id );
 			$active   = is_page( $page_id );
 			$page_url = get_permalink( $page_id );
+			// $parent_id = wp_get_post_parent_id();--> multilevels checks.
 		?>
 			<a class="nav-item nav-link link-body-emphasis <?php if ( $active ) echo 'active'; ?>"
 				href="<?php echo $page_url; ?>">

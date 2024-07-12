@@ -1,6 +1,6 @@
 <?php
 /**
- * KK Writer Theme: The Blog page.
+ * KK Writer Theme: The BLOG page.
  *
  * @package KK_Writer_Theme
  */

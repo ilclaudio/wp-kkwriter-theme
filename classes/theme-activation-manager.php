@@ -140,23 +140,6 @@ private function create_static_pages() {
 
 	// Static pages creation.
 	foreach ( $static_pages as $page ) {
-		// Create the IT page.
-		// Store the above data in an array.
-		$new_page = array(
-			'post_type'    => $page['content_type'],
-			'post_name'    => $page['content_slug_it'],
-			'post_title'   => $page['content_title_it'],
-			'post_content' => $page['content_it'],
-			'post_status'  => $page['content_status'],
-			'post_author'  => intval( $page['content_author'] ),
-			'post_parent'  => 0,
-		);
-		$new_page_it_id = $this->create_page( 
-			$new_page, 
-			$page['content_template'],
-			'it'
-		);
-
 		// Create the EN page.
 		// Store the above data in an array.
 		$new_page = array(
@@ -169,9 +152,26 @@ private function create_static_pages() {
 			'post_parent'  => 0,
 		);
 		$new_page_en_id = $this->create_page( 
-			$new_page, 
+			$new_page,
 			$page['content_template'],
 			'en'
+		);
+
+		// Create the IT page.
+		// Store the above data in an array.
+		$new_page = array(
+			'post_type'    => $page['content_type'],
+			'post_name'    => $page['content_slug_it'],
+			'post_title'   => $page['content_title_it'],
+			'post_content' => $page['content_it'],
+			'post_status'  => $page['content_status'],
+			'post_author'  => intval( $page['content_author'] ),
+			'post_parent'  => 0,
+		);
+		$new_page_it_id = $this->create_page( 
+			$new_page,
+			$page['content_template'],
+			'it'
 		);
 
 		// Associate it and en translations.

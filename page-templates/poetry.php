@@ -1,6 +1,6 @@
 <?php
 /**
- * KK Writer Theme: The BIOGRAPHY page.
+ * KK Writer Theme: The "poetry section" page.
  *
  * @package KK_Writer_Theme
  */
@@ -9,7 +9,7 @@
 
 
 <main class="container">
-BIOGRAPHY
+POETRY
 </main>
 
 

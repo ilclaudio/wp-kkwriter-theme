@@ -1,6 +1,6 @@
 <?php
 /**
- * KK Writer Theme: The Contacts page.
+ * KK Writer Theme: The CONTACTS page.
  *
  * @package KK_Writer_Theme
  */
