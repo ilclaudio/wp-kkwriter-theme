@@ -6,8 +6,8 @@
 </head>
 <?php
 	include_once KKW_THEMA_PATH . '/classes/polylang-manager.php';
-	$title   = kkw_get_option( 'site_title', 'kkw_opt_options' );
-	$tagline = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
+	$title     = kkw_get_option( 'site_title', 'kkw_opt_options' );
+	$tagline   = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
 ?>
 
 <body>
@@ -61,16 +61,14 @@
 				<!-- END Selectors -->
 			</div>
 		</header>
-		<div class="nav-scroller py-1 mb-3 border-bottom">
-			<nav class="nav nav-underline justify-content-between">
-				<a class="nav-item nav-link link-body-emphasis active" href="#">Home</a>
-				<a class="nav-item nav-link link-body-emphasis" href="#">Biografia</a>
-				<a class="nav-item nav-link link-body-emphasis" href="#">Poesia</a>
-				<a class="nav-item nav-link link-body-emphasis" href="#">Saggistica</a>
-				<a class="nav-item nav-link link-body-emphasis" href="#">Narrativa</a>
-				<a class="nav-item nav-link link-body-emphasis" href="#">Notizie/Eventi</a>
-				<a class="nav-item nav-link link-body-emphasis" href="#">Blog</a>
-				<a class="nav-item nav-link link-body-emphasis" href="#">Contatti</a>
-			</nav>
-		</div>
-	</div>
+
+		<!-- MAIN MENU -->
+		<?php
+			echo get_template_part(
+				'template-parts/header/main-menu',
+				false,
+				array(),
+			);
+		?>
+
+	</div> <!-- container -->
