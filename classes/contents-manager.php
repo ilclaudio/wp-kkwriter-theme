@@ -99,7 +99,7 @@ class KKW_ContentsManager
 			$item['view_date']      = $book['year'];
 			$item['main_group']     = $section;
 			$item['main_group_url'] = '';
-			$item['detail_url']     = $post->guid;
+			$item['detail_url']     = get_permalink( $post->ID );
 			$item['images']         = array();
 		}
 		return $item;
@@ -115,7 +115,7 @@ class KKW_ContentsManager
 		$item['view_date']      = $post->post_date;
 		$item['main_group']     = '';
 		$item['main_group_url'] = '';
-		$item['detail_url']     = $post->guid;
+		$item['detail_url']     = get_permalink( $post->ID) ;
 		$item['images']         = array();
 		return $item;
 	}

@@ -38,7 +38,10 @@ class KKW_ThemeManager {
 	public function theme_setup() {
 
 		// Disable customizer.
-		$this->disable_customizer();
+		$this->configure_customizer();
+
+		// Set the permalink mode;
+		$this->configure_permalink();
 
 		// Setup roles and permissions
 		$am = new KKW_AuthorizationManager();
@@ -57,9 +60,10 @@ class KKW_ThemeManager {
 		flush_rewrite_rules();
 	}
 
-	private function disable_customizer() {
+	private function configure_customizer() {
 		add_action( 'admin_menu', array( $this, 'disable_customizer_menu' ) );
 	}
+
 	public function disable_customizer_menu() {
 		global $submenu;
 		if ( isset( $submenu[ 'themes.php' ] ) ) {
@@ -71,6 +75,17 @@ class KKW_ThemeManager {
 				}
 			}
 		}
+	}
+
+	private function configure_permalink() {
+		add_action( 'after_setup_theme', array( $this, 'set_permalink_mode' ) );
+	}
+
+	public function set_permalink_mode(){
+		$permalink_structure = '/%postname%/';
+		global $wp_rewrite;
+		$wp_rewrite->set_permalink_structure($permalink_structure);
+		$wp_rewrite->flush_rules();
 	}
 
 }
