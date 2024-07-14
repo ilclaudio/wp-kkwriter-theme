@@ -38,3 +38,25 @@ if( ! function_exists( 'kkw_get_content' ) ) {
 		return $posts ? $posts[0] : null;
 	}
 }
+
+if( ! function_exists( 'clean_and_truncate_text' ) ) {
+	function clean_and_truncate_text( $text, $size=500, $split=false ) {
+		// Remove HTML tags.
+		$clean_text = wp_strip_all_tags( $text );
+		// Truncate tags.
+		if ( strlen( $clean_text ) > $size ) {
+			if ( $split ){
+				$truncated_text = substr($clean_text, 0, $size ) . '...';
+			} else {
+				$truncated_text = mb_substr($clean_text, 0, $size );
+				$last_space = mb_strrpos($truncated_text, ' ');
+				if ( $last_space !== false ) {
+					$truncated_text = mb_substr( $truncated_text, 0, $last_space ) . '...';
+				}
+			}
+		} else {
+			$truncated_text = $clean_text;
+		}
+		return $truncated_text;
+	}
+}
