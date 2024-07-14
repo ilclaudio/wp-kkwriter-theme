@@ -50,7 +50,7 @@ if ( $num_items > 0 ){
 						<div class="row g-0">
 							<!-- slide image -->
 							<div class="col-md-4 g-0 p-0 m-0">
-								<a class="kkw_link" href="<?php echo esc_url( $item_url); ?>">
+								<a class="kkw_link" href="<?php echo esc_url( $item_url ); ?>">
 									<img style="max-height: 300px" 
 									src="<?php echo esc_url( $img_src ); ?>"
 									class="img-fluid rounded-start p-3" 
@@ -61,7 +61,7 @@ if ( $num_items > 0 ){
 							<div class="col-md-8">
 								<div class="card-body">
 									<h5 class="card-title">
-										<a class="kkw_link" href="<?php echo esc_url( $item_url); ?>">
+										<a class="kkw_link" href="<?php echo esc_url( $item_url ); ?>">
 											<b><?php echo esc_attr( $item->title ); ?></b>
 										</a>
 									</h5>
@@ -71,7 +71,7 @@ if ( $num_items > 0 ){
 									<p class="card-text">
 										<small class="text-body-secondary">
 											<a class="kkw_link"
-												href="<?php echo esc_url( $item_url); ?>"><?php echo __( 'Go to the book...', 'kk_writer_theme' ); ?>
+												href="<?php echo esc_url( $item_url ); ?>"><?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
 											</a>
 										</small>
 									</p>
