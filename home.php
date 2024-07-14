@@ -37,6 +37,8 @@
 		}
 	?>
 
+	<!-- The BLOG HP section -->
+	<!-- @TODO -->
 
 <!-- The FOOTER of the site -->
 <?php get_footer(); ?>
