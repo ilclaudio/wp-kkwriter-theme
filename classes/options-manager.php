@@ -264,6 +264,7 @@ class KKW_ThemeOptionsManager
 				'type' => 'title',
 			)
 		);
+
 		$home_options->add_field(
 			array(
 				'id' => 'home_carousel_before_featured_enabled',
@@ -330,7 +331,6 @@ class KKW_ThemeOptionsManager
 				'type' => 'title',
 			)
 		);
-
 		$home_options->add_field(
 			array(
 				'id' => 'home_featured_content_visible',
@@ -344,7 +344,20 @@ class KKW_ThemeOptionsManager
 				),
 			)
 		);
-
+		$home_options->add_field(
+			array(
+				'id' => 'home_featured_content_auto_on',
+				'name' => __( 'Automatic selection enabled', 'kk_writer_theme' ),
+				'desc' => __( 'If yes, the featured contents of the Home Page are chosen automatically.', 'kk_writer_theme' ),
+				'type' => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true' => __( 'Yes', 'kk_writer_theme' ),
+					'false' => __( 'No', 'kk_writer_theme' ),
+				),
+			)
+		);
+	
 		// Featured content: BOX 1.
 		$featured_content_group_id = $home_options->add_field(
 			array(
