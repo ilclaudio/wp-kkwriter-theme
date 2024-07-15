@@ -44,11 +44,22 @@ $fc3_img_alt    = get_post_meta( $fc3_img_id, '_wp_attachment_image_alt', true )
 $fc3_img_alt    = $fc3_img_alt ? $fc3_img_alt : $fc3->title;
 
 // BOX 4: Last News.
-$news = KKW_ContentsManager::get_lastest_posts( 'news', 1 );
+$news_list      = KKW_ContentsManager::get_lastest_posts( 'news', 1 );
+$news           = count( $news_list ) ? $news_list[0] : null;
+$news_img_id    = $news->id ? get_post_thumbnail_id( $news->id ) : null;
+$news_img_array = $news_img_id ? wp_get_attachment_image_src( $news_img_id, 'small-featured' ) : null;
+$news_img_src   = $news_img_array  ? $news_img_array [0] : '';
+$news_img_alt   = $news_img_id ? get_post_meta( $news_img_id, '_wp_attachment_image_alt', true ) : '';
+$news_img_alt   = $news_img_alt ? $news_img_alt : $news->title;
 
 // BOX 5: Last Event.
-$events = KKW_ContentsManager::get_lastest_posts( 'event', 1 );
-
+$event_list      = KKW_ContentsManager::get_lastest_posts( 'event', 1 );
+$event           = count( $event_list ) ? $event_list[0] : null;
+$event_img_id    = $event->id ? get_post_thumbnail_id( $event->id ) : null;
+$event_img_array = $event_img_id ? wp_get_attachment_image_src( $event_img_id, 'small-featured' ) : null;
+$event_img_src   = $event_img_array  ? $event_img_array [0] : '';
+$event_img_alt   = $event_img_id ? get_post_meta( $event_img_id, '_wp_attachment_image_alt', true ) : '';
+$event_img_alt   = $event_img_alt ? $event_img_alt : $event->title;
 ?>
 
 <!-- FIRST ROW -->
@@ -70,7 +81,8 @@ $events = KKW_ContentsManager::get_lastest_posts( 'event', 1 );
 				</p>
 				<small class="text-body-secondary">
 					<a class="kkw_link"
-						href="<?php echo esc_url( $fc1->detail_url ); ?>"><?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
+						href="<?php echo esc_url( $fc1->detail_url ); ?>">
+						<?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
 					</a>
 				</small>
 			</div>
@@ -162,35 +174,73 @@ $events = KKW_ContentsManager::get_lastest_posts( 'event', 1 );
 		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 			<div>
 				<ul class="list-unstyled">
+					<!-- News box -->
 					<li>
-						<a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-							<svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" 
-								preserveAspectRatio="xMidYMid slice" focusable="false">
-								<rect width="100%" height="100%" fill="#777"></rect>
-							</svg>
-							<div class="col-lg-8">
-								<strong class="d-inline-block mb-2 text-primary-emphasis">
-									<?php echo __( 'Notizie', 'kk_writer_theme' ); ?>
-								</strong>
-								<h6 class="mb-0">Example blog post title</h6>
-								<small class="text-body-secondary">Continua a leggere...</small>
+						<?php
+							if ( $news ) {
+						?>
+							<div class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center
+									 link-body-emphasis text-decoration-none border-top">
+								<img src="<?php echo esc_url( $news_img_src ); ?>"
+									class="bd-placeholder-img"
+									width="<?php echo strval( KKW_SMALL_FEATURED_IMG_WIDTH ); ?>"
+									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
+									alt="<?php echo esc_attr( $news_img_alt ); ?>" />
+								<div class="col-lg-8">
+									<strong class="d-inline-block mb-2 text-primary-emphasis text-capitalize">
+										<?php echo __( $news->main_group, 'kk_writer_theme' ); ?>
+									</strong>
+									<h6 class="mb-0">
+										<?php echo clean_and_truncate_text( $news->title, KKW_SMALL_FEATURED_TEXT_MAX_SIZE ); ?>
+									</h6>
+									<p class="mb-0 kkw_featured_text">
+										<?php echo clean_and_truncate_text( $news->description, 100 ); ?>
+									</p>
+									<small class="text-body-secondary">
+										<a class="kkw_link"
+											href="<?php echo esc_url( $news->detail_url ); ?>">
+											<?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
+										</a>
+									</small>
+								</div>
 							</div>
-						</a>
+						<?php
+							}
+						?>
 					</li>
+					<!-- Event box -->
 					<li>
-						<a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-							<svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" 
-								preserveAspectRatio="xMidYMid slice" focusable="false">
-								<rect width="100%" height="100%" fill="#777"></rect>
-							</svg>
-							<div class="col-lg-8">
-							<strong class="d-inline-block mb-2 text-primary-emphasis">
-									<?php echo __( 'Eventi', 'kk_writer_theme' ); ?>
-								</strong>
-								<h6 class="mb-0">This is another blog post title</h6>
-								<small class="text-body-secondary">Continua a leggere...</small>
+						<?php
+							if ( $event ) {
+						?>
+							<div class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center
+									link-body-emphasis text-decoration-none border-top">
+								<img src="<?php echo esc_url( $event_img_src ); ?>"
+									class="bd-placeholder-img"
+									width="<?php echo strval( KKW_SMALL_FEATURED_IMG_WIDTH ); ?>"
+									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
+									alt="<?php echo esc_attr( $event_img_alt ); ?>" />
+								<div class="col-lg-8">
+									<strong class="d-inline-block mb-2 text-primary-emphasis text-capitalize">
+									<?php echo __( $event->main_group, 'kk_writer_theme' ); ?>
+									</strong>
+									<h6 class="mb-0">
+										<?php echo clean_and_truncate_text( $event->title, KKW_SMALL_FEATURED_TEXT_MAX_SIZE ); ?>
+									</h6>
+									<p class="mb-0 kkw_featured_text">
+										<?php echo clean_and_truncate_text( $event->description, 100 ); ?>
+									</p>
+									<small class="text-body-secondary">
+										<a class="kkw_link"
+											href="<?php echo esc_url( $event->detail_url ); ?>">
+											<?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
+										</a>
+									</small>
+								</div>
 							</div>
-						</a>
+						<?php
+							}
+						?>
 					</li>
 				</ul>
 			</div>
