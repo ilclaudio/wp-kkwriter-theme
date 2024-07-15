@@ -5,6 +5,8 @@
  * @package KK_Writer_Theme
  */
 
+$auto_on = kkw_get_option( 'home_featured_content_auto_on', 'kkw_opt_hp_layout' );
+
 // BOX 1.
 $opt_featured_1 = kkw_get_option( 'featured_content_1', 'kkw_opt_hp_layout' );
 $fc1            = count( $opt_featured_1 ) > 0 ? $opt_featured_1[0] : null;
@@ -40,6 +42,13 @@ $fc3_img_array  = wp_get_attachment_image_src( $fc3_img_id, 'featured-post' );
 $fc3_img_src    = $fc3_img_array ? $fc3_img_array[0] : '';
 $fc3_img_alt    = get_post_meta( $fc3_img_id, '_wp_attachment_image_alt', true );
 $fc3_img_alt    = $fc3_img_alt ? $fc3_img_alt : $fc3->title;
+
+// BOX 4: Last News.
+$news = KKW_ContentsManager::get_lastest_posts( 'news', 1 );
+
+// BOX 5: Last Event.
+$events = KKW_ContentsManager::get_lastest_posts( 'event', 1 );
+
 ?>
 
 <!-- FIRST ROW -->
@@ -155,9 +164,14 @@ $fc3_img_alt    = $fc3_img_alt ? $fc3_img_alt : $fc3->title;
 				<ul class="list-unstyled">
 					<li>
 						<a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-							<svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+							<svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" 
+								preserveAspectRatio="xMidYMid slice" focusable="false">
+								<rect width="100%" height="100%" fill="#777"></rect>
+							</svg>
 							<div class="col-lg-8">
-								<strong class="d-inline-block mb-2 text-primary-emphasis">Notizie/Eventi</strong>
+								<strong class="d-inline-block mb-2 text-primary-emphasis">
+									<?php echo __( 'Notizie', 'kk_writer_theme' ); ?>
+								</strong>
 								<h6 class="mb-0">Example blog post title</h6>
 								<small class="text-body-secondary">Continua a leggere...</small>
 							</div>
@@ -165,9 +179,14 @@ $fc3_img_alt    = $fc3_img_alt ? $fc3_img_alt : $fc3->title;
 					</li>
 					<li>
 						<a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-							<svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+							<svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" 
+								preserveAspectRatio="xMidYMid slice" focusable="false">
+								<rect width="100%" height="100%" fill="#777"></rect>
+							</svg>
 							<div class="col-lg-8">
-								<strong class="d-inline-block mb-2 text-primary-emphasis">Blog</strong>
+							<strong class="d-inline-block mb-2 text-primary-emphasis">
+									<?php echo __( 'Eventi', 'kk_writer_theme' ); ?>
+								</strong>
 								<h6 class="mb-0">This is another blog post title</h6>
 								<small class="text-body-secondary">Continua a leggere...</small>
 							</div>

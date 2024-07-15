@@ -106,14 +106,21 @@ class KKW_ContentsManager
 	}
 
 	private static function wrap_post( $post ): array {
-		$item = KKW_ContentsManager::get_empty_wrapper();
+		$item      = KKW_ContentsManager::get_empty_wrapper();
+		$prefix    = 'kkw_';
+		$meta_tags = get_post_meta( $post->ID );
+		$has_meta  = count( $meta_tags ) > 0;
+		$group     = $has_meta && array_key_exists( $prefix . 'group', $meta_tags ) && $meta_tags[$prefix . 'group'][0] ?
+			$meta_tags[$prefix . 'group'][0] : '';
+		$short_description      = $has_meta && array_key_exists( $prefix . 'short_description', $meta_tags ) && $meta_tags[$prefix . 'short_description'][0] ?
+			$meta_tags[$prefix . 'short_description'][0] : '';
 		$item['id']             = $post->ID;
 		$item['title']          = $post->post_title;
 		$item['type']           = $post->post_type;
-		$item['description']    = $post->post_excerpt;
+		$item['description']    = $short_description;
 		$item['post_date']      = $post->post_date ;
 		$item['view_date']      = $post->post_date;
-		$item['main_group']     = '';
+		$item['main_group']     = $group;
 		$item['main_group_url'] = '';
 		$item['detail_url']     = get_permalink( $post->ID) ;
 		$item['images']         = array();
@@ -150,7 +157,7 @@ class KKW_ContentsManager
 	private static function search_carousel_ids() {
 		$args= array(
 				'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ),
-				// 'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'], KKW_DEFAULT_POST ),
+				// @TODO: 'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'], KKW_DEFAULT_POST ),
 				'orderby'        => 'title',
 				'order'          => 'ASC',
 				'fields'         => 'ids',
@@ -165,5 +172,29 @@ class KKW_ContentsManager
 		$query = new WP_Query( $args );
 		$opt_content_ids = $query->posts;
 		return $opt_content_ids;
+	}
+
+	public static function get_lastest_posts( $group='article', $number = 1 ) {
+		$results = array();
+		$args= array(
+			'post_type'      => array( KKW_DEFAULT_POST ),
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'fields'         => 'ids',
+			'posts_per_page' => $number,
+			'meta_query' => array(
+				array(
+						'key'     => 'kkw_group',
+						'value'   => $group,
+				),
+			),
+		);
+		$query       = new WP_Query( $args );
+		$content_ids = $query->posts;
+		foreach ( $content_ids as $id ){
+			$item = self::get_wrapped_item( $id );
+			array_push( $results, $item );
+		}
+		return $results;
 	}
 }
