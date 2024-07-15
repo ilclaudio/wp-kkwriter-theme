@@ -44,7 +44,7 @@ $fc3_img_alt    = get_post_meta( $fc3_img_id, '_wp_attachment_image_alt', true )
 $fc3_img_alt    = $fc3_img_alt ? $fc3_img_alt : $fc3->title;
 
 // BOX 4: Last News.
-$news_list      = KKW_ContentsManager::get_lastest_posts( 'news', 1 );
+$news_list      = KKW_ContentsManager::get_latest_posts( 'news', 1 );
 $news           = count( $news_list ) ? $news_list[0] : null;
 $news_img_id    = $news->id ? get_post_thumbnail_id( $news->id ) : null;
 $news_img_array = $news_img_id ? wp_get_attachment_image_src( $news_img_id, 'small-featured' ) : null;
@@ -53,7 +53,7 @@ $news_img_alt   = $news_img_id ? get_post_meta( $news_img_id, '_wp_attachment_im
 $news_img_alt   = $news_img_alt ? $news_img_alt : $news->title;
 
 // BOX 5: Last Event.
-$event_list      = KKW_ContentsManager::get_lastest_posts( 'event', 1 );
+$event_list      = KKW_ContentsManager::get_latest_posts( 'event', 1 );
 $event           = count( $event_list ) ? $event_list[0] : null;
 $event_img_id    = $event->id ? get_post_thumbnail_id( $event->id ) : null;
 $event_img_array = $event_img_id ? wp_get_attachment_image_src( $event_img_id, 'small-featured' ) : null;

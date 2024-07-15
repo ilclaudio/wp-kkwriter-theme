@@ -174,12 +174,12 @@ class KKW_ContentsManager
 		return $opt_content_ids;
 	}
 
-	public static function get_lastest_posts( $group='article', $number = 1 ) {
+	public static function get_latest_posts( $group='article', $number = 1 ) {
 		$results = array();
 		$args= array(
 			'post_type'      => array( KKW_DEFAULT_POST ),
-			'orderby'        => 'title',
-			'order'          => 'ASC',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
 			'fields'         => 'ids',
 			'posts_per_page' => $number,
 			'meta_query' => array(
