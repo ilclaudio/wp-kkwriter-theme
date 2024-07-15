@@ -266,9 +266,9 @@ class KKW_ThemeOptionsManager
 		);
 		$home_options->add_field(
 			array(
-				'id' => 'home_carousel_after_featured_enabled',
+				'id' => 'home_carousel_before_featured_enabled',
 				'name' => __( 'Show carousel before featured content', 'kk_writer_theme' ),
-				'desc' => __( 'If yes, the carouse is shown before the featured content section.', 'kk_writer_theme' ),
+				'desc' => __( 'If yes, the carousel is shown before the featured content section.', 'kk_writer_theme' ),
 				'type' => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
@@ -462,6 +462,44 @@ class KKW_ThemeOptionsManager
 					),
 				)
 			);
+
+
+		// BLOG Section (Home Page)
+		$home_options->add_field(
+			array(
+				'id'   => 'home_blog',
+				'name' => __( 'Blog section', 'kk_writer_theme' ),
+				'desc' => __( 'Configure here the blog section.' , 'kk_writer_theme' ),
+				'type' => 'title',
+			)
+		);
+		$home_options->add_field(
+			array(
+				'id' => 'home_blog_section_visible',
+				'name' => __( 'Show blog section', 'kk_writer_theme' ),
+				'desc' => __( 'Show blog section in the Home Page.', 'kk_writer_theme' ),
+				'type' => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+						'true'  => __( 'Yes', 'kk_writer_theme' ),
+						'false' => __( 'No', 'kk_writer_theme' ),
+				),
+			)
+		);
+		$home_options->add_field(
+			array(
+				'id' => 'blog_section_after_featured_enabled',
+				'name' => __( 'Show blog section after featured content', 'kk_writer_theme' ),
+				'desc' => __( 'If yes, the blog section is shown after the featured content section.', 'kk_writer_theme' ),
+				'type' => 'radio_inline',
+				'default' => 'true',
+				'options' => array(
+						'true'  => __( 'Yes', 'kk_writer_theme' ),
+						'false' => __( 'No', 'kk_writer_theme' ),
+				),
+			)
+		);
+
 	}
 
 	/**

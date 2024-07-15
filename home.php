@@ -10,9 +10,11 @@
 <?php get_header(); ?>
 
 <?php
-	$carousel_first   = kkw_get_option('home_carousel_after_featured_enabled', 'kkw_opt_hp_layout');
-	$carouse_visible  = kkw_get_option('home_carousel_visible', 'kkw_opt_hp_layout');
-	$featured_visible = kkw_get_option('home_featured_content_visible', 'kkw_opt_hp_layout');
+	$carousel_first       = kkw_get_option( 'home_carousel_before_featured_enabled', 'kkw_opt_hp_layout' );
+	$carouse_visible      = kkw_get_option( 'home_carousel_visible', 'kkw_opt_hp_layout' );
+	$featured_visible     = kkw_get_option( 'home_featured_content_visible', 'kkw_opt_hp_layout' );
+	$blog_section_visible = kkw_get_option( 'home_blog_section_visible', 'kkw_opt_hp_layout' );
+	$blog_after           = kkw_get_option( 'blog_section_after_featured_enabled', 'kkw_opt_hp_layout' );
 ?>
 <main class="container">
 
@@ -20,6 +22,13 @@
 	<?php
 		if ( $carousel_first === 'true' && $carouse_visible === 'true' ) {
 			get_template_part( 'template-parts/home/carousel' );
+		}
+	?>
+
+	<!-- The BLOG section -->
+	<?php
+		if ( ( $blog_section_visible === 'true' ) && ( $blog_after === 'false' ) ) {
+			get_template_part( 'template-parts/home/blog-section' );
 		}
 	?>
 
@@ -37,8 +46,12 @@
 		}
 	?>
 
-	<!-- The BLOG HP section -->
-	<!-- @TODO -->
+	<!-- The BLOG section -->
+	<?php
+		if ( ( $blog_section_visible === 'true' ) && ( $blog_after === 'true' ) ) {
+			get_template_part( 'template-parts/home/blog-section' );
+		}
+	?>
 
 <!-- The FOOTER of the site -->
 <?php get_footer(); ?>
