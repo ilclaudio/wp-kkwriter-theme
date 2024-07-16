@@ -11,55 +11,68 @@ $auto_on = kkw_get_option( 'home_featured_content_auto_on', 'kkw_opt_hp_layout' 
 $opt_featured_1 = kkw_get_option( 'featured_content_1', 'kkw_opt_hp_layout' );
 $fc1            = count( $opt_featured_1 ) > 0 ? $opt_featured_1[0] : null;
 $fc1_id         = $fc1 && array_key_exists('box_content', $fc1 ) ? explode( ',', $fc1['box_content'] )[0] : null;
-$fc1_img_side   = $fc1['box_image_side'];
-$fc1            =  KKW_ContentsManager::get_wrapped_item( $fc1_id );
-$fc1_img_id     = get_post_thumbnail_id( $fc1_id );
-$fc1_img_array  = wp_get_attachment_image_src( $fc1_img_id, 'featured-post' );
-$fc1_img_src    = $fc1_img_array ? $fc1_img_array[0] : '';
-$fc1_img_alt    = get_post_meta( $fc1_img_id, '_wp_attachment_image_alt', true );
-$fc1_img_alt    = $fc1_img_alt ? $fc1_img_alt : $fc1->title;
+$fc1_id         = KKW_PolylangManager::get_page_by_id( $fc1_id ); // Get the post in the right language.
+if ( $fc1_id ) {
+	$fc1_img_side   = $fc1['box_image_side'];
+	$fc1            =  KKW_ContentsManager::get_wrapped_item( $fc1_id );
+	$fc1_img_id     = get_post_thumbnail_id( $fc1_id );
+	$fc1_img_array  = wp_get_attachment_image_src( $fc1_img_id, 'featured-post' );
+	$fc1_img_src    = $fc1_img_array ? $fc1_img_array[0] : '';
+	$fc1_img_alt    = get_post_meta( $fc1_img_id, '_wp_attachment_image_alt', true );
+	$fc1_img_alt    = $fc1_img_alt ? $fc1_img_alt : $fc1->title;
+}
 
 // BOX 2.
 $opt_featured_2 = kkw_get_option( 'featured_content_2', 'kkw_opt_hp_layout' );
 $fc2            = count( $opt_featured_2 ) > 0 ? $opt_featured_2[0] : null;
 $fc2_id         = $fc2 && array_key_exists('box_content', $fc2 ) ? explode( ',', $fc2['box_content'] )[0] : null;
-$fc2_img_side   = $fc2['box_image_side'];
-$fc2            = KKW_ContentsManager::get_wrapped_item( $fc2_id );
-$fc2_img_id     = get_post_thumbnail_id( $fc2_id );
-$fc2_img_array  = wp_get_attachment_image_src( $fc2_img_id, 'featured-post' );
-$fc2_img_src    = $fc2_img_array ? $fc2_img_array[0] : '';
-$fc2_img_alt    = get_post_meta( $fc2_img_id, '_wp_attachment_image_alt', true );
-$fc2_img_alt    = $fc2_img_alt ? $fc2_img_alt : $fc2->title;
+$fc2_id         = KKW_PolylangManager::get_page_by_id( $fc2_id ); // Get the post in the right language.
+if ( $fc1_id ) {
+	$fc2_img_side   = $fc2['box_image_side'];
+	$fc2            = KKW_ContentsManager::get_wrapped_item( $fc2_id );
+	$fc2_img_id     = get_post_thumbnail_id( $fc2_id );
+	$fc2_img_array  = wp_get_attachment_image_src( $fc2_img_id, 'featured-post' );
+	$fc2_img_src    = $fc2_img_array ? $fc2_img_array[0] : '';
+	$fc2_img_alt    = get_post_meta( $fc2_img_id, '_wp_attachment_image_alt', true );
+	$fc2_img_alt    = $fc2_img_alt ? $fc2_img_alt : $fc2->title;
+}
 
 // BOX 3.
 $opt_featured_3 = kkw_get_option( 'featured_content_3', 'kkw_opt_hp_layout' );
 $fc3            = count( $opt_featured_3 ) > 0 ? $opt_featured_3[0] : null;
 $fc3_id         = $fc3 && array_key_exists('box_content', $fc3 ) ? explode( ',', $fc3['box_content'] )[0] : null;
+$fc3_id         = KKW_PolylangManager::get_page_by_id( $fc3_id ); // Get the post in the right language.
 $fc3_img_side   = $fc3['box_image_side'];
-$fc3            = KKW_ContentsManager::get_wrapped_item( $fc3_id );
-$fc3_img_id     = get_post_thumbnail_id( $fc3_id );
-$fc3_img_array  = wp_get_attachment_image_src( $fc3_img_id, 'featured-post' );
-$fc3_img_src    = $fc3_img_array ? $fc3_img_array[0] : '';
-$fc3_img_alt    = get_post_meta( $fc3_img_id, '_wp_attachment_image_alt', true );
-$fc3_img_alt    = $fc3_img_alt ? $fc3_img_alt : $fc3->title;
+if ( $fc3_id ) {
+	$fc3            = KKW_ContentsManager::get_wrapped_item( $fc3_id );
+	$fc3_img_id     = get_post_thumbnail_id( $fc3_id );
+	$fc3_img_array  = wp_get_attachment_image_src( $fc3_img_id, 'featured-post' );
+	$fc3_img_src    = $fc3_img_array ? $fc3_img_array[0] : '';
+	$fc3_img_alt    = get_post_meta( $fc3_img_id, '_wp_attachment_image_alt', true );
+	$fc3_img_alt    = $fc3_img_alt ? $fc3_img_alt : $fc3->title;
+}
 
 // BOX 4: Last News.
 $news_list      = KKW_ContentsManager::get_latest_posts( 'news', 1 );
 $news           = count( $news_list ) ? $news_list[0] : null;
-$news_img_id    = $news->id ? get_post_thumbnail_id( $news->id ) : null;
-$news_img_array = $news_img_id ? wp_get_attachment_image_src( $news_img_id, 'small-featured' ) : null;
-$news_img_src   = $news_img_array  ? $news_img_array [0] : '';
-$news_img_alt   = $news_img_id ? get_post_meta( $news_img_id, '_wp_attachment_image_alt', true ) : '';
-$news_img_alt   = $news_img_alt ? $news_img_alt : $news->title;
+if ( $news ) {
+	$news_img_id    = $news->id ? get_post_thumbnail_id( $news->id ) : null;
+	$news_img_array = $news_img_id ? wp_get_attachment_image_src( $news_img_id, 'small-featured' ) : null;
+	$news_img_src   = $news_img_array  ? $news_img_array [0] : '';
+	$news_img_alt   = $news_img_id ? get_post_meta( $news_img_id, '_wp_attachment_image_alt', true ) : '';
+	$news_img_alt   = $news_img_alt ? $news_img_alt : $news->title;
+}
 
 // BOX 5: Last Event.
 $event_list      = KKW_ContentsManager::get_latest_posts( 'event', 1 );
 $event           = count( $event_list ) ? $event_list[0] : null;
-$event_img_id    = $event->id ? get_post_thumbnail_id( $event->id ) : null;
-$event_img_array = $event_img_id ? wp_get_attachment_image_src( $event_img_id, 'small-featured' ) : null;
-$event_img_src   = $event_img_array  ? $event_img_array [0] : '';
-$event_img_alt   = $event_img_id ? get_post_meta( $event_img_id, '_wp_attachment_image_alt', true ) : '';
-$event_img_alt   = $event_img_alt ? $event_img_alt : $event->title;
+if ( $event ) {
+	$event_img_id    = $event->id ? get_post_thumbnail_id( $event->id ) : null;
+	$event_img_array = $event_img_id ? wp_get_attachment_image_src( $event_img_id, 'small-featured' ) : null;
+	$event_img_src   = $event_img_array  ? $event_img_array [0] : '';
+	$event_img_alt   = $event_img_id ? get_post_meta( $event_img_id, '_wp_attachment_image_alt', true ) : '';
+	$event_img_alt   = $event_img_alt ? $event_img_alt : $event->title;
+}
 ?>
 
 <!-- FIRST ROW -->
@@ -67,6 +80,9 @@ $event_img_alt   = $event_img_alt ? $event_img_alt : $event->title;
 	<!-- left box -->
 	<div class="col-md-6">
 		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+			<?php
+				if ( $fc1_id ) {
+			?>
 			<div class="col p-4 d-flex flex-column position-static">
 				<strong class="d-inline-block mb-2 text-primary-emphasis">
 					<a class="kkw_link" href="<?php echo esc_url( $fc1->main_group_url ); ?>">
@@ -96,11 +112,17 @@ $event_img_alt   = $event_img_alt ? $event_img_alt : $event->title;
 							alt="<?php echo esc_attr( $fc1_img_alt ); ?>" />
 				</a>
 			</div>
+			<?php
+				}
+			?>
 		</div>
 	</div>
 	<!-- right box -->
 	<div class="col-md-6">
 		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+			<?php
+				if ( $fc2_id ) {
+			?>
 			<div class="col p-4 d-flex flex-column position-static">
 				<strong class="d-inline-block mb-2 text-primary-emphasis">
 					<a class="kkw_link" href="<?php echo esc_url( $fc2->main_group_url ); ?>">
@@ -129,6 +151,9 @@ $event_img_alt   = $event_img_alt ? $event_img_alt : $event->title;
 							alt="<?php echo esc_attr( $fc2_img_alt ); ?>" />
 				</a>
 			</div>
+			<?php
+				}
+			?>
 		</div>
 	</div>
 </div>
@@ -139,6 +164,9 @@ $event_img_alt   = $event_img_alt ? $event_img_alt : $event->title;
 	<!-- first box -->
 	<div class="col-md-6">
 		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+			<?php
+				if ( $fc3_id ) {
+			?>
 			<div class="col p-4 d-flex flex-column position-static">
 				<strong class="d-inline-block mb-2 text-primary-emphasis">
 					<a class="kkw_link" href="<?php echo esc_url( $fc3->main_group_url ); ?>">
@@ -167,6 +195,9 @@ $event_img_alt   = $event_img_alt ? $event_img_alt : $event->title;
 							alt="<?php echo esc_attr( $fc3_img_alt ); ?>" />
 				</a>
 			</div>
+			<?php
+				}
+			?>
 		</div>
 	</div>
 	<!-- second box -->
