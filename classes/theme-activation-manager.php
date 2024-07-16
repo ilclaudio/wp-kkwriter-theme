@@ -245,11 +245,6 @@ private function create_static_pages() {
 	}
 	private function create_the_menus( $lang ) {
 		$menu = KKW_MAIN_MENU_EN;
-		// if ( $lang == 'en' ) {
-		// 	$menu = KKW_MAIN_MENU_EN;
-		// } else {
-		// 	$menu = KKW_MAIN_MENU_IT;
-		// }
 		$this->build_the_menu( $menu, $lang );
 	}
 
@@ -259,9 +254,6 @@ private function create_static_pages() {
 		$menu_items    = $menu['items'];
 		$menu_location = $menu['location'];
 		$menu_object   = wp_get_nav_menu_object( $menu_name );
-		// $menu_suffix   = $lang;
-		// $menu_lang     = $lang;
-		// $menu_location = $menu_location . '___' . $menu_suffix;
 
 		if ( $menu_object ) {
 			// Do nothing if the menu exists.

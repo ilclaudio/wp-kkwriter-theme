@@ -168,4 +168,12 @@ class KKW_PolylangManager {
 		}
 	}
 
+	/**
+	 * Returns the Home Page in the right language.
+	 * @return string
+	 */
+	public static function get_home_url() {
+		return pll_home_url();
+	}
+
 }
