@@ -25,14 +25,14 @@ define(
 		'name'     => KKW_MAIN_MENU_NAME,
 		'location' => KKW_MAIN_MENU_LOCATION,
 		'items'    => array(
-			// array(
-			// 	'slug'         => 'home',
-			// 	'title'        => 'Home',
-			// 	'content_type' => 'page',
-			// 	'post_type'    => 'post_type',
-			// 	'status'       => 'publish',
-			// 	'link'         => get_home_url(),
-			// ),
+			array(
+				'slug'         => 'home',
+				'title'        => 'Home',
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'link'         => get_home_url(),
+			),
 			array(
 				'slug'         => 'biography',
 				'title'        => 'Biography',
