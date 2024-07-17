@@ -59,15 +59,21 @@ if ( ! class_exists( 'KKW_ThemeOptionsManager' ) ) {
 if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 	function kkw_load_scripts_and_styles()
 	{
-		// Add bootstrap files.
+		// Import CSS/JS libraries files.
 		wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' );
 		wp_enqueue_style( 'bootstrap-css' );
+		wp_register_style( 'fontawesome-css', get_template_directory_uri() . '/assets/fontawesome/css/fontawesome.min.css' );
+		wp_enqueue_style( 'fontawesome-css' );
+		wp_register_style( 'fontawesome-brands-css', get_template_directory_uri() . '/assets/fontawesome/css/brands.min.css' );
+		wp_enqueue_style( 'fontawesome-brands-css' );
+		wp_register_style( 'fontawesome-solid-css', get_template_directory_uri() . '/assets/fontawesome/css/solid.min.css' );
+		wp_enqueue_style( 'fontawesome-solid-css' );
 		wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'bootstrap-js' );
+		// Import custom javascript.
 		wp_register_script( 'kkw-js', get_template_directory_uri() . '/assets/custom/js/main.js', array( 'jquery', 'bootstrap-js' ), '', true );
 		wp_enqueue_script( 'kkw-js' );
-		
-		// Add custom styles.
+		// Import custom styles.
 		wp_register_style( 'kkwritertheme_main_styles', get_template_directory_uri() . '/assets/custom/css/main.css' );
 		wp_enqueue_style( 'kkwritertheme_main_styles' );
 	}

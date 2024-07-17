@@ -244,8 +244,9 @@ private function create_static_pages() {
 		// $this->create_the_menus( 'it' );
 	}
 	private function create_the_menus( $lang ) {
-		$menu = KKW_MAIN_MENU_EN;
-		$this->build_the_menu( $menu, $lang );
+		$this->build_the_menu( KKW_MAIN_MENU_EN, $lang );
+		$this->build_the_menu( KKW_PRIMARY_FOOTER_MENU_EN, $lang );
+		$this->build_the_menu( KKW_SECONDARY_FOOTER_MENU_EN, $lang );
 	}
 
 	private function build_the_menu( $menu, $lang ) {
@@ -311,9 +312,9 @@ private function create_static_pages() {
 		error_log( '@@@ HERE WE REGISTER THE MENU POSITIONS @@@' );
 		register_nav_menus(
 			array(
-				KKW_MAIN_MENU_EN['location'] => KKW_MAIN_MENU_EN['name'],
-				'primary-footer-location'    => 'Primary Footer',
-				'secondary-footer-location'  => 'Secondary Footer',
+				KKW_MAIN_MENU_EN['location']             => KKW_MAIN_MENU_EN['name'],
+				KKW_PRIMARY_FOOTER_MENU_EN['location']   => KKW_PRIMARY_FOOTER_MENU_EN['name'],
+				KKW_SECONDARY_FOOTER_MENU_EN['location'] => KKW_SECONDARY_FOOTER_MENU_EN['name'],
 			)
 		);
 	}

@@ -6,8 +6,26 @@
  */
 ?>
 
-	<div class="container" style="border: 1px solid green;">
-		<p>Greetings from footer.php</p>
+	<div class="container m-0 p-0">
+
+		<!-- PRIMARY FOOTER -->
+		<?php
+			echo get_template_part(
+				'template-parts/footer/primary-footer',
+				false,
+				array(),
+			);
+		?>
+
+		<!-- SECONDARY FOOTER -->
+		<?php
+			echo get_template_part(
+				'template-parts/footer/secondary-footer',
+				false,
+				array(),
+			);
+		?>
+
 		<?php wp_footer(); ?>
 	</div>
 
