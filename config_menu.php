@@ -126,6 +126,14 @@ define(
 				'link'         => '',
 			),
 			array(
+				'slug'         => 'blog',
+				'title'        => 'Articles',
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'link'         => '',
+			),
+			array(
 				'slug'         => 'contacts',
 				'title'        => 'Contacts',
 				'content_type' => 'page',

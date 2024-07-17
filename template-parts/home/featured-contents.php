@@ -14,7 +14,7 @@ $fc1_id         = $fc1 && array_key_exists('box_content', $fc1 ) ? explode( ',',
 $fc1_id         = KKW_PolylangManager::get_page_by_id( $fc1_id ); // Get the post in the right language.
 if ( $fc1_id ) {
 	$fc1_img_side   = $fc1['box_image_side'];
-	$fc1            =  KKW_ContentsManager::get_wrapped_item( $fc1_id );
+	$fc1            = KKW_ContentsManager::get_wrapped_item( $fc1_id );
 	$fc1_img_id     = get_post_thumbnail_id( $fc1_id );
 	$fc1_img_array  = wp_get_attachment_image_src( $fc1_img_id, 'featured-post' );
 	$fc1_img_src    = $fc1_img_array ? $fc1_img_array[0] : '';
