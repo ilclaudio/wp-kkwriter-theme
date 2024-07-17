@@ -197,4 +197,43 @@ class KKW_ContentsManager
 		}
 		return $results;
 	}
+
+	/**
+	* Given an $item menu returns the wrapped item to show in the site menus.
+	* @param mixed $item
+	* @return array
+	*/
+	public static function get_wrapped_menu_item( $item ) {
+		$wrapped = array(
+			'id'    => 0,
+			'link'  => '',
+			'title' => '',
+		);
+		switch ( $item->type ) {
+			case 'custom':
+				$wrapped['id']    = 0;
+				$wrapped['link']  = esc_url( $item->url );
+				$wrapped['title'] = __( $item->title, 'kk_writer_theme' );
+				$wrapped['type']  = $item->type;
+				break;
+			case 'post_type':
+			case 'taxonomy':
+				$id      = intval( $item->object_id );
+				$page_id = KKW_PolylangManager::get_page_by_id( $id );
+				$link    = get_permalink( $page_id );
+				$wrapped['id']    = intval( $item->object_id );
+				$wrapped['link']  = $link;
+				$wrapped['title'] = __( $item->title, 'kk_writer_theme' );
+				$wrapped['type']  = $item->type;
+				break;
+			default:
+				$wrapped['id']    = 0;
+				$wrapped['link']  = '';
+				$wrapped['title'] = '';
+				$wrapped['type']  = $item->type;
+				break;
+		}
+		return $wrapped;
+	}
+
 }
