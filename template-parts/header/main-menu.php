@@ -2,7 +2,7 @@
 	// All the defined locations.
 	$locations  = get_nav_menu_locations();
 	// The menu assigned to that location.
-	$menu_id    = array_key_exists(KKW_MAIN_MENU_LOCATION, $locations) ? 
+	$menu_id    = array_key_exists( KKW_MAIN_MENU_LOCATION, $locations ) ? 
 		$locations[KKW_MAIN_MENU_LOCATION] :
 		null;
 	// The items of the menu.

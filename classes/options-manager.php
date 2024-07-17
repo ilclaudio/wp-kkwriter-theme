@@ -629,57 +629,85 @@ class KKW_ThemeOptionsManager
 		);
 		$social_options->add_field(
 			array(
-				'id' => 'facebook',
+				'id'   => 'facebook',
 				'name' => 'Facebook',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-				'id' => 'youtube',
+				'id'   => 'youtube',
 				'name' => 'Youtube',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-				'id' => 'instagram',
+				'id'   => 'instagram',
 				'name' => 'Instagram',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-				'id' => 'twitter',
+			'id'   => 'pinterest',
+			'name' => 'Pinterest',
+			'type' => 'text_url',
+			)
+		);
+		$social_options->add_field(
+			array(
+				'id'   => 'twitter',
 				'name' => 'Twitter',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id' => 'ics',
+			'id'   => 'ics',
 			'name' => 'X',
 			'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-				'id' => 'linkedin',
+				'id'   => 'linkedin',
 				'name' => 'Linkedin',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id' => 'github',
+			'id'   => 'titok',
+			'name' => 'TikTok',
+			'type' => 'text_url',
+			)
+		);
+		$social_options->add_field(
+			array(
+			'id'   => 'github',
 			'name' => 'GitHub',
 			'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id' => 'pinterest',
-			'name' => 'Pinterest',
+			'id'   => 'gitlab',
+			'name' => 'GitLab',
+			'type' => 'text_url',
+			)
+		);
+		$social_options->add_field(
+			array(
+			'id'   => 'iris',
+			'name' => 'Iris',
+			'type' => 'text_url',
+			)
+		);
+		$social_options->add_field(
+			array(
+			'id'   => 'googlescholar',
+			'name' => 'Google Scholar',
 			'type' => 'text_url',
 			)
 		);
