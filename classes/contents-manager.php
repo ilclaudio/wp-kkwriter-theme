@@ -221,7 +221,7 @@ class KKW_ContentsManager
 				$id      = intval( $item->object_id );
 				$page_id = KKW_PolylangManager::get_page_by_id( $id );
 				$link    = get_permalink( $page_id );
-				$wrapped['id']    = intval( $item->object_id );
+				$wrapped['id']    = intval( $page_id );
 				$wrapped['link']  = $link;
 				$wrapped['title'] = __( $item->title, 'kk_writer_theme' );
 				$wrapped['type']  = $item->type;

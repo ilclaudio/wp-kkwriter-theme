@@ -10,7 +10,9 @@
 ?>
 
 	<div id="primary-footer" class="row m-0 p-0 fill-primary">
-
+		<h3 class="visually-hidden">
+			<?php echo __( 'Section primary footer with site name, useful links and links to the socials.', 'kk_writer_theme' ); ?>
+		</h3>
 		<!-- First row: TAGLINE -->
 		<div class="row col-sm-12 p-4 text-left">
 				<h1 class="kkw_sitetitle"><a href="<?php echo KKW_PolylangManager::get_home_url(); ?>"><?php echo esc_html( $title, 'kk_writer_theme' ); ?></a></h1>
@@ -29,28 +31,24 @@
 			?>
 				<nav class="m-0 p-0 navbar navbar-expand-lg">
 					<div id="navbarNav">
-					<ul class="navbar-nav">
-					<?php
-						// The items of the menu.
-						// Here I get the link in the right language but I want to show
-						// the text of the menu and not the title of the post.
-						// @TODO: Manage external links.
-						foreach ( $menu_items as $item ) {
-							$wrapped_item = KKW_ContentsManager::get_wrapped_menu_item( $item );
-							$active       = is_page( $wrapped_item['id'] );
-					?>
-						<li class="nav-item">
-							<a title="<?php echo $wrapped_item['title']; ?>"
-								<?php if ( $wrapped_item['type'] === 'custom' ) { ?> target="_blank"<?php } ?>
-								class="nav-link m-0 py-0 pr-8 <?php if ( $active ) echo 'active'; ?>"
-								href="<?php echo $wrapped_item['link']; ?>">
-								<?php echo $wrapped_item['title']; ?>
-							</a>
-						</li>
-					<?php
-						}
-					?>
-					</ul>
+						<ul class="navbar-nav">
+						<?php
+							foreach ( $menu_items as $item ) {
+								$wrapped_item = KKW_ContentsManager::get_wrapped_menu_item( $item );
+								$active       = ( $wrapped_item['type'] !== 'custom' ) && is_page( $wrapped_item['id'] );
+						?>
+							<li class="nav-item">
+								<a title="<?php echo $wrapped_item['title']; ?>"
+									<?php if ( $wrapped_item['type'] === 'custom' ) { ?> target="_blank"<?php } ?>
+									class="nav-link m-0 py-0 pr-8 <?php if ( $active ) echo 'active'; ?>"
+									href="<?php echo $wrapped_item['link']; ?>">
+									<?php echo $wrapped_item['title']; ?>
+								</a>
+							</li>
+						<?php
+							}
+						?>
+						</ul>
 					</div>
 				</nav>
 			<?php
