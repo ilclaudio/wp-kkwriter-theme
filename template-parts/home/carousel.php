@@ -13,7 +13,9 @@ if ( $num_items > 0 ){
 ?>
 
 	<div id="carouselExampleIndicators" class="carousel slide">
-
+		<h3 class="visually-hidden">
+				<?php echo __( 'Section that contains a carousel with the most important contents of the site.', 'kk_writer_theme' ); ?>
+		</h3>
 		<!-- INDICATORS -->
 		<div class="carousel-indicators">
 			<?php

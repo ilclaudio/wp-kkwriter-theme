@@ -11,6 +11,9 @@
 ?>
 
 <div class="nav-scroller py-1 mb-3 border-bottom">
+	<h3 class="visually-hidden">
+			<?php echo __( 'Section that contains the main menu of the site.', 'kk_writer_theme' ); ?>
+	</h3>
 	<nav class="nav nav-underline justify-content-between">
 		<?php
 		foreach ( $menu_items as $item ) {
