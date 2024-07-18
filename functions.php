@@ -62,6 +62,8 @@ if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 		// Import CSS/JS libraries files.
 		wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' );
 		wp_enqueue_style( 'bootstrap-css' );
+		wp_register_style( 'fonts-css', get_template_directory_uri() . '/assets/fonts/fonts.css' );
+		wp_enqueue_style( 'fonts-css' );
 		wp_register_style( 'fontawesome-css', get_template_directory_uri() . '/assets/fontawesome/css/fontawesome.min.css' );
 		wp_enqueue_style( 'fontawesome-css' );
 		wp_register_style( 'fontawesome-brands-css', get_template_directory_uri() . '/assets/fontawesome/css/brands.min.css' );
