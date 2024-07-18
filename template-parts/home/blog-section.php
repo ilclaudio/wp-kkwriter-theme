@@ -12,6 +12,9 @@ if ( count( $blog_items ) ){
 ?>
 
 <div id="fc_first_row" class="row mt-4 mb-1 fc-row">
+	<h3 class="visually-hidden">
+			<?php echo __( 'Section that contains some featured blog posts.', 'kk_writer_theme' ); ?>
+	</h3>
 	<?php
 		foreach ( $blog_items as $blog ) {
 			$blog_img_id    = $blog->id ? get_post_thumbnail_id( $blog->id ) : null;

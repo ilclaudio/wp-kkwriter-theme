@@ -77,6 +77,9 @@ if ( $event ) {
 
 <!-- FIRST ROW -->
 <div id="fc_first_row" class="row mt-4 mb-1 fc-row">
+	<h3 class="visually-hidden">
+			<?php echo __( 'Section that contains the featured contents of the site: books, events and news.', 'kk_writer_theme' ); ?>
+	</h3>
 	<!-- left box -->
 	<div class="col-md-6">
 		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
