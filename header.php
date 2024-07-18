@@ -1,8 +1,20 @@
+<?php
+/**
+ * KK Writer Theme: The header of the site.
+ *
+ * @package KK_Writer_Theme
+ */
+?>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<?php wp_head(); ?>
+	<?php get_template_part( 'template-parts/header/analytics' ); ?>
+	<?php get_template_part( 'template-parts/header/metatags' ); ?>
+	<link rel="icon" href="<?php echo get_template_directory_uri() . '/assets/img/favicon.ico'; ?> " />
 </head>
 <?php
 	include_once KKW_THEMA_PATH . '/classes/polylang-manager.php';
@@ -13,18 +25,22 @@
 <body>
 	<div class="container">
 		<header class="border-bottom lh-1 py-3">
-			<div class="row flex-nowrap justify-content-between align-items-center">
+			<div class="row justify-content-between align-items-center">
 				<!-- Logo -->
-				<div class="col-4 pt-1 kkw_logoheader">
-					<a href="<?php echo get_site_url(); ?>">Logo</a>
+				<div class="col-12 col-lg-4 pt-1 text-center text-lg-left kkw_logoheader mb-3 mb-lg-0">
+					<a href="<?php echo get_site_url(); ?>" title="<?php echo __( 'The logo of the site.', 'kk_writer_theme' ); ?>">
+						<img height="100" class="m-0 p-0" src="<?php echo get_template_directory_uri() . '/assets/img/LogoHeader.jpg' ?>" />
+					</a>
 				</div>
+
 				<!-- TITLE OF THE SITE -->
-				<div class="col-4 text-center">
+				<div class="col-12 col-lg-4 text-center mb-3 mb-lg-0">
 					<h1 class="kkw_sitetitle"><a href="<?php echo get_site_url(); ?>"><?php echo esc_html( $title, 'kk_writer_theme' ); ?></a></h1>
 					<div class="kkw_tagline"><a href="<?php echo get_site_url(); ?>"><?php echo esc_html( $tagline, 'kk_writer_theme' ); ?></a></div>
 				</div>
+
 				<!-- Selectors -->
-				<div class="col-4 d-flex justify-content-end align-items-center">
+				<div class="col-12 col-lg-4 d-flex justify-content-lg-end justify-content-center align-items-center  mb-3 mb-lg-0">
 					<!-- Language Selector -->
 					<div id="kkw_language_div" class="dropdown">
 						<?php	
@@ -58,7 +74,6 @@
 					<!-- END Search button -->
 
 				</div>
-				<!-- END Selectors -->
 			</div>
 		</header>
 
