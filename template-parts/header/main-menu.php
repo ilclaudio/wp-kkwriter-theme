@@ -14,24 +14,11 @@
 	<nav class="nav nav-underline justify-content-between">
 		<?php
 		foreach ( $menu_items as $item ) {
-			if ( $item->post_name !== 'home' ) {
-				// All menu items.
-				$page_id  = KKW_PolylangManager::get_page_by_id( $item->object_id );
-					$page     = get_post( $page_id );
-					$active   = is_page( $page_id );
-					$page_url = get_permalink( $page_id );
-					$title    = $page->post_title;
-				// $parent_id = wp_get_post_parent_id();--> multilevels checks.
-			} else {
-				// Only the Home Page.
-				$active   = is_home();
-				$page_url = KKW_PolylangManager::get_home_url();
-				$title    = 'Home';
-			}
+			$wrapped_item = KKW_ContentsManager::get_wrapped_menu_item( $item );
 		?>
-			<a class="nav-item nav-link link-body-emphasis <?php if ( $active ) echo 'active'; ?>"
-				href="<?php echo $page_url; ?>">
-				<?php echo $title; ?>
+			<a class="nav-item nav-link link-body-emphasis <?php if ( $wrapped_item['active'] ) echo 'active'; ?>"
+				href="<?php echo $wrapped_item['link']; ?>">
+				<?php echo $wrapped_item['title']; ?>
 			</a>
 		<?php
 		}

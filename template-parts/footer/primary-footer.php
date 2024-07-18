@@ -35,12 +35,11 @@
 						<?php
 							foreach ( $menu_items as $item ) {
 								$wrapped_item = KKW_ContentsManager::get_wrapped_menu_item( $item );
-								$active       = ( $wrapped_item['type'] !== 'custom' ) && is_page( $wrapped_item['id'] );
 						?>
 							<li class="nav-item">
 								<a title="<?php echo $wrapped_item['title']; ?>"
 									<?php if ( $wrapped_item['type'] === 'custom' ) { ?> target="_blank"<?php } ?>
-									class="nav-link m-0 py-0 pr-8 <?php if ( $active ) echo 'active'; ?>"
+									class="nav-link m-0 py-0 pr-8 <?php if ( $wrapped_item['active'] ) echo 'active'; ?>"
 									href="<?php echo $wrapped_item['link']; ?>">
 									<?php echo $wrapped_item['title']; ?>
 								</a>

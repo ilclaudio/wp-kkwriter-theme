@@ -205,32 +205,36 @@ class KKW_ContentsManager
 	*/
 	public static function get_wrapped_menu_item( $item ) {
 		$wrapped = array(
-			'id'    => 0,
-			'link'  => '',
-			'title' => '',
+			'id'     => 0,
+			'link'   => '',
+			'title'  => '',
+			'active' => false,
 		);
 		switch ( $item->type ) {
 			case 'custom':
-				$wrapped['id']    = 0;
-				$wrapped['link']  = esc_url( $item->url );
-				$wrapped['title'] = __( $item->title, 'kk_writer_theme' );
-				$wrapped['type']  = $item->type;
+				$wrapped['id']     = 0;
+				$wrapped['link']   = esc_url( $item->url );
+				$wrapped['title']  = __( $item->title, 'kk_writer_theme' );
+				$wrapped['type']   = $item->type;
+				$wrapped['active'] = ( $item->post_name !== 'home' ) ? false : is_home();
 				break;
 			case 'post_type':
 			case 'taxonomy':
-				$id      = intval( $item->object_id );
-				$page_id = KKW_PolylangManager::get_page_by_id( $id );
-				$link    = get_permalink( $page_id );
-				$wrapped['id']    = intval( $page_id );
-				$wrapped['link']  = $link;
-				$wrapped['title'] = __( $item->title, 'kk_writer_theme' );
-				$wrapped['type']  = $item->type;
+				$id                = intval( $item->object_id );
+				$page_id           = KKW_PolylangManager::get_page_by_id( $id );
+				$link              = get_permalink( $page_id );
+				$wrapped['id']     = intval( $page_id );
+				$wrapped['link']   = $link;
+				$wrapped['title']  = __( $item->title, 'kk_writer_theme' );
+				$wrapped['type']   = $item->type;
+				$wrapped['active'] = ( $item->type !== 'custom' ) && is_page( $page_id );
 				break;
 			default:
-				$wrapped['id']    = 0;
-				$wrapped['link']  = '';
-				$wrapped['title'] = '';
-				$wrapped['type']  = $item->type;
+				$wrapped['id']     = 0;
+				$wrapped['link']   = '';
+				$wrapped['title']  = '';
+				$wrapped['type']   = $item->type;
+				$wrapped['active'] = false;
 				break;
 		}
 		return $wrapped;
