@@ -163,6 +163,7 @@ h1, h2, h3, h4, h5, h6 {
 .kkw_sitetitle a {
 	text-decoration: none;
 	color: inherit;
+	font-style: italic;
 }
 
 .kkw_logoheader a {
