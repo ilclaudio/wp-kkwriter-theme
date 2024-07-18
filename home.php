@@ -53,5 +53,6 @@
 		}
 	?>
 
+</main>
 <!-- The FOOTER of the site -->
 <?php get_footer(); ?>

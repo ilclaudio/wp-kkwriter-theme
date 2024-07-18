@@ -240,4 +240,42 @@ class KKW_ContentsManager
 		return $wrapped;
 	}
 
+
+	public static function get_image_metadata( $item, $image_size = "item-carousel", $partial_default_img_url = null ) {
+		$result = array(
+			'title'         => '',
+			'image_url'     => '',
+			'image_alt'     => '',
+			'image_title'   => '',
+			'image_caption' => '',
+		);
+		$image_url = get_the_post_thumbnail_url( $item, $image_size );
+		$image_caption = '';
+		if ( ! $image_url && $partial_default_img_url ) {
+			$image_url = get_template_directory_uri() . $partial_default_img_url;
+		}
+		$post_title  = get_the_title( $item );
+		$image_id    = get_post_thumbnail_id( $item->ID );
+
+		if( $image_id === 0 ) {
+			$image_title = $post_title;
+			$image_alt   = $post_title;
+		}
+		else {
+			$image_title   = get_the_title( $image_id );
+			$image_title   = $image_title ? $image_title : $post_title;
+			$image_alt     = get_post_meta( $image_id, '_wp_attachment_image_alt', TRUE );
+			$image_alt     = $image_alt ? $image_alt : $image_title;
+			$image_caption = wp_get_attachment_caption( $image_id );
+		}
+
+		// Prepare the result.
+		$result['title']         = $post_title;
+		$result['image_url']     = $image_url;
+		$result['image_alt']     = $image_alt;
+		$result['image_title']   = $image_title;
+		$result['image_caption'] = $image_caption;
+		return $result;
+	}
+
 }
