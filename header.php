@@ -26,21 +26,22 @@
 	<div class="container">
 		<header class="border-bottom lh-1 py-3">
 			<div class="row justify-content-between align-items-center">
+
 				<!-- Logo -->
-				<div class="col-12 col-lg-4 pt-1 text-center text-lg-left kkw_logoheader mb-3 mb-lg-0">
+				<div class="col-12 col-lg-4 text-center text-lg-left kkw_logoheader mb-3 mb-lg-0" style="border: 1px solid red">
 					<a href="<?php echo get_site_url(); ?>" title="<?php echo __( 'The logo of the site.', 'kk_writer_theme' ); ?>">
 						<img height="100" class="m-0 p-0" src="<?php echo get_template_directory_uri() . '/assets/img/LogoHeader.jpg' ?>" />
 					</a>
 				</div>
 
 				<!-- TITLE OF THE SITE -->
-				<div class="col-12 col-lg-4 text-center mb-3 mb-lg-0">
+				<div class="col-12 col-lg-4 text-center mb-4 mb-lg-0">
 					<h1 class="kkw_sitetitle"><a href="<?php echo get_site_url(); ?>"><?php echo esc_html( $title, 'kk_writer_theme' ); ?></a></h1>
 					<div class="kkw_tagline"><a href="<?php echo get_site_url(); ?>"><?php echo esc_html( $tagline, 'kk_writer_theme' ); ?></a></div>
 				</div>
 
 				<!-- Selectors -->
-				<div class="col-12 col-lg-4 d-flex justify-content-lg-end justify-content-center align-items-center  mb-3 mb-lg-0">
+				<div class="col-12 col-lg-4 d-flex justify-content-lg-end justify-content-center align-items-center mb-3 mb-lg-0">
 					<!-- Language Selector -->
 					<div id="kkw_language_div" class="dropdown">
 						<?php	
