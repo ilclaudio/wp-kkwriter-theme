@@ -62,6 +62,7 @@ class KKW_ContentsManager
 			case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
 				$item = KKW_ContentsManager::wrap_book( $post );
 					break;
+			case KKW_DEFAULT_PAGE:
 			case KKW_DEFAULT_POST:
 				$item = KKW_ContentsManager::wrap_post( $post );
 					break;

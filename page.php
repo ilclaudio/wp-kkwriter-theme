@@ -14,6 +14,8 @@ $image_metadata = KKW_ContentsManager::get_image_metadata( $post );
 
 	<!-- BREADCRUMB -->
 	<?php get_template_part( 'template-parts/common/breadcrumb' ); ?>
+	
+	<p>print here the content of the STATIC page</p>
 
 
 </main>

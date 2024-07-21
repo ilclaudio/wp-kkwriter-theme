@@ -76,6 +76,16 @@ class KKW_PolylangManager {
 		return $cl ? $cl : KKW_DEFAULT_LANGUAGE;
 	}
 
+
+	/**
+	 * Returns all the translations of a page with language and flag.
+	 * @return array|string
+	 */
+	public static function get_all_languages() {
+		return pll_the_languages( array ( 'raw' => 1) );
+	}
+
+
 	/**
 	 * Retrieves the list of the languages supported by the site.
 	 *
