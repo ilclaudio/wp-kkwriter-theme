@@ -62,7 +62,7 @@ if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 		// Import CSS/JS libraries files.
 		wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' );
 		wp_enqueue_style( 'bootstrap-css' );
-		wp_register_style( 'fonts-css', get_template_directory_uri() . '/assets/fonts/fonts.css' );
+		wp_register_style( 'fonts-css', get_template_directory_uri() . '/assets/custom/css/fonts.css' );
 		wp_enqueue_style( 'fonts-css' );
 		wp_register_style( 'fontawesome-css', get_template_directory_uri() . '/assets/fontawesome/css/fontawesome.min.css' );
 		wp_enqueue_style( 'fontawesome-css' );
@@ -70,10 +70,13 @@ if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 		wp_enqueue_style( 'fontawesome-brands-css' );
 		wp_register_style( 'fontawesome-solid-css', get_template_directory_uri() . '/assets/fontawesome/css/solid.min.css' );
 		wp_enqueue_style( 'fontawesome-solid-css' );
-		wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '', true );
+		wp_register_script( 'popper-js', get_template_directory_uri() . '/assets/bootstrap/js/popper.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'popper-js' );
+		wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery', 'popper-js' ), '', true );
 		wp_enqueue_script( 'bootstrap-js' );
+
 		// Import custom javascript.
-		wp_register_script( 'kkw-js', get_template_directory_uri() . '/assets/custom/js/main.js', array( 'jquery', 'bootstrap-js' ), '', true );
+		wp_register_script( 'kkw-js', get_template_directory_uri() . '/assets/custom/js/main.js', array( 'jquery', 'bootstrap-js', 'popper-js' ), '', true );
 		wp_enqueue_script( 'kkw-js' );
 		// Import custom styles.
 		wp_register_style( 'kkwritertheme_main_styles', get_template_directory_uri() . '/assets/custom/css/main.css' );

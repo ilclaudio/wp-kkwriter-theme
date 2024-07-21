@@ -15,12 +15,25 @@ body {
 
 /* Custom Styles */
 
+nav .active {
+	font-weight: bold;
+}
+
 .fill-primary {
 	background-color: #f5f5dc;
 }
 
 .fill-secondary {
 	background-color: #2f475e;
+}
+
+.btn-outline-success {
+  border-color: #2f475e;
+  color: #2f475e;
+}
+.btn-outline-success:hover {
+  background-color: #2f475e;
+  color: #fff;
 }
 
 .text-color-primary {
