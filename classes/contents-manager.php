@@ -298,4 +298,66 @@ class KKW_ContentsManager
 		return $ct;
 	}
 
+	public static function get_ct_filter_keys() {
+		$items = self::get_ct_filters();
+		return array_keys( $items );
+	}
+
+	public static function search_contents( $selected_contents, $search_string, $pagesize ) {
+		$groups = array();
+		// EVENTS.
+		$key = array_search( 'event', $selected_contents );
+		if ( $key !== false ) {
+			array_push( $groups, 'event' );
+			unset( $selected_contents[$key] );
+			if ( ! in_array( KKW_DEFAULT_POST, $selected_contents) ) {
+				array_push( $selected_contents, KKW_DEFAULT_POST );
+			}
+		}
+		// NEWS.
+		$key = array_search( 'news', $selected_contents );
+		if ( $key !== false ) {
+			array_push( $groups, 'news' );
+			unset( $selected_contents[$key] );
+			if ( ! in_array( KKW_DEFAULT_POST, $selected_contents ) ) {
+				array_push( $selected_contents, KKW_DEFAULT_POST );
+			}
+		}
+		// ARTICLES
+		$key = array_search( 'article', $selected_contents );
+		if ( $key !== false ) {
+			array_push( $groups, 'article' );
+			unset( $selected_contents[$key] );
+			if ( ! in_array( KKW_DEFAULT_POST, $selected_contents ) ) {
+				array_push( $selected_contents, KKW_DEFAULT_POST );
+			}
+		}
+
+		$parameters = array(
+			'paged'          => get_query_var( 'paged', 1 ),
+			'post_type'      => $selected_contents,
+			'posts_per_page' => $pagesize,
+			's'              => $search_string,
+		);
+
+		if ( count( $groups) ) {
+			$parameters['meta_query'] = array(
+				'relation' => 'OR',
+			);
+			foreach ( $groups as $grp ) {
+				array_push(
+					$parameters['meta_query'],
+					array(
+						'key'    => 'kkw_group',
+						'value'   => $grp,
+						'compare' => '=',
+					)
+				);
+			}
+		}
+
+		$the_query = new WP_Query( $parameters );
+		return $the_query;
+	}
+
 }
