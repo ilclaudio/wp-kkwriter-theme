@@ -279,4 +279,23 @@ class KKW_ContentsManager
 		return $result;
 	}
 
+	/**
+	 * Returns the post type that can be searched.
+	 * 
+	 * @return array
+	 */
+	public static function get_ct_filters() {
+		$ct = array(
+			'article'                                 => 'Articles',
+			'event'                                   => 'Events',
+			'news'                                    => 'News',
+			// KKW_DEFAULT_PAGE                          => 'Pages',
+			KKW_POST_TYPES[ ID_PT_BOOK ]['name']      =>  KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'],
+			KKW_POST_TYPES[ ID_PT_REVIEW ]['name']    =>  KKW_POST_TYPES[ ID_PT_REVIEW ]['plural_label'],
+			KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']   =>  KKW_POST_TYPES[ ID_PT_EXCERPT ]['plural_label'],
+			KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name'] =>  KKW_POST_TYPES[ ID_PT_INTERVIEW ]['plural_label'],
+		);
+		return $ct;
+	}
+
 }

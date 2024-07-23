@@ -19,12 +19,33 @@ nav .active {
 	font-weight: bold;
 }
 
-.fill-primary {
+.primary-bg {
 	background-color: #f5f5dc;
 }
 
-.fill-secondary {
+.secondary-bg {
 	background-color: #2f475e;
+}
+
+.btn-primary {
+	background-color: #f5f5dc;
+	border-color: #2f475e;
+}
+
+.btn-secondary {
+	background-color: #2f475e;
+	border-color: #f5f5dc;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+	background-color: #f5f5dc;
+	border-color: #2f475e;
+}
+
+.btn-outline-secondary {
+	--bs-btn-color:#2f475e;
 }
 
 .btn-outline-success {

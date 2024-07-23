@@ -9,7 +9,7 @@
 		null;
 ?>
 
-	<div id="primary-footer" class="row m-0 p-0 fill-primary">
+	<div id="primary-footer" class="row m-0 p-0 primary-bg">
 		<h3 class="visually-hidden">
 			<?php echo __( 'Section primary footer with site name, useful links and links to the socials.', 'kk_writer_theme' ); ?>
 		</h3>

@@ -14,11 +14,10 @@
 	$index = 0;
 ?>
 
--breadcrumb-
-<section id="breadcrumb">
+<section id="breadcrumb" style="border: 1px solid green;">
 	<div class="container">
 		<div class="row">
-			<div class="col-12 ms-4 ">
+			<div class="col-12">
 				<nav class="breadcrumb-container" aria-label="Percorso di navigazione">
 				<ol class="breadcrumb pb-0">
 					<?php

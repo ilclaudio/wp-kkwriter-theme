@@ -48,7 +48,7 @@ if ( $num_items > 0 ){
 			?>
 				<!-- begin slide -->
 				<div class="carousel-item <?php if ( $first ) echo 'active'; ?>" >
-					<div class="card mb-3 fill-primary" style="width: 600; height: 300px;">
+					<div class="card mb-3 primary-bg" style="width: 600; height: 300px;">
 						<div class="row g-0">
 							<!-- slide image -->
 							<div class="col-md-4 g-0 p-0 m-0">

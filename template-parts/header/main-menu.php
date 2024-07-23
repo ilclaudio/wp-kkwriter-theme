@@ -9,7 +9,7 @@
 	if ( $menu_id ) {
 		$menu_items = wp_get_nav_menu_items( $menu_id );
 ?>
-	<div class="mb-3 border-bottom">
+	<div class="mb-2 border-bottom">
 		<h3 class="visually-hidden">
 				<?php echo __( 'Section that contains the main menu of the site.', 'kk_writer_theme' ); ?>
 		</h3>

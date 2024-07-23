@@ -7,7 +7,7 @@
 		null;
 ?>
 
-<div id="secondary-footer" class="fill-secondary text-white text-center small">
+<div id="secondary-footer" class="secondary-bg text-white text-center small">
 	<h3 class="visually-hidden">
 		<?php echo __( 'Section secondary footer with administrative links', 'kk_writer_theme' ); ?>
 	</h3>
