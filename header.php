@@ -48,7 +48,7 @@ $tagline   = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
 				 ?>
 				<div class="col-12 col-lg-4 d-flex justify-content-lg-end justify-content-center align-items-center mb-3 mb-lg-0">
 					<FORM id="search_box" action="<?php echo $search_page_url; ?>" method="POST" class="d-flex" role="<?php $label ?>">
-						<input name="searchstring" class="form-control me-2" type="search"
+						<input name="search_string" class="form-control me-2" type="search"
 							placeholder="<?php echo $label ?>"
 							aria-label="<?php $label ?>">
 
