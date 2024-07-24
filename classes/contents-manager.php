@@ -128,6 +128,24 @@ class KKW_ContentsManager
 		return $item;
 	}
 	
+	public static function wrap_search_result( $post ): KKW_WrappedItem {
+		switch ( $post->post_type ) {
+			case KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name']:
+			case KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']:
+			case KKW_POST_TYPES[ ID_PT_REVIEW ]['name']:
+			case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
+				$item = KKW_ContentsManager::wrap_book( $post );
+					break;
+			case KKW_DEFAULT_PAGE:
+			case KKW_DEFAULT_POST:
+				$item = KKW_ContentsManager::wrap_post( $post );
+					break;
+		}
+		$wrapped_item = new KKW_WrappedItem( $item );
+		return $wrapped_item;
+	}
+	
+
 	/**
 	 * Retrieves the content to show in the Home Page Carousel.
 	 * @return array
