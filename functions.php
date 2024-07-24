@@ -117,6 +117,7 @@ if ( ! function_exists( 'kkw_setup' ) ) {
 		// Image size.
 		if ( function_exists( 'add_image_size' ) ) {
 			add_image_size( 'item-thumb', 280, 280 , true );
+			add_image_size( 'item-search', KKW_SEARCH_RESULTS_IMG_WIDTH, KKW_SEARCH_RESULTS_IMG_HEIGHT , true );
 			add_image_size( 'featured-post', KKW_FEATURED_IMG_WIDTH, KKW_FEATURED_IMG_HEIGHT , true );
 			add_image_size( 'small-featured', KKW_SMALL_FEATURED_IMG_WIDTH, KKW_SMALL_FEATURED_IMG_HEIGHT , true );
 			add_image_size( 'blog-section', KKW_BLOG_SECTION_IMG_WIDTH, KKW_BLOG_SECTION_IMG_HEIGHT , true );

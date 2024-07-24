@@ -8,7 +8,7 @@
 <?php
 
 get_header();
-define( 'SITESEARCH_CELLS_PER_PAGE', 10 );
+define( 'SITESEARCH_CELLS_PER_PAGE', 4 );
 
 // BEGIN preparazione dei parametri di ricerca.
 $post_data    = $_POST;
@@ -123,30 +123,58 @@ if ( '' !== $search_string ) {
 				<!-- RESULTS column -->
 				<section class="col-md-9" aria-label="<?php echo __( 'Search results' , 'kk_writer_theme' ); ?>">
 					<h5 class="text-center"><?php echo __( 'Results found' , 'kk_writer_theme' ); ?>: <?php echo $num_results; ?></h5>
-					<article class="result-item mb-3">
-						<div class="media">
-							<img src="path/to/image1.jpg" class="mr-3" alt="...">
-							<div class="media-body">
-								<h6 class="mt-0">PROGETTO</h6>
-								<a href="#" class="h5">Quarto progetto</a>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ligula neque, sit amet elementum orci molestie vitae. Donec sollicitudin nisi vitae egestas accumsan. Donec eget quam et nibh maximus faucibus. Nulla dignissim id sapien vitae vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ligula neque, sit...</p>
-							</div>
-						</div>
-					</article>
-					<article class="result-item mb-3">
-						<div class="media">
-							<img src="path/to/image2.jpg" class="mr-3" alt="...">
-							<div class="media-body">
-								<h6 class="mt-0">PROGETTO</h6>
-								<a href="#" class="h5">Terzo progetto</a>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ligula neque, sit amet elementum orci molestie vitae. Donec sollicitudin nisi vitae egestas accumsan. Donec eget quam et nibh maximus faucibus. Nulla dignissim id sapien vitae vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ligula neque, sit...</p>
-							</div>
-						</div>
-					</article>
+					<?php
+						// The main loop of the page.
+						$pindex = 0;
+						if ( $num_results > 0 ) {
+							while ( $the_query->have_posts() ) {
+								$the_query->the_post();
+								$result = KKW_ContentsManager::wrap_search_result( $post );
+								$img_id     = get_post_thumbnail_id( $post->ID );
+								$img_array  = wp_get_attachment_image_src( $img_id, 'featured-post' );
+								$img_src    = $img_array ? $img_array[0] : '';
+								$img_alt    = get_post_meta( $img_id, '_wp_attachment_image_alt', true );
+								$img_alt    = $img_alt ? $img_alt : $result->title;
+					?>
+							<article class="row mb-3">
+								<div class="col-12 col-lg-12">
+									<div class="card-wrapper ">
+										<div class="card kkw_no_border">
+											<div class="card-body mb-0">
+												<a href="<?php echo esc_url( $result->detail_url ); ?>">
+													<img class="img-thumbnail float-sm-start me-2 text-nowrap"
+														src="<?php echo esc_url( $img_src ); ?>"
+														width="<?php echo strval( KKW_SEARCH_RESULTS_IMG_WIDTH ); ?>" 
+														height="<?php echo strval( KKW_SEARCH_RESULTS_IMG_HEIGHT ); ?>"
+														title="<?php echo esc_attr( $img_alt ); ?>"
+														alt="<?php echo esc_attr( $img_alt ); ?>"
+													>
+												</a>
+												<span class="text" style="text-transform: uppercase;">
+													<?php echo esc_attr( $result->main_group ); ?>
+												</span>
+												<a class="text-color-secondary kkw_link" href="<?php echo esc_url( $result->detail_url ); ?>">
+													<h3 class="card-title h5 ">
+														<?php echo esc_attr( $result->title ); ?>
+													</h3>
+												</a>
+												<p class="card-text">
+													<?php echo clean_and_truncate_text( $result->description, KKW_SEARCH_RESULT_TEXT_MAX_SIZE ); ?>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</article>
+					<?php
+						$pindex++;
+						}
+					}
+						wp_reset_postdata();
+					?>
 				</section>
 
 			</div>
-
 		</FORM>
 	</div>
 
