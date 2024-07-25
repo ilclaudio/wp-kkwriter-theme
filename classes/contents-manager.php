@@ -56,12 +56,19 @@ class KKW_ContentsManager
 	 * @return array.
 	 */
 	public static function get_wrapped_item( $post_id ): KKW_WrappedItem {
-		$post = get_post( $post_id );
-		$item = array();
+		$post    = get_post( $post_id );
+		$wrapped = self::wrap_search_result ($post );
+		return $wrapped;
+	}
+
+	public static function wrap_search_result( $post ): KKW_WrappedItem {
 		switch ( $post->post_type ) {
 			case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
 				$item = KKW_ContentsManager::wrap_book( $post );
 					break;
+			case KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name']:
+			case KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']:
+			case KKW_POST_TYPES[ ID_PT_REVIEW ]['name']:
 			case KKW_DEFAULT_PAGE:
 			case KKW_DEFAULT_POST:
 				$item = KKW_ContentsManager::wrap_post( $post );
@@ -127,24 +134,6 @@ class KKW_ContentsManager
 		$item['images']         = array();
 		return $item;
 	}
-	
-	public static function wrap_search_result( $post ): KKW_WrappedItem {
-		switch ( $post->post_type ) {
-			case KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name']:
-			case KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']:
-			case KKW_POST_TYPES[ ID_PT_REVIEW ]['name']:
-			case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
-				$item = KKW_ContentsManager::wrap_book( $post );
-					break;
-			case KKW_DEFAULT_PAGE:
-			case KKW_DEFAULT_POST:
-				$item = KKW_ContentsManager::wrap_post( $post );
-					break;
-		}
-		$wrapped_item = new KKW_WrappedItem( $item );
-		return $wrapped_item;
-	}
-	
 
 	/**
 	 * Retrieves the content to show in the Home Page Carousel.
@@ -322,56 +311,76 @@ class KKW_ContentsManager
 	}
 
 	public static function search_contents( $selected_contents, $search_string, $pagesize ) {
+		global $wpdb;
 		$groups = array();
 		// EVENTS.
 		$key = array_search( 'event', $selected_contents );
 		if ( $key !== false ) {
 			array_push( $groups, 'event' );
 			unset( $selected_contents[$key] );
-			if ( ! in_array( KKW_DEFAULT_POST, $selected_contents) ) {
-				array_push( $selected_contents, KKW_DEFAULT_POST );
-			}
 		}
 		// NEWS.
 		$key = array_search( 'news', $selected_contents );
 		if ( $key !== false ) {
 			array_push( $groups, 'news' );
 			unset( $selected_contents[$key] );
-			if ( ! in_array( KKW_DEFAULT_POST, $selected_contents ) ) {
-				array_push( $selected_contents, KKW_DEFAULT_POST );
-			}
 		}
 		// ARTICLES
 		$key = array_search( 'article', $selected_contents );
 		if ( $key !== false ) {
 			array_push( $groups, 'article' );
 			unset( $selected_contents[$key] );
-			if ( ! in_array( KKW_DEFAULT_POST, $selected_contents ) ) {
-				array_push( $selected_contents, KKW_DEFAULT_POST );
-			}
 		}
 
+		$text_like = '%' . $wpdb->esc_like( $search_string ) . '%';
+		$sql = "
+			SELECT DISTINCT p.ID
+			FROM {$wpdb->posts} AS p
+			LEFT JOIN {$wpdb->postmeta} AS pm ON (p.ID = pm.post_id)
+			LEFT JOIN {$wpdb->term_relationships} AS tr  ON (p.id=tr.object_id)
+			LEFT JOIN {$wpdb->term_taxonomy} AS tt ON (tt.term_taxonomy_id=tr.term_taxonomy_id)
+			WHERE
+				(p.post_title LIKE %s OR p.post_content LIKE %s)
+				AND p.post_status = 'publish'
+				AND tt.taxonomy='language'
+				AND tt.description LIKE '%\"it\"%'
+		";
+
+
+		$cond_items = array();
+		$cond_1     = null;
+		$cond_2 = null;
+		if ( count( $selected_contents ) ) {
+			$values = implode("', '", $selected_contents  );
+			$cond_1 = " ( p.post_type IN ('$values') ) ";
+			array_push( $cond_items, $cond_1 );
+		} 
+		if ( count( $groups ) ) {
+			$values = implode("', '", $groups  );
+			$cond_2 = " ( p.post_type='post' AND pm.meta_key= 'kkw_group' AND pm.meta_value IN ('$values') ) ";
+			array_push( $cond_items, $cond_2 );
+		}
+		if ( $cond_items > 0 ) {
+			$cond_post_type = join( ' OR ', $cond_items );
+			$sql = $sql . 'AND ' . $cond_post_type;
+		}
+
+		$query_results = $wpdb->get_col( $wpdb->prepare( $sql, $text_like, $text_like ) );
+
+		array_push( $selected_contents, 'post' );
 		$parameters = array(
 			'paged'          => get_query_var( 'paged', 1 ),
-			'post_type'      => $selected_contents,
 			'posts_per_page' => $pagesize,
-			's'              => $search_string,
+			'post_type'      => $selected_contents,
+			// 'post_type'      => self::get_ct_filter_keys(),
+			'orderby'         => 'post__in',
+			's'               => $search_string,
 		);
 
-		if ( count( $groups) ) {
-			$parameters['meta_query'] = array(
-				'relation' => 'OR',
-			);
-			foreach ( $groups as $grp ) {
-				array_push(
-					$parameters['meta_query'],
-					array(
-						'key'    => 'kkw_group',
-						'value'   => $grp,
-						'compare' => '=',
-					)
-				);
-			}
+		if ( ! empty( $query_results ) ) {
+			$parameters['post__in'] = $query_results;
+		} else {
+			$parameters['post__in'] = array( 0 ) ;
 		}
 
 		$the_query = new WP_Query( $parameters );

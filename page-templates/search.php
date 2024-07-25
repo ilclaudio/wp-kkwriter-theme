@@ -8,7 +8,7 @@
 <?php
 
 get_header();
-define( 'SITESEARCH_CELLS_PER_PAGE', 4 );
+define( 'SITESEARCH_CELLS_PER_PAGE', 10 );
 
 // BEGIN preparazione dei parametri di ricerca.
 $post_data    = $_POST;
@@ -129,7 +129,7 @@ if ( '' !== $search_string ) {
 						if ( $num_results > 0 ) {
 							while ( $the_query->have_posts() ) {
 								$the_query->the_post();
-								$result = KKW_ContentsManager::wrap_search_result( $post );
+								$result     = KKW_ContentsManager::wrap_search_result( $post );
 								$img_id     = get_post_thumbnail_id( $post->ID );
 								$img_array  = wp_get_attachment_image_src( $img_id, 'featured-post' );
 								$img_src    = $img_array ? $img_array[0] : '';
