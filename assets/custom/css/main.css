@@ -23,6 +23,16 @@ nav .active {
 	background-color: #f5f5dc;
 }
 
+.icon-secondary {
+	fill: #2f475e !important;
+}
+
+.icon {
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+}
+
 .secondary-bg {
 	background-color: #2f475e;
 }
@@ -223,4 +233,38 @@ h1, h2, h3, h4, h5, h6 {
 
 .kkw_no_border {
 	border: none !important;
+}
+
+/* CUSTOM PAGINATION */
+
+#pagination_links {
+	text-align: center;
+	font-size: 18px;
+	line-height: 1.555;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#pagination_links .page-numbers ul{
+	list-style: none;
+}
+
+#pagination_links .page-numbers li{
+	display:inline;
+	margin-right: 5px;
+}
+
+#pagination_links .page-numbers {}
+
+#pagination_links .page-numbers .current {
+	color: #2f475e;
+	border: 1px solid #2f475e;
+	border-radius: 5px;
+	padding:  6.75px 13.5px 6.75px 13.5px ;
+	margin: 5px;
+}
+
+#pagination_links a {
+	color: #2f475e;
+	text-decoration: underline;
 }
