@@ -122,7 +122,18 @@ if ( '' !== $search_string ) {
 
 				<!-- RESULTS column -->
 				<section class="col-md-9" aria-label="<?php echo __( 'Search results' , 'kk_writer_theme' ); ?>">
-					<h5 class="text-center"><?php echo __( 'Results found' , 'kk_writer_theme' ); ?>: <?php echo $num_results; ?></h5>
+					<p class="text-center">
+						<h5 class="text-center"><?php echo __( 'Results found' , 'kk_writer_theme' ); ?>: <?php echo $num_results; ?></h5>
+						<?php
+						if ( $search_string === '' ){
+						?>
+						<p class="fs-6 fst-italic text-center">
+							<?php echo __( 'Type the text to search and click on the Search button' , 'kk_writer_theme' ); ?>
+						</p>
+						<?php
+						}
+						?>
+					
 					<?php
 						// The main loop of the page.
 						$pindex = 0;
