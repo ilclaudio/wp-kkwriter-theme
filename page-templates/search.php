@@ -10,7 +10,7 @@
 get_header();
 define( 'SITESEARCH_CELLS_PER_PAGE', 4 );
 
-// BEGIN preparazione dei parametri di ricerca.
+// BEGIN prepare search parameters.
 $post_data    = $_GET;
 $search_string = isset( $post_data['search_string'] ) ? sanitize_text_field( $post_data['search_string'] ) : '';
 $redirection  = (sanitize_text_field( isset( $post_data['redirection'] ) && sanitize_text_field( $post_data['redirection'] ) === 'yes') ? true : false );
@@ -19,7 +19,7 @@ $content_types_filters = KKW_ContentsManager::get_ct_filters();
 $num_results           = 0;
 $selected_contents     = array();
 
-if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( $_GET['isreset'] ) === 'yes' ) ) {
+if ( isset( $_GET['is_reset'] ) && ( sanitize_text_field( $_GET['is_reset'] ) === 'yes' ) ) {
 	// Set the parameters to reset the search form.
 	$selected_contents = KKW_ContentsManager::get_ct_filter_keys();
 	$search_string      = '';
@@ -56,7 +56,7 @@ if ( '' !== $search_string ) {
 } else {
 	$num_results = 0;
 }
-// END preparazione dei parametri di ricerca.
+// END search parameters preparation.
 ?>
 
 <main class="container">
@@ -67,7 +67,7 @@ if ( '' !== $search_string ) {
 	<!-- BODY -->
 	<div class="container mt-2">
 
-		<FORM action="." id="ricercasitoform" method="GET" 
+		<FORM action="." id="search_site_form" method="GET" 
 			role="search" aria-label="<?php echo __( 'Site search' , 'kk_writer_theme' ); ?>">
 			<?php wp_nonce_field( 'sf_sitesearch_nonce', 'sitesearch_nonce_field' ); ?>
 
@@ -80,8 +80,11 @@ if ( '' !== $search_string ) {
 							class="form-control"
 							value="<?php echo esc_attr( $search_string ? $search_string : '' );  ?>"
 							placeholder="<?php echo __( 'Text to search...' , 'kk_writer_theme' ); ?>">
+							<input type="hidden" name="is_reset" id="is_reset" value="" />
 							<div class="mt-4">
-								<button type="button" class="btn btn-outline-secondary">
+								<button type="reset" value="reset"
+									onclick="resetForm('search_site_form', 'is_reset');"
+									class="btn btn-outline-secondary" >
 									<?php echo __( 'Cancel' , 'kk_writer_theme' ); ?>
 								</button>
 								<button type="submit" class="btn btn-secondary">
