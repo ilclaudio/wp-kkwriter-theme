@@ -268,3 +268,90 @@ h1, h2, h3, h4, h5, h6 {
 	color: #2f475e;
 	text-decoration: underline;
 }
+
+/* CAROUSEL CUSTOMIZATIONS */
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev {
+  left: 0;
+  right: auto;
+}
+
+.carousel-control-next {
+  right: 0;
+  left: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.carousel-control-prev-icon {
+  margin-left: 10px;
+}
+
+.carousel-control-next-icon {
+  margin-right: 10px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+
+	outline: #2f475e;
+	background-color: rgba(0, 0, 0, 0.3);
+	background-size: 100%, 100%;
+	border-radius: 50%;
+	border: 1px solid #2f475e;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev {
+  left: 0;
+  right: auto;
+}
+
+.carousel-control-next {
+  right: 0;
+  left: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* Cambia il colore di sfondo */
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.carousel-control-prev-icon {
+  margin-left: 10px;
+}
+
+.carousel-control-next-icon {
+  margin-right: 10px;
+}
+
+/* Personalizzazione degli indicatori */
+.carousel-indicators [data-bs-target] {
+  background-color: #2f475e; /* Colore degli indicatori inattivi */
+}
+
+.carousel-indicators .active {
+  background-color: black; /* Colore degli indicatori attivi */
+}
