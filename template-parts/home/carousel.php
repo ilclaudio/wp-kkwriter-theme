@@ -48,20 +48,20 @@ if ( $num_items > 0 ){
 			?>
 				<!-- begin slide -->
 				<div class="carousel-item <?php if ( $first ) echo 'active'; ?>" >
-					<div class="card mb-3 primary-bg" style="width: 600; height: 300px;">
+					<div class="card mb-3 primary-bg" style="width: 100%">
 						<div class="row g-0">
 							<!-- slide image -->
-							<div class="col-md-4 g-0 p-0 m-0">
+							<div class="col-md-3 g-0 p-0 m-0 text-center">
 								<a class="kkw_link" href="<?php echo esc_url( $item_url ); ?>">
-									<img style="max-height: 300px" 
+									<img style="max-height: <?php echo KKW_CAROUSEL_CARD_HEIGHT . 'px'; ?>"
 									src="<?php echo esc_url( $img_src ); ?>"
 									class="img-fluid rounded-start p-3" 
 									alt="<?php echo esc_attr( $img_alt ); ?>">
 								</a>
 							</div>
 							<!-- slide text -->
-							<div class="col-md-8">
-								<div class="card-body">
+							<div class="col-md-9">
+								<div class="card-body" style="width: 95%">
 									<h5 class="card-title">
 										<a class="kkw_link" href="<?php echo esc_url( $item_url ); ?>">
 											<b><?php echo esc_attr( $item->title ); ?></b>
@@ -92,16 +92,18 @@ if ( $num_items > 0 ){
 
 
 		<!-- BUTTONS -->
-		 <!--
-		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+		<button class="carousel-control-prev d-none d-md-flex" type="button"
+			data-bs-target="#carouselExampleIndicators"
+			data-bs-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
+			<span class="visually-hidden"><?php echo __( 'Back', 'kk_writer_theme' ); ?></span>
 		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+		<button class="carousel-control-next d-none d-md-flex" type="button"
+			data-bs-target="#carouselExampleIndicators"
+			data-bs-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
+			<span class="visually-hidden"><?php echo __( 'Next', 'kk_writer_theme' ); ?></span>
 		</button>
-		-->
 
 	</div> <!-- carousel-->
 <?php
