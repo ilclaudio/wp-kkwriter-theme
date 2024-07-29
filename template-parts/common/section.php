@@ -80,8 +80,11 @@ $total_pages = $the_query->max_num_pages;
 		?>
 		<div class="row">
 
-			<!-- Filter and Pagination-->
-			<section class="mt-0 pt-0 pe-5 mb-2 d-flex justify-content-end">
+			<!-- Ordering results -->
+			<?php
+			 if( $num_results >= MIN_RESULTS_TO_SHOW_ORDER ) {
+			?>
+			<section class="mt-0 pt-0 pe-5 d-flex justify-content-end">
 				<div class="row dropdown px-3">
 					<button class="btn dropdown-toggle border-secondary" type="button" 
 						data-bs-toggle="dropdown" aria-expanded="false">
@@ -111,9 +114,11 @@ $total_pages = $the_query->max_num_pages;
 					</ul>
 				</div>	
 			</section>
-
+			<?php
+			 }
+			?>
 			<!-- SECTION BOOKS (results) -->
-			<section class="col-md-12 px-5 pt-0 mt-0">
+			<section class="col-md-12 px-5 pt-0 mt-5">
 				<div class="row mb-5">
 					<?php
 					while ( $the_query->have_posts() ) {
@@ -141,7 +146,7 @@ $total_pages = $the_query->max_num_pages;
 										</a>
 									</h5>
 									<p class="card-text">
-										Casa Editrice - 
+									<?php echo esc_attr( $post_wrapper->publisher); ?> - 
 										<?php echo esc_attr( $post_wrapper->view_date); ?>
 									</p>
 								</div>

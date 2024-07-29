@@ -38,9 +38,7 @@ class KKW_WrappedImage{
 class KKW_WrappedItem {
 	public int $id;
 	public string $type;
-
 	public string $slug;
-
 	public string $status;
 	public string $title;
 	public string $description;
@@ -49,6 +47,7 @@ class KKW_WrappedItem {
 	public string $main_group;
 	public string $main_group_url;
 	public string $detail_url;
+	public string $publisher;
 	public string $author;
 	public array $images;
 
@@ -65,6 +64,7 @@ class KKW_WrappedItem {
 		$this->main_group     = $parameters['main_group'];
 		$this->main_group_url = $parameters['main_group_url'];
 		$this->detail_url     = $parameters['detail_url'];
+		$this->publisher      = $parameters['publisher'];
 		$this->author         = $parameters['author'];
 		$this->images         = $parameters['images'];
 	}
@@ -141,6 +141,7 @@ class KKW_ContentsManager
 			$item['view_date']      = $book['year'];
 			$item['main_group']     = $section;
 			$item['main_group_url'] = '';
+			$item['publisher']      = count( $book['publishers'] ) ? join( ',', $book['publishers'] ) : '';
 			$item['author']         = count( $book['authors'] ) ? join( ',', $book['authors'] ) : '';
 			$item['detail_url']     = get_permalink( $post->ID );
 		}
@@ -164,6 +165,7 @@ class KKW_ContentsManager
 		$item['view_date']      = $post->post_date;
 		$item['main_group']     = $group;
 		$item['main_group_url'] = '';
+		$item['publisher']      = '';
 		$item['author']         = '';
 		$item['detail_url']     = get_permalink( $post->ID) ;
 		$item['images']         = array();
