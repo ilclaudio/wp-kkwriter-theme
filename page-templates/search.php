@@ -8,7 +8,6 @@
 <?php
 
 get_header();
-define( 'SITESEARCH_CELLS_PER_PAGE', 4 );
 
 // BEGIN prepare search parameters.
 $post_data    = $_GET;

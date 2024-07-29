@@ -78,6 +78,8 @@ define(
 );
 
 define( 'SLUG_SEARCH_SITE_EN', 'search' );
+define( 'SITESEARCH_CELLS_PER_PAGE', 10 );
+define( 'SECTIONS_CELLS_PER_PAGE', 10 );
 
 define(
 	'KKW_SITE_STATIC_PAGES',

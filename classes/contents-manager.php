@@ -8,6 +8,33 @@
 
  require_once( WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'wp-kkwriter-plugin' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'search-manager.php' );
 
+
+
+class KKW_WrappedImage{
+	public int $id;
+	public string $src;
+	public string $alt;
+	public string $size_string;
+
+	public function __construct( $post_wrapper, $size_string ) {
+		$this->id   = get_post_thumbnail_id( $post_wrapper->id );
+		$img_array  = wp_get_attachment_image_src( $this->id, $size_string );
+		$this->src  = $img_array ? $img_array[0] : '';
+		$this->alt  = get_post_meta( $this->id, '_wp_attachment_image_alt', true );
+		if ( ! $this->alt ) {
+			switch ( $post_wrapper->type ) {
+				case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
+					$alt_dec   = $post_wrapper->author . ' - ' . $post_wrapper->title;
+					//$this->alt = $alt_desc;
+					break;
+				default:
+					$this->alt  = $this->alt ? $this->alt : $post_wrapper->title;
+					break;
+			}
+		}
+	}
+}
+
 class KKW_WrappedItem {
 	public int $id;
 	public string $type;
@@ -22,6 +49,7 @@ class KKW_WrappedItem {
 	public string $main_group;
 	public string $main_group_url;
 	public string $detail_url;
+	public string $author;
 	public array $images;
 
 
@@ -37,6 +65,7 @@ class KKW_WrappedItem {
 		$this->main_group     = $parameters['main_group'];
 		$this->main_group_url = $parameters['main_group_url'];
 		$this->detail_url     = $parameters['detail_url'];
+		$this->author         = $parameters['author'];
 		$this->images         = $parameters['images'];
 	}
 
@@ -78,6 +107,11 @@ class KKW_ContentsManager
 		return $wrapped_item;
 	}
 
+	public static function wrap_image( $post, $size_string ): KKW_WrappedImage {
+		return new KKW_WrappedImage( $post, $size_string );
+	}
+	
+
 	private static function get_empty_wrapper(): array {
 		return array(
 			'id'                => '',
@@ -107,8 +141,8 @@ class KKW_ContentsManager
 			$item['view_date']      = $book['year'];
 			$item['main_group']     = $section;
 			$item['main_group_url'] = '';
+			$item['author']         = count( $book['authors'] ) ? join( ',', $book['authors'] ) : '';
 			$item['detail_url']     = get_permalink( $post->ID );
-			$item['images']         = array();
 		}
 		return $item;
 	}
@@ -130,6 +164,7 @@ class KKW_ContentsManager
 		$item['view_date']      = $post->post_date;
 		$item['main_group']     = $group;
 		$item['main_group_url'] = '';
+		$item['author']         = '';
 		$item['detail_url']     = get_permalink( $post->ID) ;
 		$item['images']         = array();
 		return $item;
