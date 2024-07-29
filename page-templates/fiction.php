@@ -5,12 +5,20 @@
  * @package KK_Writer_Theme
  */
 ?>
-<?php get_header(); ?>
+<?php
+$section_label       = 'Fiction';
+$section             = __( $section_label , 'kk_writer_theme' );
+$section_description = '';
+?>
 
-
-<main class="container">
-FICTION
-</main>
-
-
-<?php get_footer(); ?>
+<?php
+	get_template_part(
+		'template-parts/common/section',
+		null,
+		array(
+			'section_label'       => $section_label,
+			'section'             => $section,
+			'section_description' => $section_description,
+		)
+	);
+?>
