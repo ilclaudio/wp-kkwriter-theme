@@ -1,0 +1,34 @@
+
+TEMA:
+
+- Elenco Articoli/Eventi/News.
+
+- Template Pagina -> Dettaglio LIBRO.
+- Template Pagina -> Dettaglio Articolo/Evento/News.
+- Template Pagina -> Contatti.
+- Template Pagina -> Sitemap.
+
+- Tradurre etichette in italiano.
+- Mettere immagini Mock, quando assenti.
+- Completare gestione Breadcrumbs.
+
+
+BUGS:
+- Backoffice: BUG menu configurazione tema (non si deve vedere nel menu principale).
+- Verifiche recupero articoli con cambio lingua: automatici e per ID.
+
+ACCESSIBILITA':
+- Verifica corretta definizione delle sezioni.
+- Verifica tag immagini.
+- Verifica corretta spiegazione link e menu.
+
+RESPONSIVE:
+- Fix Logo alignment.
+- Allineare menu footer1 al centro e anche sezione socials su schermi piccoli.
+
+REFACTORING:
+- Refactoring creazione tassonomie e pagine e sezioni con lingua generica.
+- Refactoring functions.php in object oriented way.
+- Correggere query di ricerca.
+- [Plugin] Refactoring SearchManager che ritorni un oggetto di tipo Book e non un array.
+
