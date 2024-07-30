@@ -31,4 +31,5 @@ REFACTORING:
 - Refactoring functions.php in object oriented way.
 - Correggere query di ricerca.
 - [Plugin] Refactoring SearchManager che ritorni un oggetto di tipo Book e non un array.
-
+- Invocazione del wrapper delle immagini per recuperare e mostrare i dati di una foto (src e alt).
+- Portare tutte le query per recuperare i contenuti dentro il ContentManager.

@@ -78,8 +78,9 @@ define(
 );
 
 define( 'SLUG_SEARCH_SITE_EN', 'search' );
-define( 'SITESEARCH_CELLS_PER_PAGE', 10 );
+define( 'SITE_SEARCH_CELLS_PER_PAGE', 10 );
 define( 'SECTIONS_CELLS_PER_PAGE', 10 );
+define( 'BLOG_ARTICLES_CELLS_PER_PAGE', 4 );
 
 define(
 	'KKW_SITE_STATIC_PAGES',

@@ -6,7 +6,6 @@
  */
 ?>
 <?php
-get_header();
 $section_label       = $args['section_label'];
 $section             = $args['section'];
 $section_description = $args['section_description'];
@@ -18,7 +17,7 @@ $type_order          = strtoupper(trim($type_order));
 if ( ! in_array( $type_order, $valid_sort_orders ) ) {
 	$type_order = 'ASC';
 }
-$valid_sort_fields = array( 'title',);
+$valid_sort_fields = array( 'title', 'kkw_year' );
 $sort_field        = isset($_GET['sort_field']) ? sanitize_text_field($_GET['sort_field']) : 'title';
 if (!in_array($sort_field, $valid_sort_fields)) {
 	$sort_field = 'title';
@@ -30,7 +29,7 @@ $args = array(
 	'order'          => $type_order,
 	'paged'          => get_query_var( 'paged', 1 ),
 	'posts_per_page' => SECTIONS_CELLS_PER_PAGE,
-	'tax_query' => array(
+	'tax_query'      => array(
 			array(
 					'taxonomy' => 'section', 
 					'field'    => 'slug',
@@ -191,6 +190,3 @@ $total_pages = $the_query->max_num_pages;
 	</div>
 
 </main>
-
-
-<?php get_footer(); ?>
