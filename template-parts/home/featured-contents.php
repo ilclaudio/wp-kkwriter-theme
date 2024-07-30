@@ -101,7 +101,7 @@ if ( $event ) {
 				<small class="text-body-secondary">
 					<a class="kkw_link"
 						href="<?php echo esc_url( $fc1->detail_url ); ?>">
-						<?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
+						<?php echo __( 'Read more...', 'kk_writer_theme' ); ?>
 					</a>
 				</small>
 			</div>
@@ -140,7 +140,7 @@ if ( $event ) {
 				</p>
 				<small class="text-body-secondary">
 					<a class="kkw_link"
-						href="<?php echo esc_url( $fc2->detail_url ); ?>"><?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
+						href="<?php echo esc_url( $fc2->detail_url ); ?>"><?php echo __( 'Read more...', 'kk_writer_theme' ); ?>
 					</a>
 				</small>
 			</div>
@@ -184,7 +184,7 @@ if ( $event ) {
 				</p>
 				<small class="text-body-secondary">
 					<a class="kkw_link"
-						href="<?php echo esc_url( $fc3->detail_url ); ?>"><?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
+						href="<?php echo esc_url( $fc3->detail_url ); ?>"><?php echo __( 'Read more...', 'kk_writer_theme' ); ?>
 					</a>
 				</small>
 			</div>
@@ -233,7 +233,7 @@ if ( $event ) {
 									<small class="text-body-secondary">
 										<a class="kkw_link"
 											href="<?php echo esc_url( $news->detail_url ); ?>">
-											<?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
+											<?php echo __( 'Read more...', 'kk_writer_theme' ); ?>
 										</a>
 									</small>
 								</div>
@@ -267,7 +267,7 @@ if ( $event ) {
 									<small class="text-body-secondary">
 										<a class="kkw_link"
 											href="<?php echo esc_url( $event->detail_url ); ?>">
-											<?php echo __( 'Keep reading...', 'kk_writer_theme' ); ?>
+											<?php echo __( 'Read more...', 'kk_writer_theme' ); ?>
 										</a>
 									</small>
 								</div>

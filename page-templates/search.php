@@ -14,13 +14,13 @@ $post_data    = $_GET;
 $search_string = isset( $post_data['search_string'] ) ? sanitize_text_field( $post_data['search_string'] ) : '';
 $redirection  = (sanitize_text_field( isset( $post_data['redirection'] ) && sanitize_text_field( $post_data['redirection'] ) === 'yes') ? true : false );
 
-$content_types_filters = KKW_ContentsManager::get_ct_filters();
+$content_types_filters = KKW_ContentsManager::get_custom_contents_filters();
 $num_results           = 0;
 $selected_contents     = array();
 
 if ( isset( $_GET['is_reset'] ) && ( sanitize_text_field( $_GET['is_reset'] ) === 'yes' ) ) {
 	// Set the parameters to reset the search form.
-	$selected_contents = KKW_ContentsManager::get_ct_filter_keys();
+	$selected_contents = KKW_ContentsManager::get_custom_contents_filter_keys();
 	$search_string      = '';
 } else {
 	// Retrieve the the content types to search in.
@@ -30,7 +30,7 @@ if ( isset( $_GET['is_reset'] ) && ( sanitize_text_field( $_GET['is_reset'] ) ==
 			$selected_contents = array();
 		}
 	} else {
-		$selected_contents = KKW_ContentsManager::get_ct_filter_keys();
+		$selected_contents = KKW_ContentsManager::get_custom_contents_filter_keys();
 	}
 	// Retrieve the string to search.
 	if ( isset( $_GET['search_string'] ) ) {
@@ -44,11 +44,11 @@ $the_query = null;
 
 if ( '' !== $search_string ) {
 	// Check the NONCE.
-	if ( isset( $_GET['sitesearch_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( $_GET['sitesearch_nonce_field'] ), 'sf_sitesearch_nonce' ) ) {
+	if ( isset( $_GET['site_search_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'sf_site_search_nonce' ) ) {
 		$the_query = KKW_ContentsManager::search_contents(
 			$selected_contents,
 			$search_string,
-			SITESEARCH_CELLS_PER_PAGE
+			SITE_SEARCH_CELLS_PER_PAGE
 		);
 		$num_results = $the_query->found_posts;
 	}
@@ -66,9 +66,9 @@ if ( '' !== $search_string ) {
 	<!-- BODY -->
 	<div class="container mt-2">
 
-		<FORM action="." id="search_site_form" method="GET" 
+		<FORM action="." id="search_site_form" method="GET"
 			role="search" aria-label="<?php echo __( 'Site search' , 'kk_writer_theme' ); ?>">
-			<?php wp_nonce_field( 'sf_sitesearch_nonce', 'sitesearch_nonce_field' ); ?>
+			<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
 
 			<!-- search BANNER -->
 			<div class="row mb-4 py-4 primary-bg">

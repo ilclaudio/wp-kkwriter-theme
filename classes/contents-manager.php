@@ -24,8 +24,7 @@ class KKW_WrappedImage{
 		if ( ! $this->alt ) {
 			switch ( $post_wrapper->type ) {
 				case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
-					$alt_dec   = $post_wrapper->author . ' - ' . $post_wrapper->title;
-					//$this->alt = $alt_desc;
+					$this->alt   = $post_wrapper->author . ' - ' . $post_wrapper->title;
 					break;
 				default:
 					$this->alt  = $this->alt ? $this->alt : $post_wrapper->title;
@@ -94,14 +93,14 @@ class KKW_ContentsManager
 		switch ( $post->post_type ) {
 			case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
 				$item = KKW_ContentsManager::wrap_book( $post );
-					break;
+				break;
 			case KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name']:
 			case KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']:
 			case KKW_POST_TYPES[ ID_PT_REVIEW ]['name']:
 			case KKW_DEFAULT_PAGE:
 			case KKW_DEFAULT_POST:
 				$item = KKW_ContentsManager::wrap_post( $post );
-					break;
+				break;
 		}
 		$wrapped_item = new KKW_WrappedItem( $item );
 		return $wrapped_item;
@@ -111,6 +110,19 @@ class KKW_ContentsManager
 		return new KKW_WrappedImage( $post, $size_string );
 	}
 	
+	public static function get_post_icon_by_group( $group ){
+		switch( $group ){
+			case 'event':
+				$icon_name = 'fa-calendar-days';
+				break;
+			case 'news':
+				$icon_name = 'fa-earth-europe';
+				break;
+			default:
+				$icon_name = 'fa-feather-pointed';
+			}
+		return $icon_name;
+	}
 
 	private static function get_empty_wrapper(): array {
 		return array(
@@ -328,7 +340,7 @@ class KKW_ContentsManager
 	 * 
 	 * @return array
 	 */
-	public static function get_ct_filters() {
+	public static function get_custom_contents_filters() {
 		$ct = array(
 			'article'                                 => 'Articles',
 			'event'                                   => 'Events',
@@ -342,8 +354,21 @@ class KKW_ContentsManager
 		return $ct;
 	}
 
-	public static function get_ct_filter_keys() {
-		$items = self::get_ct_filters();
+	public static function get_custom_contents_filter_keys() {
+		$items = self::get_custom_contents_filters();
+		return array_keys( $items );
+	}
+	public static function get_post_groups_filters() {
+		$pg = array(
+			'article' => 'Articles',
+			'event'   => 'Events',
+			'news'    => 'News',
+		);
+		return $pg;
+	}
+
+	public static function get_post_groups_filter_keys() {
+		$items = self::get_post_groups_filters();
 		return array_keys( $items );
 	}
 
@@ -409,7 +434,7 @@ class KKW_ContentsManager
 			'paged'          => get_query_var( 'paged', 1 ),
 			'posts_per_page' => $pagesize,
 			'post_type'      => $selected_contents,
-			// 'post_type'      => self::get_ct_filter_keys(),
+			// 'post_type'      => self::get_custom_contents_filter_keys(),
 			'orderby'         => 'post__in',
 			's'               => $search_string,
 		);

@@ -229,7 +229,7 @@ msgstr ""
 #: template-parts/home/featured-contents.php:50
 #: template-parts/home/featured-contents.php:82
 #: template-parts/home/featured-contents.php:119
-msgid "Keep reading..."
+msgid "Read more..."
 msgstr ""
 
 #: classes/options-manager.php:27

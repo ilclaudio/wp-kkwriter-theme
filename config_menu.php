@@ -127,7 +127,7 @@ define(
 			),
 			array(
 				'slug'         => 'blog',
-				'title'        => 'Articles',
+				'title'        => 'Blog',
 				'content_type' => 'page',
 				'post_type'    => 'post_type',
 				'status'       => 'publish',
