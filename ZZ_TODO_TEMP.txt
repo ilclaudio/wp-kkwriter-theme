@@ -1,17 +1,20 @@
 
 TEMA:
 
-- Elenco Articoli/Eventi/News.
+- Gestione data blog: articolo, evento e notizia.
+- Filtro ordinamento.
+
+- Template Pagina -> Contatti.
+- Template Pagina -> Sitemap.
 
 - Template Pagina -> Dettaglio LIBRO.
 - Template Pagina -> Dettaglio Articolo/Evento/News.
-- Template Pagina -> Contatti.
-- Template Pagina -> Sitemap.
+
 
 - Tradurre etichette in italiano.
 - Mettere immagini Mock, quando assenti.
 - Completare gestione Breadcrumbs.
-
+- Libri correlati in: eventi, notizie, blog, libri.
 
 BUGS:
 - Backoffice: BUG menu configurazione tema (non si deve vedere nel menu principale).
