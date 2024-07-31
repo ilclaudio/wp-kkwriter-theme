@@ -135,7 +135,7 @@ $total_pages = $the_query->max_num_pages;
 										$image_wrapper = KKW_ContentsManager::wrap_image( $post_wrapper, 'blog-section' );
 										$icon_name     = KKW_ContentsManager::get_post_icon_by_group( $post_wrapper->main_group );
 							?>
-								<article class="col-md-4 mb-4">
+								<article class="col-md-4 mb-5">
 										<div class="card">
 											<a class="text-decoration-none" 
 												href="<?php echo $post_wrapper->detail_url; ?>">
