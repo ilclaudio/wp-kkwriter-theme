@@ -124,6 +124,19 @@ if ( '' !== $search_string ) {
 
 				<!-- RESULTS column -->
 				<section class="col-md-9" aria-label="<?php echo __( 'Search results' , 'kk_writer_theme' ); ?>">
+
+					<!-- Order results -->
+					<?php
+						get_template_part(
+							'template-parts/common/ordering',
+							null,
+							array(
+							'num_results' => $num_results,
+							)
+						);
+					?>
+
+					<!-- no results found -->
 					<p class="text-center">
 						<h5 class="text-center"><?php echo __( 'Results found' , 'kk_writer_theme' ); ?>: <?php echo $num_results; ?></h5>
 						<?php
@@ -135,6 +148,7 @@ if ( '' !== $search_string ) {
 						<?php
 						}
 						?>
+					</p>
 					
 					<?php
 						// The main loop of the page.
@@ -197,9 +211,11 @@ if ( '' !== $search_string ) {
 						);
 					?>
 				</section>
+
 			</div>
 		</FORM>
-	</div>
+
+	</div> <!-- body -->
 
 </main>
 
