@@ -1,19 +1,17 @@
 
 TEMA:
 
-- Filtro ordinamento.
-
 - Template Pagina -> Contatti.
 - Template Pagina -> Sitemap.
+
 
 - Template Pagina -> Dettaglio LIBRO.
 - Template Pagina -> Dettaglio Articolo/Evento/News.
 
-
 - Tradurre etichette in italiano.
 - Mettere immagini Mock, quando assenti.
 - Completare gestione Breadcrumbs.
-- Libri correlati in: eventi, notizie, blog, libri.
+- Gestione sezione "libri correlati" in: eventi, notizie, blog, libri.
 
 BUGS:
 - Backoffice: BUG menu configurazione tema (non si deve vedere nel menu principale).
@@ -29,9 +27,8 @@ RESPONSIVE:
 - Allineare menu footer1 al centro e anche sezione socials su schermi piccoli.
 
 REFACTORING:
-- Refactoring creazione tassonomie e pagine e sezioni con lingua generica.
 - Refactoring functions.php in object oriented way.
-- Correggere query di ricerca.
+- ordering.php Renderlo parametrico in base alla pagina: section, blog o search.
 - [Plugin] Refactoring SearchManager che ritorni un oggetto di tipo Book e non un array.
 - Invocazione del wrapper delle immagini per recuperare e mostrare i dati di una foto (src e alt).
 - Portare tutte le query per recuperare i contenuti dentro il ContentManager.
