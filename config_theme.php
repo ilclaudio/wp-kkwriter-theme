@@ -80,7 +80,7 @@ define(
 define( 'SLUG_SEARCH_SITE_EN', 'search' );
 define( 'SITE_SEARCH_CELLS_PER_PAGE', 10 );
 define( 'SECTIONS_CELLS_PER_PAGE', 10 );
-define( 'BLOG_ARTICLES_CELLS_PER_PAGE', 4 );
+define( 'BLOG_ARTICLES_CELLS_PER_PAGE', 9 );
 
 define(
 	'KKW_SITE_STATIC_PAGES',

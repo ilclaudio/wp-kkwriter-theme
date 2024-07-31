@@ -169,12 +169,13 @@ class KKW_ContentsManager
 			$meta_tags[$prefix . 'group'][0] : '';
 		$short_description      = $has_meta && array_key_exists( $prefix . 'short_description', $meta_tags ) && $meta_tags[$prefix . 'short_description'][0] ?
 			$meta_tags[$prefix . 'short_description'][0] : '';
+		$view_date = self::extractStartDateString( $meta_tags, $post );
 		$item['id']             = $post->ID;
 		$item['title']          = $post->post_title;
 		$item['type']           = $post->post_type;
 		$item['description']    = $short_description;
 		$item['post_date']      = $post->post_date ;
-		$item['view_date']      = $post->post_date;
+		$item['view_date']      = $view_date;
 		$item['main_group']     = $group;
 		$item['main_group_url'] = '';
 		$item['publisher']      = '';
@@ -182,6 +183,29 @@ class KKW_ContentsManager
 		$item['detail_url']     = get_permalink( $post->ID) ;
 		$item['images']         = array();
 		return $item;
+	}
+
+	public static function extractStartDateString( $meta_tags, $post ){
+		$view_date = '';
+		if ( array_key_exists('kkw_post_type', $meta_tags) && $meta_tags['kkw_post_type'][0]  === 'event') {
+			// It is an event with a start event date.
+			if ( array_key_exists( 'kkw_start_date', $meta_tags ) ) {
+				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_start_date'][0] );
+				$timestamp = $dateTime->getTimestamp();
+				$view_date = date_i18n( 'l j F Y', $timestamp );
+			} else {
+				$view_date = '';
+			}
+			if ( array_key_exists( 'kkw_start_hour', $meta_tags ) ) {
+				$view_date = $view_date . ' ' . __( 'at' , 'kk_writer_theme' ) . ' ' . $meta_tags['kkw_start_hour'][0];
+			}
+
+		} else {
+			// It is not an event.
+			$dataUnix = get_post_time( 'U', false, $post->ID, true );
+			$view_date = date_i18n( 'j F Y', $dataUnix );
+		}
+		return $view_date;
 	}
 
 	/**
