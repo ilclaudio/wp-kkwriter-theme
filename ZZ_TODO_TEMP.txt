@@ -1,7 +1,6 @@
 
 TEMA:
 
-- Gestione data blog: articolo, evento e notizia.
 - Filtro ordinamento.
 
 - Template Pagina -> Contatti.

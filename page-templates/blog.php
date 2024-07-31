@@ -85,10 +85,11 @@ $total_pages = $the_query->max_num_pages;
 		</section>
 
 		<!-- search filters and results -->
-		<div class="row pt-4">
-
-				<!-- FILTERS columns -->
+		<div class="row">
+				
+				<!-- FILTERS column-->
 				<aside class="col-md-2 border-end mb-5">
+					<!-- Filter results -->
 					<FORM action="." id="search_site_form" method="GET"
 						role="search" aria-label="<?php echo __( 'Site search' , 'kk_writer_theme' ); ?>">
 						<?php wp_nonce_field( 'sf_blog_search_nonce', 'blog_search_nonce_field' ); ?>
@@ -125,6 +126,19 @@ $total_pages = $the_query->max_num_pages;
 				<!-- RESULTS column -->
 				<section class="col-md-10" aria-label="<?php echo __( 'Blog search results' , 'kk_writer_theme' ); ?>">
 					<div class="row">
+
+						<!-- Order results -->
+						<?php
+							get_template_part(
+								'template-parts/common/ordering',
+								null,
+								array(
+								'num_results' => $num_results,
+								)
+							);
+						?>
+
+						<!-- BLOG ITEMS (results)-->
 						<?php
 								// The main loop of the page.
 								$pindex = 0;
@@ -187,9 +201,9 @@ $total_pages = $the_query->max_num_pages;
 					?>
 				</section>
 
-		</div>
+		</div> <!-- row -->
 
-	</div>
+	</div> <!-- body -->
 
 </main>
 
