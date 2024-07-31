@@ -1,6 +1,5 @@
 
-
-- Gestione libri correlati.
 - Events calendar.
 - Publishers page.
 - Authors page.
+- Refactoring creazione tassonomie e pagine e sezioni con lingua generica.
