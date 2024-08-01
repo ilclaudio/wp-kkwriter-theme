@@ -1,7 +1,8 @@
 <?php
 /**
+ * Template Name: biography
+ * 
  * KK Writer Theme: The BIOGRAPHY page.
- *
  * @package KK_Writer_Theme
  */
 ?>
