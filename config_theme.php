@@ -214,6 +214,16 @@ define(
 			'slug'     => 'polylang',
 			'required' => true,
 		),
+		array(
+			'name'     => 'WP Mail SMTP',
+			'slug'     => 'wp-mail-smtp',
+			'required' => true,
+		),
+		array(
+			'name'     => 'Really Simple CAPTCHA',
+			'slug'     => 'really-simple-captcha',
+			'required' => true,
+		),
 	)
 );
 

@@ -564,7 +564,7 @@ class KKW_ThemeOptionsManager
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => 'email_laboratorio',
+				'id'         => 'site_email',
 				'name'       => __( 'Email', 'kk_writer_theme' ),
 				'desc'       => __( 'The email of the site.' , 'kk_writer_theme' ),
 				'type'       => 'text',

@@ -2,10 +2,10 @@
 * admin bar
 */
 
-#wpadminbar #wp-admin-bar-design-laboratori>.ab-item .dsi-icon:before {
+/* #wpadminbar #wp-admin-bar-design-laboratori>.ab-item .dsi-icon:before {
     content: "\f120";
     top: 2px;
-}
+} */
 
 #wpadminbar .dsi-icon{
     position: relative;

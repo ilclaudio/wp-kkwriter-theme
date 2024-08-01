@@ -400,3 +400,20 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: #2f475e;
 	z-index: 0;
 }
+
+/* FORM STYLES */
+.form-control.border-bottom-only {
+	border: none;
+	border-bottom: 1px solid #2f475e;
+	border-radius: 0;
+}
+
+.form-control.border-bottom-only:focus {
+	box-shadow: none;
+	border-bottom-color: #007bff;
+}
+
+.form-control.border-bottom-only::placeholder {
+	color: rgba(0, 0, 0, 0.3);
+	opacity: 1;
+}

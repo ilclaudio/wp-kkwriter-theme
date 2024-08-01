@@ -8,6 +8,7 @@ TEMA:
 - Template Pagina -> Dettaglio LIBRO.
 - Template Pagina -> Dettaglio Articolo/Evento/News.
 
+- Pagina 404.
 - Tradurre etichette in italiano.
 - Mettere immagini Mock, quando assenti.
 - Completare gestione Breadcrumbs.
