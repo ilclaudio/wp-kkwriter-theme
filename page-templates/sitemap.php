@@ -1,7 +1,8 @@
 <?php
 /**
- * KK Writer Theme: The SITEMAP page.
+ * Template Name: sitemap
  *
+ * KK Writer Theme: The SITEMAP page.
  * @package KK_Writer_Theme
  */
 ?>
