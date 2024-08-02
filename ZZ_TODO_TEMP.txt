@@ -1,14 +1,16 @@
 
 TEMA:
 
-
-- Template Pagina -> Dettaglio LIBRO.
 - Template Pagina -> Dettaglio Articolo/Evento/News.
+- Template Pagina -> Dettaglio LIBRO.
+- Template Libro: recensioni.
+- Template libro: testi.
+- Template libro: brani.
 
+- Completare gestione Breadcrumbs.
 - Template Pagina -> Sitemap.
 - Tradurre etichette in italiano.
 - Mettere immagini Mock, quando assenti.
-- Completare gestione Breadcrumbs.
 - Gestione sezione "libri correlati" in: eventi, notizie, blog, libri.
 
 BUGS:
