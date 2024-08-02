@@ -423,3 +423,34 @@ h1, h2, h3, h4, h5, h6 {
 	max-width: 80%;
 	max-height: auto;
 }
+
+/* BLOG PAGE */
+.nav-menu {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.nav-menu li a {
+	text-decoration: none;
+	color: #2f475e;
+	font-weight: bold;
+}
+
+.nav-menu li a:hover {
+	color: #2b6bac;
+}
+
+.nav-menu .active {
+	font-weight: bold;
+	color: #2b6bac;
+}
+.menu-title {
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	color: #2f475e;
+}
+
+.kkw_lateral_menu {
+	border-top: 2px solid #2f475e;
+}
