@@ -2,6 +2,18 @@
 TEMA:
 
 - Template Pagina -> Dettaglio Articolo/Evento/News.
+	- tipo
+	- immagine
+	- descrizione
+	- Data inizio e data fine
+	- luogo
+	- contatti
+	- condividi sui social
+	- Link
+	- Galleria
+	- Libri correlati
+
+
 - Template Pagina -> Dettaglio LIBRO.
 - Template Libro: recensioni.
 - Template libro: testi.
