@@ -4,8 +4,7 @@
  *
  * @package KK_Writer_Theme
  */
-?>
-<?php
+
 get_header();
 
 $section_label       = 'Blog';
@@ -208,4 +207,5 @@ $total_pages = $the_query->max_num_pages;
 </main>
 
 
-<?php get_footer(); ?>
+<?php
+get_footer();
