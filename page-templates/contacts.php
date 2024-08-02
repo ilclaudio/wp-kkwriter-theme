@@ -147,13 +147,16 @@ if ( 'yes' === $form_sent ) {
 		</section>
 
 		<div class="row">
-			<aside class="col-md-3 border-end mb-5">
+			<aside class="col-md-3 border-end mb-5 text-center my-5 kkw_img_contacts">
 				<!-- Post featured image -->
 				<img src="<?php echo esc_url( $post_img_src ); ?>"
 					class="bd-placeholder-img"
-					width="<?php echo strval( KKW_FEATURED_IMG_WIDTH ); ?>"
-					height="<?php echo strval( KKW_FEATURED_IMG_HEIGHT ); ?>"
 					alt="<?php echo esc_attr( $post_img_alt ); ?>" />
+					
+				<div class="text-left mt-5">
+					<?php get_template_part( 'template-parts/common/social_footer' ); ?>
+				</div>
+
 			</aside>
 
 			<section class="col-md-9" aria-label="<?php echo __( 'Contacts form' , 'kk_writer_theme' ); ?>">
