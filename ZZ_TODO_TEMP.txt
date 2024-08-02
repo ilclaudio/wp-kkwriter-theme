@@ -1,14 +1,11 @@
 
 TEMA:
 
-- Template Pagina -> Contatti.
-- Template Pagina -> Sitemap.
-
 
 - Template Pagina -> Dettaglio LIBRO.
 - Template Pagina -> Dettaglio Articolo/Evento/News.
 
-- Pagina 404.
+- Template Pagina -> Sitemap.
 - Tradurre etichette in italiano.
 - Mettere immagini Mock, quando assenti.
 - Completare gestione Breadcrumbs.
