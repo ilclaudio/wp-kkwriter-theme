@@ -20,39 +20,39 @@
 		</div> <!-- first row -->
 
 		<!-- Second row: Menu and socials -->
-		<div class="row border-top">
+		<div class="m-0 p-0 row border-top">
 
 			<!-- PRIMARY FOOTER MENU -->
 			<div id="kkw_secondary_links" class="p-4 col-md-8 text-left">
-			<?php
-				// The items of the menu.
-				if ( $menu_id ) {
-					$menu_items = wp_get_nav_menu_items( $menu_id );
-			?>
-				<nav class="m-0 p-0 navbar navbar-expand-lg">
-					<div id="navbarNav">
-						<ul class="navbar-nav">
-						<?php
-							foreach ( $menu_items as $item ) {
-								$wrapped_item = KKW_ContentsManager::get_wrapped_menu_item( $item );
-						?>
-							<li class="nav-item">
-								<a title="<?php echo $wrapped_item['title']; ?>"
-									<?php if ( $wrapped_item['type'] === 'custom' ) { ?> target="_blank"<?php } ?>
-									class="nav-link m-0 py-0 pr-8 <?php if ( $wrapped_item['active'] ) echo 'active'; ?>"
-									href="<?php echo $wrapped_item['link']; ?>">
-									<?php echo $wrapped_item['title']; ?>
-								</a>
-							</li>
-						<?php
-							}
-						?>
-						</ul>
-					</div>
-				</nav>
-			<?php
-				}
-			?>
+				<?php
+					// The items of the menu.
+					if ( $menu_id ) {
+						$menu_items = wp_get_nav_menu_items( $menu_id );
+				?>
+					<nav class="m-0 p-0 navbar navbar-expand-lg">
+						<div id="navbarNav">
+							<ul class="navbar-nav">
+							<?php
+								foreach ( $menu_items as $item ) {
+									$wrapped_item = KKW_ContentsManager::get_wrapped_menu_item( $item );
+							?>
+								<li class="nav-item">
+									<a title="<?php echo $wrapped_item['title']; ?>"
+										<?php if ( $wrapped_item['type'] === 'custom' ) { ?> target="_blank"<?php } ?>
+										class="nav-link m-0 py-0 pr-8 <?php if ( $wrapped_item['active'] ) echo 'active'; ?>"
+										href="<?php echo $wrapped_item['link']; ?>">
+										<?php echo $wrapped_item['title']; ?>
+									</a>
+								</li>
+							<?php
+								}
+							?>
+							</ul>
+						</div>
+					</nav>
+				<?php
+					}
+				?>
 			</div>
 
 			<!-- SOCIALS -->
