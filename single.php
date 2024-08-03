@@ -91,7 +91,7 @@ $section_description = '';
 					</div>
 					
 					<!-- sharing -->
-					<div class="mt-5 text-center">
+					<div class="mt-5">
 						<?php
 							get_template_part(
 								'template-parts/common/social_sharing',
