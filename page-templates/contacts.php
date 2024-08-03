@@ -172,7 +172,7 @@ if ( 'yes' === $form_sent ) {
 							<?php echo esc_html( __( 'Message successfully sent', 'kk_writer_theme' ) ) . '&nbsp;.'; ?>
 								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
 									<svg class="icon" role="img" aria-labelledby="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
-										<use href="<?php echo esc_attr( get_template_directory_uri() . '/assets/bootstrap-italia/svg/sprites.svg#it-close' ); ?>"></use>
+										<use href="<?php echo esc_attr( get_template_directory_uri() . '/assets/svg/sprites.svg#it-close' ); ?>"></use>
 									</svg>
 								</button>
 							</div>
@@ -187,7 +187,7 @@ if ( 'yes' === $form_sent ) {
 								<?php echo __( $result_text, 'kk_writer_theme' ); ?>
 								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
 									<svg class="icon" role="img" aria-labelledby="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
-										<use href="<?php echo esc_url( get_template_directory_uri() . '/assets/bootstrap-italia/svg/sprites.svg#it-close' ); ?>"></use>
+										<use href="<?php echo esc_url( get_template_directory_uri() . '/assets/svg/sprites.svg#it-close' ); ?>"></use>
 									</svg>
 								</button>
 							</div>

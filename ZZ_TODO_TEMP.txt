@@ -2,13 +2,11 @@
 TEMA:
 
 - Template Pagina -> Dettaglio Articolo/Evento/News.
-	- tipo
 	- immagine
 	- descrizione
 	- Data inizio e data fine
 	- luogo
 	- contatti
-	- condividi sui social
 	- Link
 	- Galleria
 	- Libri correlati
@@ -28,6 +26,9 @@ TEMA:
 BUGS:
 - Backoffice: BUG menu configurazione tema (non si deve vedere nel menu principale).
 - Verifiche recupero articoli con cambio lingua: automatici e per ID.
+- Correggere funzionamento dello share.
+- Correggere e vertificare invio email contacts.
+- Javascript menu laterale degli articoli.
 
 ACCESSIBILITA':
 - Verifica corretta definizione delle sezioni.

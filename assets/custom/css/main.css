@@ -454,3 +454,25 @@ h1, h2, h3, h4, h5, h6 {
 .kkw_lateral_menu {
 	border-top: 2px solid #2f475e;
 }
+
+.kkw_share_section ul {
+	list-style-type: none;
+	padding-left: 0.8rem;
+}
+
+.kkw_share_section li {
+	padding-top: 1rem;
+}
+
+.kkw_share_section a {
+	text-decoration: none;
+	color: #2f475e;
+}
+
+.blog-featured-image {
+	width: 100%;
+	max-height: 300px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 2rem;
+}
