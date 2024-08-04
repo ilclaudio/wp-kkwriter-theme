@@ -36,6 +36,13 @@ $section_description = '';
 		$c_phone   = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_contact_phone' );
 		$c_email   = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_contact_mail' );
 		$c_link    = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_external_link' );
+		$c_video   = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_video_link' );
+		// Unserialize gallery data.
+		$serialized_gallery = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_gallery' );
+		$gallery = unserialize( $serialized_gallery );
+		// Unserialize related book data.
+		$serialized_books = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_book_link' );
+		$books = unserialize( $serialized_books );
 
 		/* activation flags */
 		$flg_start_date = $start_date_str ? true : false;
@@ -43,9 +50,9 @@ $section_description = '';
 		$flg_date       = $flg_is_event && ( $flg_start_date || $flg_end_date );
 		$flg_place      = $c_address ? true : false;
 		$flg_contacts   = $c_person || $c_phone || $c_email ? true : false;
-		$flg_video      = false;
-		$flg_gallery    = false;
-		$flg_rel_books  = false;
+		$flg_video      = $c_video ? true : false;
+		$flg_gallery    = ( $gallery && count( $gallery ) ) > 0 ? true : false;
+		$flg_rel_books  = ( $books && count( $books ) ) > 0 ? true : false;
 	?>
 		<!-- BODY -->
 		<div class="container mt-2">
@@ -113,23 +120,34 @@ $section_description = '';
 							</li>
 							<?php
 								}
-								// if ( $flg_contacts ) {
+								if ( $flg_video ) {
 							?>
 							<li class="nav-item">
 								<a class="nav-link" aria-current="page" href="#video">
 									<span><?php echo __( 'Video', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
+							<?php
+								}
+								if ( $flg_gallery ) {
+							?>
 							<li class="nav-item">
 								<a class="nav-link" aria-current="page" href="#photo_gallery">
 									<span><?php echo __( 'Photo gallery', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
+							<?php
+								}
+								if ( $flg_rel_books ) {
+							?>
 							<li class="nav-item">
 								<a class="nav-link" aria-current="page" href="#related_book">
 									<span><?php echo __( 'Related books', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
+							<?php
+								}
+							?>
 						</ul>
 					</div>
 
@@ -205,8 +223,8 @@ $section_description = '';
 							</div>
 						</article>
 					<?php
-							}
-							if ( $flg_contacts ) {
+						}
+						if ( $flg_contacts ) {
 					?>
 						<article id="contacts" class="kkw_article_section">
 							<h4 class="text-color-secondary"><?php echo __( 'Contacts' , 'kk_writer_theme' ); ?></h4>
@@ -221,30 +239,47 @@ $section_description = '';
 							</div>
 						</article>
 					<?php
-							}
-							// if ( $flg_contacts ) {
+						}
+						if ( $flg_video ) {
 					?>
-					<article id="video" class="kkw_article_section">
-						<h4 class="text-color-secondary"><?php echo __( 'Video' , 'kk_writer_theme' ); ?></h4>
-						<div class="p-3">
-							xxxxxxx
-						</div>
-					</article>
-
-					<article id="photo_gallery" class="kkw_article_section">
-						<h4 class="text-color-secondary"><?php echo __( 'Photo gallery' , 'kk_writer_theme' ); ?></h4>
-						<div class="p-3">
-							xxxxxxx
-						</div>
-					</article>
-
-					<article id="related_books" class="kkw_article_section">
-						<h4 class="text-color-secondary"><?php echo __( 'Related books' , 'kk_writer_theme' ); ?></h4>
-						<div class="p-3">
-							xxxxxxx
-						</div>
-					</article>
-
+						<article id="video" class="kkw_article_section">
+							<h4 class="text-color-secondary"><?php echo __( 'Video' , 'kk_writer_theme' ); ?></h4>
+							<div class="p-3">
+								<?php
+									get_template_part(
+										'template-parts/common/embed_video',
+										null,
+										array(
+											'video'      => $c_video,
+											'perc_width' => '50%',
+										),
+									);
+								?>
+							</div>
+						</article>
+					<?php
+						}
+						if ( $flg_gallery ) {
+					?>
+						<article id="photo_gallery" class="kkw_article_section">
+							<h4 class="text-color-secondary"><?php echo __( 'Photo gallery' , 'kk_writer_theme' ); ?></h4>
+							<div class="p-3">
+								xxxxxxx
+							</div>
+						</article>
+					<?php
+						}
+						if ( $flg_rel_books ) {
+					?>
+						<article id="related_books" class="kkw_article_section">
+							<h4 class="text-color-secondary"><?php echo __( 'Related books' , 'kk_writer_theme' ); ?></h4>
+							<div class="p-3">
+								xxxxxxx
+							</div>
+						</article>
+					<?php
+						}
+					?>
 				</section>
 
 			</div>
