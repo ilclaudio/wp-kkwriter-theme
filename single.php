@@ -39,10 +39,10 @@ $section_description = '';
 		$c_video   = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_video_link' );
 		// Unserialize gallery data.
 		$serialized_gallery = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_gallery' );
-		$gallery = unserialize( $serialized_gallery );
+		$gallery            = unserialize( $serialized_gallery );
 		// Unserialize related book data.
 		$serialized_books = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_book_link' );
-		$books = unserialize( $serialized_books );
+		$books            = unserialize( $serialized_books );
 
 		/* activation flags */
 		$flg_start_date = $start_date_str ? true : false;
@@ -283,7 +283,16 @@ $section_description = '';
 						<article id="related_books" class="kkw_article_section">
 							<h4 class="text-color-secondary"><?php echo __( 'Related books' , 'kk_writer_theme' ); ?></h4>
 							<div class="p-3">
-								xxxxxxx
+							<?php
+									get_template_part(
+										'template-parts/common/related_books',
+										null,
+										array(
+											'books'       => $books,
+											'size_string' => 'featured-post',
+										),
+									);
+								?>
 							</div>
 						</article>
 					<?php
