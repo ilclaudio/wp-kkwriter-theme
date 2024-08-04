@@ -2,7 +2,7 @@
 TEMA:
 
 - Template Pagina -> Dettaglio Articolo/Evento/News.
-	- Galleria
+	- Video
 	- Libri correlati
 	- Download del file ics per calendar.
 
