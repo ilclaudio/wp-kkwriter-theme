@@ -309,10 +309,6 @@ $section_description = '';
 
 </main>
 
-	
-
-
-
 
 <?php
 get_footer();
