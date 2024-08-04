@@ -2,14 +2,9 @@
 TEMA:
 
 - Template Pagina -> Dettaglio Articolo/Evento/News.
-	- immagine
-	- descrizione
-	- Data inizio e data fine
-	- luogo
-	- contatti
-	- Link
 	- Galleria
 	- Libri correlati
+	- Download del file ics per calendar.
 
 
 - Template Pagina -> Dettaglio LIBRO.
@@ -24,10 +19,10 @@ TEMA:
 - Gestione sezione "libri correlati" in: eventi, notizie, blog, libri.
 
 BUGS:
-- Backoffice: BUG menu configurazione tema (non si deve vedere nel menu principale).
+- Back-office: BUG menu configurazione tema (non si deve vedere nel menu principale).
 - Verifiche recupero articoli con cambio lingua: automatici e per ID.
 - Correggere funzionamento dello share.
-- Correggere e vertificare invio email contacts.
+- Correggere e verificare invio email contacts.
 - Javascript menu laterale degli articoli.
 
 ACCESSIBILITA':

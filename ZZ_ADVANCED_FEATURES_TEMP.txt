@@ -3,3 +3,7 @@
 - Publishers page.
 - Authors page.
 - Refactoring creazione tassonomie e pagine e sezioni con lingua generica.
+- Manage tags.
+- Manage categories.
+- Manage photo-galleries.
+- CMB2 Field Leaflet Geocoder - Geolocalizzazione degli eventi.

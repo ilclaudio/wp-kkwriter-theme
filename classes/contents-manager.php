@@ -162,14 +162,13 @@ class KKW_ContentsManager
 
 	private static function wrap_post( $post ): array {
 		$item      = KKW_ContentsManager::get_empty_wrapper();
-		$prefix    = 'kkw_';
 		$meta_tags = get_post_meta( $post->ID );
 		$has_meta  = count( $meta_tags ) > 0;
-		$group     = $has_meta && array_key_exists( $prefix . 'group', $meta_tags ) && $meta_tags[$prefix . 'group'][0] ?
-			$meta_tags[$prefix . 'group'][0] : '';
-		$short_description      = $has_meta && array_key_exists( $prefix . 'short_description', $meta_tags ) && $meta_tags[$prefix . 'short_description'][0] ?
-			$meta_tags[$prefix . 'short_description'][0] : '';
-		$view_date = self::extractStartDateString( $meta_tags, $post );
+		$group     = $has_meta && array_key_exists( 'kkw_group', $meta_tags ) && $meta_tags['kkw_group'][0] ?
+			$meta_tags['kkw_group'][0] : '';
+		$short_description      = $has_meta && array_key_exists( 'kkw_short_description', $meta_tags ) && $meta_tags['kkw_short_description'][0] ?
+			$meta_tags['kkw_short_description'][0] : '';
+		$view_date = self::extractDateString( $meta_tags, $post );
 		$item['id']             = $post->ID;
 		$item['title']          = $post->post_title;
 		$item['type']           = $post->post_type;
@@ -185,21 +184,28 @@ class KKW_ContentsManager
 		return $item;
 	}
 
-	public static function extractStartDateString( $meta_tags, $post ){
+	public static function extract_meta_tag( $meta_tags, $key ) {
+		$value = '';
+		if ( array_key_exists( $key, $meta_tags ) ) {
+			$value = $meta_tags[$key][0];
+		}
+		return $value;
+	}
+
+	public static function extractDateString( $meta_tags, $post, $type='start' ){
 		$view_date = '';
 		if ( array_key_exists('kkw_post_type', $meta_tags) && $meta_tags['kkw_post_type'][0]  === 'event') {
 			// It is an event with a start event date.
-			if ( array_key_exists( 'kkw_start_date', $meta_tags ) ) {
-				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_start_date'][0] );
+			if ( array_key_exists( 'kkw_'. $type . '_date', $meta_tags ) ) {
+				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_'. $type . '_date'][0] );
 				$timestamp = $dateTime->getTimestamp();
 				$view_date = date_i18n( 'l j F Y', $timestamp );
 			} else {
 				$view_date = '';
 			}
-			if ( array_key_exists( 'kkw_start_hour', $meta_tags ) ) {
-				$view_date = $view_date . ' ' . __( 'at' , 'kk_writer_theme' ) . ' ' . $meta_tags['kkw_start_hour'][0];
+			if ( array_key_exists( 'kkw_'. $type . '_hour', $meta_tags ) ) {
+				$view_date = $view_date . ' ' . __( 'at' , 'kk_writer_theme' ) . ' ' . $meta_tags['kkw_'. $type . '_hour'][0];
 			}
-
 		} else {
 			// It is not an event.
 			$dataUnix = get_post_time( 'U', false, $post->ID, true );
