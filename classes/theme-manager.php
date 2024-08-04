@@ -9,8 +9,8 @@ if ( ! class_exists( 'KKW_AuthorizationManager' ) ) {
 	include_once 'authorization-manager.php';
 }
 
-if ( ! class_exists( 'KKW_PolylangManager' ) ) {
-	include_once 'polylang-manager.php';
+if ( ! class_exists( 'KKW_MultiLangManager' ) ) {
+	include_once 'multi-lang-manager.php';
 }
 
 if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
@@ -47,10 +47,10 @@ class KKW_ThemeManager {
 		$am = new KKW_AuthorizationManager();
 		$am->setup();
 
-		// Setup dei post type personalizzati e delle tassonomie associate.
-		// Setup di Polylang.
-		$polylang = new KKW_PolylangManager();
-		$polylang->setup();
+		// Setup custom post types and associated taxonomies.
+		// Multi language setup (Polylang).
+		$multi_lang = new KKW_MultiLangManager();
+		$multi_lang->setup();
 
 		// Register the menus.
 		KKW_ThemeActivationManager::register_menu_locations();

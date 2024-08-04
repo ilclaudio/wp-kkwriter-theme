@@ -10,7 +10,7 @@
 
 <?php
 	$gallery     = $args['gallery'];
-	$size_string = $args['size_string'] ? $args['size_string'] : '';
+	$size_string = $args['size_string'] ? $args['size_string'] : 'item-thumb';
 
 	if ( count( $gallery ) ) {
 ?>
@@ -19,7 +19,6 @@
 			<?php
 			foreach( $gallery as $g_id => $g_src ) {
 				$src_image = $g_src;
-				// $img_id    = get_post_thumbnail_id($g_id );
 				$img_array = wp_get_attachment_image_src( $g_id , $size_string );
 				$img_src   = $img_array ? $img_array[0] : '';
 				$img_alt   = get_post_meta( $g_id, '_wp_attachment_image_alt', true );

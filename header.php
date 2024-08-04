@@ -5,7 +5,7 @@
  * @package KK_Writer_Theme
  */
 
-include_once KKW_THEMA_PATH . '/classes/polylang-manager.php';
+include_once KKW_THEMA_PATH . '/classes/multi-lang-manager.php';
 $title     = kkw_get_option( 'site_title', 'kkw_opt_options' );
 $tagline   = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
 ?>
@@ -42,7 +42,7 @@ $tagline   = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
 
 				<!-- SITE SEARCH -->
 				 <?php
-					$search_page_id  = KKW_PolylangManager::get_page_by_slug( SLUG_SEARCH_SITE_EN );
+					$search_page_id  = KKW_MultiLangManager::get_page_by_slug( SLUG_SEARCH_SITE_EN );
 					$search_page_url = get_permalink( $search_page_id );
 					$label           = __( 'Search', 'kk_writer_theme' );
 				 ?>

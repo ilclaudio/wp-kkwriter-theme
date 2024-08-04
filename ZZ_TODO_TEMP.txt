@@ -2,9 +2,8 @@
 TEMA:
 
 - Template Pagina -> Dettaglio Articolo/Evento/News.
-	- Video
-	- Libri correlati
 	- Download del file ics per calendar.
+	- Javascript menu contestuale.
 
 
 - Template Pagina -> Dettaglio LIBRO.
@@ -23,7 +22,6 @@ BUGS:
 - Verifiche recupero articoli con cambio lingua: automatici e per ID.
 - Correggere funzionamento dello share.
 - Correggere e verificare invio email contacts.
-- Javascript menu laterale degli articoli.
 
 ACCESSIBILITA':
 - Verifica corretta definizione delle sezioni.

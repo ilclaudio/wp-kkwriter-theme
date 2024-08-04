@@ -11,7 +11,7 @@ $auto_on = kkw_get_option( 'home_featured_content_auto_on', 'kkw_opt_hp_layout' 
 $opt_featured_1 = kkw_get_option( 'featured_content_1', 'kkw_opt_hp_layout' );
 $fc1            = count( $opt_featured_1 ) > 0 ? $opt_featured_1[0] : null;
 $fc1_id         = $fc1 && array_key_exists('box_content', $fc1 ) ? explode( ',', $fc1['box_content'] )[0] : null;
-$fc1_id         = KKW_PolylangManager::get_page_by_id( $fc1_id ); // Get the post in the right language.
+$fc1_id         = KKW_MultiLangManager::get_page_by_id( $fc1_id ); // Get the post in the right language.
 if ( $fc1_id ) {
 	$fc1_img_side   = $fc1['box_image_side'];
 	$fc1            = KKW_ContentsManager::get_wrapped_item( $fc1_id );
@@ -26,7 +26,7 @@ if ( $fc1_id ) {
 $opt_featured_2 = kkw_get_option( 'featured_content_2', 'kkw_opt_hp_layout' );
 $fc2            = count( $opt_featured_2 ) > 0 ? $opt_featured_2[0] : null;
 $fc2_id         = $fc2 && array_key_exists('box_content', $fc2 ) ? explode( ',', $fc2['box_content'] )[0] : null;
-$fc2_id         = KKW_PolylangManager::get_page_by_id( $fc2_id ); // Get the post in the right language.
+$fc2_id         = KKW_MultiLangManager::get_page_by_id( $fc2_id ); // Get the post in the right language.
 if ( $fc1_id ) {
 	$fc2_img_side   = $fc2['box_image_side'];
 	$fc2            = KKW_ContentsManager::get_wrapped_item( $fc2_id );
@@ -41,7 +41,7 @@ if ( $fc1_id ) {
 $opt_featured_3 = kkw_get_option( 'featured_content_3', 'kkw_opt_hp_layout' );
 $fc3            = count( $opt_featured_3 ) > 0 ? $opt_featured_3[0] : null;
 $fc3_id         = $fc3 && array_key_exists('box_content', $fc3 ) ? explode( ',', $fc3['box_content'] )[0] : null;
-$fc3_id         = KKW_PolylangManager::get_page_by_id( $fc3_id ); // Get the post in the right language.
+$fc3_id         = KKW_MultiLangManager::get_page_by_id( $fc3_id ); // Get the post in the right language.
 $fc3_img_side   = $fc3['box_image_side'];
 if ( $fc3_id ) {
 	$fc3            = KKW_ContentsManager::get_wrapped_item( $fc3_id );
