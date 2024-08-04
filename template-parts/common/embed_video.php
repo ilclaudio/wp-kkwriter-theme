@@ -1,6 +1,6 @@
 <?php
 /**
- * KK Writer Theme: The tool to order results.
+ * KK Writer Theme: The section to include a video.
  *
  * @package KK_Writer_Theme
  */

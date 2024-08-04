@@ -25,3 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 });
+
+/* Lightbox options */
+lightbox.option({
+	// 'resizeDuration': 200,
+	'wrapAround': true,
+	'showImageNumberLabel': true,
+});

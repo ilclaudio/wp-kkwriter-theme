@@ -1,0 +1,18 @@
+*** CREDITS ***
+
+This is an open source project.
+You may also freely use this technology in your projects under the license described in the LICENSE file.
+It would NOT have been possible to do it alone and in such a short time without the invaluable support of the following projects, technologies and libraries.
+
+- Bootstrap 5.3
+- TGM: 
+- BootstrapItalia:
+- Photo gallery: Lightbox2 by Lokesh Dhakar: (https://github.com/lokesh/lightbox2).
+- ChatGpt by OpenAI: To quickly solve some programming problems (https://openai.com/chatgpt).
+- WordPress Forum:
+
+
+*** Dependencies ***
+
+This theme depends on WordPress and on the plugin wp-kkwriter-plugin (https://github.com/ilclaudio/wp-kkwriter-plugin) which installs the custom post-types needed by the theme.
+Check the file CREDITS (https://github.com/ilclaudio/wp-kkwriter-plugin/blob/main/CREDITS.txt) in this plugin to learn about its dependencies.

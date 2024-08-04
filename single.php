@@ -264,7 +264,16 @@ $section_description = '';
 						<article id="photo_gallery" class="kkw_article_section">
 							<h4 class="text-color-secondary"><?php echo __( 'Photo gallery' , 'kk_writer_theme' ); ?></h4>
 							<div class="p-3">
-								xxxxxxx
+							<?php
+									get_template_part(
+										'template-parts/common/photo_gallery',
+										null,
+										array(
+											'gallery'      => $gallery,
+											'size_string'  => 'item-thumb',
+										),
+									);
+								?>
 							</div>
 						</article>
 					<?php
