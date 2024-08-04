@@ -476,3 +476,32 @@ h1, h2, h3, h4, h5, h6 {
 	position: relative;
 	margin-bottom: 2rem;
 }
+
+.kkw_article_label {
+	font-weight: bold;
+	color: #2f475e;
+}
+
+.kkw_article_section {
+	margin-bottom: 20px;
+}
+
+.kkw_article_list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.kkw_article_list li {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.kkw_article_list .label {
+	flex: 0 0 200px;
+	font-weight: bold;
+	color: #2f475e;
+}
+
+.contact-list .value {
+	flex: 1;
+}
