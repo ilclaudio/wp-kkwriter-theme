@@ -106,7 +106,7 @@ class KKW_ContentsManager
 		return $wrapped_item;
 	}
 
-	public static function wrap_image( $post, $size_string ): KKW_WrappedImage {
+	public static function wrap_featured_image( $post, $size_string ): KKW_WrappedImage {
 		return new KKW_WrappedImage( $post, $size_string );
 	}
 	
