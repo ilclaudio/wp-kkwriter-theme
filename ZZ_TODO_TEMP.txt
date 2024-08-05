@@ -1,26 +1,30 @@
 
 TEMA:
 
+- Template Pagina -> Dettaglio LIBRO.
+	- Template Libro: dati generali.
+	- Template Libro: recensioni.
+	- Template libro: testi.
+	- Template libro: brani.
+	- Template libro: libri collegati.
+	- Template libro: share on.
+	- Foto dietro con click per cambiare foto attiva e click per ingrandire.
+
 - Template Pagina -> Dettaglio Articolo/Evento/News.
 	- Download del file ics per calendar.
 	- Javascript menu contestuale.
 
 
-- Template Pagina -> Dettaglio LIBRO.
-- Template Libro: recensioni.
-- Template libro: testi.
-- Template libro: brani.
-
 - Completare gestione Breadcrumbs.
 - Template Pagina -> Sitemap.
 - Tradurre etichette in italiano.
 - Mettere immagini Mock, quando assenti.
-- Gestione sezione "libri correlati" in: eventi, notizie, blog, libri.
+
 
 BUGS:
 - Back-office: BUG menu configurazione tema (non si deve vedere nel menu principale).
 - Verifiche recupero articoli con cambio lingua: automatici e per ID.
-- Correggere funzionamento dello share.
+- Correggere funzionamento dello share su fb ed altri (immagine e titolo proposti).
 - Correggere e verificare invio email contacts.
 
 ACCESSIBILITA':
@@ -36,5 +40,5 @@ REFACTORING:
 - Refactoring functions.php in object oriented way.
 - ordering.php Renderlo parametrico in base alla pagina: section, blog o search.
 - [Plugin] Refactoring SearchManager che ritorni un oggetto di tipo Book e non un array.
-- Invocazione del wrapper delle immagini per recuperare e mostrare i dati di una foto (src e alt).
-- Portare tutte le query per recuperare i contenuti dentro il ContentManager.
+- Invocazione del wrapper delle immagini per recuperare e mostrare i dati di una foto (src e alt) dove manca (search?).
+- Portare tutte le query per recuperare i contenuti dentro il ContentManager (blog ed altri).

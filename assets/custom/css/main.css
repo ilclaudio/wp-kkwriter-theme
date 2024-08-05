@@ -505,3 +505,9 @@ h1, h2, h3, h4, h5, h6 {
 .contact-list .value {
 	flex: 1;
 }
+
+/* BOOK TEMPLATE*/
+
+#kkw_book_img_div{
+	max-width: 35% !important;
+}
