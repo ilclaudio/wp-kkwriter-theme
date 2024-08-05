@@ -167,7 +167,7 @@ $section_description = '';
 				<!-- CONTENT column-->
 				<section class="col-md-10 pb-3" aria-label="<?php echo __( 'Article' , 'kk_writer_theme' ); ?>">
 
-					<article id="featured_image" class="blog-featured-image" class="kkw_article_section">
+					<article id="featured_image" class="blog-featured-image kkw_article_section">
 						<img src="<?php echo esc_url( $image_wrapper->src ); ?>"
 							class="card-img-top img-fluid"
 							alt="<?php echo esc_attr( $image_wrapper->alt ); ?>">
@@ -284,15 +284,15 @@ $section_description = '';
 							<h4 class="text-color-secondary"><?php echo __( 'Related books' , 'kk_writer_theme' ); ?></h4>
 							<div class="p-3">
 							<?php
-									get_template_part(
-										'template-parts/common/related_books',
-										null,
-										array(
-											'books'       => $books,
-											'size_string' => 'featured-post',
-										),
-									);
-								?>
+								get_template_part(
+									'template-parts/common/related_books',
+									null,
+									array(
+										'books'       => $books,
+										'size_string' => 'featured-post',
+									),
+								);
+							?>
 							</div>
 						</article>
 					<?php
@@ -302,7 +302,7 @@ $section_description = '';
 
 			</div>
 
-		</div>
+		</div> <!-- body -->
 	<?php
 	}
 	?>
