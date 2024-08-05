@@ -19,7 +19,7 @@
 			foreach( $books as $g_id ) {
 				$post_id       = KKW_MultiLangManager::get_page_by_id( $g_id );
 				$post_wrapper  = KKW_ContentsManager::get_wrapped_item( $post_id );
-				$image_wrapper = KKW_ContentsManager::wrap_image( $post_wrapper, $size_string );
+				$image_wrapper = KKW_ContentsManager::wrap_featured_image( $post_wrapper, $size_string );
 			?>
 				<div class="col-6 col-md-4 mb-4">
 					<a href="<?php echo esc_url( $post_wrapper->detail_url ); ?>">

@@ -21,8 +21,11 @@ $icon_name           = 'fa-book';
 	while( have_posts() ) {
 		the_post();
 		$post_wrapper   = KKW_ContentsManager::wrap_search_result( $post );
-		$image_wrapper  = KKW_ContentsManager::wrap_image( $post_wrapper, 'full' );
+		$image_wrapper  = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'full' );
 		$meta_tags      = get_post_meta( $post->ID );
+		// Manage back cover.
+		$back_cover_id = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_back_cover_id' );
+		// @TODO: get the imahe if exists.
 	?>
 
 		<!-- BODY -->

@@ -20,7 +20,7 @@ $section_description = '';
 	while( have_posts() ) {
 		the_post();
 		$post_wrapper   = KKW_ContentsManager::wrap_search_result( $post );
-		$image_wrapper  = KKW_ContentsManager::wrap_image( $post_wrapper, 'full' );
+		$image_wrapper  = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'full' );
 		$icon_name      = KKW_ContentsManager::get_post_icon_by_group( $post_wrapper->main_group );
 		$group          = $post_wrapper->main_group;
 		$flg_is_event   = $post_wrapper->main_group === 'event';

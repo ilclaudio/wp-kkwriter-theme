@@ -145,7 +145,7 @@ $total_pages = $the_query->max_num_pages;
 									while ( $the_query->have_posts() ) {
 										$the_query->the_post();
 										$post_wrapper  = KKW_ContentsManager::wrap_search_result( $post );
-										$image_wrapper = KKW_ContentsManager::wrap_image( $post_wrapper, 'blog-section' );
+										$image_wrapper = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'blog-section' );
 										$icon_name     = KKW_ContentsManager::get_post_icon_by_group( $post_wrapper->main_group );
 							?>
 								<article class="col-md-4 mb-5">
