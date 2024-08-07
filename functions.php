@@ -60,7 +60,9 @@ if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 	function kkw_load_scripts_and_styles()
 	{
 		// Import CSS libraries files.
-		wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' );
+		// wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' );
+		// wp_enqueue_style( 'bootstrap-css' );
+		wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/custom/css/custom-bootstrap.min.css' );
 		wp_enqueue_style( 'bootstrap-css' );
 		wp_register_style( 'fonts-css', get_template_directory_uri() . '/assets/custom/css/fonts.css' );
 		wp_enqueue_style( 'fonts-css' );

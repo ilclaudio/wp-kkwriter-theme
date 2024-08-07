@@ -1,0 +1,12 @@
+/*
+* Theme Name: WP KK Writer Theme
+*
+* Customize this file and generate the custom Bootstrap file: custom-bootstrap.scss.
+*/
+
+
+$primary: #f5f5dc;
+$secondary: #2f475e;
+
+// Importa tutti i componenti di Bootstrap
+@import "../../../node_modules/bootstrap/scss/bootstrap";
