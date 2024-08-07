@@ -5,8 +5,61 @@
 */
 
 
-$primary: #f5f5dc;
-$secondary: #2f475e;
+$primary: #2f475e;
+$secondary: #f5f5dc;
 
 // Importa tutti i componenti di Bootstrap
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+
+
+/* CUSTOM STYLES */
+.btn-outline-secondary {
+	color: $primary;
+	border-color: $primary;
+	background-color: transparent;
+}
+.btn-outline-secondary:hover {
+	background-color: $primary;
+	color: var(--bs-white);
+	border-color: $primary;
+	letter-spacing: -0.6px;
+}
+
+.btn-secondary {
+	color: $primary;
+	border-color: $primary;
+	background-color: $secondary;
+}
+.btn-secondary:hover {
+	color: var(--bs-black);
+	border-color: $primary;
+	background-color: $secondary;
+	font-weight: bold;
+	letter-spacing: -0.6px;
+}
+
+.btn-primary {
+	color: var(--bs-white);
+	border-color: $primary;
+	background-color: $primary;
+}
+.btn-primary:hover {
+	color: var(--bs-white);
+	border-color: $primary;
+	background-color: $primary;
+	font-weight: bold;
+	letter-spacing: -0.6px;
+}
+
+.btn-outline-cancel {
+	color: $primary;
+	border-color: $primary;
+	background-color: transparent;
+}
+.btn-outline-cancel:hover {
+	color: $primary;
+	border-color: $primary;
+	background-color: transparent;
+	font-weight: bold;
+	letter-spacing: -0.6px;
+}

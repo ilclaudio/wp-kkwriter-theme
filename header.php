@@ -55,7 +55,7 @@ $tagline   = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
 						<?php wp_nonce_field( 'kkw_search_nonce', 'search_nonce_field' ); ?>
 						<input type="hidden" name="redirection" id="redirection" value="yes" />
 
-						<button class="btn btn-outline-success" type="submit">
+						<button class="btn btn-outline-secondary" type="submit">
 							<?php echo __( 'Search', 'kk_writer_theme' ); ?>
 						</button>
 					</FORM>
