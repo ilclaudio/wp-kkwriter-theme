@@ -8,3 +8,4 @@
 - Manage photo-galleries.
 - CMB2 Field Leaflet Geocoder - Geolocalizzazione degli eventi.
 - Galleria di foto nei libri e nei post.
+- Togliere gli stili personalizzati e usare SASS.

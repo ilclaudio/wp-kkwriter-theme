@@ -2,7 +2,7 @@
 TEMA:
 
 - Template Pagina -> Dettaglio LIBRO.
-	- Template Libro: dati generali.
+	- Template Libro: dati generali (info).
 	- Template Libro: recensioni.
 	- Template libro: testi.
 	- Template libro: brani.
