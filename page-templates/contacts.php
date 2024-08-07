@@ -186,9 +186,6 @@ if ( 'yes' === $form_sent ) {
 							<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
 								<?php echo __( $result_text, 'kk_writer_theme' ); ?>
 								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
-									<svg class="icon" role="img" aria-labelledby="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
-										<use href="<?php echo esc_url( get_template_directory_uri() . '/assets/svg/sprites.svg#it-close' ); ?>"></use>
-									</svg>
 								</button>
 							</div>
 						</div>
@@ -279,10 +276,10 @@ if ( 'yes' === $form_sent ) {
 												<div class="row mt-4">
 													<div class="form-group col text-center">
 														<input type="hidden" name="form_sent" id="form_sent" value="yes" />
-														<button type="button" class="btn btn-outline-secondary">
+														<button type="button" class="mx-3 btn btn-outline-cancel">
 															<?php echo esc_html( __( 'Cancel', 'kk_writer_theme' ) ); ?>
 														</button>
-														<button type="submit" class="btn btn-secondary">
+														<button type="submit" class="mx-3 btn btn-primary">
 															<?php echo esc_html( __( 'Confirm', 'kk_writer_theme' ) ); ?>
 														</button>
 													</div>

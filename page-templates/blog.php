@@ -115,7 +115,7 @@ $total_pages = $the_query->max_num_pages;
 							?>
 						</fieldset>
 						<div class="text-center ">
-							<button type="submit" class="btn btn-secondary mt-3">
+							<button type="submit" class="btn btn-outline-secondary mt-3">
 								<?php echo __( 'Reload' , 'kk_writer_theme' ); ?>
 							</button>
 						</div>
@@ -164,7 +164,7 @@ $total_pages = $the_query->max_num_pages;
 													<?php echo clean_and_truncate_text( $post_wrapper->description, KKW_FEATURED_TEXT_MAX_SIZE ); ?>
 												</p>
 												<div class="text-center">
-													<a href="<?php echo $post_wrapper->detail_url; ?>" class="btn btn-primary">
+													<a href="<?php echo $post_wrapper->detail_url; ?>" class="btn btn-secondary">
 														<?php echo __( 'Read more...', 'kk_writer_theme' ); ?>
 													</a>
 												</div>
