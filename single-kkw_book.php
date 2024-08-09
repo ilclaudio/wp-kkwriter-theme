@@ -108,21 +108,25 @@ $icon_name           = 'fa-book';
 								<button class="nav-link active" id="nav-info-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-info" type="button" role="tab" 
 									aria-controls="nav-info" aria-selected="true">
+									<i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;
 									<?php echo __( 'Information' , 'kk_writer_theme' ); ?>
 								</button>
 								<button class="nav-link" id="nav-reviews-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" 
 									aria-controls="nav-reviews" aria-selected="false">
+									<i class="fa-solid fa-marker"></i>&nbsp;&nbsp;
 									<?php echo __( 'Reviews' , 'kk_writer_theme' ); ?>
 								</button>
 								<button class="nav-link" id="nav-lyrics-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-lyrics" type="button" role="tab"
 									aria-controls="nav-lyrics" aria-selected="false">
+									<i class="fa-solid fa-signature"></i>&nbsp;&nbsp;
 									<?php echo __( 'Lyrics' , 'kk_writer_theme' ); ?>
 								</button>
 								<button class="nav-link" id="nav-tracks-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-tracks" type="button" role="tab"
 									aria-controls="nav-tracks" aria-selected="false" disabled>
+									<i class="fa-solid fa-microphone"></i>&nbsp;&nbsp;
 									<?php echo __( 'Tracks' , 'kk_writer_theme' ); ?>
 								</button>
 							</div>
