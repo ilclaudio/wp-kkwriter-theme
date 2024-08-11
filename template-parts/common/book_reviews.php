@@ -22,7 +22,7 @@ if ( $post_wrapper ) {
 					$link_active = $rvw->description ? true : false;
 					$link_anchor = '#item-' . $rvw->id;
 			?>
-					<li class="font-smaller pt-1">
+					<li class="pt-1 font-review">
 						<span>
 							<?php if ( $link_active ) { ?> <a href="<?php echo $link_anchor ?>"> <?php } ?>
 								<?php echo $rvw->author; ?>, <?php echo $rvw->label; ?>
@@ -41,12 +41,12 @@ if ( $post_wrapper ) {
 		<?php
 			foreach ( $reviews as $rvw ) {
 				$link_active = $rvw->description ? true : false;
-				$link_anchor = '#item-' . $rvw->id;
+				$link_anchor = 'item-' . $rvw->id;
 		?>
 		<?php
 			if ( $link_active ) {
 		?>
-			<div class="card mt-3">
+			<div class="card mt-3" id="<?php echo $link_anchor; ?>">
 				<div class="card-body">
 					<?php echo wp_kses_post( $rvw->description ); ?>
 				</div>
