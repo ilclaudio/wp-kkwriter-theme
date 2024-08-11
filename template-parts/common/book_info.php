@@ -1,21 +1,62 @@
 <?php
 /**
- * KK Writer Theme: The SECTION template.
+ * KK Writer Theme: The BOOK INFO section.
  *
  * @package KK_Writer_Theme
  */
+$post_wrapper = $args['post_wrapper'];
+
+if ( $post_wrapper ) {
+	$isbn      = $post_wrapper->isbn ? $post_wrapper->isbn : '-';
+	$price     = $post_wrapper->price ? $post_wrapper->price : '-';
+	$pages     = $post_wrapper->pages ? $post_wrapper->pages : '-';
+	$publisher = $post_wrapper->publisher ? $post_wrapper->publisher : '-';
 ?>
 
-<div>
-<p>INFO</p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sodales rutrum blandit. 
-Curabitur laoreet a neque at ornare. Quisque sem dui, efficitur et convallis nec, congue at leo.
- Donec vitae pulvinar sapien. Aenean lorem nulla, placerat quis risus at, 
- faucibus imperdiet turpis. Mauris pellentesque vel est eget efficitur. 
- Phasellus viverra enim at laoreet suscipit. Aenean pulvinar aliquam aliquam. Cras vel felis quis tortor molestie vehicula ac quis enim. Donec vitae felis feugiat, imperdiet est a, consectetur quam. Suspendisse auctor dignissim tellus a posuere. Vestibulum suscipit ullamcorper enim, imperdiet pretium neque rutrum id. Nunc placerat bibendum ipsum nec mattis.
+<div class="container my-5 mx-3">
+	<div class="row">
+		<!-- Prima colonna -->
+		<div class="col-md-6">
+			<div class="row mt-3">
+				<div class="col-4 fw-bold"><?php echo __( 'Title' , 'kk_writer_theme' ); ?>:</div>
+				<div class="col-8 fw-bold"><?php echo esc_attr( $post_wrapper->title ); ?></div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-4 fw-bold"><?php echo __( 'Author' , 'kk_writer_theme' ); ?>:</div>
+				<div class="col-8"><?php echo esc_attr( $post_wrapper->author ); ?></div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-4 fw-bold"><?php echo __( 'Year' , 'kk_writer_theme' ); ?>:</div>
+				<div class="col-8"><?php echo esc_attr( $post_wrapper->view_date); ?></div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-4 fw-bold"><?php echo __( 'Publisher' , 'kk_writer_theme' ); ?>:</div>
+				<div class="col-8 fst-italic"><?php echo esc_attr( $publisher ); ?></div>
+			</div>
+		</div>
 
-Vivamus vel ipsum eget elit viverra laoreet. Aliquam sit amet tristique leo. 
-Suspendisse vitae mi quis dolor mattis cursus sed egestas lorem. Sed ac libero purus. 
-Vivamus quis lorem quis mauris vehicula sagittis. Proin aliquet ante id sagittis interdum. 
-In augue magna, congue non finibus ac, laoreet sed est. Curabitur orci dolor, convallis nec eros sed, maximus mattis augue. Mauris fermentum, est a vestibulum molestie, metus tellus sodales metus, vel vulputate elit purus sit amet neque.
+		<!-- Seconda colonna -->
+		<div class="col-md-6">
+			<div class="row mt-3">
+				<div class="col-4 fw-bold"><?php echo __( 'Section' , 'kk_writer_theme' ); ?>:</div>
+				<div class="col-8"><?php echo esc_attr( $post_wrapper->main_group ); ?></div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-4 fw-bold"><?php echo __( 'Pages' , 'kk_writer_theme' ); ?>:</div>
+				<div class="col-8"><?php echo esc_attr( $pages ); ?></div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-4 fw-bold"><?php echo __( 'ISBN' , 'kk_writer_theme' ); ?>:</div>
+				<div class="col-8"><?php echo esc_attr( $isbn ); ?></div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-4 fw-bold"><?php echo __( 'Price' , 'kk_writer_theme' ); ?>:</div>
+				<div class="col-8"><?php echo esc_attr( $price ); ?></div>
+			</div>
+		</div>
+	</div>
 </div>
+
+<?php
+}
+?>

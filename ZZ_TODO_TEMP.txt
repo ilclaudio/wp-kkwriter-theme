@@ -2,7 +2,6 @@
 TEMA:
 
 - Template Pagina -> Dettaglio LIBRO.
-	- Template Libro: dati generali (info).
 	- Template Libro: recensioni.
 	- Template libro: testi.
 	- Template libro: brani.
@@ -35,6 +34,9 @@ ACCESSIBILITA':
 RESPONSIVE:
 - Fix Logo alignment.
 - Allineare menu footer1 al centro e anche sezione socials su schermi piccoli.
+
+SICUREZZA:
+- Verifica sicurezza (soprattutto form contatti e ricerca).
 
 REFACTORING:
 - Refactoring functions.php in object oriented way.

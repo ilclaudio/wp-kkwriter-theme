@@ -4,6 +4,9 @@
  *
  * @package KK_Writer_Theme
  */
+$post_wrapper = $args['post_wrapper'];
+
+if ( $post_wrapper ) {
 ?>
 
 <div>
@@ -39,3 +42,7 @@ consectetur adipiscing elit. Phasellus at nulla vel justo suscipit tincidunt.
  Integer vitae pretium erat, sit amet viverra erat. Nulla facilisi. Aliquam et aliquet purus, 
  vitae pharetra sapien. Suspendisse a iaculis augue.
 </div>
+
+<?php
+	}
+?>
