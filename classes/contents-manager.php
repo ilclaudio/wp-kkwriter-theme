@@ -33,6 +33,24 @@ class KKW_WrappedImage{
 		}
 	}
 }
+class KKW_WrappedReview {
+	public int $id;
+	public int $order;
+	public string $author;
+	public string $title;
+	public string $label;
+	public string $description;
+	public string $text;
+
+	public function __construct( $parameters ) {
+		$this->id          = intval( $parameters['id'] );
+		$this->order       = intval ( $parameters['order'] );
+		$this->author      = $parameters['author'];
+		$this->label       = $parameters['label'];
+		$this->title       = $parameters['title'];
+		$this->description = $parameters['description'];
+	}
+}
 
 class KKW_WrappedItem {
 	public int $id;
@@ -48,6 +66,10 @@ class KKW_WrappedItem {
 	public string $detail_url;
 	public string $publisher;
 	public string $author;
+	public string $price;
+	public string $pages;
+	public string $isbn;
+
 	public array $images;
 
 
@@ -65,6 +87,9 @@ class KKW_WrappedItem {
 		$this->detail_url     = $parameters['detail_url'];
 		$this->publisher      = $parameters['publisher'];
 		$this->author         = $parameters['author'];
+		$this->pages          = $parameters['pages'];
+		$this->isbn           = $parameters['isbn'];
+		$this->price          = $parameters['price'];
 		$this->images         = $parameters['images'];
 	}
 
@@ -131,6 +156,9 @@ class KKW_ContentsManager
 			'type'              => '',
 			'slug'              => '',
 			'status'            => '',
+			'pages'             => '',
+			'isbn'              => '',
+			'price'             => '',
 			'description'       => '',
 			'post_date'         => '',
 			'view_date'         => '',
@@ -153,6 +181,9 @@ class KKW_ContentsManager
 			$item['view_date']      = $book['year'];
 			$item['main_group']     = $section;
 			$item['main_group_url'] = '';
+			$item['price']          = $book['price'] ? $book['pages'] . '€' : '';
+			$item['pages']          = $book['pages'];
+			$item['isbn']           = $book['isbn'];
 			$item['publisher']      = count( $book['publishers'] ) ? join( ',', $book['publishers'] ) : '';
 			$item['author']         = count( $book['authors'] ) ? join( ',', $book['authors'] ) : '';
 			$item['detail_url']     = get_permalink( $post->ID );
@@ -179,6 +210,9 @@ class KKW_ContentsManager
 		$item['main_group_url'] = '';
 		$item['publisher']      = '';
 		$item['author']         = '';
+		$item['pages']          = '';
+		$item['isbn']           = '';
+		$item['price']          = '';
 		$item['detail_url']     = get_permalink( $post->ID) ;
 		$item['images']         = array();
 		return $item;
@@ -479,4 +513,52 @@ class KKW_ContentsManager
 		return $the_query;
 	}
 
+	public static function get_book_reviews( $post_id ) {
+		$reviews = array();
+		$args = array(
+			'post_type'  => 'kkw_review',
+			'meta_query' => array(
+				array(
+					'key'     => 'kkw_book_link',
+					'value'   => '"30"',
+					'compare' => 'LIKE'
+				)
+			)
+		);
+		$query   = new WP_Query( $args );
+		$results = $query->get_posts();
+		if ( $results ) {
+			foreach ( $results as $pst ) {
+				$meta_tags = get_post_meta( $pst->ID );
+				$parameters = array(
+					'id'          => $pst->ID,
+					'title'       => $pst->post_title,
+					'author'      => KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_author' ),
+					'order'       => KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_order' ),
+					'description' => $pst->post_content,
+					'label'       => KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_source_description' ),
+				);
+				$item  = new KKW_WrappedReview( $parameters );
+				array_push( $reviews, $item );
+			}
+		}
+		$reviews = self::order_items( $reviews );
+		return $reviews;
+	}
+
+	public static function order_items( $items ){
+		usort($items,
+			function($a, $b) {
+				return $a->order - $b->order;
+			}
+		);
+		return $items;
+	}
+	public static function get_book_lyrics( $post_id ){
+		return array();
+	}
+
+	public static function get_book_tracks( $post_id ){
+		return array();
+	}
 }

@@ -22,7 +22,7 @@ $icon_name           = 'fa-book';
 		the_post();
 		$post_wrapper   = KKW_ContentsManager::wrap_search_result( $post );
 		$image_wrapper  = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'full' );
-		$meta_tags      = get_post_meta( $post->ID );
+		$meta_tags      = get_post_meta( $post_wrapper->id );
 		// Manage back cover.
 		$back_cover_id = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_back_cover_id' );
 		// @TODO: get the imahe if exists.
@@ -101,7 +101,7 @@ $icon_name           = 'fa-book';
 					</section>
 					
 					<!-- Tabs header-->
-					<section id="kkw_book_tabs" class="mt-0 pt-0 mb-5" style="min-height: 300px;"
+					<section id="kkw_book_tabs" class="mt-5 pt-0 mb-5" style="min-height: 300px;"
 						aria-label="<?php echo __( 'Tabs to switch among contents' , 'kk_writer_theme' ); ?>">
 						<nav>
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -167,7 +167,7 @@ $icon_name           = 'fa-book';
 										'template-parts/common/book_lyrics',
 										null,
 										array(
-										'post_wrapper' => $post_wrapper,
+											'post_wrapper' => $post_wrapper,
 										)
 									);
 								?>
@@ -180,7 +180,7 @@ $icon_name           = 'fa-book';
 										'template-parts/common/book_tracks',
 										null,
 										array(
-										'post_wrapper' => $post_wrapper,
+											'post_wrapper' => $post_wrapper,
 										)
 									);
 								?>

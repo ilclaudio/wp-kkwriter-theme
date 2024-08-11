@@ -4,28 +4,72 @@
  *
  * @package KK_Writer_Theme
  */
+$post_wrapper = $args['post_wrapper'];
+
+if ( $post_wrapper ) {
+	$reviews = KKW_ContentsManager::get_book_reviews( $post_wrapper->id );
+	if ( count ( $reviews ) ) {
+		$counter = 1;
 ?>
 
-<div>
-<p>REVIEWS</p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sodales rutrum blandit. 
-Curabitur laoreet a neque at ornare. Quisque sem dui, efficitur et convallis nec, congue at leo.
- Donec vitae pulvinar sapien. Aenean lorem nulla, placerat quis risus at, 
- faucibus imperdiet turpis. Mauris pellentesque vel est eget efficitur. 
- Phasellus viverra enim at laoreet suscipit. Aenean pulvinar aliquam aliquam. Cras vel felis quis tortor molestie vehicula ac quis enim. Donec vitae felis feugiat, imperdiet est a, consectetur quam. Suspendisse auctor dignissim tellus a posuere. Vestibulum suscipit ullamcorper enim, imperdiet pretium neque rutrum id. Nunc placerat bibendum ipsum nec mattis.
+<div class="container my-5 mx-3">
 
-Vivamus vel ipsum eget elit viverra laoreet. Aliquam sit amet tristique leo. 
-Suspendisse vitae mi quis dolor mattis cursus sed egestas lorem. Sed ac libero purus. 
-Vivamus quis lorem quis mauris vehicula sagittis. Proin aliquet ante id sagittis interdum. 
-In augue magna, congue non finibus ac, laoreet sed est. Curabitur orci dolor, convallis nec eros sed, maximus mattis augue. Mauris fermentum, est a vestibulum molestie, metus tellus sodales metus, vel vulputate elit purus sit amet neque.
+	<!-- Review list -->
+	<section class="row">
+		<ol>
+			<?php
+				foreach ( $reviews as $rvw ) {
+					$link_active = $rvw->description ? true : false;
+					$link_anchor = '#item-' . $rvw->id;
+			?>
+					<li class="font-smaller pt-1">
+						<span>
+							<?php if ( $link_active ) { ?> <a href="<?php echo $link_anchor ?>"> <?php } ?>
+								<?php echo $rvw->author; ?>, <?php echo $rvw->label; ?>
+								<?php if ( $link_active ) { ?> </a> <?php } ?>
+						</span>
+					</li>
+			<?php
+				$counter++;
+				}
+			?>
+		</ol>
+	</section>
 
-Mauris pellentesque faucibus leo eu dignissim. Phasellus ac tempor orci, consequat pharetra purus. 
-Aliquam vel ornare enim. Etiam pulvinar ornare porttitor. 
-Proin quis sem vel ex hendrerit mollis sit amet sit amet tortor. Proin efficitur et magna 
-malesuada rutrum. Mauris sed quam ac leo interdum tincidunt.
+	<!-- Review details -->
+	<section class="row mt-3">
+		<?php
+			foreach ( $reviews as $rvw ) {
+				$link_active = $rvw->description ? true : false;
+				$link_anchor = '#item-' . $rvw->id;
+		?>
+		<?php
+			if ( $link_active ) {
+		?>
+			<div class="card mt-3">
+				<div class="card-body">
+					<?php echo wp_kses_post( $rvw->description ); ?>
+				</div>
+				<div class="card-footer font-smaller">
+					<span>
+						<?php echo $rvw->author; ?>, <?php echo $rvw->label; ?>
+					</span>
+				</div>
+			</div>
+		<?php
+			}
+		?>
+		<?php
+			$counter++;
+			}
+		?>
+	</section>
 
-Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, 
-consectetur adipiscing elit. Phasellus at nulla vel justo suscipit tincidunt.
- Integer vitae pretium erat, sit amet viverra erat. Nulla facilisi. Aliquam et aliquet purus, 
- vitae pharetra sapien. Suspendisse a iaculis augue.
 </div>
+
+
+
+<?php
+		}
+	}
+?>
