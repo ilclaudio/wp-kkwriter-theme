@@ -2,7 +2,6 @@
 TEMA:
 
 - Template Pagina -> Dettaglio LIBRO.
-	- Template Libro: recensioni.
 	- Template libro: testi.
 	- Template libro: brani.
 	- Template libro: libri collegati.

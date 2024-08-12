@@ -117,11 +117,11 @@ $icon_name           = 'fa-book';
 									<i class="fa-solid fa-marker"></i>&nbsp;&nbsp;
 									<?php echo __( 'Reviews' , 'kk_writer_theme' ); ?>
 								</button>
-								<button class="nav-link" id="nav-lyrics-tab"
-									data-bs-toggle="tab" data-bs-target="#nav-lyrics" type="button" role="tab"
-									aria-controls="nav-lyrics" aria-selected="false">
+								<button class="nav-link" id="nav-excerpts-tab"
+									data-bs-toggle="tab" data-bs-target="#nav-excerpts" type="button" role="tab"
+									aria-controls="nav-excerpts" aria-selected="false">
 									<i class="fa-solid fa-signature"></i>&nbsp;&nbsp;
-									<?php echo __( 'Lyrics' , 'kk_writer_theme' ); ?>
+									<?php echo __( 'Excerpts' , 'kk_writer_theme' ); ?>
 								</button>
 								<button class="nav-link" id="nav-tracks-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-tracks" type="button" role="tab"
@@ -159,12 +159,12 @@ $icon_name           = 'fa-book';
 									);
 								?>
 							</div>
-							<div class="tab-pane fade" id="nav-lyrics" role="tabpanel"
-								aria-labelledby="nav-lyrics-tab" tabindex="0">
+							<div class="tab-pane fade" id="nav-excerpts" role="tabpanel"
+								aria-labelledby="nav-excerpts-tab" tabindex="0">
 								<!-- Book Reviews -->
 								<?php
 									get_template_part(
-										'template-parts/common/book_lyrics',
+										'template-parts/common/book_excerpts',
 										null,
 										array(
 											'post_wrapper' => $post_wrapper,

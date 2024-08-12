@@ -33,6 +33,20 @@ class KKW_WrappedImage{
 		}
 	}
 }
+class KKW_WrappedExcerpt {
+	public int $id;
+	public int $order;
+	public string $title;
+	public string $description;
+
+	public function __construct( $parameters ) {
+		$this->id          = intval( $parameters['id'] );
+		$this->order       = intval ( $parameters['order'] );
+		$this->title       = $parameters['title'];
+		$this->description = $parameters['description'];
+	}
+}
+
 class KKW_WrappedReview {
 	public int $id;
 	public int $order;
@@ -40,7 +54,6 @@ class KKW_WrappedReview {
 	public string $title;
 	public string $label;
 	public string $description;
-	public string $text;
 
 	public function __construct( $parameters ) {
 		$this->id          = intval( $parameters['id'] );
@@ -520,7 +533,7 @@ class KKW_ContentsManager
 			'meta_query' => array(
 				array(
 					'key'     => 'kkw_book_link',
-					'value'   => '"30"',
+					'value'   => '"' . $post_id . '"',
 					'compare' => 'LIKE'
 				)
 			)
@@ -554,8 +567,36 @@ class KKW_ContentsManager
 		);
 		return $items;
 	}
-	public static function get_book_lyrics( $post_id ){
-		return array();
+
+	public static function get_book_excerpts( $post_id ) {
+		$reviews = array();
+		$args = array(
+			'post_type'  => 'kkw_excerpt',
+			'meta_query' => array(
+				array(
+					'key'     => 'kkw_book_link',
+					'value'   => '"' . $post_id . '"',
+					'compare' => 'LIKE'
+				)
+			)
+		);
+		$query   = new WP_Query( $args );
+		$results = $query->get_posts();
+		if ( $results ) {
+			foreach ( $results as $pst ) {
+				$meta_tags = get_post_meta( $pst->ID );
+				$parameters = array(
+					'id'          => $pst->ID,
+					'title'       => $pst->post_title,
+					'order'       => KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_order' ),
+					'description' => $pst->post_content,
+				);
+				$item  = new KKW_WrappedExcerpt( $parameters );
+				array_push( $reviews, $item );
+			}
+		}
+		$reviews = self::order_items( $reviews );
+		return $reviews;
 	}
 
 	public static function get_book_tracks( $post_id ){
