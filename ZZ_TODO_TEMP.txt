@@ -2,7 +2,6 @@
 TEMA:
 
 - Template Pagina -> Dettaglio LIBRO.
-	- Template libro: libri collegati.
 	- Template libro: share on.
 	- Foto dietro con click per cambiare foto attiva e click per ingrandire.
 
