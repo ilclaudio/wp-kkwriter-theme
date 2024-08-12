@@ -66,22 +66,27 @@ $icon_name           = 'fa-book';
 					<div class="kkw_lateral_menu">
 						<ul class="nav flex-column nav-menu">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#book_description">
+								<a class="nav-link active" aria-current="page" href="#nav-description">
 									<span><?php echo __( 'Description', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#book_reviews">
+								<a class="nav-link" aria-current="page" href="#nav-info">
+									<span><?php echo __( 'Informations', 'kk_writer_theme' ); ?></span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" aria-current="page" href="#nav-reviews">
 									<span><?php echo __( 'Reviews', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#book_excerpts">
+								<a class="nav-link" aria-current="page" href="#nav-excerpts">
 									<span><?php echo __( 'Excerpts', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#book_tracks">
+								<a class="nav-link" aria-current="page" href="#nav-tracks">
 									<span><?php echo __( 'Tracks', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
@@ -89,7 +94,7 @@ $icon_name           = 'fa-book';
 								if ( $flg_rel_books ) {
 							?>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#related_books">
+									<a class="nav-link" aria-current="page" href="#nav-related-books">
 										<span><?php echo __( 'Related books', 'kk_writer_theme' ); ?></span>
 									</a>
 								</li>
@@ -126,14 +131,17 @@ $icon_name           = 'fa-book';
 									>
 								</a>
 							</div>
-							<span id="book_description"></span>
+							<span id="nav-description"></span>
 							<?php the_content(); ?>
 						</div>
 					</section>
 					
 					<!-- BOOK TABS -->
-					<section id="kkw_book_tabs" class="mt-5 pt-0 mb-5" style="min-height: 300px;"
+					<section id="kkw_book_tabs" class="mt-3 pt-0 mb-5" style="min-height: 300px;"
 						aria-label="<?php echo __( 'Tabs to switch among contents' , 'kk_writer_theme' ); ?>">
+						<h4 class="text-color-secondary">
+							<?php echo get_the_title(); ?>
+						</h4>
 						<nav>
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
 								<button class="nav-link active" id="nav-info-tab"
@@ -223,7 +231,7 @@ $icon_name           = 'fa-book';
 					<?php
 						if ( $flg_rel_books ) {
 					?>
-					<section id="related_books" class="mt-5 pt-0 mb-5"
+					<section id="nav-related-books" class="mt-5 pt-0 mb-5"
 						aria-label="<?php echo __( 'Tabs to switch among contents' , 'kk_writer_theme' ); ?>">
 						<h4 class="text-color-secondary"><?php echo __( 'Related books' , 'kk_writer_theme' ); ?></h4>
 						<?php
