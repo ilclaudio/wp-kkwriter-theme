@@ -38,34 +38,34 @@ if ( $post_wrapper ) {
 
 	<!-- Excerpts details -->
 	<section class="row">
-			<?php
-				foreach ( $excerpts as $exc ) {
-					$link_active = $exc->description ? true : false;
-					$link_anchor = 'item-' . $exc->id;
-			?>
-			<?php
-				if ( $link_active ) {
-			?>
-				<div class="card m-0 p-0 mt-5" id="<?php echo $link_anchor; ?>">
-					<div class="card-body">
-						<?php
-							echo apply_filters( 'the_content', $exc->description );
-						?>
-					</div>
-					<div class="card-footer font-smaller">
-						<span>
-							<?php echo $exc->title; ?>
-						</span>
-					</div>
+		<?php
+			foreach ( $excerpts as $exc ) {
+				$link_active = $exc->description ? true : false;
+				$link_anchor = 'item-' . $exc->id;
+		?>
+		<?php
+			if ( $link_active ) {
+		?>
+			<div class="card m-0 p-0 mt-5" id="<?php echo $link_anchor; ?>">
+				<div class="card-body">
+					<?php
+						echo apply_filters( 'the_content', $exc->description );
+					?>
 				</div>
-			<?php
-				}
-			?>
-			<?php
-				$counter++;
-				}
-			?>
-		</section>
+				<div class="card-footer font-smaller">
+					<span>
+						<?php echo $exc->title; ?>
+					</span>
+				</div>
+			</div>
+		<?php
+			}
+		?>
+		<?php
+			$counter++;
+			}
+		?>
+	</section>
 </div>
 
 <?php
