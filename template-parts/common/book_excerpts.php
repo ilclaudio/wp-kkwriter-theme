@@ -18,14 +18,14 @@ if ( $post_wrapper ) {
 	<section class="row">
 		<ol>
 			<?php
-				foreach ( $excerpts as $rvw ) {
-					$link_active = $rvw->description ? true : false;
-					$link_anchor = '#item-' . $rvw->id;
+				foreach ( $excerpts as $exc ) {
+					$link_active = $exc->description ? true : false;
+					$link_anchor = '#item-' . $exc->id;
 			?>
 					<li class="pt-1 font-review">
 						<span>
 							<?php if ( $link_active ) { ?> <a href="<?php echo $link_anchor ?>"> <?php } ?>
-								<?php echo $rvw->title; ?>
+								<?php echo $exc->title; ?>
 								<?php if ( $link_active ) { ?> </a> <?php } ?>
 						</span>
 					</li>
@@ -37,7 +37,35 @@ if ( $post_wrapper ) {
 	</section>
 
 	<!-- Excerpts details -->
-
+	<section class="row">
+			<?php
+				foreach ( $excerpts as $exc ) {
+					$link_active = $exc->description ? true : false;
+					$link_anchor = 'item-' . $exc->id;
+			?>
+			<?php
+				if ( $link_active ) {
+			?>
+				<div class="card m-0 p-0 mt-5" id="<?php echo $link_anchor; ?>">
+					<div class="card-body">
+						<?php
+							echo apply_filters( 'the_content', $exc->description );
+						?>
+					</div>
+					<div class="card-footer font-smaller">
+						<span>
+							<?php echo $exc->title; ?>
+						</span>
+					</div>
+				</div>
+			<?php
+				}
+			?>
+			<?php
+				$counter++;
+				}
+			?>
+		</section>
 </div>
 
 <?php

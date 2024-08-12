@@ -48,7 +48,9 @@ if ( $post_wrapper ) {
 			?>
 				<div class="card m-0 p-0 mt-5" id="<?php echo $link_anchor; ?>">
 					<div class="card-body">
-						<?php echo wp_kses_post( $rvw->description ); ?>
+						<?php
+							echo apply_filters( 'the_content', $rvw->description );
+						?>
 					</div>
 					<div class="card-footer font-smaller">
 						<span>
