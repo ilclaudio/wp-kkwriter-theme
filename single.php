@@ -24,7 +24,7 @@ $section_description = '';
 		$icon_name      = KKW_ContentsManager::get_post_icon_by_group( $post_wrapper->main_group );
 		$group          = $post_wrapper->main_group;
 		$flg_is_event   = $post_wrapper->main_group === 'event';
-		$meta_tags      = get_post_meta( $post->ID );
+		$meta_tags      = get_post_meta( $post_wrapper->id );
 		$start_date_str = '';
 		$end_date_str   = '';
 		if ( $flg_is_event ) {
@@ -44,7 +44,7 @@ $section_description = '';
 		$serialized_books = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_book_link' );
 		$books            = unserialize( $serialized_books );
 
-		/* activation flags */
+		/* Activation flags */
 		$flg_start_date = $start_date_str ? true : false;
 		$flg_end_date   = $end_date_str ? true : false;
 		$flg_date       = $flg_is_event && ( $flg_start_date || $flg_end_date );
@@ -141,7 +141,7 @@ $section_description = '';
 								if ( $flg_rel_books ) {
 							?>
 							<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="#related_book">
+								<a class="nav-link" aria-current="page" href="#related_books">
 									<span><?php echo __( 'Related books', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>

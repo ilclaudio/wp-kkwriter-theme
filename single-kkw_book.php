@@ -25,7 +25,11 @@ $icon_name           = 'fa-book';
 		$meta_tags      = get_post_meta( $post_wrapper->id );
 		// Manage back cover.
 		$back_cover_id = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_back_cover_id' );
-		// @TODO: get the imahe if exists.
+		// Unserialize related book data.
+		$serialized_books = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_book_link' );
+		$books            = unserialize( $serialized_books );
+		/* Activation flags */
+		$flg_rel_books  = ( $books && count( $books ) ) > 0 ? true : false;
 	?>
 
 		<!-- BODY -->
@@ -52,7 +56,7 @@ $icon_name           = 'fa-book';
 			<div class="row">
 
 				<!-- NAVIGATION column-->
-				<aside class="col-md-2 border-end mb-5">
+				<aside class="col-md-2 border-end mb-5 mt-3">
 					<div class="menu-title text-center text-color-secondary">
 						<i class="pe-2 fa-solid <?php echo $icon_name; ?>"
 								data-bs-toggle="<?php echo $post_wrapper->main_group; ?>"
@@ -66,6 +70,17 @@ $icon_name           = 'fa-book';
 									<span><?php echo __( 'Description', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
+							<?php
+								if ( $flg_rel_books ) {
+							?>
+								<li class="nav-item">
+									<a class="nav-link" aria-current="page" href="#related_books">
+										<span><?php echo __( 'Related books', 'kk_writer_theme' ); ?></span>
+									</a>
+								</li>
+							<?php
+								}
+							?>
 						</ul>
 					</div>
 					<!-- sharing -->
@@ -84,8 +99,8 @@ $icon_name           = 'fa-book';
 				<!-- CONTENT column-->
 				<section class="col-md-10 pb-3" aria-label="<?php echo __( 'Article' , 'kk_writer_theme' ); ?>">
 
-					<!-- Image and description -->
-					<section class="row" aria-label="<?php echo __( 'Image and description of the book' , 'kk_writer_theme' ); ?>">
+					<!-- BOOK IMAGE and description -->
+					<section class="row mt-3" aria-label="<?php echo __( 'Image and description of the book' , 'kk_writer_theme' ); ?>">
 						<div class="col-12">
 							<div id="kkw_book_img_div" class="float-start me-3">
 								<a href="<?php echo esc_url( $image_wrapper->src ); ?>" data-lightbox="image-1">
@@ -100,7 +115,7 @@ $icon_name           = 'fa-book';
 						</div>
 					</section>
 					
-					<!-- Tabs header-->
+					<!-- BOOK TABS -->
 					<section id="kkw_book_tabs" class="mt-5 pt-0 mb-5" style="min-height: 300px;"
 						aria-label="<?php echo __( 'Tabs to switch among contents' , 'kk_writer_theme' ); ?>">
 						<nav>
@@ -188,6 +203,27 @@ $icon_name           = 'fa-book';
 						</div>
 					</section>
 
+					<!-- RELATED BOOKS -->
+					<?php
+						if ( $flg_rel_books ) {
+					?>
+					<section id="related_books" class="mt-5 pt-0 mb-5"
+						aria-label="<?php echo __( 'Tabs to switch among contents' , 'kk_writer_theme' ); ?>">
+						<h4 class="text-color-secondary"><?php echo __( 'Related books' , 'kk_writer_theme' ); ?></h4>
+						<?php
+								get_template_part(
+									'template-parts/common/related_books',
+									null,
+									array(
+										'books'       => $books,
+										'size_string' => 'featured-post',
+									),
+								);
+							?>
+					</section>
+					<?php
+						}
+					?>
 
 				</section> <!-- content column -->
 
