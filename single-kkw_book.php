@@ -66,8 +66,23 @@ $icon_name           = 'fa-book';
 					<div class="kkw_lateral_menu">
 						<ul class="nav flex-column nav-menu">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#post_description">
+								<a class="nav-link active" aria-current="page" href="#book_description">
 									<span><?php echo __( 'Description', 'kk_writer_theme' ); ?></span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#book_reviews">
+									<span><?php echo __( 'Reviews', 'kk_writer_theme' ); ?></span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#book_excerpts">
+									<span><?php echo __( 'Excerpts', 'kk_writer_theme' ); ?></span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#book_tracks">
+									<span><?php echo __( 'Tracks', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
 							<?php
@@ -111,6 +126,7 @@ $icon_name           = 'fa-book';
 									>
 								</a>
 							</div>
+							<span id="book_description"></span>
 							<?php the_content(); ?>
 						</div>
 					</section>
@@ -226,7 +242,6 @@ $icon_name           = 'fa-book';
 					?>
 
 				</section> <!-- content column -->
-
 			</div> <!-- row -->
 		</div> <!-- body -->
 
