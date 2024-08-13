@@ -63,7 +63,7 @@ $icon_name           = 'fa-book';
 								title="<?php echo $post_wrapper->main_group; ?> "></i>
 							<?php echo __( 'Details' , 'kk_writer_theme' ); ?>
 					</div>
-					<div class="kkw_lateral_menu">
+					<div id="kkw_lateral_menu" class="kkw_lateral_menu">
 						<ul class="nav flex-column nav-menu">
 							<li class="nav-item">
 								<a class="nav-link active" aria-current="page" href="#nav-description">
