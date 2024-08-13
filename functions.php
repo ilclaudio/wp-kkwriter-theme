@@ -101,6 +101,16 @@ if ( ! function_exists( 'kkw_enqueue_admin_custom_css' ) ) {
 	add_action( 'admin_enqueue_scripts', 'kkw_enqueue_admin_custom_css' );
 }
 
+if ( ! function_exists( 'kkw_enqueue_js_variables' ) ) {
+	function kkw_enqueue_js_variables() {
+		// Define the variable that must be passed to javascript.
+		$wp_menu_tabs = array( '#nav-info', '#nav-reviews', '#nav-excerpts', '#nav-excerpts' );
+		// Pass the variable using wp_localize_script.
+		wp_localize_script( 'kkw-js', 'wpMenuTabs', $wp_menu_tabs );
+	} 
+	add_action( 'wp_enqueue_scripts', 'kkw_enqueue_js_variables' );
+}
+
 if ( ! function_exists( 'kkw_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
