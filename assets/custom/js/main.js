@@ -40,5 +40,25 @@ links[i].addEventListener('click', function() {
 	for(let j=0; j<links.length; j++)
 		links[j].classList.remove('active');
 	this.classList.add('active');
+
+	// Code added to manage book tabs.
+	let tabs = ["#nav-info", "#nav-reviews", "#nav-excerpts", "#nav-excerpts"];
+	let anchor = this.getAttribute("href");
+	if (tabs.includes(anchor)) {
+		document.querySelectorAll('#nav-tab .nav-link.active').forEach(tab => {
+			tab.classList.remove('active');
+			tab.setAttribute('aria-selected', 'false');
+		});
+		document.querySelectorAll('#nav-tabContent .tab-pane').forEach(tab => {
+			tab.classList.remove('active');
+			tab.classList.remove('show');
+		});
+		let selector = '#nav-tab button[data-bs-target="' + anchor + '"]'
+		const btn = document.querySelector(selector);
+		let instance = null;
+		if (btn) instance = new bootstrap.Tab(btn);
+		if (instance) instance.show();
+	}
+
 });
 }
