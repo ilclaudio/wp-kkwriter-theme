@@ -1,9 +1,6 @@
 
 TEMA:
 
-- Template Pagina -> Dettaglio LIBRO.
-	- Foto dietro con click per cambiare foto attiva e click per ingrandire.
-
 - Template Pagina -> Dettaglio Articolo/Evento/News.
 	- Download del file ics per calendar.
 
