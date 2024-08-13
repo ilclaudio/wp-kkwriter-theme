@@ -85,3 +85,26 @@ for(let i=0; i<bookTabs.length; i++){
 		}
 	);
 }
+
+// Toggle of the icon of the book.
+document.addEventListener('DOMContentLoaded', function() {
+	// Select the elements.
+	const frontCover = document.getElementById('front_cover');
+	const backCover = document.getElementById('back_cover');
+	const currentCover = document.getElementById('current_cover');
+	const currentCoverLink = document.getElementById('current_cover_link');
+	// Add an event for the front-cover.
+	frontCover.addEventListener('click', function(event) {
+		event.preventDefault();
+		const newSrc = this.getAttribute("data-img-src");
+		currentCover.src = newSrc;
+		currentCoverLink.href = newSrc;
+	});
+	// Add an event for the back-cover.
+	backCover.addEventListener('click', function(event) {
+		event.preventDefault();
+		const newSrc = this.getAttribute("data-img-src");
+		currentCover.src = newSrc;
+		currentCoverLink.href = newSrc;
+	});
+});
