@@ -86,7 +86,7 @@ $icon_name           = 'fa-book';
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="#nav-tracks">
+								<a class="nav-link disabled" aria-current="page" href="#nav-tracks">
 									<span><?php echo __( 'Tracks', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
