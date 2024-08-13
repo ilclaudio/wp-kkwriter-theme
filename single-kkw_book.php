@@ -23,8 +23,14 @@ $icon_name           = 'fa-book';
 		$post_wrapper   = KKW_ContentsManager::wrap_search_result( $post );
 		$image_wrapper  = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'full' );
 		$meta_tags      = get_post_meta( $post_wrapper->id );
+		// Manage front cover.
+		$front_cover_id    = $image_wrapper->id;
+		$front_image_array = wp_get_attachment_image_src( $front_cover_id, 'full' );
+		$front_image_src   = $front_image_array ? esc_url( $front_image_array[0] ) : '';
 		// Manage back cover.
-		$back_cover_id = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_back_cover_id' );
+		$back_cover_id    = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_back_cover_id' );
+		$back_image_array = wp_get_attachment_image_src( $back_cover_id, 'full' );
+		$back_image_src   = $back_image_array ? esc_url( $back_image_array[0] ) : '';
 		// Unserialize related book data.
 		$serialized_books = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_book_link' );
 		$books            = unserialize( $serialized_books );
@@ -122,14 +128,40 @@ $icon_name           = 'fa-book';
 					<!-- BOOK IMAGE and description -->
 					<section class="row mt-3" aria-label="<?php echo __( 'Image and description of the book' , 'kk_writer_theme' ); ?>">
 						<div class="col-12">
-							<div id="kkw_book_img_div" class="float-start me-3">
-								<a href="<?php echo esc_url( $image_wrapper->src ); ?>" data-lightbox="image-1">
-									<img id="kkw_book_img"
-										class="img-fluid rounded mb-5"
+							<div id="current_cover_div" class="float-start me-3">
+								<a id="current_cover_link" href="<?php echo esc_url( $image_wrapper->src ); ?>" data-lightbox="image-1">
+									<img id="current_cover"
+										class="img-fluid rounded mb-2"
 										src="<?php echo esc_url( $image_wrapper->src ); ?>"
 										alt="<?php echo esc_attr( $image_wrapper->alt ); ?>"
 									>
 								</a>
+								<?php
+									if ( $back_cover_id && $front_cover_id ) {
+								?>
+								<div class="row mt-0 pt-0 mb-3 d-none d-lg-block text-center">
+									<div class="col-6 text-center d-inline">
+											<img id="front_cover"
+												style="max-height: 100px; width: auto;"
+												class="img-fluid rounded m-0 p-0"
+												data-img-src="<?php echo esc_url( $front_image_src ); ?>"
+												src="<?php echo esc_url( $front_image_src ); ?>"
+												alt="<?php echo __( 'Cover of the book' , 'kk_writer_theme' ); ?>"
+											>
+									</div>
+									<div class="col-6 text-center d-inline">
+											<img id="back_cover"
+												style="max-height: 100px; width: auto;"
+												class="img-fluid rounded m-0 p-0"
+												data-img-src="<?php echo esc_url( $back_image_src ); ?>"
+												src="<?php echo esc_url( $back_image_src  ); ?>"
+												alt="<?php echo __( 'Back cover of the book' , 'kk_writer_theme' ); ?>"
+											>
+									</div>
+								</div>
+								<?php
+									}
+								?>
 							</div>
 							<span id="nav-description"></span>
 							<?php the_content(); ?>
