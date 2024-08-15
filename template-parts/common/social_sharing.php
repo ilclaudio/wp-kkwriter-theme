@@ -17,7 +17,8 @@ $site_url = get_site_url();
 		<div class="link-list-wrapper">
 			<ul class="link-list">
 				<li>
-					<a class="list-item" href="https://facebook.com/sharer/sharer.php?u=<?php echo urlencode( $site_url ) ; ?>"
+					<a class="list-item"
+						href="https://facebook.com/sharer/sharer.php?u=<?php echo urlencode( $site_url ) ; ?>"
 						target="_blank" rel="noopener noreferrer" aria-label="<?php echo __( 'Share on Facebook', 'kk_writer_theme' ); ?>">
 						<i class="fab fa-facebook-f fa-lg"></i>
 						<span>
