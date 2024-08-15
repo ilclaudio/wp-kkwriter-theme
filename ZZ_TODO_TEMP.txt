@@ -4,8 +4,6 @@ TEMA:
 - Template Pagina -> Dettaglio Articolo/Evento/News.
 	- Download del file ics per calendar.
 
-- Fix: Condividi su...
-
 - Completare gestione Breadcrumbs.
 - Template Pagina -> Sitemap.
 - Tradurre etichette in italiano.
@@ -23,6 +21,7 @@ ACCESSIBILITA':
 - Verifica corretta definizione delle sezioni.
 - Verifica tag immagini.
 - Verifica corretta spiegazione link e menu.
+- Verifica condivisione sui social (con dominio definitivo). Verifica meta-tag.
 
 RESPONSIVE:
 - Fix Logo alignment.

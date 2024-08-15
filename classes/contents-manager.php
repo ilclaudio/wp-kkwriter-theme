@@ -511,7 +511,6 @@ class KKW_ContentsManager
 			'paged'          => get_query_var( 'paged', 1 ),
 			'posts_per_page' => $pagesize,
 			'post_type'      => $selected_contents,
-			// 'post_type'      => self::get_custom_contents_filter_keys(),
 			'orderby'         => 'post__in',
 			's'               => $search_string,
 		);
@@ -601,5 +600,36 @@ class KKW_ContentsManager
 
 	public static function get_book_tracks( $post_id ){
 		return array();
+	}
+
+	public static function get_og_data() {
+		global $post;
+		$og_data = array(
+			'id'          => '',
+			'title'       => '',
+			'description' => '',
+			'image'       => '',
+		);
+		$item_id   = $post->ID ? $post->ID : '';
+		$item_type = $post->post_type ? $post->post_type : '';
+		$types     = [ 'post', 'kkw_book' ];
+		if ( $item_id && in_array( $item_type, $types ) ) {
+			$img_id     = get_post_thumbnail_id( $item_id );
+			$img_array  = wp_get_attachment_image_src( $img_id, 'featured-post' );
+			$item_title = $post->post_title ? $post->post_title : '';
+			$item_desc  = $post->post_content ? clean_and_truncate_text( $post->post_content, KKW_FEATURED_TEXT_MAX_SIZE ) : '';
+			$item_image = $img_id && count( $img_array ) ? $img_array[0] : '';
+			$domain     = site_url();
+			$item_url   = get_permalink();
+			$og_data['id']          = $item_id;
+			$og_data['title']       = $item_title;
+			$og_data['type']        = $item_type;
+			$og_data['description'] = $item_desc;
+			// $og_data['image']       = urlencode( $item_image );
+			$og_data['image']       =  $item_image;
+			$og_data['domain']       =  $domain;
+			$og_data['url']          =  $item_url;
+		}
+		return $og_data;
 	}
 }
