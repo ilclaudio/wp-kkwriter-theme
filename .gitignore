@@ -5,3 +5,6 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+
+languages/*-backup-*.po~
+languages/*-backup-*.pot~

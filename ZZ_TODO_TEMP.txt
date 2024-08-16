@@ -29,6 +29,7 @@ RESPONSIVE:
 
 SICUREZZA:
 - Verifica sicurezza (soprattutto form contatti e ricerca).
+- Usare NONCE nel form della pagina blog: <?php wp_nonce_field( 'sf_blog_search_nonce', 'blog_search_nonce_field' ); ?>
 
 REFACTORING:
 - Refactoring functions.php in object oriented way.

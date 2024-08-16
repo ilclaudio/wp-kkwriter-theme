@@ -91,12 +91,12 @@ $total_pages = $the_query->max_num_pages;
 					<!-- Filter results -->
 					<FORM action="." id="search_site_form" method="GET"
 						role="search" aria-label="<?php echo __( 'Site search' , 'kk_writer_theme' ); ?>">
-						<?php wp_nonce_field( 'sf_blog_search_nonce', 'blog_search_nonce_field' ); ?>
 
 						<h5 class="text-uppercase border-bottom"><?php echo __( 'Filter by group' , 'kk_writer_theme' ); ?></h5>
 						<fieldset class="font-larger">
 							<?php
 								foreach( $content_types_filters as $pt_name => $pt_label ) {
+									$pt_label = __(  $pt_label, 'kk_writer_theme' );
 							?>
 								<div class="form-check mb-2 mt-2">
 									<input type="checkbox" name="selected_contents[]" id="<?php echo $pt_label; ?>" 

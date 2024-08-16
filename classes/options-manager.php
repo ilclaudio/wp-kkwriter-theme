@@ -5,7 +5,7 @@
  * @package KK_Writer_Theme
  */
 
-define( 'KKW_SEARCHABLE_POST_TYPES', array( 'post', 'kkw_book') );
+define( 'KKW_SEARCHABLE_POST_TYPES', array( KKW_DEFAULT_POST, KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ) );
 
 /**
  * The Activation manager.
@@ -199,7 +199,7 @@ class KKW_ThemeOptionsManager
 			$messages_group_id,
 			array(
 				'id'              => 'message_date',
-				'name'            => __( 'Data fine', 'kk_writer_theme' ),
+				'name'            => __( 'End date', 'kk_writer_theme' ),
 				'type'            => 'text_date',
 				'date_format'     => 'd-m-Y',
 				'data-datepicker' => json_encode( array(

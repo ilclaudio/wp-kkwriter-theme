@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-16 17:37+0000\n"
-"PO-Revision-Date: 2024-04-16 20:57+0000\n"
+"POT-Creation-Date: 2024-08-16 16:41+0000\n"
+"PO-Revision-Date: 2024-08-16 17:08+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -12,15 +12,861 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.7; wp-6.5.2\n"
+"X-Loco-Version: 2.6.11; wp-6.6.1\n"
 "X-Domain: kk_writer_theme"
+
+#: 404.php:45
+msgid "404"
+msgstr ""
+
+#: page-templates/contacts.php:58
+msgid "[ContactForm]"
+msgstr ""
+
+#: classes/options-manager.php:169
+msgid "Add a mesage"
+msgstr ""
+
+#: classes/options-manager.php:157
+msgid "Add messages that will be displayed on the homepage."
+msgstr ""
+
+#: single.php:205
+msgid "Add the event to your calendar (iCal)"
+msgstr ""
+
+#: single.php:235 classes/options-manager.php:559
+msgid "Address"
+msgstr ""
+
+#: classes/options-manager.php:724 classes/options-manager.php:727
+msgid "Advanced"
+msgstr ""
+
+#: classes/options-manager.php:741
+msgid "Advanced configurations"
+msgstr ""
+
+#: classes/options-manager.php:785
+msgid "API token"
+msgstr ""
+
+#: single-kkw_book.php:126 single.php:167
+msgid "Article"
+msgstr ""
+
+#: classes/contents-manager.php:259
+msgid "at"
+msgstr ""
+
+#: template-parts/common/book_info.php:25
+msgid "Author"
+msgstr ""
+
+#: classes/options-manager.php:296 classes/options-manager.php:349
+msgid "Automatic selection enabled"
+msgstr ""
+
+#: template-parts/home/carousel.php:99
+msgid "Back"
+msgstr ""
+
+#: single-kkw_book.php:158
+msgid "Back cover of the book"
+msgstr ""
+
+#: classes/options-manager.php:31
+msgid "Base options"
+msgstr ""
 
 #. Author of the theme
 msgid "BatClaudio"
 msgstr ""
 
+#. Name of the template
+#: page-templates/biography.php:2
+msgid "biography"
+msgstr ""
+
+#: classes/contents-manager.php:219
+msgid "blog"
+msgstr ""
+
+#: page-templates/blog.php:125
+msgid "Blog search results"
+msgstr ""
+
+#: classes/options-manager.php:483
+msgid "Blog section"
+msgstr ""
+
+#: classes/options-manager.php:367
+msgid "Box 1 - Featured content"
+msgstr ""
+
+#: classes/options-manager.php:406
+msgid "Box 2 - Featured content"
+msgstr ""
+
+#: classes/options-manager.php:445
+msgid "Box 3 - Featured content"
+msgstr ""
+
+#: classes/options-manager.php:777
+msgid "Brevo"
+msgstr ""
+
+#: page-templates/contacts.php:280 page-templates/search.php:87
+msgid "Cancel"
+msgstr ""
+
+#: classes/options-manager.php:261
+msgid "Carousel section"
+msgstr ""
+
+#: classes/options-manager.php:308
+msgid "Choose contents"
+msgstr ""
+
+#: classes/options-manager.php:178
+msgid "Choose the color"
+msgstr ""
+
+#: classes/options-manager.php:309
+msgid "Choose the contents to show in the Home Page carousel."
+msgstr ""
+
+#: classes/options-manager.php:118
+msgid ""
+"Choose the the footer logo. If it is not present, but the display of the "
+"logo in the footer is enabled, the header logo is shown with inverted colors."
+" It is recommended to upload an image in SVG format."
+msgstr ""
+
+#: classes/options-manager.php:551
+msgid "City"
+msgstr ""
+
+#: 404.php:55
+#, php-format
+msgid ""
+"Click <a href=\"%s\">here</a> to come back or use the menu to continue "
+"browsing."
+msgstr ""
+
+#: page-templates/contacts.php:173 page-templates/contacts.php:174
+#: page-templates/contacts.php:188
+msgid "Close alert"
+msgstr ""
+
+#: classes/options-manager.php:484
+msgid "Configure here the blog section."
+msgstr ""
+
+#: classes/options-manager.php:262
+msgid "Configure here the carousel section."
+msgstr ""
+
+#: page-templates/contacts.php:283
+msgid "Confirm"
+msgstr ""
+
+#: page-templates/contacts.php:100
+msgid "Confirmation email not sent."
+msgstr ""
+
+#: single.php:117 single.php:232 classes/options-manager.php:526
+#: classes/options-manager.php:543 page-templates/contacts.php:20
+msgid "Contacts"
+msgstr ""
+
+#. Name of the template
+#: page-templates/contacts.php:2
+msgid "contacts"
+msgstr ""
+
+#: page-templates/contacts.php:162
+msgid "Contacts form"
+msgstr ""
+
+#: single-kkw_book.php:149
+msgid "Cover of the book"
+msgstr ""
+
+#: template-parts/common/ordering.php:42
+msgid "Creation date ascending"
+msgstr ""
+
+#: template-parts/common/ordering.php:47
+msgid "Creation date descending"
+msgstr ""
+
+#: classes/options-manager.php:182
+msgid "Danger"
+msgstr ""
+
+#: activation.php:50
+msgid "Data reloaded successfully"
+msgstr ""
+
+#: single.php:183
+msgid "Date and hour"
+msgstr ""
+
+#: single.php:99
+msgid "Dates and hours"
+msgstr ""
+
+#: classes/options-manager.php:170
+msgid "Delete the message"
+msgstr ""
+
+#: single-kkw_book.php:76 single.php:91
+msgid "Description"
+msgstr ""
+
+#: single-kkw_book.php:70 single.php:85
+msgid "Details"
+msgstr ""
+
+#: page-templates/contacts.php:247
+msgid "Do you want to receive an email notification"
+msgstr ""
+
+#: single.php:238 page-templates/contacts.php:229
+msgid "E-mail"
+msgstr ""
+
+#: classes/options-manager.php:165
+msgid ""
+"Each message is constructed with a short description (max 140 characters) "
+"and expiry date (optional)."
+msgstr ""
+
+#: classes/options-manager.php:567
+msgid "Email"
+msgstr ""
+
+#: page-templates/contacts.php:58
+msgid "Email form the site"
+msgstr ""
+
+#: classes/options-manager.php:852
+msgid "Enable language selector"
+msgstr ""
+
+#: classes/options-manager.php:617
+msgid ""
+"Enable the display of social media in the header and footer of the page."
+msgstr ""
+
+#: classes/options-manager.php:894
+msgid "Enable the REST API"
+msgstr ""
+
+#: classes/options-manager.php:202
+msgid "End date"
+msgstr ""
+
+#: classes/options-manager.php:874
+msgid "Enter the analytics code."
+msgstr ""
+
+#: activation.php:53
+msgid "Error reloading data"
+msgstr ""
+
+#: single.php:197
+msgid "Event end"
+msgstr ""
+
+#: single.php:221
+msgid "Event location address"
+msgstr ""
+
+#: single.php:189
+msgid "Event start"
+msgstr ""
+
+#: single-kkw_book.php:91 single-kkw_book.php:195
+msgid "Excerpts"
+msgstr ""
+
+#: single.php:239
+msgid "External link"
+msgstr ""
+
+#: template-parts/common/social_sharing.php:25
+msgid "Facebook"
+msgstr ""
+
+#: classes/options-manager.php:328
+msgid "featured content section"
+msgstr ""
+
+#: page-templates/search.php:102
+msgid "Filter by content type"
+msgstr ""
+
+#: page-templates/blog.php:95
+msgid "Filter by group"
+msgstr ""
+
+#: template-parts/common/social_footer.php:17
+#: template-parts/common/social_footer.php:22
+#: template-parts/common/social_footer.php:23
+#: template-parts/common/social_footer.php:30
+#: template-parts/common/social_footer.php:31
+#: template-parts/common/social_footer.php:38
+#: template-parts/common/social_footer.php:39
+#: template-parts/common/social_footer.php:46
+#: template-parts/common/social_footer.php:47
+#: template-parts/common/social_footer.php:54
+#: template-parts/common/social_footer.php:55
+#: template-parts/common/social_footer.php:62
+#: template-parts/common/social_footer.php:63
+#: template-parts/common/social_footer.php:70
+#: template-parts/common/social_footer.php:71
+#: template-parts/common/social_footer.php:78
+#: template-parts/common/social_footer.php:79
+#: template-parts/common/social_footer.php:86
+#: template-parts/common/social_footer.php:87
+#: template-parts/common/social_footer.php:94
+#: template-parts/common/social_footer.php:95
+#: template-parts/common/social_footer.php:102
+#: template-parts/common/social_footer.php:103
+#: template-parts/common/social_footer.php:110
+#: template-parts/common/social_footer.php:111
+msgid "Follow me on"
+msgstr ""
+
+#: classes/options-manager.php:104
+msgid "Footer logo visible"
+msgstr ""
+
+#: classes/options-manager.php:243
+msgid "Home Page Layout"
+msgstr ""
+
+#: classes/options-manager.php:156
+msgid "Home page messages"
+msgstr ""
+
+#: classes/options-manager.php:249
+msgid "HP layout"
+msgstr ""
+
+#: classes/options-manager.php:145
+msgid "HP messages"
+msgstr ""
+
 #. Author URI of the theme
-msgid "https://www.claudiobattaglino.it"
+msgid "https://www.wp-recipes.com"
+msgstr ""
+
+#: classes/options-manager.php:794
+msgid "ID of the list associated to the site."
+msgstr ""
+
+#: classes/options-manager.php:505
+msgid "If yes, the blog section is shown after the featured content section."
+msgstr ""
+
+#: classes/options-manager.php:271
+msgid "If yes, the carousel is shown before the featured content section."
+msgstr ""
+
+#: classes/options-manager.php:297
+msgid ""
+"If yes, the contents of the Home Page carousel are chosen automatically."
+msgstr ""
+
+#: classes/options-manager.php:350
+msgid ""
+"If yes, the featured contents of the Home Page are chosen automatically."
+msgstr ""
+
+#: single-kkw_book.php:129
+msgid "Image and description of the book"
+msgstr ""
+
+#: classes/options-manager.php:185
+msgid "Info"
+msgstr ""
+
+#: single-kkw_book.php:183
+msgid "Information"
+msgstr ""
+
+#: single-kkw_book.php:81
+msgid "Informations"
+msgstr ""
+
+#: classes/options-manager.php:609
+msgid "Insert here the links to your social media."
+msgstr ""
+
+#: template-parts/common/book_info.php:49
+msgid "ISBN"
+msgstr ""
+
+#: classes/contents-manager.php:695
+msgid "It is not possible to download the .ics file."
+msgstr ""
+
+#: classes/options-manager.php:26
+msgid "KKW Theme"
+msgstr ""
+
+#: classes/options-manager.php:395 classes/options-manager.php:434
+#: classes/options-manager.php:473
+msgid "Left"
+msgstr ""
+
+#: classes/options-manager.php:227
+msgid "Link"
+msgstr ""
+
+#: classes/options-manager.php:228
+msgid "Link to an in-depth page also external to the site."
+msgstr ""
+
+#: template-parts/common/social_sharing.php:40
+msgid "Linkedin"
+msgstr ""
+
+#: classes/options-manager.php:793
+msgid "List ID"
+msgstr ""
+
+#: classes/options-manager.php:823
+msgid "Login"
+msgstr ""
+
+#: classes/options-manager.php:831
+msgid "Login visible"
+msgstr ""
+
+#: classes/options-manager.php:117
+msgid "Logo footer"
+msgstr ""
+
+#: classes/options-manager.php:91
+msgid "Logo header"
+msgstr ""
+
+#: classes/options-manager.php:329
+msgid "Manage the featured content in the Home Page."
+msgstr ""
+
+#: classes/options-manager.php:215
+msgid "Max 140 characters"
+msgstr ""
+
+#: classes/options-manager.php:168
+msgid "Message"
+msgstr ""
+
+#: page-templates/contacts.php:92
+msgid "Message not sent."
+msgstr ""
+
+#: page-templates/contacts.php:172
+msgid "Message successfully sent"
+msgstr ""
+
+#: page-templates/contacts.php:220
+msgid "Message text"
+msgstr ""
+
+#: classes/options-manager.php:139
+msgid "Messages"
+msgstr ""
+
+#: classes/options-manager.php:844
+msgid "Multilanguage"
+msgstr ""
+
+#: page-templates/contacts.php:210
+msgid "Name and surname"
+msgstr ""
+
+#: classes/options-manager.php:75
+msgid "Network name"
+msgstr ""
+
+#: classes/options-manager.php:83
+msgid "Network url"
+msgstr ""
+
+#: classes/options-manager.php:750 classes/options-manager.php:758
+msgid "Newsletter"
+msgstr ""
+
+#: classes/options-manager.php:771
+msgid "Newsletter manager"
+msgstr ""
+
+#: template-parts/home/carousel.php:105
+msgid "Next"
+msgstr ""
+
+#: classes/options-manager.php:110 classes/options-manager.php:276
+#: classes/options-manager.php:289 classes/options-manager.php:302
+#: classes/options-manager.php:342 classes/options-manager.php:355
+#: classes/options-manager.php:497 classes/options-manager.php:510
+#: classes/options-manager.php:622 classes/options-manager.php:763
+#: classes/options-manager.php:836 classes/options-manager.php:857
+#: classes/options-manager.php:899
+msgid "No"
+msgstr ""
+
+#: page-templates/contacts.php:117
+msgid "Nonce not valid."
+msgstr ""
+
+#: classes/options-manager.php:389 classes/options-manager.php:428
+#: classes/options-manager.php:467
+msgid "On which side the thumbnail wil be shown."
+msgstr ""
+
+#: 404.php:51
+msgid "Oops! The page you are looking for was not found."
+msgstr ""
+
+#: template-parts/common/ordering.php:17
+msgid "Order results by..."
+msgstr ""
+
+#: 404.php:46 404.php:49
+msgid "Page not found"
+msgstr ""
+
+#: template-parts/common/book_info.php:45
+msgid "Pages"
+msgstr ""
+
+#: single.php:236
+msgid "Person"
+msgstr ""
+
+#: classes/options-manager.php:575 page-templates/contacts.php:235
+msgid "Phone number"
+msgstr ""
+
+#: single.php:135 single.php:267
+msgid "Photo gallery"
+msgstr ""
+
+#: single.php:108 single.php:218
+msgid "Place"
+msgstr ""
+
+#: page-templates/contacts.php:75
+msgid "Please, fill all the mandatory fields"
+msgstr ""
+
+#: page-templates/contacts.php:80
+msgid "Please, provide a valid email address."
+msgstr ""
+
+#: template-parts/common/book_info.php:53
+msgid "Price"
+msgstr ""
+
+#: template-parts/common/ordering.php:32
+msgid "Publication year ascending"
+msgstr ""
+
+#: template-parts/common/ordering.php:37
+msgid "Publication year descending"
+msgstr ""
+
+#: template-parts/common/book_info.php:33
+msgid "Publisher"
+msgstr ""
+
+#: page-templates/blog.php:167 template-parts/home/blog-section.php:44
+#: template-parts/home/carousel.php:76
+#: template-parts/home/featured-contents.php:104
+#: template-parts/home/featured-contents.php:143
+#: template-parts/home/featured-contents.php:187
+#: template-parts/home/featured-contents.php:236
+#: template-parts/home/featured-contents.php:270
+msgid "Read more..."
+msgstr ""
+
+#: page-templates/contacts.php:96
+msgid "receipt"
+msgstr ""
+
+#: single-kkw_book.php:104 single-kkw_book.php:268 single.php:144
+#: single.php:286
+msgid "Related books"
+msgstr ""
+
+#: page-templates/blog.php:118
+msgid "Reload"
+msgstr ""
+
+#: activation.php:44
+msgid "Reload default data"
+msgstr ""
+
+#: activation.php:17 activation.php:18
+msgid "Reload theme data"
+msgstr ""
+
+#: activation.php:47
+msgid "Reloads theme activation data (menus, pages, taxonomies, etc.)"
+msgstr ""
+
+#: classes/options-manager.php:886
+msgid "REST API"
+msgstr ""
+
+#: page-templates/search.php:141
+msgid "Results found"
+msgstr ""
+
+#: single-kkw_book.php:86 single-kkw_book.php:189
+msgid "Reviews"
+msgstr ""
+
+#: classes/options-manager.php:394 classes/options-manager.php:433
+#: classes/options-manager.php:472
+msgid "Right"
+msgstr ""
+
+#: header.php:62 header.php:74 page-templates/search.php:90
+msgid "Search"
+msgstr ""
+
+#: page-templates/search.php:126
+msgid "Search results"
+msgstr ""
+
+#: template-parts/common/book_info.php:41
+msgid "Section"
+msgstr ""
+
+#: template-parts/footer/primary-footer.php:14
+msgid ""
+"Section primary footer with site name, useful links and links to the socials."
+msgstr ""
+
+#: template-parts/footer/secondary-footer.php:12
+msgid "Section secondary footer with administrative links"
+msgstr ""
+
+#: template-parts/home/carousel.php:17
+msgid ""
+"Section that contains a carousel with the most important contents of the "
+"site."
+msgstr ""
+
+#: template-parts/home/blog-section.php:16
+msgid "Section that contains some featured blog posts."
+msgstr ""
+
+#: template-parts/home/featured-contents.php:81
+msgid ""
+"Section that contains the featured contents of the site: books, events and "
+"news."
+msgstr ""
+
+#: template-parts/header/main-menu.php:14
+msgid "Section that contains the main menu of the site."
+msgstr ""
+
+#: classes/options-manager.php:742
+msgid "Section to configure advanced settings."
+msgstr ""
+
+#: classes/options-manager.php:46
+msgid "Section to configure base options."
+msgstr ""
+
+#: classes/options-manager.php:772
+msgid "Selection of the program used to manage the newsletter of the site."
+msgstr ""
+
+#: template-parts/common/social_sharing.php:12
+msgid "Share on"
+msgstr ""
+
+#: template-parts/common/social_sharing.php:22
+msgid "Share on Facebook"
+msgstr ""
+
+#: template-parts/common/social_sharing.php:38
+msgid "Share on Linkedin"
+msgstr ""
+
+#: template-parts/common/social_sharing.php:31
+msgid "Share on Twitter"
+msgstr ""
+
+#: template-parts/common/social_sharing.php:45
+msgid "Share on WhatsApp"
+msgstr ""
+
+#: classes/options-manager.php:491
+msgid "Show blog section"
+msgstr ""
+
+#: classes/options-manager.php:504
+msgid "Show blog section after featured content"
+msgstr ""
+
+#: classes/options-manager.php:492
+msgid "Show blog section in the Home Page."
+msgstr ""
+
+#: classes/options-manager.php:270
+msgid "Show carousel before featured content"
+msgstr ""
+
+#: classes/options-manager.php:336
+msgid "Show featured content"
+msgstr ""
+
+#: classes/options-manager.php:337
+msgid "Show featured content section in the Home Page."
+msgstr ""
+
+#: classes/options-manager.php:616
+msgid "Show social media icons"
+msgstr ""
+
+#: classes/options-manager.php:283
+msgid "Show the Carousel section"
+msgstr ""
+
+#: classes/options-manager.php:193
+msgid "Show the icon"
+msgstr ""
+
+#: classes/options-manager.php:284
+msgid "Show the main carousel in the Home Page."
+msgstr ""
+
+#: classes/options-manager.php:45
+msgid "Site configuration"
+msgstr ""
+
+#: classes/options-manager.php:532
+msgid "Site contacts"
+msgstr ""
+
+#: page-templates/blog.php:93 page-templates/search.php:70
+#: page-templates/search.php:75
+msgid "Site search"
+msgstr ""
+
+#: classes/options-manager.php:53
+msgid "Site title"
+msgstr ""
+
+#. Name of the template
+#: page-templates/sitemap.php:2
+msgid "sitemap"
+msgstr ""
+
+#: classes/options-manager.php:591 classes/options-manager.php:597
+msgid "Social Media"
+msgstr ""
+
+#: classes/options-manager.php:608
+msgid "Social media"
+msgstr ""
+
+#: classes/options-manager.php:183
+msgid "Success"
+msgstr ""
+
+#: single-kkw_book.php:173 single-kkw_book.php:267
+msgid "Tabs to switch among contents"
+msgstr ""
+
+#: classes/options-manager.php:64
+msgid "Tagline"
+msgstr ""
+
+#: single.php:237
+msgid "Telephone"
+msgstr ""
+
+#: classes/options-manager.php:808
+msgid "Template ID"
+msgstr ""
+
+#: classes/options-manager.php:809
+msgid "Template ID of the page that manages the double OptIn"
+msgstr ""
+
+#: classes/options-manager.php:214
+msgid "Text"
+msgstr ""
+
+#: page-templates/search.php:81
+msgid "Text to search..."
+msgstr ""
+
+#: classes/options-manager.php:560
+msgid "The address of the site."
+msgstr ""
+
+#: classes/options-manager.php:552
+msgid "The city of the site."
+msgstr ""
+
+#: classes/options-manager.php:544
+msgid "The contact shown in the footer."
+msgstr ""
+
+#: classes/options-manager.php:568
+msgid "The email of the site."
+msgstr ""
+
+#: classes/options-manager.php:92
+msgid "The logo of the site, please load an SVG image."
+msgstr ""
+
+#: header.php:47
+msgid "The logo of the site."
+msgstr ""
+
+#: classes/options-manager.php:76
+msgid "The name of the network the site is part of."
+msgstr ""
+
+#: classes/options-manager.php:576
+msgid "The phone number of the site."
+msgstr ""
+
+#: classes/options-manager.php:65
+msgid "The tagline of the site."
+msgstr ""
+
+#: page-templates/contacts.php:224
+msgid "The text of the message"
+msgstr ""
+
+#: classes/options-manager.php:54
+msgid "The title of the site."
+msgstr ""
+
+#: classes/options-manager.php:84
+msgid "The url of the network the site is part of."
+msgstr ""
+
+#: page-templates/contacts.php:65
+msgid "The verification code is not valid."
+msgstr ""
+
+#: template-parts/common/section.php:158
+msgid "There are no books in this section."
 msgstr ""
 
 #. Description of the theme
@@ -28,6 +874,85 @@ msgid ""
 "This is a WordPress theme for sites that uses the plugin: KK Writer Plugin."
 msgstr ""
 
+#: classes/options-manager.php:388 classes/options-manager.php:427
+#: classes/options-manager.php:466
+msgid "Thumbnail side"
+msgstr ""
+
+#: template-parts/common/book_info.php:21
+msgid "Title"
+msgstr ""
+
+#: template-parts/common/ordering.php:22
+msgid "Title ascending"
+msgstr ""
+
+#: template-parts/common/ordering.php:27
+msgid "Title descending"
+msgstr ""
+
+#: single-kkw_book.php:96 single-kkw_book.php:201
+msgid "Tracks"
+msgstr ""
+
+#: template-parts/common/social_sharing.php:33
+msgid "Twitter"
+msgstr ""
+
+#: page-templates/search.php:146
+msgid "Type the text to search and click on the Search button"
+msgstr ""
+
+#: single.php:126 single.php:248
+msgid "Video"
+msgstr ""
+
+#: classes/options-manager.php:184
+msgid "Warning"
+msgstr ""
+
+#: classes/options-manager.php:865
+msgid "Web Analytics Code"
+msgstr ""
+
+#: template-parts/common/social_sharing.php:47
+msgid "WhatsApp"
+msgstr ""
+
 #. Name of the theme
 msgid "WP KK Writer Theme"
+msgstr ""
+
+#: page-templates/contacts.php:267
+msgid "Write here the confirmation code"
+msgstr ""
+
+#: template-parts/common/book_info.php:29
+msgid "Year"
+msgstr ""
+
+#: classes/options-manager.php:109 classes/options-manager.php:275
+#: classes/options-manager.php:288 classes/options-manager.php:301
+#: classes/options-manager.php:341 classes/options-manager.php:354
+#: classes/options-manager.php:496 classes/options-manager.php:509
+#: classes/options-manager.php:621 classes/options-manager.php:762
+#: classes/options-manager.php:835 classes/options-manager.php:856
+#: classes/options-manager.php:898
+msgid "Yes"
+msgstr ""
+
+#: classes/options-manager.php:105
+msgid "Yes if the logo needs to be shown in the footer."
+msgstr ""
+
+#: page-templates/contacts.php:232
+msgid "Your e-mail address"
+msgstr ""
+
+#: page-templates/contacts.php:214
+msgid "Your name and your surname"
+msgstr ""
+
+#: page-templates/contacts.php:238
+msgid "Your phone number"
 msgstr ""

@@ -185,7 +185,9 @@ class KKW_ContentsManager
 		$item = KKW_ContentsManager::get_empty_wrapper();
 		$book = KKW_SearchManager::get_book( $post->ID );
 		if ( $book ) {
-			$section = count( $book['sections'] ) > 0 ? $book['sections'][0] : '';
+			$section      = count( $book['sections'] ) > 0 ? $book['sections'][0] : '';
+			$section_slug = sanitize_title( $section );
+			// Fill the item array.
 			$item['id']             = $book['id'];
 			$item['title']          = $book['title'];
 			$item['type']           = $book['type'];
@@ -193,7 +195,7 @@ class KKW_ContentsManager
 			$item['post_date']      = $post->post_date;
 			$item['view_date']      = $book['year'];
 			$item['main_group']     = $section;
-			$item['main_group_url'] = '';
+			$item['main_group_url'] = get_site_url() . '/' . $section_slug;
 			$item['price']          = $book['price'] ? $book['pages'] . '€' : '';
 			$item['pages']          = $book['pages'];
 			$item['isbn']           = $book['isbn'];
@@ -212,15 +214,18 @@ class KKW_ContentsManager
 			$meta_tags['kkw_group'][0] : '';
 		$short_description      = $has_meta && array_key_exists( 'kkw_short_description', $meta_tags ) && $meta_tags['kkw_short_description'][0] ?
 			$meta_tags['kkw_short_description'][0] : '';
-		$view_date = self::extractDateString( $meta_tags, $post );
+		$view_date    = self::extractDateString( $meta_tags, $post );
+		$query_string = http_build_query( array( 'selected_contents' => array( $group ) ) );
+		$group_page   = __( 'blog', 'kk_writer_theme' );
+		// Fill the item array.
 		$item['id']             = $post->ID;
 		$item['title']          = $post->post_title;
 		$item['type']           = $post->post_type;
 		$item['description']    = $short_description;
 		$item['post_date']      = $post->post_date ;
 		$item['view_date']      = $view_date;
-		$item['main_group']     = $group;
-		$item['main_group_url'] = '';
+		$item['main_group']     = ucfirst( $group );
+		$item['main_group_url'] = get_site_url() . '/' . $group_page . '?' . $query_string;
 		$item['publisher']      = '';
 		$item['author']         = '';
 		$item['pages']          = '';
