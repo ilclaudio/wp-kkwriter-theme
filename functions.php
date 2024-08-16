@@ -42,6 +42,13 @@ if ( ! class_exists( 'KKW_ContentsManager' ) ) {
 }
 
 /**
+ * Import the Navigation Manager.
+ */
+if ( ! class_exists( 'KKW_NavigationManager' ) ) {
+	require get_template_directory() . '/classes/navigation-manager.php';
+}
+
+/**
  * Import the Theme Activator Manager.
  */
 if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {

@@ -94,17 +94,21 @@ document.addEventListener('DOMContentLoaded', function() {
 	const currentCover = document.getElementById('current_cover');
 	const currentCoverLink = document.getElementById('current_cover_link');
 	// Add an event for the front-cover.
-	frontCover.addEventListener('click', function(event) {
-		event.preventDefault();
-		const newSrc = this.getAttribute("data-img-src");
-		currentCover.src = newSrc;
-		currentCoverLink.href = newSrc;
-	});
+	if ( frontCover ){
+		frontCover.addEventListener('click', function(event) {
+			event.preventDefault();
+			const newSrc = this.getAttribute("data-img-src");
+			currentCover.src = newSrc;
+			currentCoverLink.href = newSrc;
+		});
+	}
 	// Add an event for the back-cover.
-	backCover.addEventListener('click', function(event) {
-		event.preventDefault();
-		const newSrc = this.getAttribute("data-img-src");
-		currentCover.src = newSrc;
-		currentCoverLink.href = newSrc;
-	});
+	if ( backCover ){
+		backCover.addEventListener('click', function(event) {
+			event.preventDefault();
+			const newSrc = this.getAttribute("data-img-src");
+			currentCover.src = newSrc;
+			currentCoverLink.href = newSrc;
+		});
+	}
 });
