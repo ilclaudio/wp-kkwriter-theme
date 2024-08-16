@@ -4,7 +4,6 @@
  *
  * @package KK_Writer_Theme
  */
-  
 get_header();
 
 $section = '';
@@ -200,8 +199,11 @@ $section_description = '';
 									<?php echo $end_date_str; ?>
 								</p>
 								<p>
-									<i class="fa-regular fa-calendar-plus fa-lg kkw_article_label"></i>
-									<span class="ms-2"><?php echo __( 'Add the event to your calendar (iCal)', 'kk_writer_theme' ); ?></span>
+									<a target="_blank"
+										href="<?php echo get_site_url(); ?>?feed=ics&eid=<?php echo $post_wrapper->id; ?>">
+										<i class="fa-regular fa-calendar-plus fa-lg kkw_article_label"></i>
+										<span class="ms-2"><?php echo __( 'Add the event to your calendar (iCal)', 'kk_writer_theme' ); ?></span>
+									</a>
 								</p>
 							</div>
 								<?php

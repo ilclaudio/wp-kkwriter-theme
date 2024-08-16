@@ -111,6 +111,20 @@ if ( ! function_exists( 'kkw_enqueue_js_variables' ) ) {
 	add_action( 'wp_enqueue_scripts', 'kkw_enqueue_js_variables' );
 }
 
+function create_ics_feed() {
+	// This adds a feed http://example.com/?feed=ics.
+	add_feed( 'ics', 'download_ics_file_by_id' );
+}
+add_action('init','create_ics_feed');
+// Create a function to form the output
+function download_ics_file_by_id() {
+	$eid = filter_input( INPUT_GET, 'eid', FILTER_VALIDATE_INT );
+	KKW_ContentsManager::download_ics_file_by_id( $eid );
+	exit(0);
+}
+
+
+
 if ( ! function_exists( 'kkw_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.

@@ -261,6 +261,24 @@ class KKW_ContentsManager
 		return $view_date;
 	}
 
+	public static function extractCalendarDateString( $meta_tags, $post, $type='start' ){
+		$view_date = '';
+		if ( array_key_exists('kkw_post_type', $meta_tags) ) {
+			// It is an event with a start event date.
+			if ( array_key_exists( 'kkw_'. $type . '_date', $meta_tags ) ) {
+				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_'. $type . '_date'][0] );
+				$timestamp = $dateTime->getTimestamp();
+				$view_date = date_i18n( 'Y-m-d', $timestamp );
+			} else {
+				$view_date = '';
+			}
+			if ( array_key_exists( 'kkw_'. $type . '_hour', $meta_tags ) ) {
+				$view_date = $view_date . ' ' . $meta_tags['kkw_'. $type . '_hour'][0];
+			}
+		}
+		return $view_date;
+	}
+
 	/**
 	 * Retrieves the content to show in the Home Page Carousel.
 	 * @return array
@@ -609,9 +627,11 @@ class KKW_ContentsManager
 			'title'       => '',
 			'description' => '',
 			'image'       => '',
+			'url'         => '',
+			'domain'      => '',
 		);
-		$item_id   = $post->ID ? $post->ID : '';
-		$item_type = $post->post_type ? $post->post_type : '';
+		$item_id   = $post && $post->ID ? $post->ID : '';
+		$item_type = $item_id && $post->post_type ? $post->post_type : '';
 		$types     = [ 'post', 'kkw_book' ];
 		if ( $item_id && in_array( $item_type, $types ) ) {
 			$img_id     = get_post_thumbnail_id( $item_id );
@@ -632,4 +652,44 @@ class KKW_ContentsManager
 		}
 		return $og_data;
 	}
+
+	public static function download_ics_file_by_id( $eid ) {
+		$post = get_post( $eid );
+		if ( $post ) {
+			$post_wrapper = KKW_ContentsManager::wrap_search_result( $post );
+			$meta_tags    = get_post_meta( $post_wrapper->id );
+			$event_name   = esc_attr( $post_wrapper->title );
+			$description  = clean_and_truncate_text( $post_wrapper->description, KKW_FEATURED_TEXT_MAX_SIZE );;
+			$location     = esc_attr( KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_address' ) );
+			$start_time   = KKW_ContentsManager::extractCalendarDateString( $meta_tags, $post, 'start' );
+			$end_time     = KKW_ContentsManager::extractCalendarDateString( $meta_tags, $post, 'end');
+
+			// "2024-08-15 12:00:00";
+
+
+			// Set the header to download the .ics file.
+			header('Content-type: text/calendar; charset=utf-8');
+			header('Content-Disposition: attachment; filename=evento.ics');
+			// Create the file ICS.
+			$ics_content = "BEGIN:VCALENDAR\n";
+			$ics_content .= "VERSION:2.0\n";
+			$ics_content .= "PRODID:-//Your Organization//NONSGML v1.0//EN\n";
+			$ics_content .= "BEGIN:VEVENT\n";
+			$ics_content .= "UID:" . uniqid() . "@yourdomain.com\n";
+			$ics_content .= "DTSTAMP:" . gmdate('Ymd\THis\Z') . "\n";
+			$ics_content .= "DTSTART:" . gmdate('Ymd\THis\Z', strtotime($start_time)) . "\n";
+			$ics_content .= "DTEND:" . gmdate('Ymd\THis\Z', strtotime($end_time)) . "\n";
+			$ics_content .= "SUMMARY:" . addslashes($event_name) . "\n";
+			$ics_content .= "DESCRIPTION:" . addslashes($description) . "\n";
+			$ics_content .= "LOCATION:" . addslashes($location) . "\n";
+			$ics_content .= "END:VEVENT\n";
+			$ics_content .= "END:VCALENDAR\n";
+			// Print the file file .ics.
+			echo $ics_content;
+		} else {
+			echo '<h4>' . __( 'It is not possible to download the .ics file.', 'kk_writer_theme' ) . '</h4>'; 
+		}
+		exit;
+	}
+
 }
