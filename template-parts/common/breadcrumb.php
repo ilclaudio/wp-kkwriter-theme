@@ -5,30 +5,37 @@
  * @package KK_Writer_Theme
  */
 
-	global $post;
-	if ( is_home() ) {
-		$steps = array();
-	} else {
-		$steps = array();
-	}
-	$index = 0;
+global $post;
+if ( is_home() ) {
+	$steps = array();
+} else {
+	$steps = KKW_NavigationManager::build_content_path( $post );
+}
+$index = 0;
 ?>
 
-<section id="breadcrumb" style="border: 1px solid green;">
-	<div class="container">
+<section id="breadcrumb">
+	<div class="container m-0">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 m-0 pl-4 font-smaller">
 				<nav class="breadcrumb-container" aria-label="Percorso di navigazione">
-				<ol class="breadcrumb pb-0">
+				<ol class="breadcrumb p-0 m-0">
 					<?php
 						foreach( $steps as $step ){
 					?>
-					<li class="<?php echo esc_attr( $step['class'] ); ?>">
-						<a href="<?php echo esc_url( $step['url'] ); ?>"><?php echo esc_attr( $step['label'] ); ?></a>
+					<li class="<?php echo esc_attr( $step->class ); ?>">
 						<?php
 							if ( $index < count( $steps) -1 ) {
 						?>
-						<span class="separator">&gt;</span>
+						<a href="<?php echo esc_url( $step->url ); ?>">
+						<?php
+							}
+						?>
+							<?php echo esc_attr( $step->label ); ?>
+						<?php
+							if ( $index < count( $steps) -1 ) {
+						?>
+						</a>
 						<?php
 							}
 						?>
@@ -43,11 +50,3 @@
 		</div>
 	</div>
 </section>
-
-<!-- <nav aria-label="breadcrumb">
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="#">Home</a></li>
-		<li class="breadcrumb-item"><a href="#">Catalogo Libri</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Filosofia antica</li>
-	</ol>
-</nav> -->

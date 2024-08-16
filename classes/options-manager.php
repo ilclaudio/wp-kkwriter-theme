@@ -1,5 +1,4 @@
 <?php
-
 /**
  * KK Writer Theme: Options Manager definition.
  *
