@@ -40,7 +40,7 @@
 							if ( 'true' === $selettore_visibile ) {
 								$current_language = KKW_MultiLangManager::get_current_language( 'slug' );
 								$languages        = KKW_MultiLangManager::get_all_languages();
-								$current_flag     =  $languages[$current_language]['flag'];
+								$current_flag     = $languages[$current_language]['flag'];
 						?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
