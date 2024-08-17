@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-16 17:23+0000\n"
+"PO-Revision-Date: 2024-08-17 07:35+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -22,6 +22,10 @@ msgstr "404"
 #: page-templates/contacts.php:58
 msgid "[ContactForm]"
 msgstr "[FormContatto]"
+
+#: config_theme.php:104
+msgid "Accessibility"
+msgstr "Accessibilità"
 
 #: classes/options-manager.php:169
 msgid "Add a mesage"
@@ -55,6 +59,7 @@ msgstr "Token dell'API"
 msgid "Article"
 msgstr "Articolo"
 
+#: classes/contents-manager.php:445 classes/contents-manager.php:463
 msgid "Articles"
 msgstr "Articoli"
 
@@ -68,7 +73,7 @@ msgstr "Autore"
 
 #: classes/options-manager.php:296 classes/options-manager.php:349
 msgid "Automatic selection enabled"
-msgstr ""
+msgstr "Selezione automatica abilitata"
 
 #: template-parts/home/carousel.php:99
 msgid "Back"
@@ -84,12 +89,20 @@ msgstr "Opzioni base"
 
 #. Author of the theme
 msgid "BatClaudio"
-msgstr ""
+msgstr "BatClaudio"
+
+#: config_theme.php:130
+msgid "Biography"
+msgstr "Biografia"
 
 #. Name of the template
 #: page-templates/biography.php:2
 msgid "biography"
 msgstr "biografia"
+
+#: config_theme.php:196
+msgid "Blog"
+msgstr "Blog"
 
 #: classes/contents-manager.php:219
 msgid "blog"
@@ -97,7 +110,7 @@ msgstr "articoli"
 
 #: page-templates/blog.php:126
 msgid "Blog search results"
-msgstr ""
+msgstr "Risultati della ricerca nel blog"
 
 #: classes/options-manager.php:483
 msgid "Blog section"
@@ -105,35 +118,35 @@ msgstr "Sezione articoli"
 
 #: classes/options-manager.php:367
 msgid "Box 1 - Featured content"
-msgstr ""
+msgstr "Box 1 - Contenuto in evidenza"
 
 #: classes/options-manager.php:406
 msgid "Box 2 - Featured content"
-msgstr ""
+msgstr "Box 2 - Contenuto in evidenza"
 
 #: classes/options-manager.php:445
 msgid "Box 3 - Featured content"
-msgstr ""
+msgstr "Box 3 - Contenuto in evidenza"
 
 #: classes/options-manager.php:777
 msgid "Brevo"
-msgstr ""
+msgstr "Brevo"
 
 #: page-templates/contacts.php:280 page-templates/search.php:87
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: classes/options-manager.php:261
 msgid "Carousel section"
-msgstr ""
+msgstr "Sezione carosello"
 
 #: classes/options-manager.php:308
 msgid "Choose contents"
-msgstr ""
+msgstr "Scegli i contenuti"
 
 #: classes/options-manager.php:178
 msgid "Choose the color"
-msgstr ""
+msgstr "Scegli il colore"
 
 #: classes/options-manager.php:309
 msgid "Choose the contents to show in the Home Page carousel."
@@ -160,7 +173,7 @@ msgstr ""
 #: page-templates/contacts.php:173 page-templates/contacts.php:174
 #: page-templates/contacts.php:188
 msgid "Close alert"
-msgstr ""
+msgstr "Chiudi avviso"
 
 #: classes/options-manager.php:484
 msgid "Configure here the blog section."
@@ -178,8 +191,9 @@ msgstr "Conferma"
 msgid "Confirmation email not sent."
 msgstr ""
 
-#: single.php:117 single.php:232 classes/options-manager.php:526
-#: classes/options-manager.php:543 page-templates/contacts.php:20
+#: config_theme.php:156 single.php:117 single.php:232
+#: classes/options-manager.php:526 classes/options-manager.php:543
+#: page-templates/contacts.php:20
 msgid "Contacts"
 msgstr "Contatti"
 
@@ -204,25 +218,29 @@ msgstr "Data di creazione crescente"
 msgid "Creation date descending"
 msgstr "Data di creazione decrescente"
 
+#: config_theme.php:117
+msgid "Credits"
+msgstr "Crediti"
+
 #: classes/options-manager.php:182
 msgid "Danger"
-msgstr ""
+msgstr "Pericolo"
 
 #: activation.php:50
 msgid "Data reloaded successfully"
-msgstr ""
+msgstr "Dati ricaricaricati con successo"
 
 #: single.php:183
 msgid "Date and hour"
-msgstr ""
+msgstr "Data e ora"
 
 #: single.php:99
 msgid "Dates and hours"
-msgstr ""
+msgstr "Date e ore"
 
 #: classes/options-manager.php:170
 msgid "Delete the message"
-msgstr ""
+msgstr "Cancella il messaggio"
 
 #: single-kkw_book.php:76 single.php:91
 msgid "Description"
@@ -236,22 +254,19 @@ msgstr "Dettagli"
 msgid "Do you want to receive an email notification"
 msgstr ""
 
-#: single.php:238 page-templates/contacts.php:229
+#: single.php:238 classes/options-manager.php:567
+#: page-templates/contacts.php:229
 msgid "E-mail"
+msgstr "E-mail"
+
+#: page-templates/contacts.php:58
+msgid "E-mail form the site"
 msgstr ""
 
 #: classes/options-manager.php:165
 msgid ""
 "Each message is constructed with a short description (max 140 characters) "
 "and expiry date (optional)."
-msgstr ""
-
-#: classes/options-manager.php:567
-msgid "Email"
-msgstr ""
-
-#: page-templates/contacts.php:58
-msgid "Email form the site"
 msgstr ""
 
 #: classes/options-manager.php:852
@@ -265,7 +280,7 @@ msgstr ""
 
 #: classes/options-manager.php:894
 msgid "Enable the REST API"
-msgstr ""
+msgstr "Abilita l'API REST"
 
 #: classes/options-manager.php:202
 msgid "End date"
@@ -279,9 +294,13 @@ msgstr ""
 msgid "Error reloading data"
 msgstr ""
 
+#: config_theme.php:71
+msgid "Essays"
+msgstr "Saggistica"
+
 #: single.php:197
 msgid "Event end"
-msgstr ""
+msgstr "Inizio evento"
 
 #: single.php:221
 msgid "Event location address"
@@ -289,8 +308,9 @@ msgstr ""
 
 #: single.php:189
 msgid "Event start"
-msgstr ""
+msgstr "Fine evento"
 
+#: classes/contents-manager.php:446 classes/contents-manager.php:464
 msgid "Events"
 msgstr "Eventi"
 
@@ -300,15 +320,19 @@ msgstr "Brani"
 
 #: single.php:239
 msgid "External link"
-msgstr ""
+msgstr "Link esterno"
 
 #: template-parts/common/social_sharing.php:25
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: classes/options-manager.php:328
 msgid "featured content section"
 msgstr ""
+
+#: config_theme.php:75
+msgid "Fiction"
+msgstr "Narrativa"
 
 #: page-templates/search.php:102
 msgid "Filter by content type"
@@ -368,7 +392,7 @@ msgstr ""
 
 #. Author URI of the theme
 msgid "https://www.wp-recipes.com"
-msgstr ""
+msgstr "https://www.wp-recipes.com"
 
 #: classes/options-manager.php:794
 msgid "ID of the list associated to the site."
@@ -398,11 +422,11 @@ msgstr ""
 
 #: classes/options-manager.php:185
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: single-kkw_book.php:183
 msgid "Information"
-msgstr ""
+msgstr "Informazione"
 
 #: single-kkw_book.php:81
 msgid "Informations"
@@ -422,7 +446,7 @@ msgstr ""
 
 #: classes/options-manager.php:26
 msgid "KKW Theme"
-msgstr ""
+msgstr "KKW Theme"
 
 #: classes/options-manager.php:395 classes/options-manager.php:434
 #: classes/options-manager.php:473
@@ -439,7 +463,7 @@ msgstr ""
 
 #: template-parts/common/social_sharing.php:40
 msgid "Linkedin"
-msgstr ""
+msgstr "Linkedin"
 
 #: classes/options-manager.php:793
 msgid "List ID"
@@ -491,30 +515,32 @@ msgstr "Messaggi"
 
 #: classes/options-manager.php:844
 msgid "Multilanguage"
-msgstr ""
+msgstr "Multilingua"
 
 #: page-templates/contacts.php:210
 msgid "Name and surname"
-msgstr ""
+msgstr "Nome e cognome"
 
 #: classes/options-manager.php:75
 msgid "Network name"
-msgstr ""
+msgstr "Nome del network"
 
 #: classes/options-manager.php:83
 msgid "Network url"
-msgstr ""
+msgstr "Indirizzo del network"
 
+#: classes/contents-manager.php:447 classes/contents-manager.php:465
 msgid "News"
 msgstr "Notizie"
 
-#: classes/options-manager.php:750 classes/options-manager.php:758
+#: config_theme.php:169 classes/options-manager.php:750
+#: classes/options-manager.php:758
 msgid "Newsletter"
-msgstr ""
+msgstr "Newsletter"
 
 #: classes/options-manager.php:771
 msgid "Newsletter manager"
-msgstr ""
+msgstr "Gestore della newsletter"
 
 #: template-parts/home/carousel.php:105
 msgid "Next"
@@ -532,7 +558,7 @@ msgstr "No"
 
 #: page-templates/contacts.php:117
 msgid "Nonce not valid."
-msgstr ""
+msgstr "Nonce non valido."
 
 #: classes/options-manager.php:389 classes/options-manager.php:428
 #: classes/options-manager.php:467
@@ -545,7 +571,7 @@ msgstr ""
 
 #: template-parts/common/ordering.php:17
 msgid "Order results by..."
-msgstr ""
+msgstr "Ordina i risultati per..."
 
 #: 404.php:46 404.php:49
 msgid "Page not found"
@@ -561,11 +587,11 @@ msgstr "Persona"
 
 #: classes/options-manager.php:575 page-templates/contacts.php:235
 msgid "Phone number"
-msgstr ""
+msgstr "Numero di telefono"
 
 #: single.php:135 single.php:267
 msgid "Photo gallery"
-msgstr ""
+msgstr "Galleria fotografica"
 
 #: single.php:108 single.php:218
 msgid "Place"
@@ -573,15 +599,23 @@ msgstr "Luogo"
 
 #: page-templates/contacts.php:75
 msgid "Please, fill all the mandatory fields"
-msgstr ""
+msgstr "Per favore, compila i campi obbligatori"
 
 #: page-templates/contacts.php:80
 msgid "Please, provide a valid email address."
-msgstr ""
+msgstr "Per favore, fornisci un indirizzo e-mail valido"
+
+#: config_theme.php:67
+msgid "Poetry"
+msgstr "Poesia"
 
 #: template-parts/common/book_info.php:53
 msgid "Price"
 msgstr "Prezzo"
+
+#: config_theme.php:91
+msgid "Privacy policy"
+msgstr "Privacy policy"
 
 #: template-parts/common/ordering.php:32
 msgid "Publication year ascending"
@@ -607,7 +641,7 @@ msgstr "Leggi di più..."
 
 #: page-templates/contacts.php:96
 msgid "receipt"
-msgstr ""
+msgstr "ricevuta"
 
 #: single-kkw_book.php:104 single-kkw_book.php:268 single.php:144
 #: single.php:286
@@ -620,19 +654,20 @@ msgstr "Ricarica"
 
 #: activation.php:44
 msgid "Reload default data"
-msgstr ""
+msgstr "Ricarica i dati di default"
 
 #: activation.php:17 activation.php:18
 msgid "Reload theme data"
-msgstr ""
+msgstr "Ricarica i dati del tema"
 
 #: activation.php:47
 msgid "Reloads theme activation data (menus, pages, taxonomies, etc.)"
 msgstr ""
+"Ricarica i dati di attivazione del tema (menu, pagine, tassonomie, ecc.)"
 
 #: classes/options-manager.php:886
 msgid "REST API"
-msgstr ""
+msgstr "API REST"
 
 #: page-templates/search.php:141
 msgid "Results found"
@@ -647,7 +682,8 @@ msgstr "Recensioni"
 msgid "Right"
 msgstr "Destra"
 
-#: header.php:62 header.php:74 page-templates/search.php:90
+#: config_theme.php:183 header.php:62 header.php:74
+#: page-templates/search.php:90
 msgid "Search"
 msgstr "Cerca"
 
@@ -706,23 +742,23 @@ msgstr "Condividi su"
 
 #: template-parts/common/social_sharing.php:22
 msgid "Share on Facebook"
-msgstr ""
+msgstr "Condividi su Facebook"
 
 #: template-parts/common/social_sharing.php:38
 msgid "Share on Linkedin"
-msgstr ""
+msgstr "Condividi su Linkedin"
 
 #: template-parts/common/social_sharing.php:31
 msgid "Share on Twitter"
-msgstr ""
+msgstr "Condividi su Twitter"
 
 #: template-parts/common/social_sharing.php:45
 msgid "Share on WhatsApp"
-msgstr ""
+msgstr "Condividi su WhatsApp"
 
 #: classes/options-manager.php:491
 msgid "Show blog section"
-msgstr ""
+msgstr "Mostra la sezione del blog"
 
 #: classes/options-manager.php:504
 msgid "Show blog section after featured content"
@@ -738,7 +774,7 @@ msgstr ""
 
 #: classes/options-manager.php:336
 msgid "Show featured content"
-msgstr ""
+msgstr "Mostra i contenuti in evidenza"
 
 #: classes/options-manager.php:337
 msgid "Show featured content section in the Home Page."
@@ -768,6 +804,10 @@ msgstr "Configurazione del sito"
 msgid "Site contacts"
 msgstr "Contatti del sito"
 
+#: config_theme.php:143
+msgid "Site Map"
+msgstr "Mappa del sito"
+
 #: page-templates/blog.php:93 page-templates/search.php:70
 #: page-templates/search.php:75
 msgid "Site search"
@@ -783,16 +823,13 @@ msgid "sitemap"
 msgstr "mappa del sito"
 
 #: classes/options-manager.php:591 classes/options-manager.php:597
-msgid "Social Media"
-msgstr ""
-
 #: classes/options-manager.php:608
 msgid "Social media"
-msgstr ""
+msgstr "Social media"
 
 #: classes/options-manager.php:183
 msgid "Success"
-msgstr ""
+msgstr "Successo"
 
 #: single-kkw_book.php:173 single-kkw_book.php:267
 msgid "Tabs to switch among contents"
@@ -800,7 +837,7 @@ msgstr ""
 
 #: classes/options-manager.php:64
 msgid "Tagline"
-msgstr ""
+msgstr "Tagline"
 
 #: single.php:237
 msgid "Telephone"
@@ -910,31 +947,33 @@ msgstr "Twitter"
 
 #: page-templates/search.php:146
 msgid "Type the text to search and click on the Search button"
-msgstr ""
+msgstr "Scrivi il testo da cercare e clicca sul bottone Cerca"
 
 #: single.php:126 single.php:248
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: classes/options-manager.php:184
 msgid "Warning"
-msgstr ""
+msgstr "Avviso"
 
 #: classes/options-manager.php:865
 msgid "Web Analytics Code"
-msgstr ""
+msgstr "Codice Web Analytics"
 
 #: template-parts/common/social_sharing.php:47
 msgid "WhatsApp"
-msgstr ""
+msgstr "WhatsApp"
 
 #. Name of the theme
 msgid "WP KK Writer Theme"
-msgstr ""
+msgstr "WP KK Writer Theme"
 
 #: page-templates/contacts.php:267
-msgid "Write here the confirmation code"
-msgstr ""
+#, fuzzy
+#| msgid "Write here the confirmation code"
+msgid "Write here the verification code"
+msgstr "Scrivi qui il codice di conferma"
 
 #: template-parts/common/book_info.php:29
 msgid "Year"
@@ -952,16 +991,16 @@ msgstr "Sì"
 
 #: classes/options-manager.php:105
 msgid "Yes if the logo needs to be shown in the footer."
-msgstr ""
+msgstr "Sì se il il logo deve essere mostrato nel footer"
 
 #: page-templates/contacts.php:232
 msgid "Your e-mail address"
-msgstr ""
+msgstr "Il tuo indirizzo email"
 
 #: page-templates/contacts.php:214
 msgid "Your name and your surname"
-msgstr ""
+msgstr "Il tuo nome e il tuo cognome"
 
 #: page-templates/contacts.php:238
 msgid "Your phone number"
-msgstr ""
+msgstr "Il tuo numero di telefono"

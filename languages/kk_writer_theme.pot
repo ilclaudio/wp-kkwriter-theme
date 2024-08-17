@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-16 17:18+0000\n"
+"POT-Creation-Date: 2024-08-17 07:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -22,6 +22,10 @@ msgstr ""
 
 #: page-templates/contacts.php:58
 msgid "[ContactForm]"
+msgstr ""
+
+#: config_theme.php:104
+msgid "Accessibility"
 msgstr ""
 
 #: classes/options-manager.php:169
@@ -56,6 +60,10 @@ msgstr ""
 msgid "Article"
 msgstr ""
 
+#: classes/contents-manager.php:445 classes/contents-manager.php:463
+msgid "Articles"
+msgstr ""
+
 #: classes/contents-manager.php:259
 msgid "at"
 msgstr ""
@@ -84,9 +92,17 @@ msgstr ""
 msgid "BatClaudio"
 msgstr ""
 
+#: config_theme.php:130
+msgid "Biography"
+msgstr ""
+
 #. Name of the template
 #: page-templates/biography.php:2
 msgid "biography"
+msgstr ""
+
+#: config_theme.php:196
+msgid "Blog"
 msgstr ""
 
 #: classes/contents-manager.php:219
@@ -176,8 +192,9 @@ msgstr ""
 msgid "Confirmation email not sent."
 msgstr ""
 
-#: single.php:117 single.php:232 classes/options-manager.php:526
-#: classes/options-manager.php:543 page-templates/contacts.php:20
+#: config_theme.php:156 single.php:117 single.php:232
+#: classes/options-manager.php:526 classes/options-manager.php:543
+#: page-templates/contacts.php:20
 msgid "Contacts"
 msgstr ""
 
@@ -200,6 +217,10 @@ msgstr ""
 
 #: template-parts/common/ordering.php:47
 msgid "Creation date descending"
+msgstr ""
+
+#: config_theme.php:117
+msgid "Credits"
 msgstr ""
 
 #: classes/options-manager.php:182
@@ -234,22 +255,19 @@ msgstr ""
 msgid "Do you want to receive an email notification"
 msgstr ""
 
-#: single.php:238 page-templates/contacts.php:229
+#: single.php:238 classes/options-manager.php:567
+#: page-templates/contacts.php:229
 msgid "E-mail"
+msgstr ""
+
+#: page-templates/contacts.php:58
+msgid "E-mail form the site"
 msgstr ""
 
 #: classes/options-manager.php:165
 msgid ""
 "Each message is constructed with a short description (max 140 characters) "
 "and expiry date (optional)."
-msgstr ""
-
-#: classes/options-manager.php:567
-msgid "Email"
-msgstr ""
-
-#: page-templates/contacts.php:58
-msgid "Email form the site"
 msgstr ""
 
 #: classes/options-manager.php:852
@@ -277,6 +295,10 @@ msgstr ""
 msgid "Error reloading data"
 msgstr ""
 
+#: config_theme.php:71
+msgid "Essays"
+msgstr ""
+
 #: single.php:197
 msgid "Event end"
 msgstr ""
@@ -287,6 +309,10 @@ msgstr ""
 
 #: single.php:189
 msgid "Event start"
+msgstr ""
+
+#: classes/contents-manager.php:446 classes/contents-manager.php:464
+msgid "Events"
 msgstr ""
 
 #: single-kkw_book.php:91 single-kkw_book.php:195
@@ -303,6 +329,10 @@ msgstr ""
 
 #: classes/options-manager.php:328
 msgid "featured content section"
+msgstr ""
+
+#: config_theme.php:75
+msgid "Fiction"
 msgstr ""
 
 #: page-templates/search.php:102
@@ -500,7 +530,12 @@ msgstr ""
 msgid "Network url"
 msgstr ""
 
-#: classes/options-manager.php:750 classes/options-manager.php:758
+#: classes/contents-manager.php:447 classes/contents-manager.php:465
+msgid "News"
+msgstr ""
+
+#: config_theme.php:169 classes/options-manager.php:750
+#: classes/options-manager.php:758
 msgid "Newsletter"
 msgstr ""
 
@@ -571,8 +606,16 @@ msgstr ""
 msgid "Please, provide a valid email address."
 msgstr ""
 
+#: config_theme.php:67
+msgid "Poetry"
+msgstr ""
+
 #: template-parts/common/book_info.php:53
 msgid "Price"
+msgstr ""
+
+#: config_theme.php:91
+msgid "Privacy policy"
 msgstr ""
 
 #: template-parts/common/ordering.php:32
@@ -639,7 +682,8 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: header.php:62 header.php:74 page-templates/search.php:90
+#: config_theme.php:183 header.php:62 header.php:74
+#: page-templates/search.php:90
 msgid "Search"
 msgstr ""
 
@@ -760,6 +804,10 @@ msgstr ""
 msgid "Site contacts"
 msgstr ""
 
+#: config_theme.php:143
+msgid "Site Map"
+msgstr ""
+
 #: page-templates/blog.php:93 page-templates/search.php:70
 #: page-templates/search.php:75
 msgid "Site search"
@@ -775,9 +823,6 @@ msgid "sitemap"
 msgstr ""
 
 #: classes/options-manager.php:591 classes/options-manager.php:597
-msgid "Social Media"
-msgstr ""
-
 #: classes/options-manager.php:608
 msgid "Social media"
 msgstr ""
@@ -925,7 +970,7 @@ msgid "WP KK Writer Theme"
 msgstr ""
 
 #: page-templates/contacts.php:267
-msgid "Write here the confirmation code"
+msgid "Write here the verification code"
 msgstr ""
 
 #: template-parts/common/book_info.php:29
@@ -956,13 +1001,4 @@ msgstr ""
 
 #: page-templates/contacts.php:238
 msgid "Your phone number"
-msgstr ""
-
-msgid "Articles"
-msgstr ""
-
-msgid "Events"
-msgstr ""
-
-msgid "News"
 msgstr ""

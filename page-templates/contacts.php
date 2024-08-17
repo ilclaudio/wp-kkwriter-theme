@@ -55,7 +55,7 @@ if ( 'yes' === $form_sent ) {
 		$nonce_error = false;
 		$name       = $full_name;
 		$to         = $site_email;
-		$subject    = __( '[ContactForm]', 'kk_writer_theme' ) . ' ' . __( 'Email form the site', 'kk_writer_theme' ) . ': '. $site_title;
+		$subject    = __( '[ContactForm]', 'kk_writer_theme' ) . ' ' . __( 'E-mail form the site', 'kk_writer_theme' ) . ': '. $site_title;
 		$headers    = 'From: ' . $email_address . '\r\n' . 'Reply-To: ' . $email_address . '\r\n';
 
 		// 1 - Controllo del captcha.
@@ -264,7 +264,7 @@ if ( 'yes' === $form_sent ) {
 													<div class="form-group col-md-6">
 														<input class="form-control border-bottom-only" name="captcha-field" id="captcha-field"
 															size="<?php echo esc_attr( $captcha_obj_image_width ); ?>" type="text"
-																placeholder="<?php echo esc_html( __( 'Write here the confirmation code', 'kk_writer_theme' ) ); ?>" />
+																placeholder="<?php echo esc_html( __( 'Write here the verification code', 'kk_writer_theme' ) ); ?>" />
 														<input name="captcha-prefix" id="captcha-prefix" 
 															type="hidden" value="<?php echo esc_attr( $captcha_obj_prefix ); ?>" />
 													</div>

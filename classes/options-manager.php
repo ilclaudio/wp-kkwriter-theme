@@ -564,7 +564,7 @@ class KKW_ThemeOptionsManager
 		$contacts_options->add_field(
 			array(
 				'id'         => 'site_email',
-				'name'       => __( 'Email', 'kk_writer_theme' ),
+				'name'       => __( 'E-mail', 'kk_writer_theme' ),
 				'desc'       => __( 'The email of the site.' , 'kk_writer_theme' ),
 				'type'       => 'text',
 			)
@@ -588,13 +588,13 @@ class KKW_ThemeOptionsManager
 	{
 		$args = array(
 			'id'           => $option_key . '_id',
-			'title'        => esc_html__( 'Social Media', 'kk_writer_theme' ),
+			'title'        => esc_html__( 'Social media', 'kk_writer_theme' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
 			// 'parent_slug'  => $parent_slug,
 			'tab_group'    => $tab_group,
-			'tab_title'    => __( 'Social Media', 'kk_writer_theme' ),
+			'tab_title'    => __( 'Social media', 'kk_writer_theme' ),
 		);
 		// // 'tab_group' property is supported in > 2.4.0.
 		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
