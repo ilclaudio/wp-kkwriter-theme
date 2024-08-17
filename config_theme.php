@@ -28,6 +28,12 @@ define( 'KKW_CUSTOM_PAGE_CAT', 'custom_page' );
 // Archive list.
 define( 'KKW_ARCHIVE_PAGE_CAT', 'archive_page' );
 
+// Site Map.
+define( 'KKW_HOMEPAGE_SLUG', 'homepage' );
+define( 'KKW_HOMEPAGE_NAME', 'Home Page' );
+define( 'KKW_NETWORK_SLUG', 'network' );
+define( 'KKW_NETWORK_NAME', 'Network' );
+
 // Define ROLES and PERMISSIONS.
 define( 'KKW_SUPER_EDITOR_ROLE_SLUG', 'kkw_super_editor' );
 define( 'KKW_SUPER_EDITOR_ROLE_NAME', 'Super Editor' );

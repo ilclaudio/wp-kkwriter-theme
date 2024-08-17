@@ -1,9 +1,9 @@
 
 TEMA:
 
-- Completare gestione Breadcrumbs.
 - Template Pagina -> Sitemap.
 - Tradurre etichette in italiano.
+- Inserire foto dei libri.
 - Inserire contenuti.
 - Migrare prima versione online.
 
