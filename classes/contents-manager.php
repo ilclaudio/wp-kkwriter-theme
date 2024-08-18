@@ -66,45 +66,22 @@ class KKW_WrappedReview {
 }
 
 class KKW_WrappedItem {
-	public int $id;
-	public string $type;
-	public string $slug;
-	public string $status;
-	public string $title;
-	public string $description;
-	public string $post_date;
-	public string $view_date;
-	public string $main_group;
-	public string $main_group_url;
-	public string $detail_url;
-	public string $publisher;
-	public string $author;
-	public string $price;
-	public string $pages;
+	public int $id = 0;
+	public string $type = '';
+	public string $slug = '';
+	public string $status = '';
+	public string $title = '';
+	public string $description = '';
+	public string $post_date = '';
+	public string $view_date = '';
+	public string $main_group = '';
+	public string $main_group_url = '';
+	public string $detail_url = '';
+	public string $publisher = '';
+	public string $author = '';
+	public string $price = '';
+	public string $pages = '';
 	public string $isbn;
-
-
-	public function __construct( $parameters ) {
-		if ( $parameters ) {
-			$this->id             = $parameters['id'];
-			$this->type           = $parameters['type'];
-			$this->slug           = $parameters['slug'];
-			$this->status         = $parameters['status'];
-			$this->title          = $parameters['title'];
-			$this->description    = $parameters['description'];
-			$this->post_date      = $parameters['post_date'];
-			$this->view_date      = $parameters['view_date'];
-			$this->main_group     = $parameters['main_group'];
-			$this->main_group_url = $parameters['main_group_url'];
-			$this->detail_url     = $parameters['detail_url'];
-			$this->publisher      = $parameters['publisher'];
-			$this->author         = $parameters['author'];
-			$this->pages          = $parameters['pages'];
-			$this->isbn           = $parameters['isbn'];
-			$this->price          = $parameters['price'];
-		}
-	}
-
  }
 
 
@@ -126,6 +103,11 @@ class KKW_ContentsManager
 		return $wrapped;
 	}
 
+	/**
+	 * Summary of wrap_search_result
+	 * @param mixed $post
+	 * @return KKW_WrappedItem || null
+	 */
 	public static function wrap_search_result( $post ): KKW_WrappedItem {
 		switch ( $post->post_type ) {
 			case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
@@ -144,8 +126,7 @@ class KKW_ContentsManager
 				$item = null;
 				break;
 		}
-		$wrapped_item = new KKW_WrappedItem( $item );
-		return $wrapped_item;
+		return $item;
 	}
 
 	public static function wrap_featured_image( $post, $size_string ): KKW_WrappedImage {
@@ -167,54 +148,34 @@ class KKW_ContentsManager
 		return $icon_name;
 	}
 
-	private static function get_empty_wrapper(): array {
-		return array(
-			'id'                => '',
-			'title'             => '',
-			'type'              => '',
-			'slug'              => '',
-			'status'            => '',
-			'pages'             => '',
-			'isbn'              => '',
-			'price'             => '',
-			'description'       => '',
-			'post_date'         => '',
-			'view_date'         => '',
-			'main_group'        => '',
-			'main_group_url'    => '',
-			'detail_url'        => '',
-			'publisher'         => '',
-			'author'            => '',
-		);
-	}
-	private static function wrap_book( $post ): array {
-		$item = KKW_ContentsManager::get_empty_wrapper();
+	private static function wrap_book( $post ): KKW_WrappedItem {
+		$item = new KKW_WrappedItem();
 		$book = KKW_SearchManager::get_book( $post->ID );
 		if ( $book ) {
 			$section      = count( $book['sections'] ) > 0 ? $book['sections'][0] : '';
 			$section_slug = sanitize_title( $section );
-			// Fill the item array.
-			$item['id']             = $book['id'];
-			$item['title']          = $book['title'];
-			$item['type']           = $book['type'];
-			$item['slug']           = $book['slug'];
-			$item['description']    = $book['description'];
-			$item['post_date']      = $post->post_date;
-			$item['view_date']      = $book['year'];
-			$item['main_group']     = $section;
-			$item['main_group_url'] = get_site_url() . '/' . $section_slug;
-			$item['price']          = $book['price'] ? $book['pages'] . '€' : '';
-			$item['pages']          = $book['pages'];
-			$item['isbn']           = $book['isbn'];
-			$item['publisher']      = count( $book['publishers'] ) ? join( ',', $book['publishers'] ) : '';
-			$item['author']         = count( $book['authors'] ) ? join( ',', $book['authors'] ) : '';
-			$item['detail_url']     = get_permalink( $post->ID );
+			// Fill the wrapper.
+			$item->id             = $book['id'];
+			$item->title          = $book['title'];
+			$item->type           = $book['type'];
+			$item->slug           = $book['slug'];
+			$item->description    = $book['description'];
+			$item->post_date      = $post->post_date;
+			$item->view_date      = $book['year'];
+			$item->main_group     = $section;
+			$item->main_group_url = get_site_url() . '/' . $section_slug;
+			$item->price          = $book['price'] ? $book['pages'] . '€' : '';
+			$item->pages          = $book['pages'];
+			$item->isbn           = $book['isbn'];
+			$item->publisher      = count( $book['publishers'] ) ? join( ',', $book['publishers'] ) : '';
+			$item->author         = count( $book['authors'] ) ? join( ',', $book['authors'] ) : '';
+			$item->detail_url     = get_permalink( $post->ID );
 		}
 		return $item;
 	}
 
-	private static function wrap_post( $post ): array {
-		$item      = KKW_ContentsManager::get_empty_wrapper();
+	private static function wrap_post( $post ): KKW_WrappedItem {
+		$item      = new KKW_WrappedItem();
 		$meta_tags = get_post_meta( $post->ID );
 		$has_meta  = count( $meta_tags ) > 0;
 		$group     = $has_meta && array_key_exists( 'kkw_group', $meta_tags ) && $meta_tags['kkw_group'][0] ?
@@ -225,38 +186,33 @@ class KKW_ContentsManager
 		$query_string = http_build_query( array( 'selected_contents' => array( $group ) ) );
 		$group_page   = __( 'blog', 'kk_writer_theme' );
 		// Fill the item array.
-		$item['id']             = $post->ID;
-		$item['title']          = $post->post_title;
-		$item['type']           = $post->post_type;
-		$item['slug']           = $post->post_name;
-		$item['description']    = $short_description;
-		$item['post_date']      = $post->post_date ;
-		$item['view_date']      = $view_date;
-		$item['main_group']     = ucfirst( $group );
-		$item['main_group_url'] = get_site_url() . '/' . $group_page . '?' . $query_string;
-		$item['publisher']      = '';
-		$item['author']         = '';
-		$item['pages']          = '';
-		$item['isbn']           = '';
-		$item['price']          = '';
-		$item['detail_url']     = get_permalink( $post->ID) ;
+		$item->id             = $post->ID;
+		$item->title          = $post->post_title;
+		$item->type           = $post->post_type;
+		$item->slug           = $post->post_name;
+		$item->description    = $short_description;
+		$item->post_date      = $post->post_date ;
+		$item->view_date      = $view_date;
+		$item->main_group     = ucfirst( $group );
+		$item->main_group_url = get_site_url() . '/' . $group_page . '?' . $query_string;
+		$item->detail_url     = get_permalink( $post->ID) ;
 		return $item;
 	}
 
-	private static function wrap_page( $post ): array {
-		$item      = KKW_ContentsManager::get_empty_wrapper();
+	private static function wrap_page( $post ): KKW_WrappedItem {
+		$item      = new KKW_WrappedItem();
 		$meta_tags = get_post_meta( $post->ID );
 		$desc      = '';
-		$view_date    = self::extractDateString( $meta_tags, $post );
-		// Fill the item array.
-		$item['id']             = $post->ID;
-		$item['title']          = $post->post_title;
-		$item['type']           = $post->post_type;
-		$item['slug']           = $post->post_name;
-		$item['description']    = $desc;
-		$item['post_date']      = $post->post_date ;
-		$item['view_date']      = $view_date;
-		$item['detail_url']     = get_permalink( $post->ID) ;
+		$view_date = self::extractDateString( $meta_tags, $post );
+		// Fill the wrapper.
+		$item->id             = $post->ID;
+		$item->title          = $post->post_title;
+		$item->type           = $post->post_type;
+		$item->slug           = $post->post_name;
+		$item->description    = $desc;
+		$item->post_date      = $post->post_date ;
+		$item->view_date      = $view_date;
+		$item->detail_url     = get_permalink( $post->ID) ;
 		return $item;
 	}
 
@@ -355,6 +311,30 @@ class KKW_ContentsManager
 		return $opt_content_ids;
 	}
 
+	public static function get_blog_posts_query(
+		$selected_contents,
+		$sort_field = 'date',
+		$sort_order = 'DESC',
+		$number=-1
+	) {
+		// Manage query arguments.
+		$args = array(
+			'post_type'      => 'post',
+			'order'          => $sort_order,
+			'paged'          => get_query_var( 'paged', 1 ),
+			'posts_per_page' => $number,
+			'orderby'        => $sort_field,
+			'meta_query'     => array(
+				array(
+					'key'     => 'kkw_group',
+					'value'   => $selected_contents,
+				),
+			),
+		);
+		// Execute the query.
+		$the_query   = new WP_Query( $args );
+		return $the_query;
+	}
 
 	public static function get_site_posts_query(
 		$groups,

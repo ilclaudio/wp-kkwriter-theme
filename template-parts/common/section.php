@@ -12,10 +12,10 @@ $section_description = $args['section_description'];
 
 // Manage ordering parameters.
 $valid_sort_orders   = array( 'ASC', 'DESC' );
-$type_order          = isset($_GET['sort_order']) ? sanitize_text_field($_GET['sort_order']) : 'ASC';
-$type_order          = strtoupper(trim($type_order));
-if ( ! in_array( $type_order, $valid_sort_orders ) ) {
-	$type_order = 'ASC';
+$sort_order          = isset($_GET['sort_order']) ? sanitize_text_field($_GET['sort_order']) : 'ASC';
+$sort_order          = strtoupper(trim($sort_order));
+if ( ! in_array( $sort_order, $valid_sort_orders ) ) {
+	$sort_order = 'ASC';
 }
 $valid_sort_fields = array( 'title', 'kkw_year' );
 $sort_field        = isset($_GET['sort_field']) ? sanitize_text_field($_GET['sort_field']) : 'title';
@@ -26,7 +26,7 @@ if (!in_array($sort_field, $valid_sort_fields)) {
 $the_query = KKW_ContentsManager::get_section_books_query(
 	$section,
 	$sort_field='title',
-	$type_order='ASC',
+	$sort_order='ASC',
 	SECTIONS_CELLS_PER_PAGE
 );
 
