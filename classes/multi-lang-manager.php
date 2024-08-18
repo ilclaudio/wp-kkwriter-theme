@@ -161,10 +161,10 @@ class KKW_MultiLangManager {
 	 * Retrieves the translations of a post in all the site languages, if present.
 	 *
 	 * @param [type] $related_posts
-	 * @return void
+	 * @return array
 	 */
-	public static function get_post_translations( $related_posts ) {
-		return pll_get_post_translations( $related_posts );
+	public static function get_post_translations( $post_id ): array {
+		return pll_get_post_translations( $post_id );
 	}
 
 	public static function kkw_homepage_url() {
