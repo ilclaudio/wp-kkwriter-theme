@@ -8,9 +8,13 @@
  * @package KK_Writer_Theme
  */
 
- define(
+define(
 	'KKW_MAIN_MENU_NAME',
 	'Main Menu',
+);
+define(
+	'KKW_MAIN_MENU_NAME_X',
+	__( 'Main Menu', 'kk_writer_theme' ),
 );
 define(
 	'KKW_MAIN_MENU_LOCATION',
@@ -23,6 +27,10 @@ define(
 	'Primary Footer Menu',
 );
 define(
+	'KKW_PRIMARY_FOOTER_MENU_NAME_X',
+	__( 'Primary Footer Menu', 'kk_writer_theme' ),
+);
+define(
 	'KKW_PRIMARY_FOOTER_MENU_LOCATION',
 	'primary-footer-location',
 );
@@ -30,6 +38,10 @@ define(
 define(
 	'KKW_SECONDARY_FOOTER_MENU_NAME',
 	'Secondary Footer Menu',
+);
+define(
+	'KKW_SECONDARY_FOOTER_MENU_NAME_X',
+	__( 'Secondary Footer Menu', 'kk_writer_theme' ),
 );
 define(
 	'KKW_SECONDARY_FOOTER_MENU_LOCATION',

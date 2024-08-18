@@ -83,8 +83,6 @@ class KKW_WrappedItem {
 	public string $pages;
 	public string $isbn;
 
-	public array $images;
-
 
 	public function __construct( $parameters ) {
 		$this->id             = $parameters['id'];
@@ -103,7 +101,6 @@ class KKW_WrappedItem {
 		$this->pages          = $parameters['pages'];
 		$this->isbn           = $parameters['isbn'];
 		$this->price          = $parameters['price'];
-		$this->images         = $parameters['images'];
 	}
 
  }
@@ -135,9 +132,14 @@ class KKW_ContentsManager
 			case KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name']:
 			case KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']:
 			case KKW_POST_TYPES[ ID_PT_REVIEW ]['name']:
-			case KKW_DEFAULT_PAGE:
 			case KKW_DEFAULT_POST:
 				$item = KKW_ContentsManager::wrap_post( $post );
+				break;
+			case KKW_DEFAULT_PAGE:
+				$item = KKW_ContentsManager::wrap_page( $post );
+				break;
+			default:
+				$item = null;
 				break;
 		}
 		$wrapped_item = new KKW_WrappedItem( $item );
@@ -178,7 +180,8 @@ class KKW_ContentsManager
 			'main_group'        => '',
 			'main_group_url'    => '',
 			'detail_url'        => '',
-			'images'            => array(),
+			'publisher'         => '',
+			'author'            => '',
 		);
 	}
 	private static function wrap_book( $post ): array {
@@ -232,7 +235,23 @@ class KKW_ContentsManager
 		$item['isbn']           = '';
 		$item['price']          = '';
 		$item['detail_url']     = get_permalink( $post->ID) ;
-		$item['images']         = array();
+		return $item;
+	}
+
+	private static function wrap_page( $post ): array {
+		$item      = KKW_ContentsManager::get_empty_wrapper();
+		$meta_tags = get_post_meta( $post->ID );
+		$desc      = '';
+		$view_date    = self::extractDateString( $meta_tags, $post );
+		// Fill the item array.
+		$item['id']             = $post->ID;
+		$item['title']          = $post->post_title;
+		$item['type']           = $post->post_type;
+		$item['slug']           = $post->post_name;
+		$item['description']    = $desc;
+		$item['post_date']      = $post->post_date ;
+		$item['view_date']      = $view_date;
+		$item['detail_url']     = get_permalink( $post->ID) ;
 		return $item;
 	}
 
@@ -511,7 +530,7 @@ class KKW_ContentsManager
 
 		$cond_items = array();
 		$cond_1     = null;
-		$cond_2 = null;
+		$cond_2     = null;
 		if ( count( $selected_contents ) ) {
 			$values = implode("', '", $selected_contents  );
 			$cond_1 = " ( p.post_type IN ('$values') ) ";
