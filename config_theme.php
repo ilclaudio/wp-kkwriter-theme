@@ -233,7 +233,6 @@ define(
 	)
 );
 
-
 // Graphic configurations
 define( 'KKW_FEATURED_TEXT_MAX_SIZE', 256 );
 define( 'KKW_FEATURED_IMG_WIDTH', 200 );
