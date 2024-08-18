@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-18 08:03+0000\n"
+"PO-Revision-Date: 2024-08-18 16:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -23,7 +23,7 @@ msgstr "404"
 msgid "[ContactForm]"
 msgstr "[FormContatto]"
 
-#: config_theme.php:110
+#: config_theme.php:152
 msgid "Accessibility"
 msgstr "Accessibilità"
 
@@ -59,11 +59,11 @@ msgstr "Token dell'API"
 msgid "Article"
 msgstr "Articolo"
 
-#: classes/contents-manager.php:445 classes/contents-manager.php:463
+#: classes/contents-manager.php:548 classes/contents-manager.php:566
 msgid "Articles"
 msgstr "Articoli"
 
-#: classes/contents-manager.php:259
+#: classes/contents-manager.php:283
 msgid "at"
 msgstr "alle"
 
@@ -91,7 +91,7 @@ msgstr "Opzioni base"
 msgid "BatClaudio"
 msgstr "BatClaudio"
 
-#: config_theme.php:136
+#: config_theme.php:178
 msgid "Biography"
 msgstr "Biografia"
 
@@ -100,11 +100,11 @@ msgstr "Biografia"
 msgid "biography"
 msgstr "biografia"
 
-#: config_theme.php:202 classes/navigation-manager.php:78
+#: config_theme.php:244 classes/navigation-manager.php:78
 msgid "Blog"
 msgstr "Blog"
 
-#: classes/contents-manager.php:219
+#: classes/contents-manager.php:226
 msgid "blog"
 msgstr "articoli"
 
@@ -150,7 +150,7 @@ msgstr "Scegli il colore"
 
 #: classes/options-manager.php:309
 msgid "Choose the contents to show in the Home Page carousel."
-msgstr ""
+msgstr "Scegli i contenuti da mostrare nel carosello della Home Page."
 
 #: classes/options-manager.php:118
 msgid ""
@@ -158,6 +158,9 @@ msgid ""
 "logo in the footer is enabled, the header logo is shown with inverted colors."
 " It is recommended to upload an image in SVG format."
 msgstr ""
+"Scegli il logo del footer. Se non è presente, ma la visualizzazione del logo "
+"nel footer è abilitata, il logo dell'intestazione viene mostrato con colori "
+"invertiti. Si consiglia di caricare un'immagine in formato SVG."
 
 #: classes/options-manager.php:551
 msgid "City"
@@ -169,6 +172,8 @@ msgid ""
 "Click <a href=\"%s\">here</a> to come back or use the menu to continue "
 "browsing."
 msgstr ""
+"Clicca <a href=\"%s\">qui</a> per tornare indietro oppure usa il menu per "
+"continuare la navigazione."
 
 #: page-templates/contacts.php:173 page-templates/contacts.php:174
 #: page-templates/contacts.php:188
@@ -191,7 +196,7 @@ msgstr "Conferma"
 msgid "Confirmation email not sent."
 msgstr "Email di conferma non inviata."
 
-#: config_theme.php:162 single.php:117 single.php:232
+#: config_theme.php:204 single.php:117 single.php:232
 #: classes/options-manager.php:526 classes/options-manager.php:543
 #: page-templates/contacts.php:20
 msgid "Contacts"
@@ -218,7 +223,7 @@ msgstr "Data di creazione crescente"
 msgid "Creation date descending"
 msgstr "Data di creazione decrescente"
 
-#: config_theme.php:123
+#: config_theme.php:165
 msgid "Credits"
 msgstr "Crediti"
 
@@ -298,10 +303,6 @@ msgstr "Inserisci il codice di analisi."
 msgid "Error reloading data"
 msgstr "Errore ricaricando i dati."
 
-#: config_theme.php:77
-msgid "Essays"
-msgstr "Saggistica"
-
 #: single.php:197
 msgid "Event end"
 msgstr "Inizio evento"
@@ -314,7 +315,7 @@ msgstr "Luogo dell'evento."
 msgid "Event start"
 msgstr "Fine evento"
 
-#: classes/contents-manager.php:446 classes/contents-manager.php:464
+#: classes/contents-manager.php:549 classes/contents-manager.php:567
 msgid "Events"
 msgstr "Eventi"
 
@@ -331,12 +332,10 @@ msgid "Facebook"
 msgstr "Facebook"
 
 #: classes/options-manager.php:328
-msgid "featured content section"
+#, fuzzy
+#| msgid "featured content section"
+msgid "Featured content section"
 msgstr "Sezione degli eventi in evidenza"
-
-#: config_theme.php:81
-msgid "Fiction"
-msgstr "Narrativa"
 
 #: page-templates/search.php:102
 msgid "Filter by content type"
@@ -376,23 +375,23 @@ msgstr "Seguimi su"
 
 #: classes/options-manager.php:104
 msgid "Footer logo visible"
-msgstr ""
+msgstr "Logo del footer visibile"
 
 #: classes/options-manager.php:243
 msgid "Home Page Layout"
-msgstr ""
+msgstr "Layout della Home Page"
 
 #: classes/options-manager.php:156
 msgid "Home page messages"
-msgstr ""
+msgstr "Messaggi della Home Page"
 
 #: classes/options-manager.php:249
 msgid "HP layout"
-msgstr ""
+msgstr "Layout della HP"
 
 #: classes/options-manager.php:145
 msgid "HP messages"
-msgstr ""
+msgstr "Messaggi della HP"
 
 #. Author URI of the theme
 msgid "https://www.wp-recipes.com"
@@ -405,24 +404,32 @@ msgstr "ID della lista associata al sito."
 #: classes/options-manager.php:505
 msgid "If yes, the blog section is shown after the featured content section."
 msgstr ""
+"Se sì, la sezione blog viene visualizzata dopo la sezione dei contenuti in "
+"evidenza."
 
 #: classes/options-manager.php:271
 msgid "If yes, the carousel is shown before the featured content section."
 msgstr ""
+"Se sì, il carosello viene visualizzato prima della sezione dei contenuti in "
+"evidenza."
 
 #: classes/options-manager.php:297
 msgid ""
 "If yes, the contents of the Home Page carousel are chosen automatically."
 msgstr ""
+"Se sì, i contenuti del carosello della Home Page vengono scelti "
+"automaticamente."
 
 #: classes/options-manager.php:350
 msgid ""
 "If yes, the featured contents of the Home Page are chosen automatically."
 msgstr ""
+"Se sì, i contenuti in evidenza della Home Page vengono scelti "
+"automaticamente."
 
 #: single-kkw_book.php:129
 msgid "Image and description of the book"
-msgstr ""
+msgstr "Immagine e descrizione del libro"
 
 #: classes/options-manager.php:185
 msgid "Info"
@@ -438,15 +445,15 @@ msgstr "Informazioni"
 
 #: classes/options-manager.php:609
 msgid "Insert here the links to your social media."
-msgstr ""
+msgstr "Inserisci qui i link ai tuoi social media."
 
 #: template-parts/common/book_info.php:49
 msgid "ISBN"
 msgstr "ISBN"
 
-#: classes/contents-manager.php:695
+#: classes/contents-manager.php:798
 msgid "It is not possible to download the .ics file."
-msgstr ""
+msgstr "Non è possibile scaricare il file .ics."
 
 #: classes/options-manager.php:26
 msgid "KKW Theme"
@@ -463,7 +470,7 @@ msgstr "Link"
 
 #: classes/options-manager.php:228
 msgid "Link to an in-depth page also external to the site."
-msgstr ""
+msgstr "Collegamento a una pagina di approfondimento esterna al sito."
 
 #: template-parts/common/social_sharing.php:40
 msgid "Linkedin"
@@ -488,6 +495,10 @@ msgstr "Logo del footer"
 #: classes/options-manager.php:91
 msgid "Logo header"
 msgstr "Logo dell'header"
+
+#: config_menu.php:17
+msgid "Main Menu"
+msgstr "Menu Principale"
 
 #: classes/options-manager.php:329
 msgid "Manage the featured content in the Home Page."
@@ -533,11 +544,11 @@ msgstr "Nome del network"
 msgid "Network url"
 msgstr "Indirizzo del network"
 
-#: classes/contents-manager.php:447 classes/contents-manager.php:465
+#: classes/contents-manager.php:550 classes/contents-manager.php:568
 msgid "News"
 msgstr "Notizie"
 
-#: config_theme.php:175 classes/options-manager.php:750
+#: config_theme.php:217 classes/options-manager.php:750
 #: classes/options-manager.php:758
 msgid "Newsletter"
 msgstr "Newsletter"
@@ -609,15 +620,15 @@ msgstr "Per favore, compila i campi obbligatori"
 msgid "Please, provide a valid email address."
 msgstr "Per favore, fornisci un indirizzo e-mail valido"
 
-#: config_theme.php:73
-msgid "Poetry"
-msgstr "Poesia"
-
 #: template-parts/common/book_info.php:53
 msgid "Price"
 msgstr "Prezzo"
 
-#: config_theme.php:97
+#: config_menu.php:31
+msgid "Primary Footer Menu"
+msgstr "Menu Principale Del Footer"
+
+#: config_theme.php:139
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -633,13 +644,13 @@ msgstr "Anno pubblicazione decrescente"
 msgid "Publisher"
 msgstr "Editore"
 
-#: page-templates/blog.php:168 template-parts/home/blog-section.php:44
+#: page-templates/blog.php:168 template-parts/home/blog-section.php:49
 #: template-parts/home/carousel.php:77
-#: template-parts/home/featured-contents.php:104
-#: template-parts/home/featured-contents.php:145
-#: template-parts/home/featured-contents.php:191
-#: template-parts/home/featured-contents.php:241
-#: template-parts/home/featured-contents.php:276
+#: template-parts/home/featured-contents.php:114
+#: template-parts/home/featured-contents.php:155
+#: template-parts/home/featured-contents.php:201
+#: template-parts/home/featured-contents.php:251
+#: template-parts/home/featured-contents.php:286
 #| msgid "Read more..."
 msgid "Read more"
 msgstr "Leggi di più"
@@ -687,7 +698,7 @@ msgstr "Recensioni"
 msgid "Right"
 msgstr "Destra"
 
-#: config_theme.php:189 header.php:62 header.php:74
+#: config_theme.php:231 header.php:62 header.php:74
 #: page-templates/search.php:90
 msgid "Search"
 msgstr "Cerca"
@@ -695,6 +706,10 @@ msgstr "Cerca"
 #: page-templates/search.php:126
 msgid "Search results"
 msgstr "Risultati della ricerca"
+
+#: config_menu.php:44
+msgid "Secondary Footer Menu"
+msgstr "Menu Secondario Del Footer"
 
 #: template-parts/common/book_info.php:41
 msgid "Section"
@@ -718,11 +733,11 @@ msgid ""
 msgstr ""
 "Sezione che contiene un carosello con i contenuti più importanti del sito."
 
-#: template-parts/home/blog-section.php:16
+#: template-parts/home/blog-section.php:21
 msgid "Section that contains some featured blog posts."
 msgstr "Sezione che contiene alcuni post del blog in evidenza."
 
-#: template-parts/home/featured-contents.php:81
+#: template-parts/home/featured-contents.php:91
 msgid ""
 "Section that contains the featured contents of the site: books, events and "
 "news."
@@ -772,15 +787,15 @@ msgstr "Mostra la sezione del blog"
 
 #: classes/options-manager.php:504
 msgid "Show blog section after featured content"
-msgstr ""
+msgstr "Mostra la sezione del blog dopo il contenuto in evidenza"
 
 #: classes/options-manager.php:492
 msgid "Show blog section in the Home Page."
-msgstr ""
+msgstr "Mostra la sezione blog nella Home Page."
 
 #: classes/options-manager.php:270
 msgid "Show carousel before featured content"
-msgstr ""
+msgstr "Mostra il carosello prima del contenuto in evidenza."
 
 #: classes/options-manager.php:336
 msgid "Show featured content"
@@ -788,23 +803,23 @@ msgstr "Mostra i contenuti in evidenza"
 
 #: classes/options-manager.php:337
 msgid "Show featured content section in the Home Page."
-msgstr ""
+msgstr "Show featured content section in the Home Page."
 
 #: classes/options-manager.php:616
 msgid "Show social media icons"
-msgstr ""
+msgstr "Mostra le icone dei social media"
 
 #: classes/options-manager.php:283
 msgid "Show the Carousel section"
-msgstr ""
+msgstr "Mostra la sezione Carosello"
 
 #: classes/options-manager.php:193
 msgid "Show the icon"
-msgstr ""
+msgstr "Mostra l'icona"
 
 #: classes/options-manager.php:284
 msgid "Show the main carousel in the Home Page."
-msgstr ""
+msgstr "Mostra il carosello principale nella Home Page."
 
 #: classes/options-manager.php:45
 msgid "Site configuration"
@@ -814,7 +829,7 @@ msgstr "Configurazione del sito"
 msgid "Site contacts"
 msgstr "Contatti del sito"
 
-#: config_theme.php:149 page-templates/sitemap.php:12
+#: config_theme.php:191 page-templates/sitemap.php:12
 msgid "Site Map"
 msgstr "Mappa del sito"
 
@@ -843,7 +858,7 @@ msgstr "Successo"
 
 #: single-kkw_book.php:173 single-kkw_book.php:267
 msgid "Tabs to switch among contents"
-msgstr ""
+msgstr "Schede per passare da un contenuto all'altro"
 
 #: classes/options-manager.php:64
 msgid "Tagline"
@@ -855,11 +870,11 @@ msgstr "Telefono"
 
 #: classes/options-manager.php:808
 msgid "Template ID"
-msgstr ""
+msgstr "ID del template"
 
 #: classes/options-manager.php:809
 msgid "Template ID of the page that manages the double OptIn"
-msgstr ""
+msgstr "ID modello della pagina che gestisce il doppio OptIn"
 
 #: classes/options-manager.php:214
 msgid "Text"
@@ -871,69 +886,73 @@ msgstr "Testo da cercare..."
 
 #: classes/options-manager.php:560
 msgid "The address of the site."
-msgstr ""
+msgstr "L'indirizzo del sito."
 
 #: classes/options-manager.php:552
 msgid "The city of the site."
-msgstr ""
+msgstr "La città del sito."
 
 #: classes/options-manager.php:544
 msgid "The contact shown in the footer."
-msgstr ""
+msgstr "Il contatto mostrato nell footer."
 
 #: classes/options-manager.php:568
-msgid "The email of the site."
-msgstr ""
+#, fuzzy
+#| msgid "The email of the site."
+msgid "The e-mail of the site."
+msgstr "La e-mail del sito."
 
 #: classes/options-manager.php:92
 msgid "The logo of the site, please load an SVG image."
-msgstr ""
+msgstr "Il logo del sito, per favore, carica una immagine SVG."
 
 #: header.php:47
 msgid "The logo of the site."
-msgstr ""
+msgstr "Il logo del sito"
 
 #: classes/options-manager.php:76
 msgid "The name of the network the site is part of."
-msgstr ""
+msgstr "Nome del network di cui il sito fa parte."
 
 #: classes/options-manager.php:576
 msgid "The phone number of the site."
-msgstr ""
+msgstr "Il numero di telefono del sito."
 
 #: classes/options-manager.php:65
 msgid "The tagline of the site."
-msgstr ""
+msgstr "Il motto (sottotiolo) del sito."
 
 #: page-templates/contacts.php:224
 msgid "The text of the message"
-msgstr ""
+msgstr "Il testo del messaggio."
 
 #: classes/options-manager.php:54
 msgid "The title of the site."
-msgstr ""
+msgstr "Il titolo del sito."
 
 #: classes/options-manager.php:84
 msgid "The url of the network the site is part of."
-msgstr ""
+msgstr "L'indirizzo del network di cui il sito fa parte."
 
 #: page-templates/contacts.php:65
 msgid "The verification code is not valid."
-msgstr ""
+msgstr "Il codice di verifica non è valido."
 
-#: template-parts/common/section.php:158
+#: template-parts/common/section.php:142
 msgid "There are no books in this section."
-msgstr ""
+msgstr "Non ci sono libri in questa sezione."
 
 #. Description of the theme
 msgid ""
 "This is a WordPress theme for sites that uses the plugin: KK Writer Plugin."
 msgstr ""
+"Questo è un tema WordPress per siti che utilizzano il plugin: KK Writer "
+"Plugin."
 
 #: classes/options-manager.php:388 classes/options-manager.php:427
 #: classes/options-manager.php:466
 msgid "Thumbnail side"
-msgstr ""
+msgstr "Lato della Thumbnail."
 
 #: template-parts/common/book_info.php:21
 msgid "Title"
@@ -980,10 +999,9 @@ msgid "WP KK Writer Theme"
 msgstr "WP KK Writer Theme"
 
 #: page-templates/contacts.php:267
-#, fuzzy
 #| msgid "Write here the confirmation code"
 msgid "Write here the verification code"
-msgstr "Scrivi qui il codice di conferma"
+msgstr "Scrivi qui il codice di verifica"
 
 #: template-parts/common/book_info.php:29
 msgid "Year"

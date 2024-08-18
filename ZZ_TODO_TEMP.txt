@@ -1,8 +1,6 @@
 
 TEMA:
 
-- Template Pagina -> Sitemap.
-- Tradurre etichette in italiano.
 - Rifattorizzazione wrapper post.
 - Rifattorizzazioni sezioni e gruppi.
 
@@ -43,3 +41,7 @@ REFACTORING:
 - Invocazione del wrapper delle immagini per recuperare e mostrare i dati di una foto (src e alt) dove manca (search?).
 - Portare tutte le query per recuperare i contenuti dentro il ContentManager (blog ed altri).
 - Togliere riferimenti a BootstrapItalia (svg/sprites.svg)
+
+RICONTROLLARE:
+ - Testi.
+ - TRaduzione etichette.

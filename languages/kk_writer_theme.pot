@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-18 07:57+0000\n"
+"POT-Creation-Date: 2024-08-18 16:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "[ContactForm]"
 msgstr ""
 
-#: config_theme.php:110
+#: config_theme.php:152
 msgid "Accessibility"
 msgstr ""
 
@@ -60,11 +60,11 @@ msgstr ""
 msgid "Article"
 msgstr ""
 
-#: classes/contents-manager.php:445 classes/contents-manager.php:463
+#: classes/contents-manager.php:548 classes/contents-manager.php:566
 msgid "Articles"
 msgstr ""
 
-#: classes/contents-manager.php:259
+#: classes/contents-manager.php:283
 msgid "at"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 msgid "BatClaudio"
 msgstr ""
 
-#: config_theme.php:136
+#: config_theme.php:178
 msgid "Biography"
 msgstr ""
 
@@ -101,11 +101,11 @@ msgstr ""
 msgid "biography"
 msgstr ""
 
-#: config_theme.php:202 classes/navigation-manager.php:78
+#: config_theme.php:244 classes/navigation-manager.php:78
 msgid "Blog"
 msgstr ""
 
-#: classes/contents-manager.php:219
+#: classes/contents-manager.php:226
 msgid "blog"
 msgstr ""
 
@@ -192,7 +192,7 @@ msgstr ""
 msgid "Confirmation email not sent."
 msgstr ""
 
-#: config_theme.php:162 single.php:117 single.php:232
+#: config_theme.php:204 single.php:117 single.php:232
 #: classes/options-manager.php:526 classes/options-manager.php:543
 #: page-templates/contacts.php:20
 msgid "Contacts"
@@ -219,7 +219,7 @@ msgstr ""
 msgid "Creation date descending"
 msgstr ""
 
-#: config_theme.php:123
+#: config_theme.php:165
 msgid "Credits"
 msgstr ""
 
@@ -295,10 +295,6 @@ msgstr ""
 msgid "Error reloading data"
 msgstr ""
 
-#: config_theme.php:77
-msgid "Essays"
-msgstr ""
-
 #: single.php:197
 msgid "Event end"
 msgstr ""
@@ -311,7 +307,7 @@ msgstr ""
 msgid "Event start"
 msgstr ""
 
-#: classes/contents-manager.php:446 classes/contents-manager.php:464
+#: classes/contents-manager.php:549 classes/contents-manager.php:567
 msgid "Events"
 msgstr ""
 
@@ -328,11 +324,7 @@ msgid "Facebook"
 msgstr ""
 
 #: classes/options-manager.php:328
-msgid "featured content section"
-msgstr ""
-
-#: config_theme.php:81
-msgid "Fiction"
+msgid "Featured content section"
 msgstr ""
 
 #: page-templates/search.php:102
@@ -441,7 +433,7 @@ msgstr ""
 msgid "ISBN"
 msgstr ""
 
-#: classes/contents-manager.php:695
+#: classes/contents-manager.php:798
 msgid "It is not possible to download the .ics file."
 msgstr ""
 
@@ -484,6 +476,10 @@ msgstr ""
 
 #: classes/options-manager.php:91
 msgid "Logo header"
+msgstr ""
+
+#: config_menu.php:17
+msgid "Main Menu"
 msgstr ""
 
 #: classes/options-manager.php:329
@@ -530,11 +526,11 @@ msgstr ""
 msgid "Network url"
 msgstr ""
 
-#: classes/contents-manager.php:447 classes/contents-manager.php:465
+#: classes/contents-manager.php:550 classes/contents-manager.php:568
 msgid "News"
 msgstr ""
 
-#: config_theme.php:175 classes/options-manager.php:750
+#: config_theme.php:217 classes/options-manager.php:750
 #: classes/options-manager.php:758
 msgid "Newsletter"
 msgstr ""
@@ -606,15 +602,15 @@ msgstr ""
 msgid "Please, provide a valid email address."
 msgstr ""
 
-#: config_theme.php:73
-msgid "Poetry"
-msgstr ""
-
 #: template-parts/common/book_info.php:53
 msgid "Price"
 msgstr ""
 
-#: config_theme.php:97
+#: config_menu.php:31
+msgid "Primary Footer Menu"
+msgstr ""
+
+#: config_theme.php:139
 msgid "Privacy policy"
 msgstr ""
 
@@ -630,13 +626,13 @@ msgstr ""
 msgid "Publisher"
 msgstr ""
 
-#: page-templates/blog.php:168 template-parts/home/blog-section.php:44
+#: page-templates/blog.php:168 template-parts/home/blog-section.php:49
 #: template-parts/home/carousel.php:77
-#: template-parts/home/featured-contents.php:104
-#: template-parts/home/featured-contents.php:145
-#: template-parts/home/featured-contents.php:191
-#: template-parts/home/featured-contents.php:241
-#: template-parts/home/featured-contents.php:276
+#: template-parts/home/featured-contents.php:114
+#: template-parts/home/featured-contents.php:155
+#: template-parts/home/featured-contents.php:201
+#: template-parts/home/featured-contents.php:251
+#: template-parts/home/featured-contents.php:286
 msgid "Read more"
 msgstr ""
 
@@ -682,13 +678,17 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: config_theme.php:189 header.php:62 header.php:74
+#: config_theme.php:231 header.php:62 header.php:74
 #: page-templates/search.php:90
 msgid "Search"
 msgstr ""
 
 #: page-templates/search.php:126
 msgid "Search results"
+msgstr ""
+
+#: config_menu.php:44
+msgid "Secondary Footer Menu"
 msgstr ""
 
 #: template-parts/common/book_info.php:41
@@ -710,11 +710,11 @@ msgid ""
 "site."
 msgstr ""
 
-#: template-parts/home/blog-section.php:16
+#: template-parts/home/blog-section.php:21
 msgid "Section that contains some featured blog posts."
 msgstr ""
 
-#: template-parts/home/featured-contents.php:81
+#: template-parts/home/featured-contents.php:91
 msgid ""
 "Section that contains the featured contents of the site: books, events and "
 "news."
@@ -804,7 +804,7 @@ msgstr ""
 msgid "Site contacts"
 msgstr ""
 
-#: config_theme.php:149 page-templates/sitemap.php:12
+#: config_theme.php:191 page-templates/sitemap.php:12
 msgid "Site Map"
 msgstr ""
 
@@ -872,7 +872,7 @@ msgid "The contact shown in the footer."
 msgstr ""
 
 #: classes/options-manager.php:568
-msgid "The email of the site."
+msgid "The e-mail of the site."
 msgstr ""
 
 #: classes/options-manager.php:92
@@ -911,7 +911,7 @@ msgstr ""
 msgid "The verification code is not valid."
 msgstr ""
 
-#: template-parts/common/section.php:158
+#: template-parts/common/section.php:142
 msgid "There are no books in this section."
 msgstr ""
 

@@ -565,7 +565,7 @@ class KKW_ThemeOptionsManager
 			array(
 				'id'         => 'site_email',
 				'name'       => __( 'E-mail', 'kk_writer_theme' ),
-				'desc'       => __( 'The email of the site.' , 'kk_writer_theme' ),
+				'desc'       => __( 'The e-mail of the site.' , 'kk_writer_theme' ),
 				'type'       => 'text',
 			)
 		);
