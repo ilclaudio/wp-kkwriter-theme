@@ -146,15 +146,34 @@ class KKW_BreadItem {
 			$pt[KKW_HOMEPAGE_SLUG]->children[KKW_NETWORK_SLUG] = $network;
 		}
 
+		// The list of the defined menus.
+		$menus = wp_get_nav_menus();
+	
+		if ( ! empty( $menus ) ) {
 
-		$options        = get_option( 'polylang' );
-		$menu_locations = $options['nav_menus']['design-laboratori-wordpress-theme'];
+			foreach ( $menus as $menu ) {
 
+				// The list of the items of this menu.
+				$menu_items = wp_get_nav_menu_items( $menu->term_id );
+
+				if ( ! empty( $menu_items ) ) {
+
+					foreach ( $menu_items as $menu_item ) {
+						echo esc_html( $menu_item->title ); 
+					}
+
+				}
+			}
+
+		}
+
+
+		// $options        = get_option( 'polylang' );
+		// $menu_locations = $options['nav_menus']['design-laboratori-wordpress-theme'];
 		// // Recupera elenco dei menu per lingua.
 		// $menu_items = dli_get_all_menus_by_lang( $lng_slug );
 		// $slugs      = dli_get_pt_archive_slugs();
 	
-
 		return $pt;
 	}
 
