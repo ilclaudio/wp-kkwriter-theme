@@ -154,13 +154,14 @@ class KKW_ContentsManager
 	
 	public static function get_post_icon_by_group( $group ){
 		switch( $group ){
-			case 'event':
+			case KKW_EVENT_SECTION_SLUG_EN:
 				$icon_name = 'fa-calendar-days';
 				break;
-			case 'news':
+			case KKW_NEWS_SECTION_SLUG_EN:
 				$icon_name = 'fa-earth-europe';
 				break;
 			default:
+				// KKW_ARTICLE_SECTION_SLUG_EN
 				$icon_name = 'fa-feather-pointed';
 			}
 		return $icon_name;
@@ -196,6 +197,7 @@ class KKW_ContentsManager
 			$item['id']             = $book['id'];
 			$item['title']          = $book['title'];
 			$item['type']           = $book['type'];
+			$item['slug']           = $book['slug'];
 			$item['description']    = $book['description'];
 			$item['post_date']      = $post->post_date;
 			$item['view_date']      = $book['year'];
@@ -226,6 +228,7 @@ class KKW_ContentsManager
 		$item['id']             = $post->ID;
 		$item['title']          = $post->post_title;
 		$item['type']           = $post->post_type;
+		$item['slug']           = $post->post_name;
 		$item['description']    = $short_description;
 		$item['post_date']      = $post->post_date ;
 		$item['view_date']      = $view_date;
@@ -267,7 +270,7 @@ class KKW_ContentsManager
 
 	public static function extractDateString( $meta_tags, $post, $type='start' ){
 		$view_date = '';
-		if ( array_key_exists('kkw_post_type', $meta_tags) && $meta_tags['kkw_post_type'][0]  === 'event') {
+		if ( array_key_exists('kkw_post_type', $meta_tags) && $meta_tags['kkw_post_type'][0]  === KKW_EVENT_SECTION_SLUG_EN ) {
 			// It is an event with a start event date.
 			if ( array_key_exists( 'kkw_'. $type . '_date', $meta_tags ) ) {
 				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_'. $type . '_date'][0] );
@@ -352,18 +355,20 @@ class KKW_ContentsManager
 		return $opt_content_ids;
 	}
 
-	public static function get_latest_posts( $group='article', $number = 1 ) {
+	public static function get_latest_posts( $groups, $number = 1 ) {
 		$results = array();
 		$args= array(
 			'post_type'      => array( KKW_DEFAULT_POST ),
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 			'fields'         => 'ids',
+			'post_status'    => 'publish',
 			'posts_per_page' => $number,
 			'meta_query' => array(
 				array(
 						'key'     => 'kkw_group',
-						'value'   => $group,
+						'value'   => $groups,
+						'compare' => 'IN', 
 				),
 			),
 		);
@@ -463,9 +468,9 @@ class KKW_ContentsManager
 	 */
 	public static function get_custom_contents_filters() {
 		$ct = array(
-			'article'                                 => __( 'Articles', 'kk_writer_theme' ),
-			'event'                                   => __( 'Events', 'kk_writer_theme' ),
-			'news'                                    => __( 'News', 'kk_writer_theme' ),
+			KKW_ARTICLE_SECTION_SLUG_EN               => __( 'Articles', 'kk_writer_theme' ),
+			KKW_EVENT_SECTION_SLUG_EN                 => __( 'Events', 'kk_writer_theme' ),
+			KKW_NEWS_SECTION_SLUG_EN                  => __( 'News', 'kk_writer_theme' ),
 			// KKW_DEFAULT_PAGE                          => 'Pages',
 			KKW_POST_TYPES[ ID_PT_BOOK ]['name']      =>  __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kk_writer_theme' ),
 			KKW_POST_TYPES[ ID_PT_REVIEW ]['name']    =>  __( KKW_POST_TYPES[ ID_PT_REVIEW ]['plural_label'], 'kk_writer_theme' ),
@@ -481,9 +486,9 @@ class KKW_ContentsManager
 	}
 	public static function get_post_groups_filters() {
 		$pg = array(
-			'article' => __( 'Articles', 'kk_writer_theme' ),
-			'event'   => __( 'Events', 'kk_writer_theme' ),
-			'news'    => __( 'News', 'kk_writer_theme' ),
+			KKW_ARTICLE_SECTION_SLUG_EN => __( 'Articles', 'kk_writer_theme' ),
+			KKW_EVENT_SECTION_SLUG_EN   => __( 'Events', 'kk_writer_theme' ),
+			KKW_NEWS_SECTION_SLUG_EN    => __( 'News', 'kk_writer_theme' ),
 		);
 		return $pg;
 	}
@@ -497,21 +502,21 @@ class KKW_ContentsManager
 		global $wpdb;
 		$groups = array();
 		// EVENTS.
-		$key = array_search( 'event', $selected_contents );
+		$key = array_search( KKW_EVENT_SECTION_SLUG_EN, $selected_contents );
 		if ( $key !== false ) {
-			array_push( $groups, 'event' );
+			array_push( $groups, KKW_EVENT_SECTION_SLUG_EN );
 			unset( $selected_contents[$key] );
 		}
 		// NEWS.
-		$key = array_search( 'news', $selected_contents );
+		$key = array_search( KKW_NEWS_SECTION_SLUG_EN, $selected_contents );
 		if ( $key !== false ) {
-			array_push( $groups, 'news' );
+			array_push( $groups, KKW_NEWS_SECTION_SLUG_EN );
 			unset( $selected_contents[$key] );
 		}
 		// ARTICLES
-		$key = array_search( 'article', $selected_contents );
+		$key = array_search( KKW_ARTICLE_SECTION_SLUG_EN, $selected_contents );
 		if ( $key !== false ) {
-			array_push( $groups, 'article' );
+			array_push( $groups, KKW_ARTICLE_SECTION_SLUG_EN );
 			unset( $selected_contents[$key] );
 		}
 

@@ -201,8 +201,16 @@ class KKW_BreadItem {
 					);
 				}
 				// Add children if it is a post of the blog.
-				if ( $wrapper->type === KKW_DEFAULT_POST ) {
-					$children = array();
+				if ( $menu_item->title === 'Blog' ) {
+					$children = KKW_ContentsManager::get_latest_posts( KKW_SITE_SECTIONS_SLUGS_EN, -1 );
+					foreach ( $children as $c ){
+						$blog_item = new KKW_TreeItem(
+							$c->title,
+							$c->slug,
+							$c->detail_url
+						);
+						$tree_item->children[$c->slug] = $blog_item;
+					}
 				}
 				// Add children if it is a book section.
 				if ( $wrapper->type === KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ) {
