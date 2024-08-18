@@ -203,8 +203,9 @@ class KKW_BreadItem {
 				// Add children if it is a post of the BLOG.
 				if ( $menu_item->title === 'Blog' ) {
 					// Search post group children.
+					$groups   = self::get_post_group_slugs();
 					$children = KKW_ContentsManager::get_site_post_wrappers(
-						KKW_SITE_GROUP_SLUGS_EN,
+						$groups,
 						'title',
 						'ASC',
 						-1 );
@@ -218,7 +219,7 @@ class KKW_BreadItem {
 					}
 				}
 				// Add children if it is a BOOK section.
-				$sections = KKW_ContentsManager::get_site_section_slugs();
+				$sections = self::get_site_section_slugs();
 				if ( in_array( sanitize_title( $menu_item->title ), $sections ) ) {
 					$section = sanitize_title( $menu_item->title );
 					// Search section children.
@@ -241,6 +242,48 @@ class KKW_BreadItem {
 			}
 		}
 		return $tree_item;
+	}
+
+	/**
+	 * Return all the slugs of the site sections.
+	 * @return array
+	 */
+	public static function get_site_section_slugs() {
+		$values = array();
+		foreach ( KKW_SITE_SECTIONS as $section ) {
+			if ( isset( $section['slug'] ) ) {
+				$values[] = sanitize_title( $section['slug'] );
+			}
+		}
+		return $values;
+	}
+
+		/**
+	 * Return all the title of the site sections.
+	 * @return array
+	 */
+	public static function get_site_section_title() {
+		$values = array();
+		foreach ( KKW_SITE_SECTIONS as $section ) {
+			if ( isset( $section['title'] ) ) {
+				$values[] = sanitize_title( $section['title'] );
+			}
+		}
+		return $values;
+	}
+
+	/**
+	 * Return all the slugs of the post groups.
+	 * @return array
+	 */
+	public static function get_post_group_slugs() {
+		$values = array();
+		foreach ( KKW_POST_GROUPS as $section ) {
+			if ( isset( $section['slug'] ) ) {
+				$values[] = sanitize_title( $section['slug'] );
+			}
+		}
+		return $values;
 	}
 
 }

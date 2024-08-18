@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-18 16:09+0000\n"
+"PO-Revision-Date: 2024-08-18 18:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -23,7 +23,7 @@ msgstr "404"
 msgid "[ContactForm]"
 msgstr "[FormContatto]"
 
-#: config_theme.php:152
+#: config_theme.php:153
 msgid "Accessibility"
 msgstr "Accessibilità"
 
@@ -59,11 +59,11 @@ msgstr "Token dell'API"
 msgid "Article"
 msgstr "Articolo"
 
-#: classes/contents-manager.php:548 classes/contents-manager.php:566
+#: classes/contents-manager.php:531 classes/contents-manager.php:548
 msgid "Articles"
 msgstr "Articoli"
 
-#: classes/contents-manager.php:283
+#: classes/contents-manager.php:242
 msgid "at"
 msgstr "alle"
 
@@ -91,7 +91,7 @@ msgstr "Opzioni base"
 msgid "BatClaudio"
 msgstr "BatClaudio"
 
-#: config_theme.php:178
+#: config_theme.php:179
 msgid "Biography"
 msgstr "Biografia"
 
@@ -100,15 +100,15 @@ msgstr "Biografia"
 msgid "biography"
 msgstr "biografia"
 
-#: config_theme.php:244 classes/navigation-manager.php:78
+#: config_theme.php:245 classes/navigation-manager.php:78
 msgid "Blog"
 msgstr "Blog"
 
-#: classes/contents-manager.php:226
+#: classes/contents-manager.php:189
 msgid "blog"
 msgstr "articoli"
 
-#: page-templates/blog.php:126
+#: page-templates/blog.php:116
 msgid "Blog search results"
 msgstr "Risultati della ricerca nel blog"
 
@@ -196,7 +196,7 @@ msgstr "Conferma"
 msgid "Confirmation email not sent."
 msgstr "Email di conferma non inviata."
 
-#: config_theme.php:204 single.php:117 single.php:232
+#: config_theme.php:205 single.php:117 single.php:232
 #: classes/options-manager.php:526 classes/options-manager.php:543
 #: page-templates/contacts.php:20
 msgid "Contacts"
@@ -223,7 +223,7 @@ msgstr "Data di creazione crescente"
 msgid "Creation date descending"
 msgstr "Data di creazione decrescente"
 
-#: config_theme.php:165
+#: config_theme.php:166
 msgid "Credits"
 msgstr "Crediti"
 
@@ -303,6 +303,10 @@ msgstr "Inserisci il codice di analisi."
 msgid "Error reloading data"
 msgstr "Errore ricaricando i dati."
 
+#: page-templates/essays.php:12
+msgid "Essays"
+msgstr "Saggistica"
+
 #: single.php:197
 msgid "Event end"
 msgstr "Inizio evento"
@@ -315,7 +319,7 @@ msgstr "Luogo dell'evento."
 msgid "Event start"
 msgstr "Fine evento"
 
-#: classes/contents-manager.php:549 classes/contents-manager.php:567
+#: classes/contents-manager.php:532 classes/contents-manager.php:549
 msgid "Events"
 msgstr "Eventi"
 
@@ -337,11 +341,15 @@ msgstr "Facebook"
 msgid "Featured content section"
 msgstr "Sezione degli eventi in evidenza"
 
+#: page-templates/fiction.php:12
+msgid "Fiction"
+msgstr "Narrativa"
+
 #: page-templates/search.php:102
 msgid "Filter by content type"
 msgstr "Filtra per tipo contenuto"
 
-#: page-templates/blog.php:95
+#: page-templates/blog.php:85
 msgid "Filter by group"
 msgstr "Filtra per gruppo"
 
@@ -451,7 +459,7 @@ msgstr "Inserisci qui i link ai tuoi social media."
 msgid "ISBN"
 msgstr "ISBN"
 
-#: classes/contents-manager.php:798
+#: classes/contents-manager.php:780
 msgid "It is not possible to download the .ics file."
 msgstr "Non è possibile scaricare il file .ics."
 
@@ -544,11 +552,11 @@ msgstr "Nome del network"
 msgid "Network url"
 msgstr "Indirizzo del network"
 
-#: classes/contents-manager.php:550 classes/contents-manager.php:568
+#: classes/contents-manager.php:533 classes/contents-manager.php:550
 msgid "News"
 msgstr "Notizie"
 
-#: config_theme.php:217 classes/options-manager.php:750
+#: config_theme.php:218 classes/options-manager.php:750
 #: classes/options-manager.php:758
 msgid "Newsletter"
 msgstr "Newsletter"
@@ -620,6 +628,10 @@ msgstr "Per favore, compila i campi obbligatori"
 msgid "Please, provide a valid email address."
 msgstr "Per favore, fornisci un indirizzo e-mail valido"
 
+#: page-templates/poetry.php:12
+msgid "Poetry"
+msgstr "Poesia"
+
 #: template-parts/common/book_info.php:53
 msgid "Price"
 msgstr "Prezzo"
@@ -628,7 +640,7 @@ msgstr "Prezzo"
 msgid "Primary Footer Menu"
 msgstr "Menu Principale Del Footer"
 
-#: config_theme.php:139
+#: config_theme.php:140
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -644,7 +656,7 @@ msgstr "Anno pubblicazione decrescente"
 msgid "Publisher"
 msgstr "Editore"
 
-#: page-templates/blog.php:168 template-parts/home/blog-section.php:49
+#: page-templates/blog.php:158 template-parts/home/blog-section.php:49
 #: template-parts/home/carousel.php:77
 #: template-parts/home/featured-contents.php:114
 #: template-parts/home/featured-contents.php:155
@@ -664,7 +676,7 @@ msgstr "ricevuta"
 msgid "Related books"
 msgstr "Libri correlati"
 
-#: page-templates/blog.php:119
+#: page-templates/blog.php:109
 msgid "Reload"
 msgstr "Ricarica"
 
@@ -698,7 +710,7 @@ msgstr "Recensioni"
 msgid "Right"
 msgstr "Destra"
 
-#: config_theme.php:231 header.php:62 header.php:74
+#: config_theme.php:232 header.php:62 header.php:74
 #: page-templates/search.php:90
 msgid "Search"
 msgstr "Cerca"
@@ -829,11 +841,11 @@ msgstr "Configurazione del sito"
 msgid "Site contacts"
 msgstr "Contatti del sito"
 
-#: config_theme.php:191 page-templates/sitemap.php:12
+#: config_theme.php:192 page-templates/sitemap.php:12
 msgid "Site Map"
 msgstr "Mappa del sito"
 
-#: page-templates/blog.php:93 page-templates/search.php:70
+#: page-templates/blog.php:83 page-templates/search.php:70
 #: page-templates/search.php:75
 msgid "Site search"
 msgstr "Cerca sul sito"

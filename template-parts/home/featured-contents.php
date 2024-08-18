@@ -54,7 +54,7 @@ if ( $fc3_id ) {
 
 // BOX 4: Last News.
 $news_list = KKW_ContentsManager::get_site_post_wrappers(
-	array( KKW_NEWS_GROUP_SLUG_EN ),
+	array( KKW_NEWS_GROUP['slug'] ),
 	'date',
 	'DESC',
 	1
@@ -70,7 +70,7 @@ if ( $news ) {
 
 // BOX 5: Last Event.
 $event_list = KKW_ContentsManager::get_site_post_wrappers(
-	array( KKW_EVENT_GROUP_SLUG_EN ),
+	array( KKW_EVENT_GROUP['slug'] ),
 	'date',
 	'DESC',
 	1

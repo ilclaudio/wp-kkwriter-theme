@@ -1,4 +1,6 @@
 
+- Rendere dinamiche sezioni (leggere da tassonomia dopo creazione).
+- Rendere dinamici i gruppi del post (leggere da plugin).
 - Events calendar.
 - Publishers page.
 - Authors page.

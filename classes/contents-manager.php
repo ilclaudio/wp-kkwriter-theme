@@ -135,14 +135,16 @@ class KKW_ContentsManager
 	
 	public static function get_post_icon_by_group( $group ){
 		switch( $group ){
-			case KKW_EVENT_GROUP_SLUG_EN:
+			case KKW_EVENT_GROUP['slug']:
 				$icon_name = 'fa-calendar-days';
 				break;
-			case KKW_NEWS_GROUP_SLUG_EN:
+			case KKW_NEWS_GROUP['slug']:
 				$icon_name = 'fa-earth-europe';
 				break;
+			case KKW_ARTICLE_GROUP['slug']:
+					$icon_name = 'fa-feather-pointed';
+					break;
 			default:
-				// KKW_ARTICLE_GROUP_SLUG_EN
 				$icon_name = 'fa-feather-pointed';
 			}
 		return $icon_name;
@@ -226,7 +228,8 @@ class KKW_ContentsManager
 
 	public static function extractDateString( $meta_tags, $post, $type='start' ){
 		$view_date = '';
-		if ( array_key_exists('kkw_post_type', $meta_tags) && $meta_tags['kkw_post_type'][0]  === KKW_EVENT_GROUP_SLUG_EN ) {
+		if ( array_key_exists('kkw_post_type', $meta_tags) &&
+					$meta_tags['kkw_post_type'][0]  === KKW_EVENT_GROUP['slug'] ) {
 			// It is an event with a start event date.
 			if ( array_key_exists( 'kkw_'. $type . '_date', $meta_tags ) ) {
 				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_'. $type . '_date'][0] );
@@ -525,10 +528,9 @@ class KKW_ContentsManager
 	 */
 	public static function get_custom_contents_filters() {
 		$ct = array(
-			KKW_ARTICLE_GROUP_SLUG_EN               => __( 'Articles', 'kk_writer_theme' ),
-			KKW_EVENT_GROUP_SLUG_EN                 => __( 'Events', 'kk_writer_theme' ),
-			KKW_NEWS_GROUP_SLUG_EN                  => __( 'News', 'kk_writer_theme' ),
-			// KKW_DEFAULT_PAGE                          => 'Pages',
+			KKW_ARTICLE_GROUP['slug']                 => __( 'Articles', 'kk_writer_theme' ),
+			KKW_EVENT_GROUP['slug']                   => __( 'Events', 'kk_writer_theme' ),
+			KKW_NEWS_GROUP['slug']                    => __( 'News', 'kk_writer_theme' ),
 			KKW_POST_TYPES[ ID_PT_BOOK ]['name']      =>  __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kk_writer_theme' ),
 			KKW_POST_TYPES[ ID_PT_REVIEW ]['name']    =>  __( KKW_POST_TYPES[ ID_PT_REVIEW ]['plural_label'], 'kk_writer_theme' ),
 			KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']   =>  __( KKW_POST_TYPES[ ID_PT_EXCERPT ]['plural_label'], 'kk_writer_theme' ),
@@ -543,9 +545,9 @@ class KKW_ContentsManager
 	}
 	public static function get_post_groups_filters() {
 		$pg = array(
-			KKW_ARTICLE_GROUP_SLUG_EN => __( 'Articles', 'kk_writer_theme' ),
-			KKW_EVENT_GROUP_SLUG_EN   => __( 'Events', 'kk_writer_theme' ),
-			KKW_NEWS_GROUP_SLUG_EN    => __( 'News', 'kk_writer_theme' ),
+			KKW_ARTICLE_GROUP['slug'] => __( 'Articles', 'kk_writer_theme' ),
+			KKW_EVENT_GROUP['slug']   => __( 'Events', 'kk_writer_theme' ),
+			KKW_NEWS_GROUP['slug']    => __( 'News', 'kk_writer_theme' ),
 		);
 		return $pg;
 	}
@@ -559,21 +561,21 @@ class KKW_ContentsManager
 		global $wpdb;
 		$groups = array();
 		// EVENTS.
-		$key = array_search( KKW_EVENT_GROUP_SLUG_EN, $selected_contents );
+		$key = array_search( KKW_EVENT_GROUP['slug'], $selected_contents );
 		if ( $key !== false ) {
-			array_push( $groups, KKW_EVENT_GROUP_SLUG_EN );
+			array_push( $groups, KKW_EVENT_GROUP['slug'] );
 			unset( $selected_contents[$key] );
 		}
 		// NEWS.
-		$key = array_search( KKW_NEWS_GROUP_SLUG_EN, $selected_contents );
+		$key = array_search( KKW_NEWS_GROUP['slug'], $selected_contents );
 		if ( $key !== false ) {
-			array_push( $groups, KKW_NEWS_GROUP_SLUG_EN );
+			array_push( $groups, KKW_NEWS_GROUP['slug'] );
 			unset( $selected_contents[$key] );
 		}
 		// ARTICLES
-		$key = array_search( KKW_ARTICLE_GROUP_SLUG_EN, $selected_contents );
+		$key = array_search( KKW_ARTICLE_GROUP['slug'], $selected_contents );
 		if ( $key !== false ) {
-			array_push( $groups, KKW_ARTICLE_GROUP_SLUG_EN );
+			array_push( $groups, KKW_ARTICLE_GROUP['slug'] );
 			unset( $selected_contents[$key] );
 		}
 
@@ -778,20 +780,6 @@ class KKW_ContentsManager
 			echo '<h4>' . __( 'It is not possible to download the .ics file.', 'kk_writer_theme' ) . '</h4>'; 
 		}
 		exit;
-	}
-
-	/**
-	 * Return all the slugs of the site sections.
-	 * @return array
-	 */
-	public static function get_site_section_slugs() {
-		$values = array();
-		foreach ( KKW_SITE_SECTIONS as $section ) {
-			if ( isset( $section['en'] ) ) {
-				$values[] = sanitize_title( $section['en'] );
-			}
-		}
-		return $values;
 	}
 
 }

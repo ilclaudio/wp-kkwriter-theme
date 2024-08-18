@@ -1,8 +1,6 @@
 
 TEMA:
 
-- Rifattorizzazioni sezioni e gruppi.
-
 - Bug ricerca da hp.
 
 - Inserire foto dei libri.
@@ -12,6 +10,7 @@ TEMA:
 - Test ics calendar.
 - Test condividi con.
 
+- Check funzionamento installazione tema e ricaricamento dati dopo modifica a KKW_SITE_SECTIONS.
 
 BUGS:
 - Back-office: BUG menu configurazione tema (non si deve vedere nel menu principale).
