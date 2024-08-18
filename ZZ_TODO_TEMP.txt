@@ -3,10 +3,15 @@ TEMA:
 
 - Template Pagina -> Sitemap.
 - Tradurre etichette in italiano.
+- Rifattorizzazione wrapper post.
+- Rifattorizzazioni sezioni e gruppi.
+
 - Inserire foto dei libri.
 - Inserire contenuti.
 - Migrare prima versione online.
-
+- Test invio email.
+- Test ics calendar.
+- Test condividi con.
 
 
 BUGS:

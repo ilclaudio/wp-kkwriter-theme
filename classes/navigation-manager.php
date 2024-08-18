@@ -200,9 +200,14 @@ class KKW_BreadItem {
 						$wrapper->detail_url
 					);
 				}
-				// Add children if it is a post of the blog.
+				// Add children if it is a post of the BLOG.
 				if ( $menu_item->title === 'Blog' ) {
-					$children = KKW_ContentsManager::get_latest_posts( KKW_SITE_SECTIONS_SLUGS_EN, -1 );
+					// Search post group children.
+					$children = KKW_ContentsManager::get_site_post_wrappers(
+						KKW_SITE_GROUP_SLUGS_EN,
+						'title',
+						'ASC',
+						-1 );
 					foreach ( $children as $c ){
 						$blog_item = new KKW_TreeItem(
 							$c->title,
@@ -212,9 +217,25 @@ class KKW_BreadItem {
 						$tree_item->children[$c->slug] = $blog_item;
 					}
 				}
-				// Add children if it is a book section.
-				if ( $wrapper->type === KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ) {
-					
+				// Add children if it is a BOOK section.
+				$sections = KKW_ContentsManager::get_site_section_slugs();
+				if ( in_array( sanitize_title( $menu_item->title ), $sections ) ) {
+					$section = sanitize_title( $menu_item->title );
+					// Search section children.
+					$children = KKW_ContentsManager::get_section_books_wrappers(
+						$section,
+						'title',
+						'ASC',
+						-1
+					);
+					foreach ( $children as $c ){
+						$section_item = new KKW_TreeItem(
+							$c->title,
+							$c->slug,
+							$c->detail_url
+						);
+						$tree_item->children[$c->slug] = $section_item;
+					}
 				}
 
 			}

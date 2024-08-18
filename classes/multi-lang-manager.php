@@ -126,9 +126,9 @@ class KKW_MultiLangManager {
 	* Retrieves the ID of the page in the current language.
 	*
 	* @param string $id
-	* @return void
+	* @return int
 	*/
-	public static function get_page_by_id( $id ) {
+	public static function get_page_by_id( $id ):int {
 		$id           = intval( $id );
 		$page_id      = 0;
 		$current_lang = pll_current_language();

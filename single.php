@@ -22,7 +22,7 @@ $section_description = '';
 		$image_wrapper  = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'full' );
 		$icon_name      = KKW_ContentsManager::get_post_icon_by_group( $post_wrapper->main_group );
 		$group          = $post_wrapper->main_group;
-		$flg_is_event   = $post_wrapper->main_group === KKW_EVENT_SECTION_SLUG_EN;
+		$flg_is_event   = $post_wrapper->main_group === KKW_EVENT_GROUP_SLUG_EN;
 		$meta_tags      = get_post_meta( $post_wrapper->id );
 		$start_date_str = '';
 		$end_date_str   = '';

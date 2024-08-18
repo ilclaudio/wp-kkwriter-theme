@@ -53,7 +53,12 @@ if ( $fc3_id ) {
 }
 
 // BOX 4: Last News.
-$news_list      = KKW_ContentsManager::get_latest_posts( array( KKW_NEWS_SECTION_SLUG_EN ), 1 );
+$news_list = KKW_ContentsManager::get_site_post_wrappers(
+	array( KKW_NEWS_GROUP_SLUG_EN ),
+	'date',
+	'DESC',
+	1
+);
 $news           = count( $news_list ) ? $news_list[0] : null;
 if ( $news ) {
 	$news_img_id    = $news->id ? get_post_thumbnail_id( $news->id ) : null;
@@ -64,7 +69,12 @@ if ( $news ) {
 }
 
 // BOX 5: Last Event.
-$event_list      = KKW_ContentsManager::get_latest_posts( array( KKW_EVENT_SECTION_SLUG_EN ), 1 );
+$event_list = KKW_ContentsManager::get_site_post_wrappers(
+	array( KKW_EVENT_GROUP_SLUG_EN ),
+	'date',
+	'DESC',
+	1
+);
 $event           = count( $event_list ) ? $event_list[0] : null;
 if ( $event ) {
 	$event_img_id    = $event->id ? get_post_thumbnail_id( $event->id ) : null;
