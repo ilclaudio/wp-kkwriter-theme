@@ -41,7 +41,7 @@ class KKW_BreadItem {
 	public static function build_content_path( $post ): array {
 		$root         = new KKW_BreadItem( 'Home',  get_site_url(), 'breadcrumb-item' );
 		$post_wrapper = KKW_ContentsManager::wrap_search_result( $post );
-		$meta_tags    = get_post_meta( $post_wrapper->id );
+		// $meta_tags    = get_post_meta( $post_wrapper->id );
 		$steps = array();
 		array_push( $steps, $root );
 		if ( $post ) {
@@ -153,13 +153,25 @@ class KKW_BreadItem {
 
 			foreach ( $menus as $menu ) {
 
-				// The list of the items of this menu.
+				// Add each menu to the site map.
 				$menu_items = wp_get_nav_menu_items( $menu->term_id );
+				$menu_el = new KKW_TreeItem(
+					$menu->name,
+					$menu->slug,
+					''
+				);
+				$pt[KKW_HOMEPAGE_SLUG]->children[$menu->slug] = $menu_el;
+				
 
 				if ( ! empty( $menu_items ) ) {
-
+					// The list of the items of this menu.
 					foreach ( $menu_items as $menu_item ) {
-						echo esc_html( $menu_item->title ); 
+
+						// Add each menu item to the site map.
+						$page_el = self::get_tree_item( $menu_item );
+						if ( $page_el ) {
+							$pt[KKW_HOMEPAGE_SLUG]->children[$menu->slug]->children[$page_el->slug] = $page_el;
+						}
 					}
 
 				}
@@ -167,14 +179,29 @@ class KKW_BreadItem {
 
 		}
 
-
-		// $options        = get_option( 'polylang' );
-		// $menu_locations = $options['nav_menus']['design-laboratori-wordpress-theme'];
-		// // Recupera elenco dei menu per lingua.
-		// $menu_items = dli_get_all_menus_by_lang( $lng_slug );
-		// $slugs      = dli_get_pt_archive_slugs();
-	
 		return $pt;
+	}
+
+	private static function get_tree_item( $menu_item ) {
+		$tree_item = null;
+		if ( $menu_item 
+						&& ( $menu_item->post_name !== 'home' ) 
+						&& ( $menu_item->type === 'post_type' ) 
+		) {
+			$object_id = $menu_item ? intval( $menu_item->object_id ) : 0;
+			$object_id = KKW_MultiLangManager::get_page_by_id( $object_id );
+			if ( $object_id ) {
+			$wrapper = KKW_ContentsManager::get_wrapped_item( $object_id );
+				if ( $wrapper ) {
+					$tree_item = new KKW_TreeItem(
+						$wrapper->title,
+						$wrapper->slug,
+						$wrapper->detail_url
+					);
+				}
+			}
+		}
+		return $tree_item;
 	}
 
 }

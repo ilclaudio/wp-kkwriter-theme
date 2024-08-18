@@ -64,25 +64,31 @@ try {
 							</li>
 							<ul>
 								<?php
-								// I livello.
+								// I level.
 								foreach ( $pt[KKW_HOMEPAGE_SLUG]->children as $item ) {
-									if ( $item->external ) {
+									if ( $item->link === '' ) {
+										echo '<li>' . $item->name . '</li>';
+									} else if ( $item->external ) {
 										echo '<li><a target="_blank" href="' . $item->link . '">' . $item->name . '</a></li>';
 									} else {
 										echo '<li><a href="' . $item->link . '">' . $item->name . '</a></li>';
 									}
-									// II livello.
+									// II level.
 									echo '<ul>';
 									foreach ( $item->children as $childitem ) {
-										if ( $childitem->external ) {
+										if ( $childitem->link === '' ) {
+											echo '<li>' . $childitem->name . '</li>';
+										} else if ( $childitem->external ) {
 											echo '<li><a target="_blank" href="' . $childitem->link . '">' . $childitem->name . '</a></li>';
 										} else {
 											echo '<li><a href="' . $childitem->link . '">' . $childitem->name . '</a></li>';
 										}
-										// III livello.
+										// III level.
 										echo '<ul>';
 										foreach ( $childitem->children as $grandchilditem ) {
-											if ( $grandchilditem->external ) {
+											if ( $grandchilditem->link === '' ) {
+												echo '<li>' . $grandchilditem->name . '</li>';
+											} else if ( $grandchilditem->external ) {
 												echo '<li><a target="_blank" href="' . $grandchilditem->link . '">' . $grandchilditem->name . '</a></li>';
 											} else {
 												echo '<li><a href="' . $grandchilditem->link . '">' . $grandchilditem->name . '</a></li>';
@@ -101,7 +107,7 @@ try {
 
 						<!-- MULTILANGUAGE MAPS -->
 						<!-- @TODO: Elenco delle mappe nelle altre lingue -->
-						<div class="box_change_map_lang">
+						<div class="box_change_map_lang text-center mt-5">
 							<ul>
 								<li>
 									echo '<a href="' . get_site_url() . '/en/' . SLUG_MAPPA_SITO_EN . '">Site Map in English</a>';
