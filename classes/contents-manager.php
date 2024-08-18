@@ -154,14 +154,14 @@ class KKW_ContentsManager
 	
 	public static function get_post_icon_by_group( $group ){
 		switch( $group ){
-			case KKW_EVENT_SECTION_SLUG_EN:
+			case KKW_EVENT_GROUP_SLUG_EN:
 				$icon_name = 'fa-calendar-days';
 				break;
-			case KKW_NEWS_SECTION_SLUG_EN:
+			case KKW_NEWS_GROUP_SLUG_EN:
 				$icon_name = 'fa-earth-europe';
 				break;
 			default:
-				// KKW_ARTICLE_SECTION_SLUG_EN
+				// KKW_ARTICLE_GROUP_SLUG_EN
 				$icon_name = 'fa-feather-pointed';
 			}
 		return $icon_name;
@@ -270,7 +270,7 @@ class KKW_ContentsManager
 
 	public static function extractDateString( $meta_tags, $post, $type='start' ){
 		$view_date = '';
-		if ( array_key_exists('kkw_post_type', $meta_tags) && $meta_tags['kkw_post_type'][0]  === KKW_EVENT_SECTION_SLUG_EN ) {
+		if ( array_key_exists('kkw_post_type', $meta_tags) && $meta_tags['kkw_post_type'][0]  === KKW_EVENT_GROUP_SLUG_EN ) {
 			// It is an event with a start event date.
 			if ( array_key_exists( 'kkw_'. $type . '_date', $meta_tags ) ) {
 				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_'. $type . '_date'][0] );
@@ -355,12 +355,17 @@ class KKW_ContentsManager
 		return $opt_content_ids;
 	}
 
-	public static function get_latest_posts( $groups, $number = 1 ) {
-		$results = array();
+
+	public static function get_site_posts_query(
+		$groups,
+		$sort_field = 'date',
+		$sort_order = 'DESC',
+		$number=-1
+		) {
 		$args= array(
 			'post_type'      => array( KKW_DEFAULT_POST ),
-			'orderby'        => 'date',
-			'order'          => 'DESC',
+			'orderby'        => $sort_field,
+			'order'          => $sort_order,
 			'fields'         => 'ids',
 			'post_status'    => 'publish',
 			'posts_per_page' => $number,
@@ -372,11 +377,84 @@ class KKW_ContentsManager
 				),
 			),
 		);
-		$query       = new WP_Query( $args );
-		$content_ids = $query->posts;
-		foreach ( $content_ids as $id ){
-			$item = self::get_wrapped_item( $id );
-			array_push( $results, $item );
+		$query = new WP_Query( $args );
+		return $query;
+	}
+
+	public static function get_site_post_wrappers(
+		$groups,
+		$sort_field,
+		$sort_order,
+		$num_results
+	) {
+		$results = array();
+		$the_query = self::get_site_posts_query(
+			$groups,
+			$sort_field,
+			$sort_order,
+			$num_results
+		);
+		$content_ids = $the_query->posts;
+		if ( $content_ids ) {
+			foreach ( $content_ids as $id ){
+				$item = self::get_wrapped_item( $id );
+				array_push( $results, $item );
+			}
+		}
+		return $results;
+	}
+
+	public static function get_section_books_query(
+		$section,
+		$sort_field = 'title',
+		$sort_order = 'ASC',
+		$num_results = -1
+	) {
+		// Manage query arguments.
+		$args = array(
+			'post_type'      => KKW_POST_TYPES[ ID_PT_BOOK ]['name'],
+			'order'          => $sort_order,
+			'paged'          => get_query_var( 'paged', 1 ),
+			'posts_per_page' => $num_results,
+			'post_status'    => 'publish',
+			'tax_query'      => array(
+					array(
+							'taxonomy' => 'section', 
+							'field'    => 'slug',
+							'terms'    => $section,
+					),
+			),
+		);
+		if ( $sort_field === 'kkw_year' ) {
+			$args['orderby']  = 'meta_value_num';
+			$args['meta_key'] = 'kkw_year';
+		} else {
+			$args['orderby'] = $sort_field;
+		}
+		// Execute the query.
+		$the_query   = new WP_Query( $args );
+		return $the_query;
+	}
+
+	public static function get_section_books_wrappers(
+		$sections,
+		$sort_filed,
+		$sort_order,
+		$num_results
+	) {
+		$results = array();
+		$the_query = self::get_section_books_query(
+			$sections,
+			$sort_filed,
+			$sort_order,
+			$num_results
+		);
+		$content_ids = $the_query->posts;
+		if ( $content_ids ) {
+			foreach ( $content_ids as $id ){
+				$item = self::get_wrapped_item( $id );
+				array_push( $results, $item );
+			}
 		}
 		return $results;
 	}
@@ -423,7 +501,6 @@ class KKW_ContentsManager
 		return $wrapped;
 	}
 
-
 	public static function get_image_metadata( $item, $image_size = "item-carousel", $partial_default_img_url = null ) {
 		$result = array(
 			'title'         => '',
@@ -468,9 +545,9 @@ class KKW_ContentsManager
 	 */
 	public static function get_custom_contents_filters() {
 		$ct = array(
-			KKW_ARTICLE_SECTION_SLUG_EN               => __( 'Articles', 'kk_writer_theme' ),
-			KKW_EVENT_SECTION_SLUG_EN                 => __( 'Events', 'kk_writer_theme' ),
-			KKW_NEWS_SECTION_SLUG_EN                  => __( 'News', 'kk_writer_theme' ),
+			KKW_ARTICLE_GROUP_SLUG_EN               => __( 'Articles', 'kk_writer_theme' ),
+			KKW_EVENT_GROUP_SLUG_EN                 => __( 'Events', 'kk_writer_theme' ),
+			KKW_NEWS_GROUP_SLUG_EN                  => __( 'News', 'kk_writer_theme' ),
 			// KKW_DEFAULT_PAGE                          => 'Pages',
 			KKW_POST_TYPES[ ID_PT_BOOK ]['name']      =>  __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kk_writer_theme' ),
 			KKW_POST_TYPES[ ID_PT_REVIEW ]['name']    =>  __( KKW_POST_TYPES[ ID_PT_REVIEW ]['plural_label'], 'kk_writer_theme' ),
@@ -486,9 +563,9 @@ class KKW_ContentsManager
 	}
 	public static function get_post_groups_filters() {
 		$pg = array(
-			KKW_ARTICLE_SECTION_SLUG_EN => __( 'Articles', 'kk_writer_theme' ),
-			KKW_EVENT_SECTION_SLUG_EN   => __( 'Events', 'kk_writer_theme' ),
-			KKW_NEWS_SECTION_SLUG_EN    => __( 'News', 'kk_writer_theme' ),
+			KKW_ARTICLE_GROUP_SLUG_EN => __( 'Articles', 'kk_writer_theme' ),
+			KKW_EVENT_GROUP_SLUG_EN   => __( 'Events', 'kk_writer_theme' ),
+			KKW_NEWS_GROUP_SLUG_EN    => __( 'News', 'kk_writer_theme' ),
 		);
 		return $pg;
 	}
@@ -502,21 +579,21 @@ class KKW_ContentsManager
 		global $wpdb;
 		$groups = array();
 		// EVENTS.
-		$key = array_search( KKW_EVENT_SECTION_SLUG_EN, $selected_contents );
+		$key = array_search( KKW_EVENT_GROUP_SLUG_EN, $selected_contents );
 		if ( $key !== false ) {
-			array_push( $groups, KKW_EVENT_SECTION_SLUG_EN );
+			array_push( $groups, KKW_EVENT_GROUP_SLUG_EN );
 			unset( $selected_contents[$key] );
 		}
 		// NEWS.
-		$key = array_search( KKW_NEWS_SECTION_SLUG_EN, $selected_contents );
+		$key = array_search( KKW_NEWS_GROUP_SLUG_EN, $selected_contents );
 		if ( $key !== false ) {
-			array_push( $groups, KKW_NEWS_SECTION_SLUG_EN );
+			array_push( $groups, KKW_NEWS_GROUP_SLUG_EN );
 			unset( $selected_contents[$key] );
 		}
 		// ARTICLES
-		$key = array_search( KKW_ARTICLE_SECTION_SLUG_EN, $selected_contents );
+		$key = array_search( KKW_ARTICLE_GROUP_SLUG_EN, $selected_contents );
 		if ( $key !== false ) {
-			array_push( $groups, KKW_ARTICLE_SECTION_SLUG_EN );
+			array_push( $groups, KKW_ARTICLE_GROUP_SLUG_EN );
 			unset( $selected_contents[$key] );
 		}
 
@@ -721,6 +798,20 @@ class KKW_ContentsManager
 			echo '<h4>' . __( 'It is not possible to download the .ics file.', 'kk_writer_theme' ) . '</h4>'; 
 		}
 		exit;
+	}
+
+	/**
+	 * Return all the slugs of the site sections.
+	 * @return array
+	 */
+	public static function get_site_section_slugs() {
+		$values = array();
+		foreach ( KKW_SITE_SECTIONS as $section ) {
+			if ( isset( $section['en'] ) ) {
+				$values[] = sanitize_title( $section['en'] );
+			}
+		}
+		return $values;
 	}
 
 }

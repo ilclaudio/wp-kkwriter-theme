@@ -6,7 +6,12 @@
  */
 
 
-$blog_items = KKW_ContentsManager::get_latest_posts( array( KKW_ARTICLE_SECTION_SLUG_EN ), 3 );
+$blog_items = KKW_ContentsManager::get_site_post_wrappers(
+	array( KKW_ARTICLE_GROUP_SLUG_EN ),
+	'date',
+	'DESC',
+	3
+);
 
 if ( count( $blog_items ) ){
 ?>

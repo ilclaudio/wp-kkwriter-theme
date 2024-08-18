@@ -66,30 +66,62 @@ define(
 
 // Sections of the site.
 define(
+	'KKW_POETRY_SECTION_SLUG_EN',
+	array(
+		'slug'  => 'poetry',
+		'title' => 'Poetry'
+	)
+);
+define(
+	'KKW_ESSAYS_SECTION_SLUG_EN',
+	array(
+		'slug'  => 'essays',
+		'title' => 'Essays'
+	)
+);
+define(
+	'KKW_FICTION_SECTION_SLUG_EN',
+	array(
+		'slug'  => 'fiction',
+		'title' => 'Fiction'
+	)
+);
+// @TODO: Use this form for sections and groups.
+// define(
+// 	'KKW_SITE_SECTIONS',
+// 	array(
+// 	KKW_POETRY_SECTION_SLUG_EN,
+// 	KKW_POETRY_SECTION_SLUG_EN,
+// 	KKW_FICTION_SECTION_SLUG_EN
+// 	)
+// );
+define(
 	'KKW_SITE_SECTIONS',
 	array(
 		array(
-			'en' => 'Poetry',
-			'it' => __( 'Poetry', 'kk_writer_theme' ),
+			'en' => KKW_POETRY_SECTION_SLUG_EN['title'],
+			'it' => __( KKW_POETRY_SECTION_SLUG_EN['title'], 'kk_writer_theme' ),
 		),
 		array(
-			'en' => 'Essays',
-			'it' => __( 'Essays', 'kk_writer_theme' ),
+			'en' => KKW_ESSAYS_SECTION_SLUG_EN['title'],
+			'it' => __( KKW_ESSAYS_SECTION_SLUG_EN['title'], 'kk_writer_theme' ),
 		),
 		array(
-			'en' => 'Fiction',
-			'it' => __( 'Fiction', 'kk_writer_theme' ),
+			'en' => KKW_FICTION_SECTION_SLUG_EN['title'],
+			'it' => __( KKW_FICTION_SECTION_SLUG_EN['title'], 'kk_writer_theme' ),
 		),
 	)
 );
-define( 'KKW_ARTICLE_SECTION_SLUG_EN', 'article' );
-define( 'KKW_EVENT_SECTION_SLUG_EN', 'event' );
-define( 'KKW_NEWS_SECTION_SLUG_EN', 'news' );
-define( 'KKW_SITE_SECTIONS_SLUGS_EN',
+
+// Groups of the blog post.
+define( 'KKW_ARTICLE_GROUP_SLUG_EN', 'article' );
+define( 'KKW_EVENT_GROUP_SLUG_EN', 'event' );
+define( 'KKW_NEWS_GROUP_SLUG_EN', 'news' );
+define( 'KKW_SITE_GROUP_SLUGS_EN',
 	array(
-		KKW_ARTICLE_SECTION_SLUG_EN,
-		KKW_EVENT_SECTION_SLUG_EN,
-		KKW_NEWS_SECTION_SLUG_EN
+		KKW_ARTICLE_GROUP_SLUG_EN,
+		KKW_EVENT_GROUP_SLUG_EN,
+		KKW_NEWS_GROUP_SLUG_EN
 	)
 );
 

@@ -23,29 +23,13 @@ if (!in_array($sort_field, $valid_sort_fields)) {
 	$sort_field = 'title';
 }
 
-// Manage query arguments.
-$args = array(
-	'post_type'      => KKW_POST_TYPES[ ID_PT_BOOK ]['name'],
-	'order'          => $type_order,
-	'paged'          => get_query_var( 'paged', 1 ),
-	'posts_per_page' => SECTIONS_CELLS_PER_PAGE,
-	'tax_query'      => array(
-			array(
-					'taxonomy' => 'section', 
-					'field'    => 'slug',
-					'terms'    => $section_label,
-			),
-	),
+$the_query = KKW_ContentsManager::get_section_books_query(
+	$section,
+	$sort_field='title',
+	$type_order='ASC',
+	SECTIONS_CELLS_PER_PAGE
 );
 
-if ( $sort_field === 'kkw_year' ) {
-	$args['orderby']  = 'meta_value_num';
-	$args['meta_key'] = 'kkw_year';
-} else {
-	$args['orderby'] = $sort_field;
-}
-// Execute the query.
-$the_query   = new WP_Query( $args );
 $num_results = $the_query->found_posts;
 $total_pages = $the_query->max_num_pages;
 ?>
