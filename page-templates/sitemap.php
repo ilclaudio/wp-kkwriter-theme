@@ -106,12 +106,27 @@ try {
 						?>
 
 						<!-- MULTILANGUAGE MAPS -->
-						<!-- @TODO: Elenco delle mappe nelle altre lingue -->
+						 <?php
+							$current_language = KKW_MultiLangManager::get_current_language( 'slug' );
+							// $languages        = KKW_MultiLangManager::get_all_languages();
+							$sitemap_id       = $post->ID;
+							$maps             = KKW_MultiLangManager::get_post_translations( $sitemap_id );
+						 ?>
 						<div class="box_change_map_lang text-center mt-5">
 							<ul>
-								<li>
-									echo '<a href="' . get_site_url() . '/en/' . SLUG_MAPPA_SITO_EN . '">Site Map in English</a>';
-								</li>
+								<?php
+									foreach( $maps as $lang => $pid ) {
+										if ( $lang !== $current_language ) {
+											$map  = get_post( $pid );
+											$desc = $map->post_title . ' (' . strtoupper( $lang ). ')';
+								?>
+											<li>
+												<a title="<?php echo $desc ; ?>" href="<?php echo get_permalink( $pid ); ?>"><?php echo $desc; ?></a>
+											</li>
+								<?php
+										}
+									}
+								?>
 							</ul>
 						</div>
 
