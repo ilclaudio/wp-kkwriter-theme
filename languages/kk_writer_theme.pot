@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-17 07:33+0000\n"
+"POT-Creation-Date: 2024-08-18 07:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "[ContactForm]"
 msgstr ""
 
-#: config_theme.php:104
+#: config_theme.php:110
 msgid "Accessibility"
 msgstr ""
 
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Automatic selection enabled"
 msgstr ""
 
-#: template-parts/home/carousel.php:99
+#: template-parts/home/carousel.php:101
 msgid "Back"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 msgid "BatClaudio"
 msgstr ""
 
-#: config_theme.php:130
+#: config_theme.php:136
 msgid "Biography"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "biography"
 msgstr ""
 
-#: config_theme.php:196
+#: config_theme.php:202 classes/navigation-manager.php:78
 msgid "Blog"
 msgstr ""
 
@@ -192,7 +192,7 @@ msgstr ""
 msgid "Confirmation email not sent."
 msgstr ""
 
-#: config_theme.php:156 single.php:117 single.php:232
+#: config_theme.php:162 single.php:117 single.php:232
 #: classes/options-manager.php:526 classes/options-manager.php:543
 #: page-templates/contacts.php:20
 msgid "Contacts"
@@ -219,7 +219,7 @@ msgstr ""
 msgid "Creation date descending"
 msgstr ""
 
-#: config_theme.php:117
+#: config_theme.php:123
 msgid "Credits"
 msgstr ""
 
@@ -295,7 +295,7 @@ msgstr ""
 msgid "Error reloading data"
 msgstr ""
 
-#: config_theme.php:71
+#: config_theme.php:77
 msgid "Essays"
 msgstr ""
 
@@ -331,7 +331,7 @@ msgstr ""
 msgid "featured content section"
 msgstr ""
 
-#: config_theme.php:75
+#: config_theme.php:81
 msgid "Fiction"
 msgstr ""
 
@@ -534,7 +534,7 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: config_theme.php:169 classes/options-manager.php:750
+#: config_theme.php:175 classes/options-manager.php:750
 #: classes/options-manager.php:758
 msgid "Newsletter"
 msgstr ""
@@ -543,7 +543,7 @@ msgstr ""
 msgid "Newsletter manager"
 msgstr ""
 
-#: template-parts/home/carousel.php:105
+#: template-parts/home/carousel.php:107
 msgid "Next"
 msgstr ""
 
@@ -606,7 +606,7 @@ msgstr ""
 msgid "Please, provide a valid email address."
 msgstr ""
 
-#: config_theme.php:67
+#: config_theme.php:73
 msgid "Poetry"
 msgstr ""
 
@@ -614,7 +614,7 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: config_theme.php:91
+#: config_theme.php:97
 msgid "Privacy policy"
 msgstr ""
 
@@ -631,13 +631,13 @@ msgid "Publisher"
 msgstr ""
 
 #: page-templates/blog.php:168 template-parts/home/blog-section.php:44
-#: template-parts/home/carousel.php:76
+#: template-parts/home/carousel.php:77
 #: template-parts/home/featured-contents.php:104
-#: template-parts/home/featured-contents.php:143
-#: template-parts/home/featured-contents.php:187
-#: template-parts/home/featured-contents.php:236
-#: template-parts/home/featured-contents.php:270
-msgid "Read more..."
+#: template-parts/home/featured-contents.php:145
+#: template-parts/home/featured-contents.php:191
+#: template-parts/home/featured-contents.php:241
+#: template-parts/home/featured-contents.php:276
+msgid "Read more"
 msgstr ""
 
 #: page-templates/contacts.php:96
@@ -682,7 +682,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: config_theme.php:183 header.php:62 header.php:74
+#: config_theme.php:189 header.php:62 header.php:74
 #: page-templates/search.php:90
 msgid "Search"
 msgstr ""
@@ -804,7 +804,7 @@ msgstr ""
 msgid "Site contacts"
 msgstr ""
 
-#: config_theme.php:143
+#: config_theme.php:149 page-templates/sitemap.php:12
 msgid "Site Map"
 msgstr ""
 

@@ -165,7 +165,8 @@ $total_pages = $the_query->max_num_pages;
 												</p>
 												<div class="text-center">
 													<a href="<?php echo $post_wrapper->detail_url; ?>" class="btn btn-secondary">
-														<?php echo __( 'Read more...', 'kk_writer_theme' ); ?>
+														<?php echo __( 'Read more', 'kk_writer_theme' ); ?>
+														&nbsp;<i class="fa-solid fa-arrow-right"></i>
 													</a>
 												</div>
 											</div>

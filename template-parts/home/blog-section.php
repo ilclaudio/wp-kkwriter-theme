@@ -41,7 +41,8 @@ if ( count( $blog_items ) ){
 								<small class="text-body-secondary">
 									<a class="kkw_link"
 										href="<?php echo esc_url( $blog->detail_url ); ?>">
-										<?php echo __( 'Read more...', 'kk_writer_theme' ); ?>
+										<?php echo __( 'Read more', 'kk_writer_theme' ); ?>
+										&nbsp;<i class="fa-solid fa-arrow-right"></i>
 									</a>
 								</small>
 						</div>
