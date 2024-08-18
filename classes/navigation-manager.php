@@ -171,6 +171,7 @@ class KKW_BreadItem {
 						$page_el = self::get_tree_item( $menu_item );
 						if ( $page_el ) {
 							$pt[KKW_HOMEPAGE_SLUG]->children[$menu->slug]->children[$page_el->slug] = $page_el;
+
 						}
 					}
 
@@ -199,6 +200,15 @@ class KKW_BreadItem {
 						$wrapper->detail_url
 					);
 				}
+				// Add children if it is a post of the blog.
+				if ( $wrapper->type === KKW_DEFAULT_POST ) {
+					$children = array();
+				}
+				// Add children if it is a book section.
+				if ( $wrapper->type === KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ) {
+					
+				}
+
 			}
 		}
 		return $tree_item;
