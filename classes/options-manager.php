@@ -325,7 +325,7 @@ class KKW_ThemeOptionsManager
 		$home_options->add_field(
 			array(
 				'id' => 'home_featured_content',
-				'name'        => __( 'featured content section', 'kk_writer_theme' ),
+				'name'        => __( 'Featured content section', 'kk_writer_theme' ),
 				'desc' => __( 'Manage the featured content in the Home Page.' , 'kk_writer_theme' ),
 				'type' => 'title',
 			)

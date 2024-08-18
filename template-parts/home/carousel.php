@@ -73,7 +73,9 @@ if ( $num_items > 0 ){
 									<p class="card-text">
 										<small class="text-body-secondary">
 											<a class="kkw_link"
-												href="<?php echo esc_url( $item_url ); ?>"><?php echo __( 'Read more...', 'kk_writer_theme' ); ?>
+												href="<?php echo esc_url( $item_url ); ?>">
+												<?php echo __( 'Read more', 'kk_writer_theme' ); ?>
+												&nbsp;<i class="fa-solid fa-arrow-right"></i>
 											</a>
 										</small>
 									</p>

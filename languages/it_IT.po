@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-17 07:35+0000\n"
+"PO-Revision-Date: 2024-08-18 08:03+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -23,7 +23,7 @@ msgstr "404"
 msgid "[ContactForm]"
 msgstr "[FormContatto]"
 
-#: config_theme.php:104
+#: config_theme.php:110
 msgid "Accessibility"
 msgstr "Accessibilità"
 
@@ -75,7 +75,7 @@ msgstr "Autore"
 msgid "Automatic selection enabled"
 msgstr "Selezione automatica abilitata"
 
-#: template-parts/home/carousel.php:99
+#: template-parts/home/carousel.php:101
 msgid "Back"
 msgstr "Indietro"
 
@@ -91,7 +91,7 @@ msgstr "Opzioni base"
 msgid "BatClaudio"
 msgstr "BatClaudio"
 
-#: config_theme.php:130
+#: config_theme.php:136
 msgid "Biography"
 msgstr "Biografia"
 
@@ -100,7 +100,7 @@ msgstr "Biografia"
 msgid "biography"
 msgstr "biografia"
 
-#: config_theme.php:196
+#: config_theme.php:202 classes/navigation-manager.php:78
 msgid "Blog"
 msgstr "Blog"
 
@@ -177,11 +177,11 @@ msgstr "Chiudi avviso"
 
 #: classes/options-manager.php:484
 msgid "Configure here the blog section."
-msgstr ""
+msgstr "Configura la sezione del blog."
 
 #: classes/options-manager.php:262
 msgid "Configure here the carousel section."
-msgstr ""
+msgstr "Configura la sezione del carosello."
 
 #: page-templates/contacts.php:283
 msgid "Confirm"
@@ -189,9 +189,9 @@ msgstr "Conferma"
 
 #: page-templates/contacts.php:100
 msgid "Confirmation email not sent."
-msgstr ""
+msgstr "Email di conferma non inviata."
 
-#: config_theme.php:156 single.php:117 single.php:232
+#: config_theme.php:162 single.php:117 single.php:232
 #: classes/options-manager.php:526 classes/options-manager.php:543
 #: page-templates/contacts.php:20
 msgid "Contacts"
@@ -218,7 +218,7 @@ msgstr "Data di creazione crescente"
 msgid "Creation date descending"
 msgstr "Data di creazione decrescente"
 
-#: config_theme.php:117
+#: config_theme.php:123
 msgid "Credits"
 msgstr "Crediti"
 
@@ -252,7 +252,7 @@ msgstr "Dettagli"
 
 #: page-templates/contacts.php:247
 msgid "Do you want to receive an email notification"
-msgstr ""
+msgstr "Vuoi ricevere una email di notifica"
 
 #: single.php:238 classes/options-manager.php:567
 #: page-templates/contacts.php:229
@@ -261,22 +261,26 @@ msgstr "E-mail"
 
 #: page-templates/contacts.php:58
 msgid "E-mail form the site"
-msgstr ""
+msgstr "E-mail del sito"
 
 #: classes/options-manager.php:165
 msgid ""
 "Each message is constructed with a short description (max 140 characters) "
 "and expiry date (optional)."
 msgstr ""
+"Ogni messaggio è composto da una breve descrizione (max 140 caratteri) e da "
+"una data di scadenza (facoltativa)."
 
 #: classes/options-manager.php:852
 msgid "Enable language selector"
-msgstr ""
+msgstr "Abilita il selettore di lingua"
 
 #: classes/options-manager.php:617
 msgid ""
 "Enable the display of social media in the header and footer of the page."
 msgstr ""
+"Abilita la visualizzazione dei social media nell'intestazione e nel piè di "
+"pagina della pagina."
 
 #: classes/options-manager.php:894
 msgid "Enable the REST API"
@@ -288,13 +292,13 @@ msgstr "Data fine"
 
 #: classes/options-manager.php:874
 msgid "Enter the analytics code."
-msgstr ""
+msgstr "Inserisci il codice di analisi."
 
 #: activation.php:53
 msgid "Error reloading data"
-msgstr ""
+msgstr "Errore ricaricando i dati."
 
-#: config_theme.php:71
+#: config_theme.php:77
 msgid "Essays"
 msgstr "Saggistica"
 
@@ -304,7 +308,7 @@ msgstr "Inizio evento"
 
 #: single.php:221
 msgid "Event location address"
-msgstr ""
+msgstr "Luogo dell'evento."
 
 #: single.php:189
 msgid "Event start"
@@ -328,9 +332,9 @@ msgstr "Facebook"
 
 #: classes/options-manager.php:328
 msgid "featured content section"
-msgstr ""
+msgstr "Sezione degli eventi in evidenza"
 
-#: config_theme.php:75
+#: config_theme.php:81
 msgid "Fiction"
 msgstr "Narrativa"
 
@@ -396,7 +400,7 @@ msgstr "https://www.wp-recipes.com"
 
 #: classes/options-manager.php:794
 msgid "ID of the list associated to the site."
-msgstr ""
+msgstr "ID della lista associata al sito."
 
 #: classes/options-manager.php:505
 msgid "If yes, the blog section is shown after the featured content section."
@@ -467,7 +471,7 @@ msgstr "Linkedin"
 
 #: classes/options-manager.php:793
 msgid "List ID"
-msgstr ""
+msgstr "ID lista"
 
 #: classes/options-manager.php:823
 msgid "Login"
@@ -475,39 +479,39 @@ msgstr "Login"
 
 #: classes/options-manager.php:831
 msgid "Login visible"
-msgstr ""
+msgstr "Login visibile"
 
 #: classes/options-manager.php:117
 msgid "Logo footer"
-msgstr ""
+msgstr "Logo del footer"
 
 #: classes/options-manager.php:91
 msgid "Logo header"
-msgstr ""
+msgstr "Logo dell'header"
 
 #: classes/options-manager.php:329
 msgid "Manage the featured content in the Home Page."
-msgstr ""
+msgstr "Gestisci i contenuti in evidenza nella home page."
 
 #: classes/options-manager.php:215
 msgid "Max 140 characters"
-msgstr ""
+msgstr "Massimo 140 caratteri."
 
 #: classes/options-manager.php:168
 msgid "Message"
-msgstr ""
+msgstr "Messaggio"
 
 #: page-templates/contacts.php:92
 msgid "Message not sent."
-msgstr ""
+msgstr "Messaggio non inviato."
 
 #: page-templates/contacts.php:172
 msgid "Message successfully sent"
-msgstr ""
+msgstr "Messaggio inviato con successo."
 
 #: page-templates/contacts.php:220
 msgid "Message text"
-msgstr ""
+msgstr "Testo del messaggio."
 
 #: classes/options-manager.php:139
 msgid "Messages"
@@ -533,7 +537,7 @@ msgstr "Indirizzo del network"
 msgid "News"
 msgstr "Notizie"
 
-#: config_theme.php:169 classes/options-manager.php:750
+#: config_theme.php:175 classes/options-manager.php:750
 #: classes/options-manager.php:758
 msgid "Newsletter"
 msgstr "Newsletter"
@@ -542,7 +546,7 @@ msgstr "Newsletter"
 msgid "Newsletter manager"
 msgstr "Gestore della newsletter"
 
-#: template-parts/home/carousel.php:105
+#: template-parts/home/carousel.php:107
 msgid "Next"
 msgstr "Avanti"
 
@@ -563,11 +567,11 @@ msgstr "Nonce non valido."
 #: classes/options-manager.php:389 classes/options-manager.php:428
 #: classes/options-manager.php:467
 msgid "On which side the thumbnail wil be shown."
-msgstr ""
+msgstr "Su quale lato verrà mostrata la miniatura."
 
 #: 404.php:51
 msgid "Oops! The page you are looking for was not found."
-msgstr ""
+msgstr "Ops! La pagina che stai cercando non è stata trovata."
 
 #: template-parts/common/ordering.php:17
 msgid "Order results by..."
@@ -605,7 +609,7 @@ msgstr "Per favore, compila i campi obbligatori"
 msgid "Please, provide a valid email address."
 msgstr "Per favore, fornisci un indirizzo e-mail valido"
 
-#: config_theme.php:67
+#: config_theme.php:73
 msgid "Poetry"
 msgstr "Poesia"
 
@@ -613,7 +617,7 @@ msgstr "Poesia"
 msgid "Price"
 msgstr "Prezzo"
 
-#: config_theme.php:91
+#: config_theme.php:97
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -630,14 +634,15 @@ msgid "Publisher"
 msgstr "Editore"
 
 #: page-templates/blog.php:168 template-parts/home/blog-section.php:44
-#: template-parts/home/carousel.php:76
+#: template-parts/home/carousel.php:77
 #: template-parts/home/featured-contents.php:104
-#: template-parts/home/featured-contents.php:143
-#: template-parts/home/featured-contents.php:187
-#: template-parts/home/featured-contents.php:236
-#: template-parts/home/featured-contents.php:270
-msgid "Read more..."
-msgstr "Leggi di più..."
+#: template-parts/home/featured-contents.php:145
+#: template-parts/home/featured-contents.php:191
+#: template-parts/home/featured-contents.php:241
+#: template-parts/home/featured-contents.php:276
+#| msgid "Read more..."
+msgid "Read more"
+msgstr "Leggi di più"
 
 #: page-templates/contacts.php:96
 msgid "receipt"
@@ -682,7 +687,7 @@ msgstr "Recensioni"
 msgid "Right"
 msgstr "Destra"
 
-#: config_theme.php:183 header.php:62 header.php:74
+#: config_theme.php:189 header.php:62 header.php:74
 #: page-templates/search.php:90
 msgid "Search"
 msgstr "Cerca"
@@ -699,42 +704,47 @@ msgstr "Sezione"
 msgid ""
 "Section primary footer with site name, useful links and links to the socials."
 msgstr ""
+"Sezione principale del piè di pagina con il nome del sito, link utili e link "
+"ai social."
 
 #: template-parts/footer/secondary-footer.php:12
 msgid "Section secondary footer with administrative links"
-msgstr ""
+msgstr "Sezione footer secondario con link amministrativi"
 
 #: template-parts/home/carousel.php:17
 msgid ""
 "Section that contains a carousel with the most important contents of the "
 "site."
 msgstr ""
+"Sezione che contiene un carosello con i contenuti più importanti del sito."
 
 #: template-parts/home/blog-section.php:16
 msgid "Section that contains some featured blog posts."
-msgstr ""
+msgstr "Sezione che contiene alcuni post del blog in evidenza."
 
 #: template-parts/home/featured-contents.php:81
 msgid ""
 "Section that contains the featured contents of the site: books, events and "
 "news."
 msgstr ""
+"Sezione che raccoglie i contenuti principali del sito: libri, eventi e "
+"novità."
 
 #: template-parts/header/main-menu.php:14
 msgid "Section that contains the main menu of the site."
-msgstr ""
+msgstr "Sezione che contiene il menù principale del sito."
 
 #: classes/options-manager.php:742
 msgid "Section to configure advanced settings."
-msgstr ""
+msgstr "Sezione per configurare le impostazioni avanzate."
 
 #: classes/options-manager.php:46
 msgid "Section to configure base options."
-msgstr ""
+msgstr "Sezione per configurare le opzioni di base."
 
 #: classes/options-manager.php:772
 msgid "Selection of the program used to manage the newsletter of the site."
-msgstr ""
+msgstr "Selezione del programma utilizzato per gestire la newsletter del sito."
 
 #: template-parts/common/social_sharing.php:12
 msgid "Share on"
@@ -804,7 +814,7 @@ msgstr "Configurazione del sito"
 msgid "Site contacts"
 msgstr "Contatti del sito"
 
-#: config_theme.php:143
+#: config_theme.php:149 page-templates/sitemap.php:12
 msgid "Site Map"
 msgstr "Mappa del sito"
 
