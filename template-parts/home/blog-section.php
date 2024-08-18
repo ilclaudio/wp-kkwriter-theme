@@ -7,7 +7,7 @@
 
 
 $blog_items = KKW_ContentsManager::get_site_post_wrappers(
-	array( KKW_ARTICLE_GROUP_SLUG_EN ),
+	array( KKW_ARTICLE_GROUP['slug'] ),
 	'date',
 	'DESC',
 	3

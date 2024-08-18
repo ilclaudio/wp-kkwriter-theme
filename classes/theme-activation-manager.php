@@ -65,7 +65,7 @@ class KKW_ThemeActivationManager
  */
 	private function create_default_sections() {
 		$taxonomy = KKW_SECTION_TAXONOMY;
-		$terms    = KKW_SITE_SECTIONS;
+		$terms    = KKW_NavigationManager::get_site_section_title();
 		$this->build_taxonomies( $taxonomy, $terms );
 	}
 
@@ -210,20 +210,23 @@ private function create_static_pages() {
 	private function build_taxonomies( $taxonomy, $terms ) {
 		foreach ( $terms as $term ) {
 			// Create en taxonomy.
-			$termitem = get_term_by( 'slug', $term['en'], $taxonomy );
+			$termitem = get_term_by( 'slug', $term, $taxonomy );
 			if ( $termitem ) {
 				$term_en = $termitem->term_id;
 			} else {
-				$termobject = wp_insert_term( $term['en'], $taxonomy );
+				$termobject = wp_insert_term( $term, $taxonomy );
 				$term_en    = $termobject['term_id'];
 			}
 			KKW_MultiLangManager::set_term_language( $term_en, 'en' );
+
 			// Create it taxonomy.
-			$termitem = get_term_by( 'slug', $term['it'], $taxonomy );
+			// @TODO: Check that this works after KKW_SITE_SECTIONS modification.
+			$t_it = translate( $term, 'kk_writer_theme', 'it_IT' );
+			$termitem = get_term_by( 'slug', $t_it, $taxonomy );
 			if ( $termitem ) {
 				$term_it = $termitem->term_id;
 			} else {
-				$termobject = wp_insert_term( $term['it'], $taxonomy );
+				$termobject = wp_insert_term( $t_it, $taxonomy );
 				$term_it    = $termobject['term_id'];
 			}
 			KKW_MultiLangManager::set_term_language( $term_it, 'it' );

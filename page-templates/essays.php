@@ -9,7 +9,7 @@
 get_header();
 
 $section_label       = 'Essays';
-$section             = __( $section_label , 'kk_writer_theme' );
+$section             = __( 'Essays' , 'kk_writer_theme' );
 $section_description = '';
 ?>
 

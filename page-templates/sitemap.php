@@ -66,12 +66,16 @@ try {
 								<?php
 								// I level.
 								foreach ( $pt[KKW_HOMEPAGE_SLUG]->children as $item ) {
+									$item_name = $item->name;
+									if ( str_contains( strtolower( $item_name ), 'menu' ) ) {
+										$item_name = __ ( $item_name, 'kk_writer_theme' );
+									}
 									if ( $item->link === '' ) {
-										echo '<li>' . $item->name . '</li>';
+										echo '<li>' . $item_name . '</li>';
 									} else if ( $item->external ) {
-										echo '<li><a target="_blank" href="' . $item->link . '">' . $item->name . '</a></li>';
+										echo '<li><a target="_blank" href="' . $item->link . '">' . $item_name . '</a></li>';
 									} else {
-										echo '<li><a href="' . $item->link . '">' . $item->name . '</a></li>';
+										echo '<li><a href="' . $item->link . '">' . $item_name . '</a></li>';
 									}
 									// II level.
 									echo '<ul>';
@@ -106,12 +110,11 @@ try {
 						?>
 
 						<!-- MULTILANGUAGE MAPS -->
-						 <?php
+						<?php
 							$current_language = KKW_MultiLangManager::get_current_language( 'slug' );
-							// $languages        = KKW_MultiLangManager::get_all_languages();
 							$sitemap_id       = $post->ID;
 							$maps             = KKW_MultiLangManager::get_post_translations( $sitemap_id );
-						 ?>
+						?>
 						<div class="box_change_map_lang text-center mt-5">
 							<ul>
 								<?php
