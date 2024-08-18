@@ -82,6 +82,16 @@ define(
 		),
 	)
 );
+define( 'KKW_ARTICLE_SECTION_SLUG_EN', 'article' );
+define( 'KKW_EVENT_SECTION_SLUG_EN', 'event' );
+define( 'KKW_NEWS_SECTION_SLUG_EN', 'news' );
+define( 'KKW_SITE_SECTIONS_SLUGS_EN',
+	array(
+		KKW_ARTICLE_SECTION_SLUG_EN,
+		KKW_EVENT_SECTION_SLUG_EN,
+		KKW_NEWS_SECTION_SLUG_EN
+	)
+);
 
 define( 'SLUG_SEARCH_SITE_EN', 'search' );
 define( 'SITE_SEARCH_CELLS_PER_PAGE', 10 );

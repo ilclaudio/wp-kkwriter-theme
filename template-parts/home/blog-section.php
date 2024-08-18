@@ -6,7 +6,7 @@
  */
 
 
-$blog_items = KKW_ContentsManager::get_latest_posts( 'article', 3 );
+$blog_items = KKW_ContentsManager::get_latest_posts( array( KKW_ARTICLE_SECTION_SLUG_EN ), 3 );
 
 if ( count( $blog_items ) ){
 ?>
