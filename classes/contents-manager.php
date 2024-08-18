@@ -85,22 +85,24 @@ class KKW_WrappedItem {
 
 
 	public function __construct( $parameters ) {
-		$this->id             = $parameters['id'];
-		$this->type           = $parameters['type'];
-		$this->slug           = $parameters['slug'];
-		$this->status         = $parameters['status'];
-		$this->title          = $parameters['title'];
-		$this->description    = $parameters['description'];
-		$this->post_date      = $parameters['post_date'];
-		$this->view_date      = $parameters['view_date'];
-		$this->main_group     = $parameters['main_group'];
-		$this->main_group_url = $parameters['main_group_url'];
-		$this->detail_url     = $parameters['detail_url'];
-		$this->publisher      = $parameters['publisher'];
-		$this->author         = $parameters['author'];
-		$this->pages          = $parameters['pages'];
-		$this->isbn           = $parameters['isbn'];
-		$this->price          = $parameters['price'];
+		if ( $parameters ) {
+			$this->id             = $parameters['id'];
+			$this->type           = $parameters['type'];
+			$this->slug           = $parameters['slug'];
+			$this->status         = $parameters['status'];
+			$this->title          = $parameters['title'];
+			$this->description    = $parameters['description'];
+			$this->post_date      = $parameters['post_date'];
+			$this->view_date      = $parameters['view_date'];
+			$this->main_group     = $parameters['main_group'];
+			$this->main_group_url = $parameters['main_group_url'];
+			$this->detail_url     = $parameters['detail_url'];
+			$this->publisher      = $parameters['publisher'];
+			$this->author         = $parameters['author'];
+			$this->pages          = $parameters['pages'];
+			$this->isbn           = $parameters['isbn'];
+			$this->price          = $parameters['price'];
+		}
 	}
 
  }
