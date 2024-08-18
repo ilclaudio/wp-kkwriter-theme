@@ -13,10 +13,10 @@ $section_description = '';
 
 // Manage ordering parameters.
 $valid_sort_orders   = array( 'ASC', 'DESC' );
-$type_order          = isset($_GET['sort_order']) ? sanitize_text_field($_GET['sort_order']) : 'ASC';
-$type_order          = strtoupper(trim($type_order));
-if ( ! in_array( $type_order, $valid_sort_orders ) ) {
-	$type_order = 'ASC';
+$sort_order          = isset($_GET['sort_order']) ? sanitize_text_field($_GET['sort_order']) : 'ASC';
+$sort_order          = strtoupper(trim($sort_order));
+if ( ! in_array( $sort_order, $valid_sort_orders ) ) {
+	$sort_order = 'ASC';
 }
 $valid_sort_fields = array( 'title', 'date');
 $sort_field        = isset($_GET['sort_field']) ? sanitize_text_field($_GET['sort_field']) : 'title';
@@ -38,23 +38,13 @@ if ( isset( $_GET['selected_contents'] ) ) {
 	$selected_contents = $valid_selected_contents;
 }
 
-// Manage query arguments.
-$args = array(
-	'post_type'      => 'post',
-	'order'          => $type_order,
-	'paged'          => get_query_var( 'paged', 1 ),
-	'posts_per_page' => BLOG_ARTICLES_CELLS_PER_PAGE,
-	'orderby'        => $sort_field,
-	'meta_query'     => array(
-		array(
-			'key'     => 'kkw_group',
-			'value'   => $selected_contents,
-		),
-	),
+$the_query = KKW_ContentsManager::get_blog_posts_query(
+	$selected_contents,
+	$sort_field,
+	$sort_order,
+	BLOG_ARTICLES_CELLS_PER_PAGE
 );
 
-// Execute the query.
-$the_query   = new WP_Query( $args );
 $num_results = $the_query->found_posts;
 $total_pages = $the_query->max_num_pages;
 ?>

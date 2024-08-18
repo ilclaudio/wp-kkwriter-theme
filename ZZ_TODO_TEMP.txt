@@ -1,8 +1,9 @@
 
 TEMA:
 
-- Rifattorizzazione wrapper post.
 - Rifattorizzazioni sezioni e gruppi.
+
+- Bug ricerca da hp.
 
 - Inserire foto dei libri.
 - Inserire contenuti.
@@ -15,16 +16,12 @@ TEMA:
 BUGS:
 - Back-office: BUG menu configurazione tema (non si deve vedere nel menu principale).
 - Verifiche recupero articoli con cambio lingua: automatici e per ID.
-- Correggere funzionamento dello share su fb ed altri (immagine e titolo proposti).
-- Correggere e verificare invio email contacts.
 - Mettere immagini Mock, quando assenti.
 
 ACCESSIBILITA':
 - Verifica corretta definizione delle sezioni.
 - Verifica tag immagini.
 - Verifica corretta spiegazione link e menu.
-- Verifica condivisione sui social (con dominio definitivo). Verifica meta-tag.
-- Verifica file .ics degli eventi.
 
 RESPONSIVE:
 - Fix Logo alignment.
@@ -44,4 +41,4 @@ REFACTORING:
 
 RICONTROLLARE:
  - Testi.
- - TRaduzione etichette.
+ - Traduzione etichette.
