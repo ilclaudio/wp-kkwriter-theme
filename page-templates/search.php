@@ -10,9 +10,9 @@
 get_header();
 
 // BEGIN prepare search parameters.
-$post_data    = $_GET;
-$search_string = isset( $post_data['search_string'] ) ? sanitize_text_field( $post_data['search_string'] ) : '';
-$redirection  = (sanitize_text_field( isset( $post_data['redirection'] ) && sanitize_text_field( $post_data['redirection'] ) === 'yes') ? true : false );
+$request_data  = $_GET;
+$search_string = isset( $request_data['search_string'] ) ? sanitize_text_field( $request_data['search_string'] ) : '';
+$redirection   = (sanitize_text_field( isset( $request_data['redirection'] ) && sanitize_text_field( $request_data['redirection'] ) === 'yes') ? true : false );
 
 $content_types_filters = KKW_ContentsManager::get_custom_contents_filters();
 $num_results           = 0;
@@ -44,7 +44,7 @@ $the_query = null;
 
 if ( '' !== $search_string ) {
 	// Check the NONCE.
-	if ( isset( $_GET['site_search_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'sf_site_search_nonce' ) ) {
+	if ( isset( $_GET['site_search_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'kkw_search_nonce' ) ) {
 		$the_query = KKW_ContentsManager::search_contents(
 			$selected_contents,
 			$search_string,
