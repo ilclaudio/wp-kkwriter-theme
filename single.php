@@ -164,7 +164,7 @@ $section_description = '';
 
 
 				<!-- CONTENT column-->
-				<section class="col-md-10 pb-3" aria-label="<?php echo __( 'Article' , 'kk_writer_theme' ); ?>">
+				<section class="col-md-10 pb-3" aria-label="<?php echo __( 'Blog post' , 'kk_writer_theme' ); ?>">
 
 					<article id="featured_image" class="blog-featured-image kkw_article_section">
 						<img src="<?php echo esc_url( $image_wrapper->src ); ?>"
