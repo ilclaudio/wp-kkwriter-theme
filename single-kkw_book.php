@@ -123,7 +123,7 @@ $icon_name           = 'fa-book';
 
 				
 				<!-- CONTENT column-->
-				<section class="col-md-10 pb-3" aria-label="<?php echo __( 'Article' , 'kk_writer_theme' ); ?>">
+				<section class="col-md-10 pb-3" aria-label="<?php echo __( 'Blog post' , 'kk_writer_theme' ); ?>">
 
 					<!-- BOOK IMAGE and description -->
 					<section class="row mt-3" aria-label="<?php echo __( 'Image and description of the book' , 'kk_writer_theme' ); ?>">

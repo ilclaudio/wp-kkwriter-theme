@@ -64,68 +64,6 @@ define(
 	)
 );
 
-// Sections of the site.
-define(
-	'KKW_POETRY_SECTION',
-	array(
-		'slug'  => 'poetry',
-		'title' => 'Poetry'
-	)
-);
-define(
-	'KKW_ESSAYS_SECTION',
-	array(
-		'slug'  => 'essays',
-		'title' => 'Essays'
-	)
-);
-define(
-	'KKW_FICTION_SECTION',
-	array(
-		'slug'  => 'fiction',
-		'title' => 'Fiction'
-	)
-);
-
-define(
-	'KKW_SITE_SECTIONS',
-	array(
-		KKW_POETRY_SECTION,
-		KKW_POETRY_SECTION,
-		KKW_FICTION_SECTION
-	)
-);
-
-// Groups of the blog post.
-define(
-	'KKW_ARTICLE_GROUP',
-	array(
-		'slug'  => 'article',
-		'title' => 'Article',
-	)
-);
-define(
-	'KKW_EVENT_GROUP',
-	array(
-		'slug'  => 'event',
-		'title' => 'Event',
-	)
-);
-define(
-	'KKW_NEWS_GROUP',
-	array(
-		'slug'  => 'news',
-		'title' => 'News',
-	)
-);
-define( 'KKW_POST_GROUPS',
-	array(
-		KKW_ARTICLE_GROUP,
-		KKW_EVENT_GROUP,
-		KKW_NEWS_GROUP
-	)
-);
-
 define( 'SLUG_SEARCH_SITE_EN', 'search' );
 define( 'SITE_SEARCH_CELLS_PER_PAGE', 10 );
 define( 'SECTIONS_CELLS_PER_PAGE', 10 );

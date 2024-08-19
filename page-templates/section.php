@@ -1,14 +1,19 @@
 <?php
 /**
+ * Template Name: section
+ * 
  * KK Writer Theme: The SECTION template.
  *
  * @package KK_Writer_Theme
  */
 ?>
 <?php
-$section_label       = $args['section_label'];
-$section             = $args['section'];
-$section_description = $args['section_description'];
+get_header();
+
+global $post;
+$section_label       = $post->post_title;
+$section             = sanitize_title( $post->post_title );
+$section_description = '';
 
 // Manage ordering parameters.
 $valid_sort_orders   = array( 'ASC', 'DESC' );
@@ -43,7 +48,7 @@ $total_pages = $the_query->max_num_pages;
 
 		<!-- BANNER -->
 		<section class="row mb-2 py-4 primary-bg">
-			<h1><?php echo $section; ?></h1>
+			<h1><?php echo ucfirst( $section_label ); ?></h1>
 			<?php
 				if ( $section_description ){
 			?>
@@ -148,3 +153,6 @@ $total_pages = $the_query->max_num_pages;
 	</div>
 
 </main>
+
+<?php
+get_footer();

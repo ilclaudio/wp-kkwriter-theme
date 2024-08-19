@@ -528,13 +528,13 @@ class KKW_ContentsManager
 	 */
 	public static function get_custom_contents_filters() {
 		$ct = array(
-			KKW_ARTICLE_GROUP['slug']                 => __( 'Articles', 'kk_writer_theme' ),
-			KKW_EVENT_GROUP['slug']                   => __( 'Events', 'kk_writer_theme' ),
-			KKW_NEWS_GROUP['slug']                    => __( 'News', 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_BOOK ]['name']      =>  __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_REVIEW ]['name']    =>  __( KKW_POST_TYPES[ ID_PT_REVIEW ]['plural_label'], 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']   =>  __( KKW_POST_TYPES[ ID_PT_EXCERPT ]['plural_label'], 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name'] =>  __( KKW_POST_TYPES[ ID_PT_INTERVIEW ]['plural_label'], 'kk_writer_theme' ),
+			KKW_ARTICLE_GROUP['slug']                 => __( KKW_ARTICLE_GROUP['title-pl'], 'kk_writer_theme' ),
+			KKW_EVENT_GROUP['slug']                   => __( KKW_EVENT_GROUP['title-pl'], 'kk_writer_theme' ),
+			KKW_NEWS_GROUP['slug']                    => __( KKW_NEWS_GROUP['title-pl'], 'kk_writer_theme' ),
+			KKW_POST_TYPES[ ID_PT_BOOK ]['name']      => __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kk_writer_theme' ),
+			KKW_POST_TYPES[ ID_PT_REVIEW ]['name']    => __( KKW_POST_TYPES[ ID_PT_REVIEW ]['plural_label'], 'kk_writer_theme' ),
+			KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']   => __( KKW_POST_TYPES[ ID_PT_EXCERPT ]['plural_label'], 'kk_writer_theme' ),
+			KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name'] => __( KKW_POST_TYPES[ ID_PT_INTERVIEW ]['plural_label'], 'kk_writer_theme' ),
 		);
 		return $ct;
 	}
@@ -545,9 +545,9 @@ class KKW_ContentsManager
 	}
 	public static function get_post_groups_filters() {
 		$pg = array(
-			KKW_ARTICLE_GROUP['slug'] => __( 'Articles', 'kk_writer_theme' ),
-			KKW_EVENT_GROUP['slug']   => __( 'Events', 'kk_writer_theme' ),
-			KKW_NEWS_GROUP['slug']    => __( 'News', 'kk_writer_theme' ),
+			KKW_ARTICLE_GROUP['slug'] => __( KKW_ARTICLE_GROUP['title-pl'], 'kk_writer_theme' ),
+			KKW_EVENT_GROUP['slug']   => __( KKW_EVENT_GROUP['title-pl'], 'kk_writer_theme' ),
+			KKW_NEWS_GROUP['slug']    => __( KKW_NEWS_GROUP['title-pl'], 'kk_writer_theme' ),
 		);
 		return $pg;
 	}
