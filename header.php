@@ -62,12 +62,12 @@ $og_data   = KKW_ContentsManager::get_og_data();
 					$label           = __( 'Search', 'kk_writer_theme' );
 				 ?>
 				<div class="col-12 col-lg-4 d-flex justify-content-lg-end justify-content-center align-items-center mb-3 mb-lg-0">
-					<FORM id="search_box" action="<?php echo $search_page_url; ?>" method="POST" class="d-flex" role="<?php $label ?>">
+					<FORM id="search_box" action="<?php echo $search_page_url; ?>" method="GET" class="d-flex" role="<?php $label ?>">
 						<input name="search_string" class="form-control me-2" type="search"
 							placeholder="<?php echo $label ?>"
 							aria-label="<?php $label ?>">
 
-						<?php wp_nonce_field( 'kkw_search_nonce', 'search_nonce_field' ); ?>
+						<?php wp_nonce_field( 'kkw_search_nonce', 'site_search_nonce_field' ); ?>
 						<input type="hidden" name="redirection" id="redirection" value="yes" />
 
 						<button class="btn btn-outline-secondary" type="submit">
