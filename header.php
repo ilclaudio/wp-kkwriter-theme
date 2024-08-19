@@ -57,7 +57,7 @@ $og_data   = KKW_ContentsManager::get_og_data();
 
 				<!-- SITE SEARCH -->
 				 <?php
-					$search_page_id  = KKW_MultiLangManager::get_page_by_slug( SLUG_SEARCH_SITE_EN );
+					$search_page_id  = KKW_ThemeLangManager::get_page_by_slug( SLUG_SEARCH_SITE_EN );
 					$search_page_url = get_permalink( $search_page_id );
 					$label           = __( 'Search', 'kk_writer_theme' );
 				 ?>

@@ -190,7 +190,7 @@ class KKW_BreadItem {
 						&& ( $menu_item->type === 'post_type' ) 
 		) {
 			$object_id = $menu_item ? intval( $menu_item->object_id ) : 0;
-			$object_id = KKW_MultiLangManager::get_page_by_id( $object_id );
+			$object_id = KKW_ThemeLangManager::get_page_by_id( $object_id );
 			if ( $object_id ) {
 			$wrapper = KKW_ContentsManager::get_wrapped_item( $object_id );
 				if ( $wrapper ) {

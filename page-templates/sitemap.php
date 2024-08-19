@@ -111,9 +111,9 @@ try {
 
 						<!-- MULTILANGUAGE MAPS -->
 						<?php
-							$current_language = KKW_MultiLangManager::get_current_language( 'slug' );
+							$current_language = KKW_ThemeLangManager::get_current_language( 'slug' );
 							$sitemap_id       = $post->ID;
-							$maps             = KKW_MultiLangManager::get_post_translations( $sitemap_id );
+							$maps             = KKW_ThemeLangManager::get_post_translations( $sitemap_id );
 						?>
 						<div class="box_change_map_lang text-center mt-5">
 							<ul>
