@@ -180,7 +180,7 @@ $icon_name           = 'fa-book';
 									data-bs-toggle="tab" data-bs-target="#nav-info" type="button" role="tab" 
 									aria-controls="nav-info" aria-selected="true">
 									<i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;
-									<?php echo __( 'Information' , 'kk_writer_theme' ); ?>
+									<?php echo __( 'Informations' , 'kk_writer_theme' ); ?>
 								</button>
 								<button class="nav-link" id="nav-reviews-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" 
