@@ -1,11 +1,10 @@
 
 TEMA:
 
-- Bug ricerca da hp.
-
-- Inserire foto dei libri.
 - Inserire contenuti.
+- Inserire foto dei libri.
 - Migrare prima versione online.
+
 - Test invio email.
 - Test ics calendar.
 - Test condividi con.
