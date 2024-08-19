@@ -465,7 +465,7 @@ class KKW_ContentsManager
 			case 'post_type':
 			case 'taxonomy':
 				$id                = intval( $item->object_id );
-				$page_id           = KKW_MultiLangManager::get_page_by_id( $id );
+				$page_id           = KKW_ThemeLangManager::get_page_by_id( $id );
 				$link              = get_permalink( $page_id );
 				$wrapped['id']     = intval( $page_id );
 				$wrapped['link']   = $link;

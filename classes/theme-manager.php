@@ -9,7 +9,7 @@ if ( ! class_exists( 'KKW_AuthorizationManager' ) ) {
 	include_once 'authorization-manager.php';
 }
 
-if ( ! class_exists( 'KKW_MultiLangManager' ) ) {
+if ( ! class_exists( 'KKW_ThemeLangManager' ) ) {
 	include_once 'multi-lang-manager.php';
 }
 
@@ -49,7 +49,7 @@ class KKW_ThemeManager {
 
 		// Setup custom post types and associated taxonomies.
 		// Multi language setup (Polylang).
-		$multi_lang = new KKW_MultiLangManager();
+		$multi_lang = new KKW_ThemeLangManager();
 		$multi_lang->setup();
 
 		// Register the menus.

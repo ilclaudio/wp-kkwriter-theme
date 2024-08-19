@@ -4,6 +4,7 @@ TEMA:
 - Inserire contenuti.
 - Inserire foto dei libri.
 - Migrare prima versione online.
+- Inserire: prologue_text, epilogue_text, quote_text nelle pagine ?
 
 - Test invio email.
 - Test ics calendar.

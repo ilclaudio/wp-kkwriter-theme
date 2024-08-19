@@ -1,7 +1,7 @@
 <?php
 global $post;
 
-$localestr     = KKW_MultiLangManager::get_current_language( 'slug' );
+$localestr     = KKW_ThemeLangManager::get_current_language( 'slug' );
 $site_title    = kkw_get_option( 'site_title', 'kkw_opt_options' );
 $site_tagline  = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
 

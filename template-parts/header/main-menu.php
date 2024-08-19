@@ -38,8 +38,8 @@
 						<?php
 							$selettore_visibile = kkw_get_option( 'language_selector_visible', 'kkw_opt_advanced_settings' );
 							if ( 'true' === $selettore_visibile ) {
-								$current_language = KKW_MultiLangManager::get_current_language( 'slug' );
-								$languages        = KKW_MultiLangManager::get_all_languages();
+								$current_language = KKW_ThemeLangManager::get_current_language( 'slug' );
+								$languages        = KKW_ThemeLangManager::get_all_languages();
 								$current_flag     = $languages[$current_language]['flag'];
 						?>
 						<li class="nav-item dropdown">

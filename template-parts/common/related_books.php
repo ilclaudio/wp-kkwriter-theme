@@ -17,7 +17,7 @@
 
 			<?php
 			foreach( $books as $g_id ) {
-				$post_id       = KKW_MultiLangManager::get_page_by_id( $g_id );
+				$post_id       = KKW_ThemeLangManager::get_page_by_id( $g_id );
 				$post_wrapper  = KKW_ContentsManager::get_wrapped_item( $post_id );
 				$image_wrapper = KKW_ContentsManager::wrap_featured_image( $post_wrapper, $size_string );
 			?>

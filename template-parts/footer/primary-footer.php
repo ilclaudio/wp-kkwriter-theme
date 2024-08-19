@@ -15,7 +15,7 @@
 		</h3>
 		<!-- First row: TAGLINE -->
 		<div class="row col-sm-12 p-4 text-left">
-				<h1 class="kkw_sitetitle"><a href="<?php echo KKW_MultiLangManager::get_home_url(); ?>"><?php echo esc_html( $title, 'kk_writer_theme' ); ?></a></h1>
+				<h1 class="kkw_sitetitle"><a href="<?php echo KKW_ThemeLangManager::get_home_url(); ?>"><?php echo esc_html( $title, 'kk_writer_theme' ); ?></a></h1>
 				<div class="kkw_tagline"><?php echo esc_html( $tagline, 'kk_writer_theme' ); ?></div>
 		</div> <!-- first row -->
 

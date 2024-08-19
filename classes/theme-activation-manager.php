@@ -76,7 +76,7 @@ class KKW_ThemeActivationManager
 	 */
 	private function create_section_pages() {
 		error_log( '@@@ create_section_pages @@@' );
-		// $languages    = KKW_MultiLangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
+		// $languages    = KKW_ThemeLangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
 		$sections = KKW_SITE_SECTIONS;
 		foreach ( $sections as $section ) {
 			$slug     = sanitize_title( $section['en'] );
@@ -122,7 +122,7 @@ class KKW_ThemeActivationManager
 			'it' => $new_page_it_id,
 			'en' => $new_page_en_id,
 		);
-		KKW_MultiLangManager::save_post_translations( $related_posts );
+		KKW_ThemeLangManager::save_post_translations( $related_posts );
 		}
 	}
 
@@ -135,7 +135,7 @@ class KKW_ThemeActivationManager
  */
 private function create_static_pages() {
 	$static_pages = KKW_SITE_STATIC_PAGES;
-	// $languages    = KKW_MultiLangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
+	// $languages    = KKW_ThemeLangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
 
 	// Static pages creation.
 	foreach ( $static_pages as $page ) {
@@ -178,7 +178,7 @@ private function create_static_pages() {
 			'it' => $new_page_it_id,
 			'en' => $new_page_en_id,
 		);
-		KKW_MultiLangManager::save_post_translations( $related_posts );
+		KKW_ThemeLangManager::save_post_translations( $related_posts );
 		}
 	}
 
@@ -198,7 +198,7 @@ private function create_static_pages() {
 			update_post_meta( $new_page_id, '_wp_page_template', $template );
 		}
 		// Assign the $lang language to the page.
-		KKW_MultiLangManager::set_post_language( $new_page_id, $lang );
+		KKW_ThemeLangManager::set_post_language( $new_page_id, $lang );
 		return $new_page_id;
 	}
 
@@ -217,7 +217,7 @@ private function create_static_pages() {
 				$termobject = wp_insert_term( $term, $taxonomy );
 				$term_en    = $termobject['term_id'];
 			}
-			KKW_MultiLangManager::set_term_language( $term_en, 'en' );
+			KKW_ThemeLangManager::set_term_language( $term_en, 'en' );
 
 			// Create it taxonomy.
 			// @TODO: Check that this works after KKW_SITE_SECTIONS modification.
@@ -229,20 +229,20 @@ private function create_static_pages() {
 				$termobject = wp_insert_term( $t_it, $taxonomy );
 				$term_it    = $termobject['term_id'];
 			}
-			KKW_MultiLangManager::set_term_language( $term_it, 'it' );
+			KKW_ThemeLangManager::set_term_language( $term_it, 'it' );
 
 			// Associate it and en translations.
 			$related_taxonomies = array(
 				'it' => $term_it,
 				'en' => $term_en,
 			);
-			KKW_MultiLangManager::save_term_translations( $related_taxonomies );
+			KKW_ThemeLangManager::save_term_translations( $related_taxonomies );
 		}
 	}
 
 
 	private function create_menu() {
-		// $languages = KKW_MultiLangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
+		// $languages = KKW_ThemeLangManager::get_languages_list( array( 'hide_empty' => 0, 'fields' => 'slug' ) );
 		$this->create_the_menus( 'en' );
 		// $this->create_the_menus( 'it' );
 	}

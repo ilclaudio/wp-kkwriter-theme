@@ -8,7 +8,7 @@
 /**
  * The manager that setups People post types.
  */
-class KKW_MultiLangManager {
+class KKW_ThemeLangManager {
 	/**
 	 * Constructor of the Manager.
 	 */
