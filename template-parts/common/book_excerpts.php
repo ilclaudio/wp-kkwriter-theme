@@ -54,7 +54,7 @@ if ( $post_wrapper ) {
 				</div>
 				<div class="card-footer font-smaller">
 					<span>
-						<?php echo $exc->title; ?>
+						<?php echo $exc->title; ?> - <?php echo $post_wrapper->title; ?> - <?php echo $post_wrapper->author; ?>
 					</span>
 				</div>
 			</div>

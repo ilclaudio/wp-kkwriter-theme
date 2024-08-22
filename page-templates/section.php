@@ -30,8 +30,8 @@ if (!in_array($sort_field, $valid_sort_fields)) {
 
 $the_query = KKW_ContentsManager::get_section_books_query(
 	$section,
-	$sort_field='title',
-	$sort_order='ASC',
+	$sort_field='kkw_year',
+	$sort_order='DESC',
 	SECTIONS_CELLS_PER_PAGE
 );
 
