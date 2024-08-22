@@ -636,8 +636,9 @@ class KKW_ContentsManager
 	public static function get_book_reviews( $post_id ) {
 		$reviews = array();
 		$args = array(
-			'post_type'  => 'kkw_review',
-			'meta_query' => array(
+			'post_type'      => 'kkw_review',
+			'posts_per_page' => -1,
+			'meta_query'     => array(
 				array(
 					'key'     => 'kkw_book_link',
 					'value'   => '"' . $post_id . '"',
@@ -678,8 +679,9 @@ class KKW_ContentsManager
 	public static function get_book_excerpts( $post_id ) {
 		$reviews = array();
 		$args = array(
-			'post_type'  => 'kkw_excerpt',
-			'meta_query' => array(
+			'post_type'      => 'kkw_excerpt',
+			'posts_per_page' => -1,
+			'meta_query'     => array(
 				array(
 					'key'     => 'kkw_book_link',
 					'value'   => '"' . $post_id . '"',
