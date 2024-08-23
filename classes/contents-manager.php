@@ -784,4 +784,17 @@ class KKW_ContentsManager
 		exit;
 	}
 
+	public static function get_page_quote( $post_id ) {
+		$text = get_post_meta( $post_id, 'kkw_quote_text', true );
+		return $text;
+	}
+	public static function get_page_epilogue( $post_id ) {
+		$text = get_post_meta( $post_id, 'kkw_epilogue_text', true );
+		return $text;
+	}
+	public static function get_page_prologue( $post_id ) {
+		$text = get_post_meta( $post_id, 'kkw_prologue_text', true );
+		return $text;
+	}
+
 }
