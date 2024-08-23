@@ -1,8 +1,18 @@
 
 TEMA:
 
-- Inserire contenuti.
 - Inserire foto dei libri.
+- Bug:
+	- prezzo
+	- presentazione
+	- link editore
+	- link libro su editore
+	- dimensione quotes (saggistica)
+	- quotes
+	- bordo foto libri in dettaglio
+	- Canti tristi
+- Pagina Biografia: foto e epilogo.
+
 - Migrare prima versione online.
 - Inserire: prologue_text, epilogue_text, quote_text nelle pagine ?
 
