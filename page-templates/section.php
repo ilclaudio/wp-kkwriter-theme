@@ -35,6 +35,10 @@ $the_query = KKW_ContentsManager::get_section_books_query(
 	SECTIONS_CELLS_PER_PAGE
 );
 
+$prologue = KKW_ContentsManager::get_page_prologue( $post->ID );
+$epilogue = KKW_ContentsManager::get_page_epilogue( $post->ID );
+$quote    = KKW_ContentsManager::get_page_quote( $post->ID );
+
 $num_results = $the_query->found_posts;
 $total_pages = $the_query->max_num_pages;
 ?>
@@ -61,6 +65,39 @@ $total_pages = $the_query->max_num_pages;
 				}
 			?>
 		</section>
+
+
+		<!-- QUOTES, if present -->
+		<?php
+		 if( $quote ) {
+		?>
+		<section class="row py-2">
+			<div class="col-md-12 m-0 p-0">
+				<div class="p-3 bg-light border rounded text-end">
+						<blockquote class="blockquote">
+								<p class="mb-0" STYLE="font-size: 0.85rem !important;">
+									<?php echo wpautop( wp_kses_post( $quote ) ); ?>
+								</p>
+						</blockquote>
+				</div>
+			</div>
+		</section>
+		<?php
+		 }
+		?>
+
+		<!-- PROLOGUE, if present -->
+		<?php
+			if( $prologue ) {
+		?>
+				<section class="row py-2 mb-5 px-5">
+					<div class="col-md-12 m-0 p-0">
+						<?php echo wpautop( wp_kses_post( $prologue ) ); ?>
+					</div>
+				</section>
+		<?php
+			}
+		?>
 
 		<!-- search filters and results -->
 		<?php
@@ -143,13 +180,27 @@ $total_pages = $the_query->max_num_pages;
 		 if( ! $num_results ) {
 		?>
 			<section class="row">
-				<div class="col-md-12 text-center fst-italic pt-5" style="min-height: 300px;">
+				<div class="col-md-12 text-center fst-italic py-4 pt-5" style="min-height: 300px;">
 					<?php echo __( 'There are no books in this section.' , 'kk_writer_theme' ); ?>
 				</div>
 			</section>
 		<?php
 			}
 		?>
+
+		<!-- epilogue, if present -->
+		<?php
+			if( $epilogue ) {
+		?>
+				<section class="row py-2 mt-2 mb-5 px-5">
+					<div class="col-md-12 m-0 p-0">
+						<?php echo wpautop( wp_kses_post( $epilogue ) ); ?>
+					</div>
+				</section>
+		<?php
+			}
+		?>
+		
 	</div>
 
 </main>
