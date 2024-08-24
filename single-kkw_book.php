@@ -131,7 +131,7 @@ $icon_name           = 'fa-book';
 							<div id="current_cover_div" class="float-start me-3">
 								<a id="current_cover_link" href="<?php echo esc_url( $image_wrapper->src ); ?>" data-lightbox="image-1">
 									<img id="current_cover"
-										class="img-fluid rounded mb-2"
+										class="img-fluid rounded mb-2 border-img-2"
 										src="<?php echo esc_url( $image_wrapper->src ); ?>"
 										alt="<?php echo esc_attr( $image_wrapper->alt ); ?>"
 									>

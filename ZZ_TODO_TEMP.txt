@@ -1,16 +1,8 @@
 
 TEMA:
 
-- Inserire foto dei libri.
-- Bug:
-	- prezzo
-	- presentazione
-	- link editore
-	- link libro su editore
-	- dimensione quotes (saggistica)
-	- quotes
-	- bordo foto libri in dettaglio
-	- Canti tristi
+- Evento: bug link esterno e date.
+
 - Pagina Biografia: foto e epilogo.
 
 - Migrare prima versione online.

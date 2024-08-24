@@ -491,3 +491,8 @@ h1, h2, h3, h4, h5, h6 {
 	padding-left: 0;
 	margin-left: 0;
 }
+
+/* Section quotes */
+.blockquote p {
+	font-size: 0.85rem !important;
+}

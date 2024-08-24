@@ -79,9 +79,16 @@ class KKW_WrappedItem {
 	public string $detail_url = '';
 	public string $publisher = '';
 	public string $author = '';
+	public bool $show_price = false;
 	public string $price = '';
 	public string $pages = '';
-	public string $isbn;
+	public string $format = '';
+	public string $isbn = '';
+	public string $series = '';
+	public string $publisher_page = '';
+	public string $publisher_book_page = '';
+	public string $shop_page = '';
+	public string $presentation_author = '';
  }
 
 
@@ -106,25 +113,29 @@ class KKW_ContentsManager
 	/**
 	 * Summary of wrap_search_result
 	 * @param mixed $post
-	 * @return KKW_WrappedItem || null
+	 * @return KKW_WrappedItem
 	 */
 	public static function wrap_search_result( $post ): KKW_WrappedItem {
-		switch ( $post->post_type ) {
-			case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
-				$item = KKW_ContentsManager::wrap_book( $post );
-				break;
-			case KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name']:
-			case KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']:
-			case KKW_POST_TYPES[ ID_PT_REVIEW ]['name']:
-			case KKW_DEFAULT_POST:
-				$item = KKW_ContentsManager::wrap_post( $post );
-				break;
-			case KKW_DEFAULT_PAGE:
-				$item = KKW_ContentsManager::wrap_page( $post );
-				break;
-			default:
-				$item = null;
-				break;
+		if ( $post ) {
+			switch ( $post->post_type ) {
+				case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
+					$item = KKW_ContentsManager::wrap_book( $post );
+					break;
+				case KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name']:
+				case KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']:
+				case KKW_POST_TYPES[ ID_PT_REVIEW ]['name']:
+				case KKW_DEFAULT_POST:
+					$item = KKW_ContentsManager::wrap_post( $post );
+					break;
+				case KKW_DEFAULT_PAGE:
+					$item = KKW_ContentsManager::wrap_page( $post );
+					break;
+				default:
+					$item = new KKW_WrappedItem();
+					break;
+			}
+		} else {
+			$item = new KKW_WrappedItem();
 		}
 		return $item;
 	}
@@ -157,21 +168,27 @@ class KKW_ContentsManager
 			$section      = count( $book['sections'] ) > 0 ? $book['sections'][0] : '';
 			$section_slug = sanitize_title( $section );
 			// Fill the wrapper.
-			$item->id             = $book['id'];
-			$item->title          = $book['title'];
-			$item->type           = $book['type'];
-			$item->slug           = $book['slug'];
-			$item->description    = $book['description'];
-			$item->post_date      = $post->post_date;
-			$item->view_date      = $book['year'];
-			$item->main_group     = $section;
-			$item->main_group_url = get_site_url() . '/' . $section_slug;
-			$item->price          = $book['price'] ? $book['pages'] . '€' : '';
-			$item->pages          = $book['pages'];
-			$item->isbn           = $book['isbn'];
-			$item->publisher      = count( $book['publishers'] ) ? join( ',', $book['publishers'] ) : '';
-			$item->author         = count( $book['authors'] ) ? join( ',', $book['authors'] ) : '';
-			$item->detail_url     = get_permalink( $post->ID );
+			$item->id                  = $book['id'];
+			$item->title               = $book['title'];
+			$item->type                = $book['type'];
+			$item->slug                = $book['slug'];
+			$item->description         = $book['description'];
+			$item->post_date           = $post->post_date;
+			$item->view_date           = $book['year'];
+			$item->main_group          = $section;
+			$item->main_group_url      = get_site_url() . '/' . $section_slug;
+			$item->price               = $book['price'] ? $book['price'] : '';
+			$item->show_price          = $book['show_price'] ? true : false;
+			$item->pages               = $book['pages'];
+			$item->series              = $book['series'] ? $book['series'] : '';
+			$item->format              = $book['format'] ? $book['format'] : '';
+			$item->isbn                = $book['isbn'] ? $book['isbn'] : '';
+			$item->publisher_page      = $book['publisher_page'] ? $book['publisher_page'] : '';
+			$item->publisher_book_page = $book['publisher_book_page'] ? $book['publisher_book_page'] : '';
+			$item->presentation_author = $book['presentation_author'] ? $book['presentation_author'] : '';
+			$item->publisher           = count( $book['publishers'] ) ? join( ',', $book['publishers'] ) : '';
+			$item->author              = count( $book['authors'] ) ? join( ',', $book['authors'] ) : '';
+			$item->detail_url          = get_permalink( $post->ID );
 		}
 		return $item;
 	}
