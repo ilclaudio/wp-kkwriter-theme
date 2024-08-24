@@ -71,11 +71,11 @@ $total_pages = $the_query->max_num_pages;
 		<?php
 		 if( $quote ) {
 		?>
-		<section class="row py-2">
+		<section class="row pt-2 mb-2">
 			<div class="col-md-12 m-0 p-0">
-				<div class="p-3 bg-light border rounded text-end">
+				<div class="px-3 py-0 bg-light border rounded text-end">
 						<blockquote class="blockquote">
-								<p class="mb-0" STYLE="font-size: 0.85rem !important;">
+								<p class="mb-0">
 									<?php echo wpautop( wp_kses_post( $quote ) ); ?>
 								</p>
 						</blockquote>

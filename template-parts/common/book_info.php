@@ -8,9 +8,12 @@ $post_wrapper = $args['post_wrapper'];
 
 if ( $post_wrapper ) {
 	$isbn      = $post_wrapper->isbn ? $post_wrapper->isbn : '-';
-	$price     = $post_wrapper->price ? $post_wrapper->price : '-';
+	$price     = $post_wrapper->price && $post_wrapper->show_price ? $post_wrapper->price : '-';
 	$pages     = $post_wrapper->pages ? $post_wrapper->pages : '-';
 	$publisher = $post_wrapper->publisher ? $post_wrapper->publisher : '-';
+	$pres_auth = $post_wrapper->presentation_author ? $post_wrapper->presentation_author : '';
+	$publ_site = $post_wrapper->publisher_page ? $post_wrapper->publisher_page : '';
+	$book_link = $post_wrapper->publisher_book_page ? $post_wrapper->publisher_book_page : '';
 ?>
 
 <div class="container my-5 mx-3">
@@ -31,8 +34,34 @@ if ( $post_wrapper ) {
 			</div>
 			<div class="row mt-3">
 				<div class="col-4 fw-bold"><?php echo __( 'Publisher' , 'kk_writer_theme' ); ?>:</div>
-				<div class="col-8 fst-italic"><?php echo esc_attr( $publisher ); ?></div>
+				<div class="col-8 fst-italic">
+					<?php
+						if ( $publ_site ) {
+					?>
+							<a class="text-decoration-none" target="_blank" href="<?php echo esc_url( $publ_site ); ?>">
+					<?php
+						}
+					?>
+								<?php echo esc_attr( $publisher ); ?>
+					<?php
+						if ( $publ_site ) {
+					?>
+							</a>
+					<?php
+						}
+					?>
+				</div>
 			</div>
+			<?php
+				if ( $pres_auth ) {
+			?>
+			<div class="row mt-3">
+				<div class="col-4 fw-bold"><?php echo __( 'Presentation of' , 'kk_writer_theme' ); ?>:</div>
+				<div class="col-8"><?php echo esc_attr( $pres_auth ); ?></div>
+			</div>
+			<?php
+				}
+			?>
 		</div>
 
 		<!-- Seconda colonna -->
@@ -47,7 +76,23 @@ if ( $post_wrapper ) {
 			</div>
 			<div class="row mt-3">
 				<div class="col-4 fw-bold"><?php echo __( 'ISBN' , 'kk_writer_theme' ); ?>:</div>
-				<div class="col-8"><?php echo esc_attr( $isbn ); ?></div>
+				<div class="col-8">
+				<?php
+						if ( $book_link ) {
+					?>
+							<a class="text-decoration-none" target="_blank" href="<?php echo esc_url( $book_link ); ?>">
+					<?php
+						}
+					?>
+					<?php echo esc_attr( $isbn ); ?>
+					<?php
+						if ( $book_link ) {
+					?>
+							</a>
+					<?php
+						}
+					?>
+				</div>
 			</div>
 			<div class="row mt-3">
 				<div class="col-4 fw-bold"><?php echo __( 'Price' , 'kk_writer_theme' ); ?>:</div>
