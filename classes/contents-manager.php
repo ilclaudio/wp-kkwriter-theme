@@ -75,6 +75,7 @@ class KKW_WrappedItem {
 	public string $post_date = '';
 	public string $view_date = '';
 	public string $main_group = '';
+	public string $main_group_pl = '';
 	public string $main_group_url = '';
 	public string $detail_url = '';
 	public string $publisher = '';
@@ -212,7 +213,8 @@ class KKW_ContentsManager
 		$item->description    = $short_description;
 		$item->post_date      = $post->post_date ;
 		$item->view_date      = $view_date;
-		$item->main_group     = ucfirst( $group );
+		$item->main_group     = $group;
+		$item->main_group_pl  = self::get_plural_group_by_slug( $group );
 		$item->main_group_url = get_site_url() . '/' . $group_page . '?' . $query_string;
 		$item->detail_url     = get_permalink( $post->ID) ;
 		return $item;
@@ -812,6 +814,17 @@ class KKW_ContentsManager
 	public static function get_page_prologue( $post_id ) {
 		$text = get_post_meta( $post_id, 'kkw_prologue_text', true );
 		return $text;
+	}
+
+	public static function get_plural_group_by_slug( $slug ) {
+		$groups = KKW_POST_GROUPS;
+		$plural = '';
+		foreach ( $groups as $grp ){
+			if ( $grp['slug'] === $slug ) {
+				return $grp['title-pl'];
+			}
+		}
+		return $plural;
 	}
 
 }
