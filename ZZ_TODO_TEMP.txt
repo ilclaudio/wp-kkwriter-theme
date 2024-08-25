@@ -1,9 +1,11 @@
 
 TEMA:
 
-- Evento: bug link esterno e date.
-
 - Pagina Biografia: foto e epilogo.
+- Pagina Crediti e Privacy: Banner e copia body.
+- Bug nella ricerca delle sezioni, non funziona più.
+- Verifiche sito responsive.
+- Gestione immagine logo.
 
 - Migrare prima versione online.
 - Inserire: prologue_text, epilogue_text, quote_text nelle pagine ?

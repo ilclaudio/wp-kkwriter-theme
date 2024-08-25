@@ -10,6 +10,8 @@
 <?php
 global $post;
 get_header();
+$section             = __( 'Contacts' , 'kk_writer_theme' );
+$section_description = '';
 
 $post_img_id    = get_post_thumbnail_id( $post->id );
 $post_img_array = wp_get_attachment_image_src( $post_img_id, 'full' );
@@ -17,8 +19,6 @@ $post_img_src   = $post_img_array ? $post_img_array[0] : '';
 $post_img_alt   = get_post_meta( $post_img_id, '_wp_attachment_image_alt', true );
 $post_img_alt   = $post_img_alt ? $post_img_alt : $post->title;
 
-$section             = __( 'Contacts' , 'kk_writer_theme' );
-$section_description = '';
 $site_email          = kkw_get_option( 'site_email', 'kkw_opt_site_contacts' );
 $site_title          = kkw_get_option( 'site_title', 'kkw_opt_options' );
 $website             = get_site_url();
