@@ -12,7 +12,7 @@ $num_items = count( $items );
 if ( $num_items > 0 ){
 ?>
 
-	<div id="carouselExampleIndicators" class="carousel slide">
+	<div id="carouselExampleIndicators" class="mt-4 carousel slide">
 		<h3 class="visually-hidden">
 				<?php echo __( 'Section that contains a carousel with the most important contents of the site.', 'kk_writer_theme' ); ?>
 		</h3>
