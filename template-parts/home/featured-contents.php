@@ -102,13 +102,15 @@ if ( $event ) {
 						<?php echo esc_attr( $fc1->main_group ); ?>
 					</a>
 				</strong>
-				<h4 class="mb-0">
-					<?php echo esc_attr( $fc1->title ); ?>
-				</h4>
+				<a class="kkw_link" href="<?php echo esc_url( $fc1->detail_url ); ?>">
+					<h4 class="mb-0">
+						<?php echo esc_attr( $fc1->title ); ?>
+					</h4>
+				</a>
 				<p class="card-text mb-auto kkw_featured_text mt-3">
 					<?php echo clean_and_truncate_text( $fc1->description, KKW_FEATURED_TEXT_MAX_SIZE ); ?>
 				</p>
-				<small class="text-body-secondary">
+				<small class="pt-2 text-body-secondary">
 					<a class="kkw_link"
 						href="<?php echo esc_url( $fc1->detail_url ); ?>">
 						<?php echo __( 'Read more', 'kk_writer_theme' ); ?>
@@ -143,13 +145,15 @@ if ( $event ) {
 						<?php echo esc_attr( $fc2->main_group ); ?>
 					</a>
 				</strong>
-				<h4 class="mb-0">
-					<?php echo esc_attr( $fc2->title ); ?>
-				</h4>
+				<a class="kkw_link" href="<?php echo esc_url( $fc2->detail_url ); ?>">
+					<h4 class="mb-0">
+						<?php echo esc_attr( $fc2->title ); ?>
+					</h4>
+				</a>
 				<p class="card-text mb-auto kkw_featured_text mt-3">
 					<?php echo clean_and_truncate_text( $fc2->description, KKW_FEATURED_TEXT_MAX_SIZE ); ?>
 				</p>
-				<small class="text-body-secondary">
+				<small class="pt-2 text-body-secondary">
 					<a class="kkw_link"
 						href="<?php echo esc_url( $fc2->detail_url ); ?>">
 						<?php echo __( 'Read more', 'kk_writer_theme' ); ?>
@@ -189,13 +193,15 @@ if ( $event ) {
 						<?php echo esc_attr( $fc3->main_group ); ?>
 					</a>
 				</strong>
-				<h4 class="mb-0">
-					<?php echo esc_attr( $fc3->title ); ?>
-				</h4>
+				<a class="kkw_link" href="<?php echo esc_url( $fc3->detail_url ); ?>">
+					<h4 class="mb-0">
+						<?php echo esc_attr( $fc3->title ); ?>
+					</h4>
+				</a>
 				<p class="card-text mb-auto kkw_featured_text mt-3">
 					<?php echo clean_and_truncate_text( $fc3->description, KKW_FEATURED_TEXT_MAX_SIZE ); ?>
 				</p>
-				<small class="text-body-secondary">
+				<small class="pt-2 text-body-secondary">
 					<a class="kkw_link"
 						href="<?php echo esc_url( $fc3->detail_url ); ?>">
 						<?php echo __( 'Read more', 'kk_writer_theme' ); ?>
@@ -236,12 +242,14 @@ if ( $event ) {
 									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
 									alt="<?php echo esc_attr( $news_img_alt ); ?>" />
 								<div class="col-lg-8">
-									<strong class="d-inline-block mb-2 text-primary-emphasis text-capitalize">
+									<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
 										<?php echo __( $news->main_group, 'kk_writer_theme' ); ?>
 									</strong>
-									<h6 class="mb-0">
-										<?php echo clean_and_truncate_text( $news->title, KKW_SMALL_FEATURED_TEXT_MAX_SIZE ); ?>
-									</h6>
+									<a class="kkw_link" href="<?php echo esc_url( $news->detail_url ); ?>">
+										<h6 class="mb-0">
+											<?php echo clean_and_truncate_text( $news->title, KKW_SMALL_FEATURED_TEXT_MAX_SIZE ); ?>
+										</h6>
+									</a>
 									<p class="mb-0 kkw_featured_text">
 										<?php echo clean_and_truncate_text( $news->description, 100 ); ?>
 									</p>
@@ -271,12 +279,14 @@ if ( $event ) {
 									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
 									alt="<?php echo esc_attr( $event_img_alt ); ?>" />
 								<div class="col-lg-8">
-									<strong class="d-inline-block mb-2 text-primary-emphasis text-capitalize">
+									<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
 									<?php echo __( $event->main_group, 'kk_writer_theme' ); ?>
 									</strong>
-									<h6 class="mb-0">
-										<?php echo clean_and_truncate_text( $event->title, KKW_SMALL_FEATURED_TEXT_MAX_SIZE ); ?>
-									</h6>
+									<a class="kkw_link" href="<?php echo esc_url( $news->detail_url ); ?>">
+										<h6 class="mb-0">
+											<?php echo clean_and_truncate_text( $event->title, KKW_SMALL_FEATURED_TEXT_MAX_SIZE ); ?>
+										</h6>
+									</a>
 									<p class="mb-0 kkw_featured_text">
 										<?php echo clean_and_truncate_text( $event->description, 100 ); ?>
 									</p>

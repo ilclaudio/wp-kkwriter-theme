@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-19 07:22+0000\n"
+"PO-Revision-Date: 2024-08-25 13:51+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "Add the event to your calendar (iCal)"
 msgstr ""
 
-#: single.php:235 classes/options-manager.php:559
+#: single.php:239 classes/options-manager.php:559
 msgid "Address"
 msgstr ""
 
@@ -63,11 +63,11 @@ msgstr ""
 msgid "Articles"
 msgstr ""
 
-#: classes/contents-manager.php:242
+#: classes/contents-manager.php:259
 msgid "at"
 msgstr ""
 
-#: template-parts/common/book_info.php:25
+#: template-parts/common/book_info.php:28
 msgid "Author"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: classes/contents-manager.php:189
+#: classes/contents-manager.php:206
 msgid "blog"
 msgstr ""
 
@@ -195,9 +195,9 @@ msgstr ""
 msgid "Confirmation email not sent."
 msgstr ""
 
-#: config_theme.php:143 single.php:117 single.php:232
+#: config_theme.php:143 single.php:117 single.php:236
 #: classes/options-manager.php:526 classes/options-manager.php:543
-#: page-templates/contacts.php:20
+#: page-templates/contacts.php:13
 msgid "Contacts"
 msgstr ""
 
@@ -234,12 +234,8 @@ msgstr ""
 msgid "Data reloaded successfully"
 msgstr ""
 
-#: single.php:183
+#: single.php:99 single.php:183
 msgid "Date and hour"
-msgstr ""
-
-#: single.php:99
-msgid "Dates and hours"
 msgstr ""
 
 #: classes/options-manager.php:170
@@ -258,7 +254,7 @@ msgstr ""
 msgid "Do you want to receive an email notification"
 msgstr ""
 
-#: single.php:238 classes/options-manager.php:567
+#: single.php:242 classes/options-manager.php:567
 #: page-templates/contacts.php:229
 msgid "E-mail"
 msgstr ""
@@ -310,7 +306,7 @@ msgstr ""
 msgid "Event end"
 msgstr ""
 
-#: single.php:221
+#: single.php:224
 msgid "Event location address"
 msgstr ""
 
@@ -326,12 +322,16 @@ msgstr ""
 msgid "Excerpts"
 msgstr ""
 
-#: single.php:239
+#: single.php:245
 msgid "External link"
 msgstr ""
 
 #: template-parts/common/social_sharing.php:25
 msgid "Facebook"
+msgstr ""
+
+#: template-parts/home/blog-section.php:24
+msgid "Featured blog articles"
 msgstr ""
 
 #: classes/options-manager.php:328
@@ -432,11 +432,7 @@ msgstr ""
 msgid "Info"
 msgstr ""
 
-#: single-kkw_book.php:183
-msgid "Information"
-msgstr ""
-
-#: single-kkw_book.php:81
+#: single-kkw_book.php:81 single-kkw_book.php:183
 msgid "Informations"
 msgstr ""
 
@@ -444,11 +440,11 @@ msgstr ""
 msgid "Insert here the links to your social media."
 msgstr ""
 
-#: template-parts/common/book_info.php:49
+#: template-parts/common/book_info.php:78
 msgid "ISBN"
 msgstr ""
 
-#: classes/contents-manager.php:780
+#: classes/contents-manager.php:799
 msgid "It is not possible to download the .ics file."
 msgstr ""
 
@@ -589,11 +585,11 @@ msgstr ""
 msgid "Page not found"
 msgstr ""
 
-#: template-parts/common/book_info.php:45
+#: template-parts/common/book_info.php:74
 msgid "Pages"
 msgstr ""
 
-#: single.php:236
+#: single.php:240
 msgid "Person"
 msgstr ""
 
@@ -601,11 +597,11 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
-#: single.php:135 single.php:267
+#: single.php:135 single.php:278
 msgid "Photo gallery"
 msgstr ""
 
-#: single.php:108 single.php:218
+#: single.php:108 single.php:219
 msgid "Place"
 msgstr ""
 
@@ -621,7 +617,11 @@ msgstr ""
 msgid "Poetry"
 msgstr ""
 
-#: template-parts/common/book_info.php:53
+#: template-parts/common/book_info.php:59
+msgid "Presentation of"
+msgstr ""
+
+#: template-parts/common/book_info.php:98
 msgid "Price"
 msgstr ""
 
@@ -641,17 +641,17 @@ msgstr ""
 msgid "Publication year descending"
 msgstr ""
 
-#: template-parts/common/book_info.php:33
+#: template-parts/common/book_info.php:36
 msgid "Publisher"
 msgstr ""
 
-#: page-templates/blog.php:158 template-parts/home/blog-section.php:49
+#: page-templates/blog.php:158 template-parts/home/blog-section.php:52
 #: template-parts/home/carousel.php:77
-#: template-parts/home/featured-contents.php:114
-#: template-parts/home/featured-contents.php:155
-#: template-parts/home/featured-contents.php:201
-#: template-parts/home/featured-contents.php:251
-#: template-parts/home/featured-contents.php:286
+#: template-parts/home/featured-contents.php:116
+#: template-parts/home/featured-contents.php:159
+#: template-parts/home/featured-contents.php:207
+#: template-parts/home/featured-contents.php:259
+#: template-parts/home/featured-contents.php:296
 msgid "Read more"
 msgstr ""
 
@@ -660,7 +660,7 @@ msgid "receipt"
 msgstr ""
 
 #: single-kkw_book.php:104 single-kkw_book.php:268 single.php:144
-#: single.php:286
+#: single.php:297
 msgid "Related books"
 msgstr ""
 
@@ -710,7 +710,7 @@ msgstr ""
 msgid "Secondary Footer Menu"
 msgstr ""
 
-#: template-parts/common/book_info.php:41
+#: template-parts/common/book_info.php:70
 msgid "Section"
 msgstr ""
 
@@ -863,7 +863,7 @@ msgstr ""
 msgid "Tagline"
 msgstr ""
 
-#: single.php:237
+#: single.php:241
 msgid "Telephone"
 msgstr ""
 
@@ -935,7 +935,7 @@ msgstr ""
 msgid "The verification code is not valid."
 msgstr ""
 
-#: page-templates/section.php:147
+#: page-templates/section.php:187
 msgid "There are no books in this section."
 msgstr ""
 
@@ -949,7 +949,7 @@ msgstr ""
 msgid "Thumbnail side"
 msgstr ""
 
-#: template-parts/common/book_info.php:21
+#: template-parts/common/book_info.php:24
 msgid "Title"
 msgstr ""
 
@@ -973,7 +973,7 @@ msgstr ""
 msgid "Type the text to search and click on the Search button"
 msgstr ""
 
-#: single.php:126 single.php:248
+#: single.php:126 single.php:259
 msgid "Video"
 msgstr ""
 
@@ -997,7 +997,7 @@ msgstr ""
 msgid "Write here the verification code"
 msgstr ""
 
-#: template-parts/common/book_info.php:29
+#: template-parts/common/book_info.php:32
 msgid "Year"
 msgstr ""
 
