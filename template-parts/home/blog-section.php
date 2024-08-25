@@ -16,7 +16,7 @@ $blog_items = KKW_ContentsManager::get_site_post_wrappers(
 if ( count( $blog_items ) ){
 ?>
 
-<div id="fc_first_row" class="row mt-4 fc-row">
+<div id="fc_first_row" class="row mt-3 mb-3 fc-row">
 	<h3 class="visually-hidden">
 			<?php echo __( 'Section that contains some featured blog posts.', 'kk_writer_theme' ); ?>
 	</h3>
