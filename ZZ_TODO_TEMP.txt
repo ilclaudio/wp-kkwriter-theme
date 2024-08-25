@@ -1,10 +1,6 @@
 
 TEMA:
 
-- Aggiungere un articolo in HP.
-- Togliere formattazione contenuti in evidenza.
-- Troncare il titolo ai contenuti n evidenza e agli articoli in HP.
-- HP: Link a eventi e notizie con correzione plurale evento.
 - Migrare prima versione online.
 
 - Test invio email.

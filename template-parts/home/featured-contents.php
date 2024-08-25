@@ -59,7 +59,7 @@ $news_list = KKW_ContentsManager::get_site_post_wrappers(
 	'DESC',
 	1
 );
-$news           = count( $news_list ) ? $news_list[0] : null;
+$news = count( $news_list ) ? $news_list[0] : null;
 if ( $news ) {
 	$news_img_id    = $news->id ? get_post_thumbnail_id( $news->id ) : null;
 	$news_img_array = $news_img_id ? wp_get_attachment_image_src( $news_img_id, 'small-featured' ) : null;
@@ -75,7 +75,7 @@ $event_list = KKW_ContentsManager::get_site_post_wrappers(
 	'DESC',
 	1
 );
-$event           = count( $event_list ) ? $event_list[0] : null;
+$event = count( $event_list ) ? $event_list[0] : null;
 if ( $event ) {
 	$event_img_id    = $event->id ? get_post_thumbnail_id( $event->id ) : null;
 	$event_img_array = $event_img_id ? wp_get_attachment_image_src( $event_img_id, 'small-featured' ) : null;
@@ -242,9 +242,11 @@ if ( $event ) {
 									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
 									alt="<?php echo esc_attr( $news_img_alt ); ?>" />
 								<div class="col-lg-8">
-									<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
-										<?php echo __( $news->main_group, 'kk_writer_theme' ); ?>
-									</strong>
+									<a class="kkw_link" href="<?php echo esc_url( $news->main_group_url ); ?>">
+										<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
+											<?php echo __( $news->main_group_pl, 'kk_writer_theme' ); ?>
+										</strong>
+									</a>
 									<a class="kkw_link" href="<?php echo esc_url( $news->detail_url ); ?>">
 										<h6 class="mb-0">
 											<?php echo clean_and_truncate_text( $news->title, KKW_SMALL_FEATURED_TEXT_MAX_SIZE ); ?>
@@ -279,10 +281,12 @@ if ( $event ) {
 									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
 									alt="<?php echo esc_attr( $event_img_alt ); ?>" />
 								<div class="col-lg-8">
-									<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
-									<?php echo __( $event->main_group, 'kk_writer_theme' ); ?>
-									</strong>
-									<a class="kkw_link" href="<?php echo esc_url( $news->detail_url ); ?>">
+									<a class="kkw_link" href="<?php echo esc_url( $event->main_group_url ); ?>">
+										<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
+											<?php echo __( $event->main_group_pl, 'kk_writer_theme' ); ?>
+										</strong>
+									</a>
+									<a class="kkw_link" href="<?php echo esc_url( $event->detail_url ); ?>">
 										<h6 class="mb-0">
 											<?php echo clean_and_truncate_text( $event->title, KKW_SMALL_FEATURED_TEXT_MAX_SIZE ); ?>
 										</h6>
