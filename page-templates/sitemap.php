@@ -24,6 +24,7 @@ try {
 
 
 <main class="container">
+
 	<!-- BREADCRUMB -->
 	<?php get_template_part( 'template-parts/common/breadcrumb' ); ?>
 

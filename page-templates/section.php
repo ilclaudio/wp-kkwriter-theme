@@ -188,7 +188,7 @@ $total_pages = $the_query->max_num_pages;
 			}
 		?>
 
-		<!-- epilogue, if present -->
+		<!-- EPILOGUE, if present -->
 		<?php
 			if( $epilogue ) {
 		?>
