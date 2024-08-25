@@ -3,6 +3,7 @@ TEMA:
 
 - Verifiche sito responsive.
 - Gestione immagine logo.
+- HP: Link a eventi e notizie con correzione plurale evento.
 
 - Migrare prima versione online.
 - Inserire: prologue_text, epilogue_text, quote_text nelle pagine ?
