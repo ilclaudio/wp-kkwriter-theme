@@ -1,9 +1,6 @@
 
 TEMA:
 
-- Pagina Biografia: foto e epilogo.
-- Pagina Crediti e Privacy: Banner e copia body.
-- Bug nella ricerca delle sezioni, non funziona più.
 - Verifiche sito responsive.
 - Gestione immagine logo.
 
