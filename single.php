@@ -22,7 +22,7 @@ $section_description = '';
 		$image_wrapper  = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'full' );
 		$icon_name      = KKW_ContentsManager::get_post_icon_by_group( $post_wrapper->main_group );
 		$group          = $post_wrapper->main_group;
-		$flg_is_event   = $post_wrapper->main_group === KKW_EVENT_GROUP['slug'];
+		$flg_is_event   = strtolower( $post_wrapper->main_group ) === strtolower( KKW_EVENT_GROUP['slug'] );
 		$meta_tags      = get_post_meta( $post_wrapper->id );
 		$start_date_str = '';
 		$end_date_str   = '';
@@ -81,7 +81,7 @@ $section_description = '';
 					<div class="menu-title text-center text-color-secondary">
 					<i class="pe-2 fa-solid <?php echo $icon_name; ?>"
 							data-bs-toggle="<?php echo $post_wrapper->main_group; ?>"
-							title="<?php echo $post_wrapper->main_group; ?> "></i>
+							title="<?php echo __( $post_wrapper->main_group, 'kk_writer_theme' ); ?> "></i>
 						<?php echo __( 'Details' , 'kk_writer_theme' ); ?>
 					</div>
 					<div class="kkw_lateral_menu">
@@ -96,7 +96,7 @@ $section_description = '';
 							?>
 							<li class="nav-item">
 								<a class="nav-link" aria-current="page" href="#dates_and_hours">
-									<span><?php echo __( 'Dates and hours', 'kk_writer_theme' ); ?></span>
+									<span><?php echo __( 'Date and hour', 'kk_writer_theme' ); ?></span>
 								</a>
 							</li>
 							<?php
@@ -215,10 +215,14 @@ $section_description = '';
 						if ( $flg_place ) {
 					?>
 						<article id="place" class="kkw_article_section">
-							<h4 class="text-color-secondary"><?php echo __( 'Place' , 'kk_writer_theme' ); ?></h4>
+							<h4 class="text-color-secondary">
+								<?php echo __( 'Place' , 'kk_writer_theme' ); ?>
+							</h4>
 							<div class="p-3">
 								<p>
-									<span class="kkw_article_label"><?php echo __( 'Event location address' , 'kk_writer_theme' ); ?>:</span>
+									<span class="kkw_article_label">
+										<?php echo __( 'Event location address' , 'kk_writer_theme' ); ?>:
+									</span>
 									&nbsp;
 									<?php echo $c_address; ?>
 								</p>
@@ -236,7 +240,14 @@ $section_description = '';
 									<?php if ( $c_person ) { ?><li><span class="label"><?php echo __( 'Person' , 'kk_writer_theme' ); ?>:</span> <?php echo esc_attr( $c_person ); ?></li><?php } ?>
 									<?php if ( $c_phone ) { ?><li><span class="label"><?php echo __( 'Telephone' , 'kk_writer_theme' ); ?>:</span> <?php echo esc_attr( $c_phone ); ?><?php } ?>
 									<?php if ( $c_email ) { ?><li><span class="label"><?php echo __( 'E-mail' , 'kk_writer_theme' ); ?>:</span> <?php echo esc_attr( $c_email ); ?></li><?php } ?>
-									<?php if ( $c_link ) { ?><li><span class="label"><?php echo __( 'External link' , 'kk_writer_theme' ); ?>:</span> <?php echo esc_attr( $c_email ); ?></li><?php } ?>
+									<?php if ( $c_link ) { ?>
+										<li><span class="label">
+											<?php echo __( 'External link' , 'kk_writer_theme' ); ?>:</span>
+											<a href="<?php echo esc_attr( $c_link ); ?>" target="_blank">
+												<?php echo esc_attr( $c_link ); ?>
+											</a>
+										</li>
+									<?php } ?>
 								</ul>
 							</div>
 						</article>

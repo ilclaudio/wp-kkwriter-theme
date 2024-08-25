@@ -245,8 +245,8 @@ class KKW_ContentsManager
 
 	public static function extractDateString( $meta_tags, $post, $type='start' ){
 		$view_date = '';
-		if ( array_key_exists('kkw_post_type', $meta_tags) &&
-					$meta_tags['kkw_post_type'][0]  === KKW_EVENT_GROUP['slug'] ) {
+		if ( array_key_exists('kkw_group', $meta_tags) &&
+					$meta_tags['kkw_group'][0]  === KKW_EVENT_GROUP['slug'] ) {
 			// It is an event with a start event date.
 			if ( array_key_exists( 'kkw_'. $type . '_date', $meta_tags ) ) {
 				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_'. $type . '_date'][0] );
