@@ -9,11 +9,10 @@ global $post;
 get_header();
 $section             = $post->post_title;
 $section_description = '';
-$prologue = KKW_ContentsManager::get_page_prologue( $post->ID );
-$epilogue = KKW_ContentsManager::get_page_epilogue( $post->ID );
-$quote    = KKW_ContentsManager::get_page_quote( $post->ID );
-
-// $image_metadata = KKW_ContentsManager::get_image_metadata( $post );
+$prologue            = KKW_ContentsManager::get_page_prologue( $post->ID );
+$epilogue            = KKW_ContentsManager::get_page_epilogue( $post->ID );
+$quote               = KKW_ContentsManager::get_page_quote( $post->ID );
+// @TODO: Use this ? $image_metadata      = KKW_ContentsManager::get_image_metadata( $post )
 ?>
 
 <main class="container">
