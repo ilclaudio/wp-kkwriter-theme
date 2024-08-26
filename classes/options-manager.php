@@ -577,6 +577,33 @@ class KKW_ThemeOptionsManager
 				'type'       => 'text',
 			)
 		);
+
+		$contacts_options->add_field(
+			array(
+				'id'   => 'smtp',
+				'name' => __( 'SMTP', 'kk_writer_theme' ),
+				'type' => 'title',
+			)
+		);
+		
+		$contacts_options->add_field(
+			array(
+				'id'         => 'smtp_sender_name',
+				'name'       => __( 'SMTP sender name', 'kk_writer_theme' ),
+				'desc'       => __( 'The name that must appear on the e-mails sent by the site.' , 'kk_writer_theme' ),
+				'type'       => 'text',
+			)
+		);
+
+		$contacts_options->add_field(
+			array(
+				'id'         => 'smtp_sender_email',
+				'name'       => __( 'SMTP sender email', 'kk_writer_theme' ),
+				'desc'       => __( 'The provider e-mail that must be used as sender.' , 'kk_writer_theme' ),
+				'type'       => 'text',
+			)
+		);
+
 	}
 
 	/**

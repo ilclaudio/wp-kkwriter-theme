@@ -19,17 +19,19 @@ $post_img_src   = $post_img_array ? $post_img_array[0] : '';
 $post_img_alt   = get_post_meta( $post_img_id, '_wp_attachment_image_alt', true );
 $post_img_alt   = $post_img_alt ? $post_img_alt : $post->title;
 
-$site_email          = kkw_get_option( 'site_email', 'kkw_opt_site_contacts' );
-$site_title          = kkw_get_option( 'site_title', 'kkw_opt_options' );
-$website             = get_site_url();
-$show_error          = false;
-$show_sent           = false;
-$captcha_enabled     = false;
-$form_valid          = true;
-$sent                = false;
-$result_text         = '';
-$nonce_error         = false;
-$form_sent           = 'no';
+$smtp_sender_email = kkw_get_option( 'smtp_sender_email', 'kkw_opt_site_contacts' );
+$smtp_sender_name  = kkw_get_option( 'smtp_sender_name', 'kkw_opt_site_contacts' );
+$site_email        = kkw_get_option( 'site_email', 'kkw_opt_site_contacts' );
+$site_title        = kkw_get_option( 'site_title', 'kkw_opt_options' );
+$website           = get_site_url();
+$show_error        = false;
+$show_sent         = false;
+$captcha_enabled   = false;
+$form_valid        = true;
+$sent              = false;
+$result_text       = '';
+$nonce_error       = false;
+$form_sent         = 'no';
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 include_once( KKW_THEMA_PATH . '/template-parts/common/captcha.php' );
@@ -45,6 +47,14 @@ $text_message   = sanitize_text_field( isset( $postdata['text_message'] ) ? $pos
 $captcha_field  = sanitize_text_field( isset( $postdata['captcha-field'] ) ? $postdata['captcha-field'] : '' );
 $captcha_prefix = sanitize_text_field( isset( $postdata['captcha-prefix'] ) ? $postdata['captcha-prefix'] : '' );
 
+$receipt = '<b>'. __( 'A message was sent from the site by:', 'kk_writer_theme' ) . '</b><br/><br/>' .
+	'<b>'. __( 'Full name', 'kk_writer_theme' ) . ':</b> ' . $full_name  . '<br/>' .
+	'<b>'. __( 'E-mail', 'kk_writer_theme' ) . ':</b> ' . $email_address . '<br/>' .
+	'<b>'. __( 'Phone number', 'kk_writer_theme' ) . ':</b> ' . $phone_number . '<br/>' . '<br/>' .
+	'<b>'. __( 'Text of the message: ', 'kk_writer_theme' ) . ':</b>';
+
+$mail_text = $receipt . '<br/>' . '<br/>' . $text_message;
+
 // Message sending procedure.
 if ( 'yes' === $form_sent ) {
 
@@ -53,10 +63,11 @@ if ( 'yes' === $form_sent ) {
 
 		// The NONCE is valid.
 		$nonce_error = false;
-		$name       = $full_name;
-		$to         = $site_email;
-		$subject    = __( '[ContactForm]', 'kk_writer_theme' ) . ' ' . __( 'E-mail form the site', 'kk_writer_theme' ) . ': '. $site_title;
-		$headers    = 'From: ' . $email_address . '\r\n' . 'Reply-To: ' . $email_address . '\r\n';
+		$name        = $full_name;
+		$to          = $site_email;
+		$subject     = __( '[ContactForm]', 'kk_writer_theme' ) . ' ' . __( 'E-mail form the site', 'kk_writer_theme' ) . ': '. $site_title;
+		$headers[]   = 'Content-Type: text/html; charset=UTF-8';
+		$headers[]   = 'From: ' . $smtp_sender_name . ' <' . $smtp_sender_email . '>';
 
 		// 1 - Controllo del captcha.
 		if ( $captcha_enabled ) {
@@ -76,7 +87,7 @@ if ( 'yes' === $form_sent ) {
 		}
 		// 2b - Check email address validity.
 		if ( ! ( filter_var( $email_address, FILTER_VALIDATE_EMAIL ) ) ) {
-			$form_valid     = $form_valid && true;
+			$form_valid  = $form_valid && true;
 			$result_text = $result_text . '<BR/>' . __( 'Please, provide a valid email address.', 'kk_writer_theme' );
 		}
 
@@ -87,7 +98,7 @@ if ( 'yes' === $form_sent ) {
 		// 4 - SEND EMAIL.
 		if ( $form_valid ) {
 			// 4a - Send email to the site.
-			$sent = wp_mail( $to, $subject, strip_tags( $text_message ), $headers );
+			$sent = wp_mail( $to, $subject, $mail_text, $headers );
 			if ( ! $sent ) {
 				$result_text = $result_text . '<BR/>' . __( 'Message not sent.', 'kk_writer_theme' );
 			}
@@ -95,7 +106,7 @@ if ( 'yes' === $form_sent ) {
 				// 4b - Send confirmation email to the sender.
 				$testo_receipt = __( 'receipt', 'kk_writer_theme' );
 				$subject        .= '(' . $testo_receipt . ')';
-				$sent           = $sent && wp_mail( $email_address, $subject, strip_tags( $text_message ), $headers );
+				$sent           = $sent && wp_mail( $email_address, $subject, $mail_text, $headers );
 				if ( ! $sent ) {
 					$result_text = $result_text . '<BR/>' . __( 'Confirmation email not sent.', 'kk_writer_theme' );
 				}
@@ -171,9 +182,6 @@ if ( 'yes' === $form_sent ) {
 							<div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
 							<?php echo esc_html( __( 'Message successfully sent', 'kk_writer_theme' ) ) . '&nbsp;.'; ?>
 								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
-									<svg class="icon" role="img" aria-labelledby="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
-										<use href="<?php echo esc_attr( get_template_directory_uri() . '/assets/svg/sprites.svg#it-close' ); ?>"></use>
-									</svg>
 								</button>
 							</div>
 						</div>
