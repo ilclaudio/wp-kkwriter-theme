@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-25 13:51+0000\n"
+"PO-Revision-Date: 2024-08-26 18:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -19,9 +19,13 @@ msgstr ""
 msgid "404"
 msgstr "404"
 
-#: page-templates/contacts.php:58
+#: page-templates/contacts.php:68
 msgid "[ContactForm]"
 msgstr "[FormContatto]"
+
+#: page-templates/contacts.php:50
+msgid "A message was sent from the site by:"
+msgstr "E' stato inviato un messaggio dal sito da parte di:"
 
 #: config_theme.php:91
 msgid "Accessibility"
@@ -43,15 +47,15 @@ msgstr "Aggiungi l'evento al tuo calendario (iCal)"
 msgid "Address"
 msgstr "Indirizzo"
 
-#: classes/options-manager.php:724 classes/options-manager.php:727
+#: classes/options-manager.php:751 classes/options-manager.php:754
 msgid "Advanced"
 msgstr "Avanzato"
 
-#: classes/options-manager.php:741
+#: classes/options-manager.php:768
 msgid "Advanced configurations"
 msgstr "Configurazioni avanzate"
 
-#: classes/options-manager.php:785
+#: classes/options-manager.php:812
 msgid "API token"
 msgstr "Token dell'API"
 
@@ -63,7 +67,7 @@ msgstr "Articolo"
 msgid "Articles"
 msgstr "Articoli"
 
-#: classes/contents-manager.php:259
+#: classes/contents-manager.php:261
 msgid "at"
 msgstr "alle"
 
@@ -104,7 +108,7 @@ msgstr "biografia"
 msgid "Blog"
 msgstr "Blog"
 
-#: classes/contents-manager.php:206
+#: classes/contents-manager.php:207
 msgid "blog"
 msgstr "articoli"
 
@@ -132,11 +136,11 @@ msgstr "Box 2 - Contenuto in evidenza"
 msgid "Box 3 - Featured content"
 msgstr "Box 3 - Contenuto in evidenza"
 
-#: classes/options-manager.php:777
+#: classes/options-manager.php:804
 msgid "Brevo"
 msgstr "Brevo"
 
-#: page-templates/contacts.php:280 page-templates/search.php:87
+#: page-templates/contacts.php:288 page-templates/search.php:87
 msgid "Cancel"
 msgstr "Annulla"
 
@@ -179,8 +183,7 @@ msgstr ""
 "Clicca <a href=\"%s\">qui</a> per tornare indietro oppure usa il menu per "
 "continuare la navigazione."
 
-#: page-templates/contacts.php:173 page-templates/contacts.php:174
-#: page-templates/contacts.php:188
+#: page-templates/contacts.php:184 page-templates/contacts.php:196
 msgid "Close alert"
 msgstr "Chiudi avviso"
 
@@ -192,11 +195,11 @@ msgstr "Configura la sezione del blog."
 msgid "Configure here the carousel section."
 msgstr "Configura la sezione del carosello."
 
-#: page-templates/contacts.php:283
+#: page-templates/contacts.php:291
 msgid "Confirm"
 msgstr "Conferma"
 
-#: page-templates/contacts.php:100
+#: page-templates/contacts.php:111
 msgid "Confirmation email not sent."
 msgstr "Email di conferma non inviata."
 
@@ -211,7 +214,7 @@ msgstr "Contatti"
 msgid "contacts"
 msgstr "contatti"
 
-#: page-templates/contacts.php:162
+#: page-templates/contacts.php:173
 msgid "Contacts form"
 msgstr "Form di contatto"
 
@@ -255,16 +258,16 @@ msgstr "Descrizione"
 msgid "Details"
 msgstr "Dettagli"
 
-#: page-templates/contacts.php:247
+#: page-templates/contacts.php:255
 msgid "Do you want to receive an email notification"
 msgstr "Vuoi ricevere una email di notifica"
 
 #: single.php:242 classes/options-manager.php:567
-#: page-templates/contacts.php:229
+#: page-templates/contacts.php:52 page-templates/contacts.php:237
 msgid "E-mail"
 msgstr "E-mail"
 
-#: page-templates/contacts.php:58
+#: page-templates/contacts.php:68
 msgid "E-mail form the site"
 msgstr "E-mail del sito"
 
@@ -276,18 +279,18 @@ msgstr ""
 "Ogni messaggio è composto da una breve descrizione (max 140 caratteri) e da "
 "una data di scadenza (facoltativa)."
 
-#: classes/options-manager.php:852
+#: classes/options-manager.php:879
 msgid "Enable language selector"
 msgstr "Abilita il selettore di lingua"
 
-#: classes/options-manager.php:617
+#: classes/options-manager.php:644
 msgid ""
 "Enable the display of social media in the header and footer of the page."
 msgstr ""
 "Abilita la visualizzazione dei social media nell'intestazione e nel piè di "
 "pagina della pagina."
 
-#: classes/options-manager.php:894
+#: classes/options-manager.php:921
 msgid "Enable the REST API"
 msgstr "Abilita l'API REST"
 
@@ -295,7 +298,7 @@ msgstr "Abilita l'API REST"
 msgid "End date"
 msgstr "Data fine"
 
-#: classes/options-manager.php:874
+#: classes/options-manager.php:901
 msgid "Enter the analytics code."
 msgstr "Inserisci il codice di analisi."
 
@@ -393,6 +396,10 @@ msgstr "Seguimi su"
 msgid "Footer logo visible"
 msgstr "Logo del footer visibile"
 
+#: page-templates/contacts.php:51
+msgid "Full name"
+msgstr "Nome:"
+
 #: classes/options-manager.php:243
 msgid "Home Page Layout"
 msgstr "Layout della Home Page"
@@ -413,7 +420,7 @@ msgstr "Messaggi della HP"
 msgid "https://www.wp-recipes.com"
 msgstr "https://www.wp-recipes.com"
 
-#: classes/options-manager.php:794
+#: classes/options-manager.php:821
 msgid "ID of the list associated to the site."
 msgstr "ID della lista associata al sito."
 
@@ -455,7 +462,7 @@ msgstr "Info"
 msgid "Informations"
 msgstr "Informazioni"
 
-#: classes/options-manager.php:609
+#: classes/options-manager.php:636
 msgid "Insert here the links to your social media."
 msgstr "Inserisci qui i link ai tuoi social media."
 
@@ -463,7 +470,7 @@ msgstr "Inserisci qui i link ai tuoi social media."
 msgid "ISBN"
 msgstr "ISBN"
 
-#: classes/contents-manager.php:799
+#: classes/contents-manager.php:801
 msgid "It is not possible to download the .ics file."
 msgstr "Non è possibile scaricare il file .ics."
 
@@ -488,15 +495,15 @@ msgstr "Collegamento a una pagina di approfondimento esterna al sito."
 msgid "Linkedin"
 msgstr "Linkedin"
 
-#: classes/options-manager.php:793
+#: classes/options-manager.php:820
 msgid "List ID"
 msgstr "ID lista"
 
-#: classes/options-manager.php:823
+#: classes/options-manager.php:850
 msgid "Login"
 msgstr "Login"
 
-#: classes/options-manager.php:831
+#: classes/options-manager.php:858
 msgid "Login visible"
 msgstr "Login visibile"
 
@@ -524,15 +531,15 @@ msgstr "Massimo 140 caratteri."
 msgid "Message"
 msgstr "Messaggio"
 
-#: page-templates/contacts.php:92
+#: page-templates/contacts.php:103
 msgid "Message not sent."
 msgstr "Messaggio non inviato."
 
-#: page-templates/contacts.php:172
+#: page-templates/contacts.php:183
 msgid "Message successfully sent"
 msgstr "Messaggio inviato con successo."
 
-#: page-templates/contacts.php:220
+#: page-templates/contacts.php:228
 msgid "Message text"
 msgstr "Testo del messaggio."
 
@@ -540,11 +547,11 @@ msgstr "Testo del messaggio."
 msgid "Messages"
 msgstr "Messaggi"
 
-#: classes/options-manager.php:844
+#: classes/options-manager.php:871
 msgid "Multilanguage"
 msgstr "Multilingua"
 
-#: page-templates/contacts.php:210
+#: page-templates/contacts.php:218
 msgid "Name and surname"
 msgstr "Nome e cognome"
 
@@ -560,12 +567,12 @@ msgstr "Indirizzo del network"
 msgid "News"
 msgstr "Notizie"
 
-#: config_theme.php:156 classes/options-manager.php:750
-#: classes/options-manager.php:758
+#: config_theme.php:156 classes/options-manager.php:777
+#: classes/options-manager.php:785
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: classes/options-manager.php:771
+#: classes/options-manager.php:798
 msgid "Newsletter manager"
 msgstr "Gestore della newsletter"
 
@@ -577,13 +584,13 @@ msgstr "Avanti"
 #: classes/options-manager.php:289 classes/options-manager.php:302
 #: classes/options-manager.php:342 classes/options-manager.php:355
 #: classes/options-manager.php:497 classes/options-manager.php:510
-#: classes/options-manager.php:622 classes/options-manager.php:763
-#: classes/options-manager.php:836 classes/options-manager.php:857
-#: classes/options-manager.php:899
+#: classes/options-manager.php:649 classes/options-manager.php:790
+#: classes/options-manager.php:863 classes/options-manager.php:884
+#: classes/options-manager.php:926
 msgid "No"
 msgstr "No"
 
-#: page-templates/contacts.php:117
+#: page-templates/contacts.php:128
 msgid "Nonce not valid."
 msgstr "Nonce non valido."
 
@@ -612,7 +619,8 @@ msgstr "Pagine"
 msgid "Person"
 msgstr "Persona"
 
-#: classes/options-manager.php:575 page-templates/contacts.php:235
+#: classes/options-manager.php:575 page-templates/contacts.php:53
+#: page-templates/contacts.php:243
 msgid "Phone number"
 msgstr "Numero di telefono"
 
@@ -624,11 +632,11 @@ msgstr "Galleria fotografica"
 msgid "Place"
 msgstr "Luogo"
 
-#: page-templates/contacts.php:75
+#: page-templates/contacts.php:86
 msgid "Please, fill all the mandatory fields"
 msgstr "Per favore, compila i campi obbligatori"
 
-#: page-templates/contacts.php:80
+#: page-templates/contacts.php:91
 msgid "Please, provide a valid email address."
 msgstr "Per favore, fornisci un indirizzo e-mail valido"
 
@@ -669,13 +677,13 @@ msgstr "Editore"
 #: template-parts/home/featured-contents.php:116
 #: template-parts/home/featured-contents.php:159
 #: template-parts/home/featured-contents.php:207
-#: template-parts/home/featured-contents.php:259
-#: template-parts/home/featured-contents.php:296
+#: template-parts/home/featured-contents.php:261
+#: template-parts/home/featured-contents.php:300
 #| msgid "Read more..."
 msgid "Read more"
 msgstr "Leggi di più"
 
-#: page-templates/contacts.php:96
+#: page-templates/contacts.php:107
 msgid "receipt"
 msgstr "ricevuta"
 
@@ -701,7 +709,7 @@ msgid "Reloads theme activation data (menus, pages, taxonomies, etc.)"
 msgstr ""
 "Ricarica i dati di attivazione del tema (menu, pagine, tassonomie, ecc.)"
 
-#: classes/options-manager.php:886
+#: classes/options-manager.php:913
 msgid "REST API"
 msgstr "API REST"
 
@@ -775,7 +783,7 @@ msgstr ""
 msgid "Section that contains the main menu of the site."
 msgstr "Sezione che contiene il menù principale del sito."
 
-#: classes/options-manager.php:742
+#: classes/options-manager.php:769
 msgid "Section to configure advanced settings."
 msgstr "Sezione per configurare le impostazioni avanzate."
 
@@ -783,7 +791,7 @@ msgstr "Sezione per configurare le impostazioni avanzate."
 msgid "Section to configure base options."
 msgstr "Sezione per configurare le opzioni di base."
 
-#: classes/options-manager.php:772
+#: classes/options-manager.php:799
 msgid "Selection of the program used to manage the newsletter of the site."
 msgstr "Selezione del programma utilizzato per gestire la newsletter del sito."
 
@@ -831,7 +839,7 @@ msgstr "Mostra i contenuti in evidenza"
 msgid "Show featured content section in the Home Page."
 msgstr "Show featured content section in the Home Page."
 
-#: classes/options-manager.php:616
+#: classes/options-manager.php:643
 msgid "Show social media icons"
 msgstr "Mostra le icone dei social media"
 
@@ -873,8 +881,20 @@ msgstr "Titolo del sito"
 msgid "sitemap"
 msgstr "mappa del sito"
 
-#: classes/options-manager.php:591 classes/options-manager.php:597
-#: classes/options-manager.php:608
+#: classes/options-manager.php:584
+msgid "SMTP"
+msgstr "SMTP"
+
+#: classes/options-manager.php:601
+msgid "SMTP sender email"
+msgstr "Nome mittente SMTP"
+
+#: classes/options-manager.php:592
+msgid "SMTP sender name"
+msgstr "Email mittente SMTP"
+
+#: classes/options-manager.php:618 classes/options-manager.php:624
+#: classes/options-manager.php:635
 msgid "Social media"
 msgstr "Social media"
 
@@ -894,17 +914,21 @@ msgstr "Tagline"
 msgid "Telephone"
 msgstr "Telefono"
 
-#: classes/options-manager.php:808
+#: classes/options-manager.php:835
 msgid "Template ID"
 msgstr "ID del template"
 
-#: classes/options-manager.php:809
+#: classes/options-manager.php:836
 msgid "Template ID of the page that manages the double OptIn"
 msgstr "ID modello della pagina che gestisce il doppio OptIn"
 
 #: classes/options-manager.php:214
 msgid "Text"
 msgstr "Testo"
+
+#: page-templates/contacts.php:54
+msgid "Text of the message: "
+msgstr "Testo del messaggio:"
 
 #: page-templates/search.php:81
 msgid "Text to search..."
@@ -940,15 +964,25 @@ msgstr "Il logo del sito"
 msgid "The name of the network the site is part of."
 msgstr "Nome del network di cui il sito fa parte."
 
+#: classes/options-manager.php:593
+msgid "The name that must appear on the e-mails sent by the site."
+msgstr ""
+"Il nome che deve comparire, come mittente, nelle email inviate dal sito."
+
 #: classes/options-manager.php:576
 msgid "The phone number of the site."
 msgstr "Il numero di telefono del sito."
+
+#: classes/options-manager.php:602
+msgid "The provider e-mail that must be used as sender."
+msgstr ""
+"L'indirizzo email che deve essere usato come mittente delle email del sito."
 
 #: classes/options-manager.php:65
 msgid "The tagline of the site."
 msgstr "Il motto (sottotiolo) del sito."
 
-#: page-templates/contacts.php:224
+#: page-templates/contacts.php:232
 msgid "The text of the message"
 msgstr "Il testo del messaggio."
 
@@ -960,7 +994,7 @@ msgstr "Il titolo del sito."
 msgid "The url of the network the site is part of."
 msgstr "L'indirizzo del network di cui il sito fa parte."
 
-#: page-templates/contacts.php:65
+#: page-templates/contacts.php:76
 msgid "The verification code is not valid."
 msgstr "Il codice di verifica non è valido."
 
@@ -1012,7 +1046,7 @@ msgstr "Video"
 msgid "Warning"
 msgstr "Avviso"
 
-#: classes/options-manager.php:865
+#: classes/options-manager.php:892
 msgid "Web Analytics Code"
 msgstr "Codice Web Analytics"
 
@@ -1024,7 +1058,7 @@ msgstr "WhatsApp"
 msgid "WP KK Writer Theme"
 msgstr "WP KK Writer Theme"
 
-#: page-templates/contacts.php:267
+#: page-templates/contacts.php:275
 #| msgid "Write here the confirmation code"
 msgid "Write here the verification code"
 msgstr "Scrivi qui il codice di verifica"
@@ -1037,9 +1071,9 @@ msgstr "Anno"
 #: classes/options-manager.php:288 classes/options-manager.php:301
 #: classes/options-manager.php:341 classes/options-manager.php:354
 #: classes/options-manager.php:496 classes/options-manager.php:509
-#: classes/options-manager.php:621 classes/options-manager.php:762
-#: classes/options-manager.php:835 classes/options-manager.php:856
-#: classes/options-manager.php:898
+#: classes/options-manager.php:648 classes/options-manager.php:789
+#: classes/options-manager.php:862 classes/options-manager.php:883
+#: classes/options-manager.php:925
 msgid "Yes"
 msgstr "Sì"
 
@@ -1047,14 +1081,14 @@ msgstr "Sì"
 msgid "Yes if the logo needs to be shown in the footer."
 msgstr "Sì se il il logo deve essere mostrato nel footer"
 
-#: page-templates/contacts.php:232
+#: page-templates/contacts.php:240
 msgid "Your e-mail address"
 msgstr "Il tuo indirizzo email"
 
-#: page-templates/contacts.php:214
+#: page-templates/contacts.php:222
 msgid "Your name and your surname"
 msgstr "Il tuo nome e il tuo cognome"
 
-#: page-templates/contacts.php:238
+#: page-templates/contacts.php:246
 msgid "Your phone number"
 msgstr "Il tuo numero di telefono"
