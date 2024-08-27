@@ -268,9 +268,9 @@ class KKW_ContentsManager
 		return $view_date;
 	}
 
-	public static function extractCalendarDateString( $meta_tags, $post, $type='start' ){
+	public static function extractCalendarDateString( $meta_tags, $type='start' ){
 		$view_date = '';
-		if ( array_key_exists('kkw_post_type', $meta_tags) ) {
+		if ( array_key_exists( 'kkw_group', $meta_tags ) && $meta_tags['kkw_group'][0]= 'event' ) {
 			// It is an event with a start event date.
 			if ( array_key_exists( 'kkw_'. $type . '_date', $meta_tags ) ) {
 				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_'. $type . '_date'][0] );
@@ -772,27 +772,34 @@ class KKW_ContentsManager
 			$event_name   = esc_attr( $post_wrapper->title );
 			$description  = clean_and_truncate_text( $post_wrapper->description, KKW_FEATURED_TEXT_MAX_SIZE );;
 			$location     = esc_attr( KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_address' ) );
-			$start_time   = KKW_ContentsManager::extractCalendarDateString( $meta_tags, $post, 'start' );
-			$end_time     = KKW_ContentsManager::extractCalendarDateString( $meta_tags, $post, 'end');
-
-			// "2024-08-15 12:00:00";
-
-
+			$start_time   = KKW_ContentsManager::extractCalendarDateString( $meta_tags, 'start' );
+			$end_time     = KKW_ContentsManager::extractCalendarDateString( $meta_tags, 'end');
+			$site_url     = site_url();
+			$parsed_url   = parse_url( $site_url );
+			$domain       = $parsed_url['host'];
+			$title        = kkw_get_option( 'site_title', 'kkw_opt_options' );
+			$prod_id      = __( 'Export from site', 'kk_writer_theme' ) . ': ' . $title;
 			// Set the header to download the .ics file.
 			header('Content-type: text/calendar; charset=utf-8');
 			header('Content-Disposition: attachment; filename=evento.ics');
 			// Create the file ICS.
 			$ics_content = "BEGIN:VCALENDAR\n";
 			$ics_content .= "VERSION:2.0\n";
-			$ics_content .= "PRODID:-//Your Organization//NONSGML v1.0//EN\n";
+			$ics_content .= "PRODID:-//" . $prod_id . "//NONSGML v1.0//EN\n";
+			$ics_content .= "CALSCALE:GREGORIAN\n";
+			$ics_content .= "METHOD:PUBLISH\n";
 			$ics_content .= "BEGIN:VEVENT\n";
-			$ics_content .= "UID:" . uniqid() . "@yourdomain.com\n";
-			$ics_content .= "DTSTAMP:" . gmdate('Ymd\THis\Z') . "\n";
-			$ics_content .= "DTSTART:" . gmdate('Ymd\THis\Z', strtotime($start_time)) . "\n";
-			$ics_content .= "DTEND:" . gmdate('Ymd\THis\Z', strtotime($end_time)) . "\n";
-			$ics_content .= "SUMMARY:" . addslashes($event_name) . "\n";
-			$ics_content .= "DESCRIPTION:" . addslashes($description) . "\n";
-			$ics_content .= "LOCATION:" . addslashes($location) . "\n";
+			$ics_content .= "UID:" . uniqid() . "@" . $domain . "\n";
+			$ics_content .= "DTSTAMP:" . gmdate( 'Ymd\THis\Z' ) . "\n";
+			$ics_content .= "DTSTART:" . gmdate( 'Ymd\THis\Z', strtotime( $start_time ) ) . "\n";
+			if ( $end_time ) {
+				$ics_content .= "DTEND:" . gmdate( 'Ymd\THis\Z', strtotime( $end_time ) ) . "\n";
+			}
+			$ics_content .= "SUMMARY:" . addslashes( $event_name ) . "\n";
+			$ics_content .= "DESCRIPTION:" . addslashes( $description ) . "\n";
+			$ics_content .= "LOCATION:" . addslashes( $location ) . "\n";
+			$ics_content .= "TRANSP:OPAQUE\n";
+			$ics_content .= "STATUS:CONFIRMED\n";
 			$ics_content .= "END:VEVENT\n";
 			$ics_content .= "END:VCALENDAR\n";
 			// Print the file file .ics.

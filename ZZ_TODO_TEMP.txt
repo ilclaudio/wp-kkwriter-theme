@@ -1,10 +1,6 @@
 
 TEMA:
 
-- Migrare prima versione online.
-
-- Test invio email.
-- Test ics calendar.
 - Test condividi con.
 
 - Gestione immagine logo.
