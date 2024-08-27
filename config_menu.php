@@ -50,6 +50,7 @@ define(
 		'slug'       => 'article',
 		'title'      => 'Article',
 		'title-pl'   => 'Articles',
+		'slug-x'     => __ ( 'article', 'kk_writer_theme' ),
 		'title-x'    => __ ( 'Article', 'kk_writer_theme' ),
 		'title-pl-x' => __ ( 'Articles', 'kk_writer_theme' ),
 	)
@@ -60,6 +61,7 @@ define(
 		'slug'       => 'event',
 		'title'      => 'Event',
 		'title-pl'   => 'Events',
+		'slug-x'     => __ ( 'event', 'kk_writer_theme' ),
 		'title-x'    => __ ( 'Event', 'kk_writer_theme' ),
 		'title-pl-x' => __ ( 'Events', 'kk_writer_theme' ),
 	)
@@ -70,6 +72,7 @@ define(
 		'slug'       => 'news',
 		'title'      => 'News',
 		'title-pl'   => 'News',
+		'slug-x'     => __ ( 'news', 'kk_writer_theme' ),
 		'title-x'    => __ ( 'News', 'kk_writer_theme' ),
 		'title-pl-x' => __ ( 'News', 'kk_writer_theme' ),
 	)
