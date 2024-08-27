@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-27 16:18+0000\n"
+"POT-Creation-Date: 2024-08-27 16:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -60,11 +60,15 @@ msgstr ""
 msgid "API token"
 msgstr ""
 
-#: config_menu.php:53
+#: config_menu.php:54
 msgid "Article"
 msgstr ""
 
-#: config_menu.php:54
+#: config_menu.php:53
+msgid "article"
+msgstr ""
+
+#: config_menu.php:55
 msgid "Articles"
 msgstr ""
 
@@ -302,8 +306,12 @@ msgstr ""
 msgid "Essays"
 msgstr ""
 
-#: config_menu.php:63
+#: config_menu.php:65
 msgid "Event"
+msgstr ""
+
+#: config_menu.php:64
+msgid "event"
 msgstr ""
 
 #: single.php:197
@@ -318,7 +326,7 @@ msgstr ""
 msgid "Event start"
 msgstr ""
 
-#: config_menu.php:64
+#: config_menu.php:66
 msgid "Events"
 msgstr ""
 
@@ -501,7 +509,7 @@ msgstr ""
 msgid "Logo header"
 msgstr ""
 
-#: config_menu.php:91
+#: config_menu.php:94
 msgid "Main Menu"
 msgstr ""
 
@@ -549,8 +557,12 @@ msgstr ""
 msgid "Network url"
 msgstr ""
 
-#: config_menu.php:73 config_menu.php:74
+#: config_menu.php:76 config_menu.php:77
 msgid "News"
+msgstr ""
+
+#: config_menu.php:75
+msgid "news"
 msgstr ""
 
 #: config_theme.php:156 classes/options-manager.php:777
@@ -638,7 +650,7 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: config_menu.php:105
+#: config_menu.php:108
 msgid "Primary Footer Menu"
 msgstr ""
 
@@ -719,7 +731,7 @@ msgstr ""
 msgid "Search results"
 msgstr ""
 
-#: config_menu.php:118
+#: config_menu.php:121
 msgid "Secondary Footer Menu"
 msgstr ""
 

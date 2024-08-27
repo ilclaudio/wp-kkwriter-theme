@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-27 16:19+0000\n"
+"PO-Revision-Date: 2024-08-27 16:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -59,11 +59,15 @@ msgstr "Configurazioni avanzate"
 msgid "API token"
 msgstr "Token dell'API"
 
-#: config_menu.php:53
+#: config_menu.php:54
 msgid "Article"
 msgstr "Articolo"
 
-#: config_menu.php:54
+#: config_menu.php:53
+msgid "article"
+msgstr "articolo"
+
+#: config_menu.php:55
 msgid "Articles"
 msgstr "Articoli"
 
@@ -310,9 +314,13 @@ msgstr "Errore ricaricando i dati."
 msgid "Essays"
 msgstr "Saggistica"
 
-#: config_menu.php:63
+#: config_menu.php:65
 msgid "Event"
 msgstr "Evento"
+
+#: config_menu.php:64
+msgid "event"
+msgstr "evento"
 
 #: single.php:197
 msgid "Event end"
@@ -326,7 +334,7 @@ msgstr "Luogo dell'evento"
 msgid "Event start"
 msgstr "Inizio evento"
 
-#: config_menu.php:64
+#: config_menu.php:66
 msgid "Events"
 msgstr "Eventi"
 
@@ -519,7 +527,7 @@ msgstr "Logo del footer"
 msgid "Logo header"
 msgstr "Logo dell'header"
 
-#: config_menu.php:91
+#: config_menu.php:94
 msgid "Main Menu"
 msgstr "Menu Principale"
 
@@ -567,9 +575,13 @@ msgstr "Nome del network"
 msgid "Network url"
 msgstr "Indirizzo del network"
 
-#: config_menu.php:73 config_menu.php:74
+#: config_menu.php:76 config_menu.php:77
 msgid "News"
 msgstr "Notizie"
+
+#: config_menu.php:75
+msgid "news"
+msgstr "notizia"
 
 #: config_theme.php:156 classes/options-manager.php:777
 #: classes/options-manager.php:785
@@ -656,7 +668,7 @@ msgstr "Presentazione di"
 msgid "Price"
 msgstr "Prezzo"
 
-#: config_menu.php:105
+#: config_menu.php:108
 msgid "Primary Footer Menu"
 msgstr "Menu Principale Del Footer"
 
@@ -739,7 +751,7 @@ msgstr "Cerca"
 msgid "Search results"
 msgstr "Risultati della ricerca"
 
-#: config_menu.php:118
+#: config_menu.php:121
 msgid "Secondary Footer Menu"
 msgstr "Menu Secondario Del Footer"
 
