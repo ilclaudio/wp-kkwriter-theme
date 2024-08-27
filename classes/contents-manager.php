@@ -750,16 +750,18 @@ class KKW_ContentsManager
 			$item_title = $post->post_title ? $post->post_title : '';
 			$item_desc  = $post->post_content ? clean_and_truncate_text( $post->post_content, KKW_FEATURED_TEXT_MAX_SIZE ) : '';
 			$item_image = $img_id && count( $img_array ) ? $img_array[0] : '';
-			$domain     = site_url();
+			$site_url   = site_url();
+			$parsed_url = parse_url( $site_url );
+			$domain     = $parsed_url['host'];
 			$item_url   = get_permalink();
 			$og_data['id']          = $item_id;
 			$og_data['title']       = $item_title;
 			$og_data['type']        = $item_type;
 			$og_data['description'] = $item_desc;
-			// $og_data['image']       = urlencode( $item_image );
-			$og_data['image']       =  $item_image;
-			$og_data['domain']       =  $domain;
-			$og_data['url']          =  $item_url;
+			$og_data['image']       = $item_image;
+			$og_data['site_url']    = $site_url;
+			$og_data['domain']      = $domain;
+			$og_data['url']         = $item_url;
 		}
 		return $og_data;
 	}

@@ -35,6 +35,7 @@ $og_data   = KKW_ContentsManager::get_og_data();
 	<meta name="twitter:description" content="<?php echo $og_data['description']; ?>">
 	<meta name="twitter:image" content="<?php echo $og_data['image']; ?>">
 	<meta name="twitter:url" content="<?php echo $og_data['url']; ?>">
+
 <body>
 	<div class="container">
 		<header class="border-bottom lh-1 py-3">

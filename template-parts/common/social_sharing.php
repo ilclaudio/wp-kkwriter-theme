@@ -1,9 +1,17 @@
 <?php
-// $site_url = get_site_url();
-$og_data    = KKW_ContentsManager::get_og_data();
-// $page_url   = get_permalink();
-$page_url     = $og_data['url'];
-$shared_title = __( 'I\'m pleased to share the post', 'kk_writer_theme' ) . ' "' . $og_data['title'] . '"';
+$og_data          = KKW_ContentsManager::get_og_data();
+$page_url         = $og_data['url'];
+$enc_page_url     = urlencode( $page_url );
+$shared_title     = __( 'I\'m pleased to share the post', 'kk_writer_theme' ) . ' "' . $og_data['title'] . '"';
+// $shared_title     .= ' - ' . $og_data['domain'];
+$enc_shared_title = urlencode( $shared_title );
+// Prepare complete url to share the page on many platforms.
+$fb_share_url = 'https://facebook.com/sharer/sharer.php?u=' . $enc_page_url;
+$tw_share_url = 'https://twitter.com/share?url=' . $enc_page_url .'&text=' . $enc_shared_title;
+$lk_share_url = 'https://www.linkedin.com/sharing/share-offsite/?mini=true&url=' . $enc_page_url;
+$wa_share_url = 'https://api.whatsapp.com/send?text=' . $enc_shared_title . ' ' . $enc_page_url;
+
+// https://www.linkedin.com/feed/?linkOrigin=LI_BADGE&shareActive=true&shareUrl=https%3A%2F%2Fwww.claudiobattaglino.it%2Fi-nostri-antenati-quando-luomo-e-diventato-tale%2F
 
 ?>
 <section class="dropdown d-inline kkw_share_section">
@@ -22,8 +30,9 @@ $shared_title = __( 'I\'m pleased to share the post', 'kk_writer_theme' ) . ' "'
 			<ul class="link-list">
 				<li>
 					<a class="list-item"
-						href="https://facebook.com/sharer/sharer.php?u=<?php echo $page_url; ?>"
-						target="_blank" rel="noopener noreferrer" aria-label="<?php echo __( 'Share on Facebook', 'kk_writer_theme' ); ?>">
+						href="<?php echo esc_url( $fb_share_url ); ?>"
+						target="_blank" rel="noopener noreferrer"
+						aria-label="<?php echo __( 'Share on Facebook', 'kk_writer_theme' ); ?>">
 						<i class="fab fa-facebook-f fa-lg"></i>
 						<span>
 							<?php echo __( 'Facebook', 'kk_writer_theme' ); ?>
@@ -31,22 +40,28 @@ $shared_title = __( 'I\'m pleased to share the post', 'kk_writer_theme' ) . ' "'
 					</a>
 				</li>
 				<li>
-					<a class="list-item" href="https://twitter.com/share?url=<?php echo urlencode( $page_url ); ?>&text=<?php echo urlencode( $shared_title ); ?>"
-					target="_blank" rel="noopener noreferrer" aria-label="<?php echo __( 'Share on Twitter', 'kk_writer_theme' ); ?>">
+					<a class="list-item" 
+						href="<?php echo esc_url( $tw_share_url ); ?>"
+						target="_blank" rel="noopener noreferrer"
+						aria-label="<?php echo __( 'Share on Twitter', 'kk_writer_theme' ); ?>">
 						<i class="fab fa-twitter fa-lg"></i>
 						<span><?php echo __( 'Twitter', 'kk_writer_theme' ); ?></span>
 					</a>
 				</li>
 				<li>
-					<a class="list-item" href="http://www.linkedin.com/shareArticle?mini=true&amp;url#="
-					target="_blank" rel="noopener noreferrer" aria-label="<?php echo __( 'Share on Linkedin', 'kk_writer_theme' ); ?>">
+					<a class="list-item" 
+						href="<?php echo esc_url( $lk_share_url ); ?>"
+						target="_blank" rel="noopener noreferrer"
+						aria-label="<?php echo __( 'Share on Linkedin', 'kk_writer_theme' ); ?>">
 						<i class="fab fa-linkedin-in fa-lg"></i>
 						<span><?php echo __( 'Linkedin', 'kk_writer_theme' ); ?></span>
 					</a>
 				</li>
 				<li>
-					<a class="list-item" href="whatsapp://send?text==url"
-						target="_blank" rel="noopener noreferrer" aria-label="<?php echo __( 'Share on WhatsApp', 'kk_writer_theme' ); ?>">
+					<a class="list-item"
+						href="<?php echo esc_url( $wa_share_url ); ?>"
+						target="_blank" rel="noopener noreferrer"
+						aria-label="<?php echo __( 'Share on WhatsApp', 'kk_writer_theme' ); ?>">
 						<i class="fab fa-whatsapp fa-lg"></i>
 						<span><?php echo __( 'WhatsApp', 'kk_writer_theme' ); ?></span>
 					</a>
