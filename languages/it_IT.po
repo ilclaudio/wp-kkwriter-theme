@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-26 18:06+0000\n"
+"PO-Revision-Date: 2024-08-27 16:19+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -39,11 +39,11 @@ msgstr "Aggiungi un messaggio"
 msgid "Add messages that will be displayed on the homepage."
 msgstr "Aggiungi messaggi che verranno visualizzati nella home page."
 
-#: single.php:205
+#: single.php:210
 msgid "Add the event to your calendar (iCal)"
 msgstr "Aggiungi l'evento al tuo calendario (iCal)"
 
-#: single.php:239 classes/options-manager.php:559
+#: single.php:244 classes/options-manager.php:559
 msgid "Address"
 msgstr "Indirizzo"
 
@@ -203,7 +203,7 @@ msgstr "Conferma"
 msgid "Confirmation email not sent."
 msgstr "Email di conferma non inviata."
 
-#: config_theme.php:143 single.php:117 single.php:236
+#: config_theme.php:143 single.php:117 single.php:241
 #: classes/options-manager.php:526 classes/options-manager.php:543
 #: page-templates/contacts.php:13
 msgid "Contacts"
@@ -262,7 +262,7 @@ msgstr "Dettagli"
 msgid "Do you want to receive an email notification"
 msgstr "Vuoi ricevere una email di notifica"
 
-#: single.php:242 classes/options-manager.php:567
+#: single.php:247 classes/options-manager.php:567
 #: page-templates/contacts.php:52 page-templates/contacts.php:237
 msgid "E-mail"
 msgstr "E-mail"
@@ -316,15 +316,15 @@ msgstr "Evento"
 
 #: single.php:197
 msgid "Event end"
-msgstr "Inizio evento"
+msgstr "Fine evento"
 
-#: single.php:224
+#: single.php:229
 msgid "Event location address"
 msgstr "Luogo dell'evento"
 
 #: single.php:189
 msgid "Event start"
-msgstr "Fine evento"
+msgstr "Inizio evento"
 
 #: config_menu.php:64
 msgid "Events"
@@ -334,7 +334,11 @@ msgstr "Eventi"
 msgid "Excerpts"
 msgstr "Testi"
 
-#: single.php:245
+#: classes/contents-manager.php:781
+msgid "Export from site"
+msgstr "Esportato dal sito"
+
+#: single.php:250
 msgid "External link"
 msgstr "Link esterno"
 
@@ -470,7 +474,7 @@ msgstr "Inserisci qui i link ai tuoi social media."
 msgid "ISBN"
 msgstr "ISBN"
 
-#: classes/contents-manager.php:801
+#: classes/contents-manager.php:808
 msgid "It is not possible to download the .ics file."
 msgstr "Non è possibile scaricare il file .ics."
 
@@ -615,7 +619,7 @@ msgstr "Pagina non trovata"
 msgid "Pages"
 msgstr "Pagine"
 
-#: single.php:240
+#: single.php:245
 msgid "Person"
 msgstr "Persona"
 
@@ -624,11 +628,11 @@ msgstr "Persona"
 msgid "Phone number"
 msgstr "Numero di telefono"
 
-#: single.php:135 single.php:278
+#: single.php:135 single.php:283
 msgid "Photo gallery"
 msgstr "Galleria fotografica"
 
-#: single.php:108 single.php:219
+#: single.php:108 single.php:224
 msgid "Place"
 msgstr "Luogo"
 
@@ -688,7 +692,7 @@ msgid "receipt"
 msgstr "ricevuta"
 
 #: single-kkw_book.php:104 single-kkw_book.php:268 single.php:144
-#: single.php:297
+#: single.php:302
 msgid "Related books"
 msgstr "Libri correlati"
 
@@ -910,7 +914,7 @@ msgstr "Schede per passare da un contenuto all'altro"
 msgid "Tagline"
 msgstr "Tagline"
 
-#: single.php:241
+#: single.php:246
 msgid "Telephone"
 msgstr "Telefono"
 
@@ -1038,7 +1042,7 @@ msgstr "Twitter"
 msgid "Type the text to search and click on the Search button"
 msgstr "Scrivi il testo da cercare e clicca sul bottone Cerca"
 
-#: single.php:126 single.php:259
+#: single.php:126 single.php:264
 msgid "Video"
 msgstr "Video"
 
