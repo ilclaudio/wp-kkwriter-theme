@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-27 16:31+0000\n"
+"PO-Revision-Date: 2024-08-27 17:44+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -350,7 +350,7 @@ msgstr "Esportato dal sito"
 msgid "External link"
 msgstr "Link esterno"
 
-#: template-parts/common/social_sharing.php:25
+#: template-parts/common/social_sharing.php:29
 msgid "Facebook"
 msgstr "Facebook"
 
@@ -432,6 +432,10 @@ msgstr "Messaggi della HP"
 msgid "https://www.wp-recipes.com"
 msgstr "https://www.wp-recipes.com"
 
+#: template-parts/common/social_sharing.php:6
+msgid "I'm pleased to share the post"
+msgstr "Condivido con piacere il post"
+
 #: classes/options-manager.php:821
 msgid "ID of the list associated to the site."
 msgstr "ID della lista associata al sito."
@@ -503,7 +507,7 @@ msgstr "Link"
 msgid "Link to an in-depth page also external to the site."
 msgstr "Collegamento a una pagina di approfondimento esterna al sito."
 
-#: template-parts/common/social_sharing.php:40
+#: template-parts/common/social_sharing.php:44
 msgid "Linkedin"
 msgstr "Linkedin"
 
@@ -811,23 +815,23 @@ msgstr "Sezione per configurare le opzioni di base."
 msgid "Selection of the program used to manage the newsletter of the site."
 msgstr "Selezione del programma utilizzato per gestire la newsletter del sito."
 
-#: template-parts/common/social_sharing.php:12
+#: template-parts/common/social_sharing.php:16
 msgid "Share on"
 msgstr "Condividi su"
 
-#: template-parts/common/social_sharing.php:22
+#: template-parts/common/social_sharing.php:26
 msgid "Share on Facebook"
 msgstr "Condividi su Facebook"
 
-#: template-parts/common/social_sharing.php:38
+#: template-parts/common/social_sharing.php:42
 msgid "Share on Linkedin"
 msgstr "Condividi su Linkedin"
 
-#: template-parts/common/social_sharing.php:31
+#: template-parts/common/social_sharing.php:35
 msgid "Share on Twitter"
 msgstr "Condividi su Twitter"
 
-#: template-parts/common/social_sharing.php:45
+#: template-parts/common/social_sharing.php:49
 msgid "Share on WhatsApp"
 msgstr "Condividi su WhatsApp"
 
@@ -1046,7 +1050,7 @@ msgstr "Titolo decrescente"
 msgid "Tracks"
 msgstr "Audio"
 
-#: template-parts/common/social_sharing.php:33
+#: template-parts/common/social_sharing.php:37
 msgid "Twitter"
 msgstr "Twitter"
 
@@ -1066,7 +1070,7 @@ msgstr "Avviso"
 msgid "Web Analytics Code"
 msgstr "Codice Web Analytics"
 
-#: template-parts/common/social_sharing.php:47
+#: template-parts/common/social_sharing.php:51
 msgid "WhatsApp"
 msgstr "WhatsApp"
 

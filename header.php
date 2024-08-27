@@ -21,22 +21,20 @@ $og_data   = KKW_ContentsManager::get_og_data();
 	<?php get_template_part( 'template-parts/header/analytics' ); ?>
 	<?php get_template_part( 'template-parts/header/metatags' ); ?>
 	<link rel="icon" href="<?php echo get_template_directory_uri() . '/assets/img/favicon.ico'; ?> " />
+
 	<!-- OG DATA for page sharing -->
 	<meta property="og:title" content="<?php echo $og_data['title']; ?>" />
 	<meta property="og:description" content="<?php echo $og_data['description']; ?>" />
 	<meta property="og:image" content="<?php echo $og_data['image']; ?>"/>
 	<meta property="og:image:secure_url" content="<?php echo $og_data['image']; ?>" />
 	<meta property="og:url" content='<?php echo $og_data['url']; ?>'/>
-	<meta property="og:type" content="article" />
-	<meta name="twitter:card" content="<?php echo $og_data['image']; ?>">
-	<meta name="twitter:site" content="<?php echo $og_data['title']; ?>">
+	<meta property="og:type" content="website" />
+	<!-- TWITTER CARD  -->
+	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="<?php echo $og_data['title']; ?>">
 	<meta name="twitter:description" content="<?php echo $og_data['description']; ?>">
-	<meta name="twitter:creator" content="<?php echo $og_data['title']; ?>">
 	<meta name="twitter:image" content="<?php echo $og_data['image']; ?>">
-	<meta name="twitter:domain" content="<?php echo $og_data['domain']; ?>">
-</head>
-
+	<meta name="twitter:url" content="<?php echo $og_data['url']; ?>">
 <body>
 	<div class="container">
 		<header class="border-bottom lh-1 py-3">
