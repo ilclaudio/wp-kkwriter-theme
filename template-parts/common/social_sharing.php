@@ -1,6 +1,10 @@
 <?php
+// $site_url = get_site_url();
+$og_data    = KKW_ContentsManager::get_og_data();
+// $page_url   = get_permalink();
+$page_url     = $og_data['url'];
+$shared_title = __( 'I\'m pleased to share the post', 'kk_writer_theme' ) . ' "' . $og_data['title'] . '"';
 
-$site_url = get_site_url();
 ?>
 <section class="dropdown d-inline kkw_share_section">
 
@@ -18,7 +22,7 @@ $site_url = get_site_url();
 			<ul class="link-list">
 				<li>
 					<a class="list-item"
-						href="https://facebook.com/sharer/sharer.php?u=<?php echo urlencode( $site_url ) ; ?>"
+						href="https://facebook.com/sharer/sharer.php?u=<?php echo $page_url; ?>"
 						target="_blank" rel="noopener noreferrer" aria-label="<?php echo __( 'Share on Facebook', 'kk_writer_theme' ); ?>">
 						<i class="fab fa-facebook-f fa-lg"></i>
 						<span>
@@ -27,7 +31,7 @@ $site_url = get_site_url();
 					</a>
 				</li>
 				<li>
-					<a class="list-item" href="https://twitter.com/share?url=<?php echo esc_url( $site_url ) ; ?>"
+					<a class="list-item" href="https://twitter.com/share?url=<?php echo urlencode( $page_url ); ?>&text=<?php echo urlencode( $shared_title ); ?>"
 					target="_blank" rel="noopener noreferrer" aria-label="<?php echo __( 'Share on Twitter', 'kk_writer_theme' ); ?>">
 						<i class="fab fa-twitter fa-lg"></i>
 						<span><?php echo __( 'Twitter', 'kk_writer_theme' ); ?></span>

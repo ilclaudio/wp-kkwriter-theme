@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-27 16:31+0000\n"
+"POT-Creation-Date: 2024-08-27 17:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -342,7 +342,7 @@ msgstr ""
 msgid "External link"
 msgstr ""
 
-#: template-parts/common/social_sharing.php:25
+#: template-parts/common/social_sharing.php:29
 msgid "Facebook"
 msgstr ""
 
@@ -422,6 +422,10 @@ msgstr ""
 msgid "https://www.wp-recipes.com"
 msgstr ""
 
+#: template-parts/common/social_sharing.php:6
+msgid "I'm pleased to share the post"
+msgstr ""
+
 #: classes/options-manager.php:821
 msgid "ID of the list associated to the site."
 msgstr ""
@@ -485,7 +489,7 @@ msgstr ""
 msgid "Link to an in-depth page also external to the site."
 msgstr ""
 
-#: template-parts/common/social_sharing.php:40
+#: template-parts/common/social_sharing.php:44
 msgid "Linkedin"
 msgstr ""
 
@@ -785,23 +789,23 @@ msgstr ""
 msgid "Selection of the program used to manage the newsletter of the site."
 msgstr ""
 
-#: template-parts/common/social_sharing.php:12
+#: template-parts/common/social_sharing.php:16
 msgid "Share on"
 msgstr ""
 
-#: template-parts/common/social_sharing.php:22
+#: template-parts/common/social_sharing.php:26
 msgid "Share on Facebook"
 msgstr ""
 
-#: template-parts/common/social_sharing.php:38
+#: template-parts/common/social_sharing.php:42
 msgid "Share on Linkedin"
 msgstr ""
 
-#: template-parts/common/social_sharing.php:31
+#: template-parts/common/social_sharing.php:35
 msgid "Share on Twitter"
 msgstr ""
 
-#: template-parts/common/social_sharing.php:45
+#: template-parts/common/social_sharing.php:49
 msgid "Share on WhatsApp"
 msgstr ""
 
@@ -1014,7 +1018,7 @@ msgstr ""
 msgid "Tracks"
 msgstr ""
 
-#: template-parts/common/social_sharing.php:33
+#: template-parts/common/social_sharing.php:37
 msgid "Twitter"
 msgstr ""
 
@@ -1034,7 +1038,7 @@ msgstr ""
 msgid "Web Analytics Code"
 msgstr ""
 
-#: template-parts/common/social_sharing.php:47
+#: template-parts/common/social_sharing.php:51
 msgid "WhatsApp"
 msgstr ""
 

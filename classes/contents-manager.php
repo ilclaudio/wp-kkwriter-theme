@@ -746,7 +746,7 @@ class KKW_ContentsManager
 		$types     = [ 'post', 'kkw_book' ];
 		if ( $item_id && in_array( $item_type, $types ) ) {
 			$img_id     = get_post_thumbnail_id( $item_id );
-			$img_array  = wp_get_attachment_image_src( $img_id, 'featured-post' );
+			$img_array  = wp_get_attachment_image_src( $img_id, 'full' );
 			$item_title = $post->post_title ? $post->post_title : '';
 			$item_desc  = $post->post_content ? clean_and_truncate_text( $post->post_content, KKW_FEATURED_TEXT_MAX_SIZE ) : '';
 			$item_image = $img_id && count( $img_array ) ? $img_array[0] : '';

@@ -46,10 +46,10 @@ if( ! function_exists( 'clean_and_truncate_text' ) ) {
 		// Truncate tags.
 		if ( strlen( $clean_text ) > $size ) {
 			if ( $split ){
-				$truncated_text = substr($clean_text, 0, $size ) . '...';
+				$truncated_text = substr( $clean_text, 0, $size ) . '...';
 			} else {
-				$truncated_text = mb_substr($clean_text, 0, $size );
-				$last_space = mb_strrpos($truncated_text, ' ');
+				$truncated_text = mb_substr( $clean_text, 0, $size );
+				$last_space     = mb_strrpos( $truncated_text, ' ' );
 				if ( $last_space !== false ) {
 					$truncated_text = mb_substr( $truncated_text, 0, $last_space ) . '...';
 				}
