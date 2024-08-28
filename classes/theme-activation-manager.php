@@ -5,7 +5,7 @@
  * @package KK_Writer_Theme
  */
 
-require_once 'multi-lang-manager.php';
+// require_once 'theme-lang-manager.php';
 require_once KKW_THEMA_PATH . '/config_menu.php';
 
 /**

@@ -73,7 +73,18 @@ class KKW_ThemeLangManager {
 	 */
 	public static function get_current_language( $type = 'slug' ) {
 		$cl = pll_current_language( $type );
-		return $cl ? $cl : KKW_DEFAULT_LANGUAGE;
+		switch ( $type ) {
+			case 'slug':
+				$default = KKW_DEFAULT_LANGUAGE_SLUG;
+				break;
+			case 'locale':
+				$default = KKW_DEFAULT_LANGUAGE_LOCALE;
+				break;
+			default:
+				$default = KKW_DEFAULT_LANGUAGE_NAME;
+				break;
+		}
+		return $cl ? $cl : $default;
 	}
 
 

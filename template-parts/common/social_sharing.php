@@ -2,8 +2,7 @@
 $og_data          = KKW_ContentsManager::get_og_data();
 $page_url         = $og_data['url'];
 $enc_page_url     = urlencode( $page_url );
-$shared_title     = __( 'I\'m pleased to share the post', 'kk_writer_theme' ) . ' "' . $og_data['title'] . '"';
-// $shared_title     .= ' - ' . $og_data['domain'];
+$shared_title     = __( 'I\'m pleased to share the post', 'kk_writer_theme' ) . ' "' . $og_data['shared_title'] . '"';
 $enc_shared_title = urlencode( $shared_title );
 // Prepare complete url to share the page on many platforms.
 $fb_share_url = 'https://facebook.com/sharer/sharer.php?u=' . $enc_page_url;
@@ -11,7 +10,11 @@ $tw_share_url = 'https://twitter.com/share?url=' . $enc_page_url .'&text=' . $en
 $lk_share_url = 'https://www.linkedin.com/sharing/share-offsite/?mini=true&url=' . $enc_page_url;
 $wa_share_url = 'https://api.whatsapp.com/send?text=' . $enc_shared_title . ' ' . $enc_page_url;
 
-// https://www.linkedin.com/feed/?linkOrigin=LI_BADGE&shareActive=true&shareUrl=https%3A%2F%2Fwww.claudiobattaglino.it%2Fi-nostri-antenati-quando-luomo-e-diventato-tale%2F
+// https://api.whatsapp.com/send?text=I nostri antenati: quando l’uomo è diventato tale https://www.claudiobattaglino.it/i-nostri-antenati-quando-luomo-e-diventato-tale/
+
+// https://x.com/intent/post?text=AddToAny+Share+Buttons+https://www.addtoany.com/
+
+// https://www.linkedin.com/feed/?linkOrigin=LI_BADGE&shareActive=true&shareUrl=https://www.claudiobattaglino.it/i-nostri-antenati-quando-luomo-e-diventato-tale/
 
 ?>
 <section class="dropdown d-inline kkw_share_section">

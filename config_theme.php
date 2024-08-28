@@ -11,7 +11,9 @@
 // Multilanguage options.
 define( 'KKW_IT_SLUG', 'it' );
 define( 'KKW_EN_SLUG', 'en' );
-define( 'KKW_DEFAULT_LANGUAGE', KKW_IT_SLUG );
+define( 'KKW_DEFAULT_LANGUAGE_SLUG', KKW_IT_SLUG );
+define( 'KKW_DEFAULT_LANGUAGE_LOCALE', 'it_IT' );
+define( 'KKW_DEFAULT_LANGUAGE_NAME', 'Italiano' );
 define( 'KKW_ENG_SUFFIX_LANGUAGE', '_eng' );
 define( 'KKW_THEMA_PATH', plugin_dir_path( __FILE__ ) );
 define( 'KKW_THEMA_URL', get_template_directory_uri() );
