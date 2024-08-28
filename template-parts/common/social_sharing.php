@@ -7,14 +7,10 @@ $enc_shared_title = urlencode( $shared_title );
 // Prepare complete url to share the page on many platforms.
 $fb_share_url = 'https://facebook.com/sharer/sharer.php?u=' . $enc_page_url;
 $tw_share_url = 'https://twitter.com/share?url=' . $enc_page_url .'&text=' . $enc_shared_title;
-$lk_share_url = 'https://www.linkedin.com/sharing/share-offsite/?mini=true&url=' . $enc_page_url;
+// $lk_share_url = 'https://www.linkedin.com/sharing/share-offsite/?mini=true&url=' . $enc_page_url;
+$lk_share_url = 'https://www.linkedin.com/feed/?linkOrigin=LI_BADGE&shareActive=true&shareUrl=' . $enc_page_url;
 $wa_share_url = 'https://api.whatsapp.com/send?text=' . $enc_shared_title . ' ' . $enc_page_url;
-
-// https://api.whatsapp.com/send?text=I nostri antenati: quando l’uomo è diventato tale https://www.claudiobattaglino.it/i-nostri-antenati-quando-luomo-e-diventato-tale/
-
-// https://x.com/intent/post?text=AddToAny+Share+Buttons+https://www.addtoany.com/
-
-// https://www.linkedin.com/feed/?linkOrigin=LI_BADGE&shareActive=true&shareUrl=https://www.claudiobattaglino.it/i-nostri-antenati-quando-luomo-e-diventato-tale/
+$xx_share_url = 'https://x.com/intent/post?text=' . $enc_shared_title . ' ' . $enc_page_url;
 
 ?>
 <section class="dropdown d-inline kkw_share_section">
