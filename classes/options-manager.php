@@ -60,6 +60,17 @@ class KKW_ThemeOptionsManager
 		);
 		$base_options->add_field(
 			array(
+				'id'         => 'site_short_name',
+				'name'       => __( 'Site short name', 'kk_writer_theme' ) . '&nbsp;*',
+				'desc'       => __( 'The short name of the site for sharing and SEO.' , 'kk_writer_theme' ),
+				'type'       => 'text',
+				'attributes' => array(
+					'required'   => 'required',
+				),
+			)
+		);
+		$base_options->add_field(
+			array(
 				'id'         => 'site_tagline',
 				'name'       => __( 'Tagline', 'kk_writer_theme' ) . '&nbsp;*',
 				'desc'       => __( 'The tagline of the site.' , 'kk_writer_theme' ),

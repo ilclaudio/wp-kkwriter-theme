@@ -10,7 +10,7 @@ if ( ! class_exists( 'KKW_AuthorizationManager' ) ) {
 }
 
 if ( ! class_exists( 'KKW_ThemeLangManager' ) ) {
-	include_once 'multi-lang-manager.php';
+	include_once 'theme-lang-manager.php';
 }
 
 if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
@@ -40,10 +40,14 @@ class KKW_ThemeManager {
 		// Disable customizer.
 		$this->configure_customizer();
 
-		// Set the permalink mode;
+		// Set the permalink mode.
 		$this->configure_permalink();
 
-		// Setup roles and permissions
+		// Set the robots meta tag.
+		$this->configure_custom_robots();
+		
+
+		// Setup roles and permissions.
 		$am = new KKW_AuthorizationManager();
 		$am->setup();
 
@@ -87,5 +91,16 @@ class KKW_ThemeManager {
 		$wp_rewrite->set_permalink_structure($permalink_structure);
 		$wp_rewrite->flush_rules();
 	}
+	
+	private function configure_custom_robots() {
+		add_filter( 'wp_robots', array( $this, 'get_robots_head' ) );
+	}
 
+	public function get_robots_head(){
+		$robots['index'] = true;
+		$robots['follow'] = true;
+		$robots['max-image-preview'] = 'large';
+		$robots['max-snippet'] = '-1';
+		$robots['max-video-preview'] = '-1';
+		return $robots;	}
 }
