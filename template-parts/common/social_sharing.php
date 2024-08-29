@@ -7,11 +7,13 @@ $enc_shared_title = urlencode( $shared_title );
 // Prepare complete url to share the page on many platforms.
 $fb_share_url = 'https://facebook.com/sharer/sharer.php?u=' . $enc_page_url;
 $tw_share_url = 'https://twitter.com/share?url=' . $enc_page_url .'&text=' . $enc_shared_title;
-// $lk_share_url = 'https://www.linkedin.com/sharing/share-offsite/?mini=true&url=' . $enc_page_url;
-$lk_share_url = 'https://www.linkedin.com/feed/?linkOrigin=LI_BADGE&shareActive=true&shareUrl=' . $enc_page_url;
+$lk_share_url = 'https://www.linkedin.com/sharing/share-offsite/?mini=true&url=' . $enc_page_url;
 $wa_share_url = 'https://api.whatsapp.com/send?text=' . $enc_shared_title . ' ' . $enc_page_url;
-$xx_share_url = 'https://x.com/intent/post?text=' . $enc_shared_title . ' ' . $enc_page_url;
+$gm_share_url = 'https://mail.google.com/mail/u/0/?ui=2&fs=1&tf=cm&su=' . $enc_shared_title . ' &body=' . $og_data['description'] . ' - ' . $og_data['url'] ;
+$mm_share_url = 'mailto:?subject=' . $enc_shared_title . '&body=' . $og_data['description'] . ' - ' . $og_data['url'];
 
+// $lk_share_url = 'https://www.linkedin.com/feed/?linkOrigin=LI_BADGE&shareActive=true&shareUrl=' . $enc_page_url;
+// $xx_share_url = 'https://x.com/intent/post?text=' . $enc_shared_title . ' ' . $enc_page_url;
 ?>
 <section class="dropdown d-inline kkw_share_section">
 
@@ -63,6 +65,24 @@ $xx_share_url = 'https://x.com/intent/post?text=' . $enc_shared_title . ' ' . $e
 						aria-label="<?php echo __( 'Share on WhatsApp', 'kk_writer_theme' ); ?>">
 						<i class="fab fa-whatsapp fa-lg"></i>
 						<span><?php echo __( 'WhatsApp', 'kk_writer_theme' ); ?></span>
+					</a>
+				</li>
+				<li>
+					<a class="list-item"
+						href="<?php echo esc_url( $gm_share_url ); ?>"
+						target="_blank" rel="noopener noreferrer"
+						aria-label="<?php echo __( 'Share on Gmail', 'kk_writer_theme' ); ?>">
+						<i class="fab fa-google fa-lg"></i>
+						<span><?php echo __( 'Gmail', 'kk_writer_theme' ); ?></span>
+					</a>
+				</li>
+				<li>
+					<a class="list-item"
+						href="<?php echo esc_url( $mm_share_url ); ?>"
+						target="_blank" rel="noopener noreferrer"
+						aria-label="<?php echo __( 'Share by e-mail', 'kk_writer_theme' ); ?>">
+						<i class="far fa-envelope fa-lg"></i>
+						<span><?php echo __( 'E-mail', 'kk_writer_theme' ); ?></span>
 					</a>
 				</li>
 			</ul>
