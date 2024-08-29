@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2024-08-28 16:37+0000\n"
+"PO-Revision-Date: 2024-08-29 16:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -268,6 +268,7 @@ msgstr "Vuoi ricevere una email di notifica"
 
 #: single.php:247 classes/options-manager.php:578
 #: page-templates/contacts.php:52 page-templates/contacts.php:237
+#: template-parts/common/social_sharing.php:85
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -350,7 +351,7 @@ msgstr "Esportato dal sito"
 msgid "External link"
 msgstr "Link esterno"
 
-#: template-parts/common/social_sharing.php:41
+#: template-parts/common/social_sharing.php:39
 msgid "Facebook"
 msgstr "Facebook"
 
@@ -411,6 +412,10 @@ msgstr "Logo del footer visibile"
 #: page-templates/contacts.php:51
 msgid "Full name"
 msgstr "Nome:"
+
+#: template-parts/common/social_sharing.php:76
+msgid "Gmail"
+msgstr "Gmail"
 
 #: classes/options-manager.php:254
 msgid "Home Page Layout"
@@ -507,7 +512,7 @@ msgstr "Link"
 msgid "Link to an in-depth page also external to the site."
 msgstr "Collegamento a una pagina di approfondimento esterna al sito."
 
-#: template-parts/common/social_sharing.php:60
+#: template-parts/common/social_sharing.php:58
 msgid "Linkedin"
 msgstr "Linkedin"
 
@@ -815,23 +820,31 @@ msgstr "Sezione per configurare le opzioni di base."
 msgid "Selection of the program used to manage the newsletter of the site."
 msgstr "Selezione del programma utilizzato per gestire la newsletter del sito."
 
-#: template-parts/common/social_sharing.php:27
+#: template-parts/common/social_sharing.php:83
+msgid "Share by e-mail"
+msgstr "Invia e-mail"
+
+#: template-parts/common/social_sharing.php:25
 msgid "Share on"
 msgstr "Condividi su"
 
-#: template-parts/common/social_sharing.php:38
+#: template-parts/common/social_sharing.php:36
 msgid "Share on Facebook"
 msgstr "Condividi su Facebook"
 
-#: template-parts/common/social_sharing.php:58
+#: template-parts/common/social_sharing.php:74
+msgid "Share on Gmail"
+msgstr "Condividi con Gmail"
+
+#: template-parts/common/social_sharing.php:56
 msgid "Share on Linkedin"
 msgstr "Condividi su Linkedin"
 
-#: template-parts/common/social_sharing.php:49
+#: template-parts/common/social_sharing.php:47
 msgid "Share on Twitter"
 msgstr "Condividi su Twitter"
 
-#: template-parts/common/social_sharing.php:67
+#: template-parts/common/social_sharing.php:65
 msgid "Share on WhatsApp"
 msgstr "Condividi su WhatsApp"
 
@@ -1058,7 +1071,7 @@ msgstr "Titolo decrescente"
 msgid "Tracks"
 msgstr "Audio"
 
-#: template-parts/common/social_sharing.php:51
+#: template-parts/common/social_sharing.php:49
 msgid "Twitter"
 msgstr "Twitter"
 
@@ -1078,7 +1091,7 @@ msgstr "Avviso"
 msgid "Web Analytics Code"
 msgstr "Codice Web Analytics"
 
-#: template-parts/common/social_sharing.php:69
+#: template-parts/common/social_sharing.php:67
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
