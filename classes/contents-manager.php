@@ -734,12 +734,22 @@ class KKW_ContentsManager
 	public static function get_og_data() {
 		global $post;
 		$og_data = array(
-			'id'          => '',
-			'title'       => '',
-			'description' => '',
-			'image'       => '',
-			'url'         => '',
-			'domain'      => '',
+			'id'           => '',
+			'title'        => '',
+			'type'         => '',
+			'description'  => '',
+			'image'        => '',
+			'img_width'    => '',
+			'img_height'   => '',
+			'img_type'     => '',
+			'site_url'     => '',
+			'url'          => '',
+			'domain'       => '',
+			'short_name'   => '',
+			'site_tagline' => '',
+			'site_title'   => '',
+			'shared_title' => '',
+			'locale'       => '',
 		);
 		$item_id   = $post && $post->ID ? $post->ID : '';
 		$item_type = $item_id && $post->post_type ? $post->post_type : '';
