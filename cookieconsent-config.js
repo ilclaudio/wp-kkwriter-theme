@@ -85,7 +85,7 @@ CookieConsent.run({
 						},
 						{
 							title: 'Maggiori informazioni',
-							description: 'Per qualsiasi domanda relativa alla mia politica sui cookie e alle tue scelte, ti preghiamo di <a href="#contact-page">contattarci</a>'
+							description: 'Per qualsiasi domanda relativa alla politica sui cookie e alle scelte possibili, ti preghiamo di <a href="#contact-page">contattarci</a>'
 						}
 					]
 				}
