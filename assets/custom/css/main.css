@@ -496,3 +496,9 @@ h1, h2, h3, h4, h5, h6 {
 .blockquote p {
 	font-size: 0.85rem !important;
 }
+
+/* STATIC PAGES */
+
+.kkw_page_content ul {
+	padding-left: 4em;
+}
