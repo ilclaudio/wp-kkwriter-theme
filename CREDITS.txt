@@ -4,12 +4,13 @@ This is an open source project.
 You may also freely use this technology in your projects under the license described in the LICENSE file.
 It would NOT have been possible to do it alone and in such a short time without the invaluable support of the following projects, technologies and libraries.
 
-- Bootstrap 5.3
-- TGM: 
-- BootstrapItalia:
+- Bootstrap 5.3 (https://github.com/twbs/bootstrap/blob/v5.3.3/site/content/docs/5.3/getting-started/introduction.md).
+- TGM: To force plugin installation (https://github.com/TGMPA/TGM-Plugin-Activation).
 - Photo gallery: Lightbox2 by Lokesh Dhakar: (https://github.com/lokesh/lightbox2).
+- CookiesManager: CookieConsent by Orestbida: (https://github.com/orestbida/cookieconsent).
+- design-scuole-wordpress-theme: (https://github.com/italia/design-scuole-wordpress-theme).
 - ChatGpt by OpenAI: To quickly solve some programming problems (https://openai.com/chatgpt).
-- WordPress Forum:
+- WordPress Forum: https://wordpress.org/support/forums/
 
 
 *** Dependencies ***

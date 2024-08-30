@@ -6,13 +6,13 @@
  */
 
 // include_once KKW_THEMA_PATH . '/classes/theme-lang-manager.php';
-$title     = kkw_get_option( 'site_title', 'kkw_opt_options' );
-$tagline   = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
-$og_data   = KKW_ContentsManager::get_og_data(); 
+$title   = kkw_get_option( 'site_title', 'kkw_opt_options' );
+$tagline = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
+$og_data = KKW_ContentsManager::get_og_data();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="<?php echo $og_data['lang_slug']; ?>">
 
 <head>
 	<meta charset="utf-8">
@@ -29,7 +29,7 @@ $og_data   = KKW_ContentsManager::get_og_data();
 	<link rel="canonical" href="<?php echo $og_data['url']; ?>" />
 
 	<!-- OG DATA for page sharing -->
-	<meta property="og:locale" content="<?php echo $og_data['locale']; ?>" />
+	<meta property="og:locale" content="<?php echo $og_data['lang_locale']; ?>" />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="<?php echo $og_data['title']; ?>" />
 	<meta property="og:description" content="<?php echo $og_data['description']; ?>" />
@@ -48,6 +48,7 @@ $og_data   = KKW_ContentsManager::get_og_data();
 	<meta name="twitter:url" content="<?php echo $og_data['url']; ?>">
 
 <body>
+	<script type="module" src="<?php echo get_template_directory_uri() . '/cookieconsent-config.js'; ?>"></script>
 	<div class="container">
 		<header class="border-bottom lh-1 py-3">
 			<div class="row justify-content-between align-items-center">
