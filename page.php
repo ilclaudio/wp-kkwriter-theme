@@ -72,7 +72,7 @@ $quote               = KKW_ContentsManager::get_page_quote( $post->ID );
 		?>
 
 		<!-- CONTENT of the page -->
-		<div class="row px-3 my-3">
+		<div class="row px-3 my-3 kkw_page_content">
 			<?php the_content(); ?>
 		</div>
 
