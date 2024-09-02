@@ -1,15 +1,5 @@
 
-TEMA:
-
-- Test condividi con.
-
-- Gestione immagine logo.
-- Check funzionamento installazione tema e ricaricamento dati dopo modifica a KKW_SITE_SECTIONS.
-
-BUGS:
-- Back-office: BUG menu configurazione tema (non si deve vedere nel menu principale).
-- Verifiche recupero articoli con cambio lingua: automatici e per ID.
-- Mettere immagini Mock, quando assenti.
+**********   TEMA   **********
 
 ACCESSIBILITA':
 - Verifica corretta definizione delle sezioni.
@@ -19,6 +9,18 @@ ACCESSIBILITA':
 RESPONSIVE:
 - Fix Logo alignment.
 - Allineare menu footer1 al centro e anche sezione socials su schermi piccoli.
+
+NUOVE FUNZIONALITA'
+- Gestione immagine logo.
+- Check funzionamento installazione tema e ricaricamento dati dopo modifica a KKW_SITE_SECTIONS.
+- Lettura delle sezioni dalla tassonomia.
+- Gestione cookies.
+- Pagina privacy.
+
+BUGS:
+- Back-office: BUG menu configurazione tema (non si deve vedere nel menu principale).
+- Verifiche recupero articoli con cambio lingua: automatici e per ID.
+- Mettere immagini Mock, quando assenti.
 
 SICUREZZA:
 - Verifica sicurezza (soprattutto form contatti e ricerca).
@@ -31,7 +33,3 @@ REFACTORING:
 - Invocazione del wrapper delle immagini per recuperare e mostrare i dati di una foto (src e alt) dove manca (search?).
 - Portare tutte le query per recuperare i contenuti dentro il ContentManager (blog ed altri).
 - Togliere riferimenti a BootstrapItalia (svg/sprites.svg)
-
-RICONTROLLARE:
- - Testi.
- - Traduzione etichette.
