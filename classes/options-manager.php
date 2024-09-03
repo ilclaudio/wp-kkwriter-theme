@@ -920,16 +920,16 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'   => 'restapi',
+				'id'   => 'rest_api',
 				'name' => __( 'REST API', 'kk_writer_theme' ),
 				'type' => 'title',
 			)
 		);
-	
 		$advanced_options->add_field(
 			array(
 				'id'      => 'rest_api_enabled',
 				'name'    => __( 'Enable the REST API', 'kk_writer_theme' ),
+				'desc'    => __( 'Some plugin require the REST API to be enabled.', 'kk_writer_theme' ),
 				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
@@ -938,6 +938,50 @@ class KKW_ThemeOptionsManager
 				),
 			)
 		);
+
+		$advanced_options->add_field(
+			array(
+				'id'   => 'xmlrpc_api',
+				'name' => __( 'XMLRPC API', 'kk_writer_theme' ),
+				'type' => 'title',
+			)
+		);
+		$advanced_options->add_field(
+			array(
+				'id'      => 'xmlrpc_api_enabled',
+				'name'    => __( 'Enable the XMLRPC API', 'kk_writer_theme' ),
+				'desc'    => __( 'Preferably, it should be disabled.', 'kk_writer_theme' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+						'true'  => __( 'Yes', 'kk_writer_theme' ),
+						'false' => __( 'No', 'kk_writer_theme' ),
+				),
+			)
+		);
+
+
+		$advanced_options->add_field(
+			array(
+				'id'   => 'seo_section',
+				'name' => __( 'SEO', 'kk_writer_theme' ),
+				'type' => 'title',
+			)
+		);
+		$advanced_options->add_field(
+			array(
+				'id'      => 'seo_internal_management_enabled',
+				'name'    => __( 'Enable internal SEO management', 'kk_writer_theme' ),
+				'desc'    => __( 'Enable the internal management of SEO and OG tags or disable it to delegate this job to an external plugin.', 'kk_writer_theme' ),
+				'type'    => 'radio_inline',
+				'default' => 'true',
+				'options' => array(
+						'true'  => __( 'Yes', 'kk_writer_theme' ),
+						'false' => __( 'No', 'kk_writer_theme' ),
+				),
+			)
+		);
+
 	}
 
 }

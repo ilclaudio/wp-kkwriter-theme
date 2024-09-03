@@ -10,7 +10,7 @@
 
 		<!-- PRIMARY FOOTER -->
 		<?php
-			echo get_template_part(
+			get_template_part(
 				'template-parts/footer/primary-footer',
 				false,
 				array(),
@@ -19,7 +19,7 @@
 
 		<!-- SECONDARY FOOTER -->
 		<?php
-			echo get_template_part(
+			get_template_part(
 				'template-parts/footer/secondary-footer',
 				false,
 				array(),
