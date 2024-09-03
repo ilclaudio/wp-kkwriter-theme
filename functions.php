@@ -23,7 +23,6 @@ require get_template_directory() . '/activation.php';
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
 
-
 /**
  * Import the code to create the theme Configuration.
  */
@@ -66,24 +65,23 @@ if ( ! class_exists( 'KKW_ThemeOptionsManager' ) ) {
 if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 	function kkw_load_scripts_and_styles()
 	{
-		// Import CSS libraries files.
-		// wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' );
-		// wp_enqueue_style( 'bootstrap-css' );
+		// Import Popper JS library files used by bootstrap.
+		wp_register_script( 'popper-js', get_template_directory_uri() . '/assets/bootstrap/js/popper.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'popper-js' );
+
+		// Import Bootstrap files (CSS & JS).
 		wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/custom/css/custom-bootstrap.min.css' );
 		wp_enqueue_style( 'bootstrap-css' );
-		wp_register_style( 'fonts-css', get_template_directory_uri() . '/assets/custom/css/fonts.css' );
-		wp_enqueue_style( 'fonts-css' );
+		wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery', 'popper-js' ), '', true );
+		wp_enqueue_script( 'bootstrap-js' );
+
+		// Import FontAwesome fonts.
 		wp_register_style( 'fontawesome-css', get_template_directory_uri() . '/assets/fontawesome/css/fontawesome.min.css' );
 		wp_enqueue_style( 'fontawesome-css' );
 		wp_register_style( 'fontawesome-brands-css', get_template_directory_uri() . '/assets/fontawesome/css/brands.min.css' );
 		wp_enqueue_style( 'fontawesome-brands-css' );
 		wp_register_style( 'fontawesome-solid-css', get_template_directory_uri() . '/assets/fontawesome/css/solid.min.css' );
 		wp_enqueue_style( 'fontawesome-solid-css' );
-		// Import JS libraries files.
-		wp_register_script( 'popper-js', get_template_directory_uri() . '/assets/bootstrap/js/popper.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'popper-js' );
-		wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery', 'popper-js' ), '', true );
-		wp_enqueue_script( 'bootstrap-js' );
 
 		// Import Lightbox stuff
 		wp_register_style( 'lightbox-css', get_template_directory_uri() . '/assets/lightbox/css/lightbox.min.css' );
@@ -91,11 +89,15 @@ if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 		wp_register_script( 'lightbox-js', get_template_directory_uri() . '/assets/lightbox/js/lightbox.min.js', array( 'jquery'), '', true );
 		wp_enqueue_script( 'lightbox-js' );
 
-		// Import custom styles.
+		// Import CUSTOM styles.
 		wp_register_style( 'kkwritertheme_main_styles', get_template_directory_uri() . '/assets/custom/css/main.css' );
 		wp_enqueue_style( 'kkwritertheme_main_styles' );
 
-		// Import custom javascript.
+		// Import CUSTOM fonts.
+		wp_register_style( 'fonts-css', get_template_directory_uri() . '/assets/custom/css/fonts.css' );
+		wp_enqueue_style( 'fonts-css' );
+
+		// Import CUSTOM javascript.
 		wp_register_script( 'kkw-js', get_template_directory_uri() . '/assets/custom/js/main.js', array( 'jquery', 'bootstrap-js', 'popper-js' ), '', true );
 		wp_enqueue_script( 'kkw-js' );
 	}
@@ -110,28 +112,16 @@ if ( ! function_exists( 'kkw_enqueue_admin_custom_css' ) ) {
 	add_action( 'admin_enqueue_scripts', 'kkw_enqueue_admin_custom_css' );
 }
 
+/* Tabs defined in single-kkw_book */
 if ( ! function_exists( 'kkw_enqueue_js_variables' ) ) {
 	function kkw_enqueue_js_variables() {
 		// Define the variable that must be passed to javascript.
-		$wp_menu_tabs = array( '#nav-info', '#nav-reviews', '#nav-excerpts', '#nav-excerpts' );
+		$wp_menu_tabs = array( '#nav-info', '#nav-reviews', '#nav-excerpts', '#nav-tracks', );
 		// Pass the variable using wp_localize_script.
 		wp_localize_script( 'kkw-js', 'wpMenuTabs', $wp_menu_tabs );
 	} 
 	add_action( 'wp_enqueue_scripts', 'kkw_enqueue_js_variables' );
 }
-
-function create_ics_feed() {
-	// This adds a feed http://example.com/?feed=ics.
-	add_feed( 'ics', 'download_ics_file_by_id' );
-}
-add_action('init','create_ics_feed');
-// Create a function to form the output
-function download_ics_file_by_id() {
-	$eid = filter_input( INPUT_GET, 'eid', FILTER_VALIDATE_INT );
-	KKW_ContentsManager::download_ics_file_by_id( $eid );
-	exit(0);
-}
-
 
 
 if ( ! function_exists( 'kkw_setup' ) ) {
