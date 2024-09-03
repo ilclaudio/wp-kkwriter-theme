@@ -786,7 +786,6 @@ class KKW_ContentsManager
 			$og_data['site_title']   = $site_title;
 			$og_data['shared_title'] = $item_title . ' - ' . $short_name;
 			$og_data['lang_locale']  = KKW_ThemeLangManager::get_current_language( 'locale' );
-			$og_data['lang_slug']    = KKW_ThemeLangManager::get_current_language( 'slug' );
 		}
 		return $og_data;
 	}

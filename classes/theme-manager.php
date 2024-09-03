@@ -49,6 +49,12 @@ class KKW_ThemeManager {
 		// Create ICS feed.
 		$this->create_ics_feed();
 
+		// Disable XMLRPC.
+		$this->disable_xmlrpc();
+
+		// Security configurations.
+		$this->enable_security_configurations();
+
 		// Setup roles and permissions.
 		$am = new KKW_AuthorizationManager();
 		$am->setup();
@@ -116,6 +122,21 @@ class KKW_ThemeManager {
 		$eid = filter_input( INPUT_GET, 'eid', FILTER_VALIDATE_INT );
 		KKW_ContentsManager::download_ics_file_by_id( $eid );
 		exit(0);
+	}
+
+	private function disable_xmlrpc() {
+		if ( kkw_get_option( 'xmlrpc_api_enabled', 'kkw_opt_advanced_settings' ) === 'false' ) {
+			add_filter('xmlrpc_enabled', '__return_false');
+		}
+	}
+
+	private function enable_security_configurations() {
+		add_filter( 'the_generator', '__return_null' );
+		// Hook per nascondere sovrascrivere il messaggio di errore in fase di login.
+		add_filter( 'login_errors', function( $message ){
+				return __( 'Invalid username or password', 'kk_writer_theme' );
+			}
+		);
 	}
 
 }
