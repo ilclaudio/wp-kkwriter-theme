@@ -48,7 +48,6 @@ $og_data = KKW_ContentsManager::get_og_data();
 	<meta name="twitter:url" content="<?php echo $og_data['url']; ?>">
 
 <body>
-	<script type="module" src="<?php echo get_template_directory_uri() . '/cookieconsent-config.js'; ?>"></script>
 	<div class="container">
 		<header class="border-bottom lh-1 py-3">
 			<div class="row justify-content-between align-items-center">
