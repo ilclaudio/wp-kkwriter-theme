@@ -45,7 +45,9 @@ class KKW_ThemeManager {
 
 		// Set the robots meta tag.
 		$this->configure_custom_robots();
-		
+
+		// Create ICS feed.
+		$this->create_ics_feed();
 
 		// Setup roles and permissions.
 		$am = new KKW_AuthorizationManager();
@@ -102,5 +104,18 @@ class KKW_ThemeManager {
 		$robots['max-image-preview'] = 'large';
 		$robots['max-snippet'] = '-1';
 		$robots['max-video-preview'] = '-1';
-		return $robots;	}
+		return $robots;
+	}
+
+	private function create_ics_feed(){
+		// This adds a feed http://example.com/?feed=ics.
+		add_feed( 'ics', array( $this, 'download_ics_file_by_id' ) );
+	}
+
+	public function download_ics_file_by_id(){
+		$eid = filter_input( INPUT_GET, 'eid', FILTER_VALIDATE_INT );
+		KKW_ContentsManager::download_ics_file_by_id( $eid );
+		exit(0);
+	}
+
 }
