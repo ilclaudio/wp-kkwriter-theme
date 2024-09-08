@@ -266,13 +266,15 @@ if ( 'yes' === $form_sent ) {
 												?>
 												<div class="row mb-5" style="margin-top: 20px;">
 													<div class="form-group col-md-6" style="text-align: center">
-														<img src="<?php echo esc_url( $captcha_obj_image_src ); ?>" alt="captcha"
-																	width="<?php echo esc_attr( $captcha_obj_image_width ); ?>" height="<?php echo esc_attr( $captcha_obj_image_height ); ?>" />
+														<img src="<?php echo esc_url( $captcha_obj_image_src ); ?>"
+															alt="<?php echo esc_attr( __( 'Insert the captcha code', 'kk_writer_theme' ) ); ?>"
+															width="<?php echo esc_attr( $captcha_obj_image_width ); ?>"
+															height="<?php echo esc_attr( $captcha_obj_image_height ); ?>" />
 													</div>
 													<div class="form-group col-md-6">
 														<input class="form-control border-bottom-only" name="captcha-field" id="captcha-field"
 															size="<?php echo esc_attr( $captcha_obj_image_width ); ?>" type="text"
-																placeholder="<?php echo esc_html( __( 'Write here the verification code', 'kk_writer_theme' ) ); ?>" />
+																placeholder="<?php echo esc_attr( __( 'Write here the verification code', 'kk_writer_theme' ) ); ?>" />
 														<input name="captcha-prefix" id="captcha-prefix" 
 															type="hidden" value="<?php echo esc_attr( $captcha_obj_prefix ); ?>" />
 													</div>

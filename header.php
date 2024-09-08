@@ -56,7 +56,9 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 				<!-- LOGO OF THE SITE -->
 				<div class="col-12 col-lg-4 text-center text-lg-left kkw_logoheader mb-3 mb-lg-0">
 					<a href="<?php echo get_site_url(); ?>" title="<?php echo __( 'The logo of the site.', 'kk_writer_theme' ); ?>">
-						<img height="100" class="m-0 p-0" src="<?php echo get_template_directory_uri() . '/assets/img/LogoHeader.jpg' ?>" />
+						<img height="100" class="m-0 p-0"
+							src="<?php echo get_template_directory_uri() . '/assets/img/LogoHeader.jpg' ?>"
+							alt="<?php echo __( 'The logo of the site.', 'kk_writer_theme' ); ?>" />
 					</a>
 				</div>
 
