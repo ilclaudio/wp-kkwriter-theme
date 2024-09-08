@@ -127,11 +127,11 @@ $icon_name           = 'fa-book';
 
 					<!-- BOOK IMAGE and description -->
 					<section class="row mt-3" aria-label="<?php echo __( 'Image and description of the book' , 'kk_writer_theme' ); ?>">
-						<div class="col-12">
+						<div class="col-12 kkw_book_section">
 							<div id="current_cover_div" class="float-start me-3">
 								<a id="current_cover_link" href="<?php echo esc_url( $image_wrapper->src ); ?>" data-lightbox="image-1">
 									<img id="current_cover"
-										class="img-fluid rounded mb-2 border-img-2"
+										class="kkw_cover img-fluid rounded mb-2 border-img-2"
 										src="<?php echo esc_url( $image_wrapper->src ); ?>"
 										alt="<?php echo esc_attr( $image_wrapper->alt ); ?>"
 									>
@@ -143,7 +143,7 @@ $icon_name           = 'fa-book';
 									<div class="col-6 text-center d-inline">
 											<img id="front_cover"
 												style="max-height: 100px; width: auto;"
-												class="img-fluid rounded m-0 p-0"
+												class="kkw_cover_small img-fluid rounded m-0 p-0"
 												data-img-src="<?php echo esc_url( $front_image_src ); ?>"
 												src="<?php echo esc_url( $front_image_src ); ?>"
 												alt="<?php echo __( 'Cover of the book' , 'kk_writer_theme' ); ?>"
@@ -152,7 +152,7 @@ $icon_name           = 'fa-book';
 									<div class="col-6 text-center d-inline">
 											<img id="back_cover"
 												style="max-height: 100px; width: auto;"
-												class="img-fluid rounded m-0 p-0"
+												class="kkw_cover_small img-fluid rounded m-0 p-0"
 												data-img-src="<?php echo esc_url( $back_image_src ); ?>"
 												src="<?php echo esc_url( $back_image_src  ); ?>"
 												alt="<?php echo __( 'Back cover of the book' , 'kk_writer_theme' ); ?>"
@@ -164,7 +164,9 @@ $icon_name           = 'fa-book';
 								?>
 							</div>
 							<span id="nav-description"></span>
-							<?php the_content(); ?>
+							<div id="kkw_book_description">
+								<?php the_content(); ?>
+							</div>
 						</div>
 					</section>
 					
