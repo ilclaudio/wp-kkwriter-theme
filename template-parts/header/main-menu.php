@@ -52,7 +52,10 @@
 								?>
 									<li>
 										<a class="dropdown-item" href="<?php echo $item['url']; ?>">
-										<img src="<?php echo $item['flag']; ?>" />
+										<img
+											src="<?php echo $item['flag']; ?>"
+											alt="<?php echo esc_attr( __( 'Flag of the language', 'kk_writer_theme' ) ) . ': ' . $current_language; ?>"
+										/>
 										<?php echo $item['name']; ?></a>
 									</li>
 								<?php
