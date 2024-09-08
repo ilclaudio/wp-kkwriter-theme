@@ -1,6 +1,8 @@
 
 **********   TEMA   **********
 
+- controllare dimensione foto libri in dettaglio libro, non sono uguali.
+
 ACCESSIBILITA':
 - Verifica corretta definizione delle sezioni.
 - Verifica tag immagini.
