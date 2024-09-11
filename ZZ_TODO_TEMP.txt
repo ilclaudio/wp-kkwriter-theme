@@ -1,7 +1,11 @@
 
 **********   TEMA   **********
 
-- controllare dimensione foto libri in dettaglio libro, non sono uguali.
+- padding notizie ed eventi in hp
+- provare libro piccolo e con paddingin contenuti in evidenza.
+- immagine racconti basilicatesi togliere linea
+- alt o altro sulle icone per over
+- Non deve perdere l'alt del link: https://www.wp-recipes.com/wp-admin/post.php?post=609&action=edit&classic-editor
 
 ACCESSIBILITA':
 - Verifica corretta definizione delle sezioni.
