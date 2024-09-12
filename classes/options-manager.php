@@ -72,12 +72,9 @@ class KKW_ThemeOptionsManager
 		$base_options->add_field(
 			array(
 				'id'         => 'site_tagline',
-				'name'       => __( 'Tagline', 'kk_writer_theme' ) . '&nbsp;*',
+				'name'       => __( 'Tagline', 'kk_writer_theme' ),
 				'desc'       => __( 'The tagline of the site.' , 'kk_writer_theme' ),
 				'type'       => 'text',
-				'attributes' => array(
-					'required' => 'required',
-				),
 			)
 		);
 		$base_options->add_field(
