@@ -67,7 +67,15 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 				<!-- TITLE OF THE SITE -->
 				<div class="col-12 col-lg-4 text-center mb-4 mb-lg-0">
 					<h1 class="kkw_sitetitle"><a href="<?php echo get_site_url(); ?>"><?php echo esc_html( $site_title, 'kk_writer_theme' ); ?></a></h1>
-					<div class="kkw_tagline"><a href="<?php echo get_site_url(); ?>"><?php echo esc_html( $site_tagline, 'kk_writer_theme' ); ?></a></div>
+					<?php
+						if ( $site_tagline ) {
+					?>
+						<div class="kkw_tagline">
+							<a href="<?php echo get_site_url(); ?>"><?php echo esc_html( $site_tagline, 'kk_writer_theme' ); ?></a>
+						</div>
+					<?php
+						}
+					?>
 				</div>
 
 				<!-- SITE SEARCH -->
