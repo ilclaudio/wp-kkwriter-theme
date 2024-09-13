@@ -1,6 +1,8 @@
 
 **********   TEMA   **********
 
+- pallini in dettaglio libri: racconti.
+- dettaglio libri: sottolineatura editore e isbn
 - padding notizie ed eventi in hp
 - provare libro piccolo e con paddingin contenuti in evidenza.
 - immagine racconti basilicatesi togliere linea
