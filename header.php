@@ -7,6 +7,8 @@
 
 $site_title   = kkw_get_option( 'site_title', 'kkw_opt_options' );
 $site_tagline = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
+$header_logo  = kkw_get_option( 'header_logo_visible', 'kkw_opt_options' );
+$footer_logo  = kkw_get_option( 'footer_logo_visible', 'kkw_opt_options' );
 $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 ?>
 
@@ -55,13 +57,17 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 
 				<!-- LOGO OF THE SITE -->
 				<div class="col-12 col-lg-4 text-center text-lg-left kkw_logoheader mb-3 mb-lg-0">
-					<!--
+					<?php
+						if ( $header_logo === 'true' ) {
+					?>
 					<a href="<?php echo get_site_url(); ?>" title="<?php echo __( 'The logo of the site.', 'kk_writer_theme' ); ?>">
 						<img height="100" class="m-0 p-0"
 							src="<?php echo get_template_directory_uri() . '/assets/img/LogoHeader.jpg' ?>"
 							alt="<?php echo __( 'The logo of the site.', 'kk_writer_theme' ); ?>" />
 					</a>
-					-->
+					<?php
+						}
+					?>
 				</div>
 
 				<!-- TITLE OF THE SITE -->

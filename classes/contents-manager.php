@@ -71,6 +71,7 @@ class KKW_WrappedItem {
 	public string $slug = '';
 	public string $status = '';
 	public string $title = '';
+	public string $content = '';
 	public string $description = '';
 	public string $post_date = '';
 	public string $view_date = '';
@@ -174,6 +175,7 @@ class KKW_ContentsManager
 			$item->type                = $book['type'];
 			$item->slug                = $book['slug'];
 			$item->description         = $book['description'];
+			$item->content             = $book['content'];
 			$item->post_date           = $post->post_date;
 			$item->view_date           = $book['year'];
 			$item->main_group          = $section;
@@ -211,6 +213,7 @@ class KKW_ContentsManager
 		$item->type           = $post->post_type;
 		$item->slug           = $post->post_name;
 		$item->description    = $short_description;
+		$item->content        = $post->content;
 		$item->post_date      = $post->post_date ;
 		$item->view_date      = $view_date;
 		$item->main_group     = $group;
@@ -231,6 +234,7 @@ class KKW_ContentsManager
 		$item->type           = $post->post_type;
 		$item->slug           = $post->post_name;
 		$item->description    = $desc;
+		$item->content        = $post->content;
 		$item->post_date      = $post->post_date ;
 		$item->view_date      = $view_date;
 		$item->detail_url     = get_permalink( $post->ID) ;
