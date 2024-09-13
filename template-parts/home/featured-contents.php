@@ -237,7 +237,7 @@ if ( $event ) {
 							<div class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center
 									 link-body-emphasis text-decoration-none border-top">
 								<img src="<?php echo esc_url( $news_img_src ); ?>"
-									class="bd-placeholder-img d-none d-lg-block"
+									class="ps-2 bd-placeholder-img d-none d-lg-block"
 									width="<?php echo strval( KKW_SMALL_FEATURED_IMG_WIDTH ); ?>"
 									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
 									alt="<?php echo esc_attr( $news_img_alt ); ?>" />
@@ -276,7 +276,7 @@ if ( $event ) {
 							<div class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center
 									link-body-emphasis text-decoration-none border-top">
 								<img src="<?php echo esc_url( $event_img_src ); ?>"
-									class="bd-placeholder-img d-none d-lg-block"
+									class="ps-2 bd-placeholder-img d-none d-lg-block"
 									width="<?php echo strval( KKW_SMALL_FEATURED_IMG_WIDTH ); ?>"
 									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
 									alt="<?php echo esc_attr( $event_img_alt ); ?>" />
