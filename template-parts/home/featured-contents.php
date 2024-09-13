@@ -92,7 +92,7 @@ if ( $event ) {
 	</h3>
 	<!-- left box -->
 	<div class="col-md-6">
-		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
 			<?php
 				if ( $fc1_id ) {
 			?>
@@ -135,7 +135,7 @@ if ( $event ) {
 	</div>
 	<!-- right box -->
 	<div class="col-md-6">
-		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
 			<?php
 				if ( $fc2_id ) {
 			?>
@@ -183,7 +183,7 @@ if ( $event ) {
 <div id="fc_second_row" class="row mb-4 fc-row">
 	<!-- first box -->
 	<div class="col-md-6">
-		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
 			<?php
 				if ( $fc3_id ) {
 			?>
@@ -226,22 +226,22 @@ if ( $event ) {
 	</div>
 	<!-- second box -->
 	<div class="col-md-6">
-		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-			<div>
+		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+			<div class="kw_featured_list">
 				<ul class="list-unstyled">
 					<!-- News box -->
 					<li>
 						<?php
 							if ( $news ) {
 						?>
-							<div class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center
+							<div id="kkw_news_box" class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center
 									 link-body-emphasis text-decoration-none border-top">
 								<img src="<?php echo esc_url( $news_img_src ); ?>"
 									class="ps-2 bd-placeholder-img d-none d-lg-block"
 									width="<?php echo strval( KKW_SMALL_FEATURED_IMG_WIDTH ); ?>"
 									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
 									alt="<?php echo esc_attr( $news_img_alt ); ?>" />
-								<div class="col-lg-8">
+								<div class="col-lg-8 px-2">
 									<a class="kkw_link" href="<?php echo esc_url( $news->main_group_url ); ?>">
 										<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
 											<?php echo __( $news->main_group_pl, 'kk_writer_theme' ); ?>
@@ -273,14 +273,14 @@ if ( $event ) {
 						<?php
 							if ( $event ) {
 						?>
-							<div class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center
+							<div id="kkw_event_box" class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center
 									link-body-emphasis text-decoration-none border-top">
 								<img src="<?php echo esc_url( $event_img_src ); ?>"
 									class="ps-2 bd-placeholder-img d-none d-lg-block"
 									width="<?php echo strval( KKW_SMALL_FEATURED_IMG_WIDTH ); ?>"
 									height="<?php echo strval( KKW_SMALL_FEATURED_IMG_HEIGHT ); ?>"
 									alt="<?php echo esc_attr( $event_img_alt ); ?>" />
-								<div class="col-lg-8">
+								<div class="col-lg-8 px-2">
 									<a class="kkw_link" href="<?php echo esc_url( $event->main_group_url ); ?>">
 										<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
 											<?php echo __( $event->main_group_pl, 'kk_writer_theme' ); ?>

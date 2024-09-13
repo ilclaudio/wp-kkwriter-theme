@@ -204,8 +204,16 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 0.95em;
 }
 
+.kw_featured_list ul li {
+	margin-bottom: 10px;
+}
+
 .kkw_no_border {
 	border: none !important;
+}
+
+.bd-placeholder-img {
+	padding: 10px;
 }
 
 /* CUSTOM PAGINATION */
