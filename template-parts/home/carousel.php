@@ -49,7 +49,7 @@ if ( $num_items > 0 ){
 				<!-- begin slide -->
 				<div class="carousel-item <?php if ( $first ) echo 'active'; ?>" >
 					<div class="card mb-3 primary-bg" style="width: 100%">
-						<div class="row g-0">
+						<div class="row g-0 mx-4">
 							<!-- slide image -->
 							<div class="col-md-3 g-0 p-0 m-0 text-center">
 								<a class="kkw_link" href="<?php echo esc_url( $item_url ); ?>">
