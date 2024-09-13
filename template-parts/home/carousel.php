@@ -93,7 +93,7 @@ if ( $num_items > 0 ){
 		<!-- END slides -->
 
 
-		<!-- BUTTONS -->
+		<!-- BUTTONS next and prev-->
 		<button class="carousel-control-prev d-none d-md-flex" type="button"
 			data-bs-target="#carouselExampleIndicators"
 			data-bs-slide="prev">

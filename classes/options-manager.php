@@ -95,6 +95,19 @@ class KKW_ThemeOptionsManager
 		);
 		$base_options->add_field(
 			array(
+				'id' => 'header_logo_visible',
+				'name' => __( 'Header logo visible', 'kk_writer_theme' ),
+				'desc' => __( 'Yes if the logo needs to be shown in the header.', 'kk_writer_theme' ),
+				'type' => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+						'true' => __( 'Yes', 'kk_writer_theme' ),
+						'false' => __( 'No', 'kk_writer_theme' ),
+				),
+			)
+		);
+		$base_options->add_field(
+			array(
 				'id'         => 'site_logo',
 				'name'       => __( 'Logo header', 'kk_writer_theme' ),
 				'desc'       => __( 'The logo of the site, please load an SVG image.' , 'kk_writer_theme' ),
