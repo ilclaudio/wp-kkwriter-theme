@@ -2,9 +2,8 @@
 **********   TEMA   **********
 
 - pallini in dettaglio libri: racconti.
-- dettaglio libri: sottolineatura editore e isbn
 - padding notizie ed eventi in hp
-- provare libro piccolo e con paddingin contenuti in evidenza.
+- provare libro piccolo e con padding contenuti in evidenza.
 - immagine racconti basilicatesi togliere linea
 - alt o altro sulle icone per over
 - Non deve perdere l'alt del link: https://www.wp-recipes.com/wp-admin/post.php?post=609&action=edit&classic-editor

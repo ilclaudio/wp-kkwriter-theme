@@ -38,7 +38,7 @@ if ( $post_wrapper ) {
 					<?php
 						if ( $publ_site ) {
 					?>
-							<a class="text-decoration-none" target="_blank" href="<?php echo esc_url( $publ_site ); ?>">
+							<a target="_blank" href="<?php echo esc_url( $publ_site ); ?>">
 					<?php
 						}
 					?>
@@ -80,7 +80,7 @@ if ( $post_wrapper ) {
 				<?php
 						if ( $book_link ) {
 					?>
-							<a class="text-decoration-none" target="_blank" href="<?php echo esc_url( $book_link ); ?>">
+							<a target="_blank" href="<?php echo esc_url( $book_link ); ?>">
 					<?php
 						}
 					?>
