@@ -1,9 +1,7 @@
 
 **********   TEMA   **********
 
-- Altezza notizie ed eventi in hp
-- Alt o altro sulle icone per over: dettaglio articoli e ricerca.
-- Non deve perdere l'alt del link: https://www.wp-recipes.com/wp-admin/post.php?post=609&action=edit&classic-editor
+
 - Cancellare immagini non usate.
 - Rigenerare immagini.
 - Aggiungere codice SEO.
@@ -24,8 +22,6 @@ ACCESSIBILITA':
 - Verifica corretta spiegazione link e menu.
 
 
-
-
 RESPONSIVE:
 - Fix Logo alignment.
 - Allineare menu footer1 al centro e anche sezione socials su schermi piccoli.
@@ -39,6 +35,7 @@ BUGS:
 - Back-office: BUG menu configurazione tema (non si deve vedere nel menu principale).
 - Verifiche recupero articoli con cambio lingua: automatici e per ID.
 - Mettere immagini Mock, quando assenti.
+- Non deve perdere l'alt del link: https://www.wp-recipes.com/wp-admin/post.php?post=609&action=edit&classic-editor
 
 REFACTORING:
 - Refactoring functions.php in object oriented way.
