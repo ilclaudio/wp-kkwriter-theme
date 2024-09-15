@@ -87,9 +87,6 @@ if ( $event ) {
 
 <!-- FIRST ROW -->
 <div id="fc_first_row" class="row mt-4 mb-1 fc-row">
-	<h3 class="visually-hidden">
-			<?php echo __( 'Section that contains the featured contents of the site: books, events and news.', 'kk_writer_theme' ); ?>
-	</h3>
 	<!-- left box -->
 	<div class="col-md-6">
 		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
@@ -181,7 +178,7 @@ if ( $event ) {
 
 <!-- SECOND ROW -->
 <div id="fc_second_row" class="row mb-4 fc-row">
-	<!-- first box -->
+	<!-- left box -->
 	<div class="col-md-6">
 		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
 			<?php
@@ -224,18 +221,18 @@ if ( $event ) {
 			?>
 		</div>
 	</div>
-	<!-- second box -->
+	<!-- right box -->
 	<div class="col-md-6">
-		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+		<div class="row g-0 overflow-hidden flex-md-row mb-4 position-relative">
 			<div class="kw_featured_list">
-				<ul class="list-unstyled">
+				<ul class="list-unstyled h-100">
 					<!-- News box -->
-					<li>
+					<li class="h-50">
 						<?php
 							if ( $news ) {
 						?>
 							<div id="kkw_news_box" class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center
-									 link-body-emphasis text-decoration-none border-top">
+									 link-body-emphasis text-decoration-none py-2 border rounded ">
 								<img src="<?php echo esc_url( $news_img_src ); ?>"
 									class="ps-2 bd-placeholder-img d-none d-lg-block"
 									width="<?php echo strval( KKW_SMALL_FEATURED_IMG_WIDTH ); ?>"
@@ -269,12 +266,12 @@ if ( $event ) {
 						?>
 					</li>
 					<!-- Event box -->
-					<li>
+					<li class="h-50">
 						<?php
 							if ( $event ) {
 						?>
 							<div id="kkw_event_box" class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center
-									link-body-emphasis text-decoration-none border-top">
+									link-body-emphasis text-decoration-none py-2 border rounded">
 								<img src="<?php echo esc_url( $event_img_src ); ?>"
 									class="ps-2 bd-placeholder-img d-none d-lg-block"
 									width="<?php echo strval( KKW_SMALL_FEATURED_IMG_WIDTH ); ?>"

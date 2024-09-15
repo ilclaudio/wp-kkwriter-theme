@@ -6,6 +6,8 @@
 - Non deve perdere l'alt del link: https://www.wp-recipes.com/wp-admin/post.php?post=609&action=edit&classic-editor
 - Cancellare immagini non usate.
 - Rigenerare immagini.
+- Aggiungere codice SEO.
+- Installazione della cache.
 
 - Migrazione su dominio.
 - Configurazione e verifica invio email contatti.
