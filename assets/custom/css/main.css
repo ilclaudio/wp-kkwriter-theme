@@ -473,11 +473,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* BOOK TEMPLATE*/
 
-#current_cover_div{
-	max-width: 35% !important;
-}
+#kkw_book_section {}
 
-.kkw_book_section {}
+#kkw_current_cover_div {}
+
+#kkw_book_description{}
 
 .kkw_cover {
 	border: 0.5px solid #ced4da;

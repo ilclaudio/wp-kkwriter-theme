@@ -1,18 +1,28 @@
 
 **********   TEMA   **********
 
-- pallini in dettaglio libri: racconti.
-- padding notizie ed eventi in hp
-- provare libro piccolo e con padding contenuti in evidenza.
-- immagine racconti basilicatesi togliere linea
-- alt o altro sulle icone per over
+- Altezza notizie ed eventi in hp
+- Alt o altro sulle icone per over: dettaglio articoli e ricerca.
 - Non deve perdere l'alt del link: https://www.wp-recipes.com/wp-admin/post.php?post=609&action=edit&classic-editor
-- cancellare immagini non usate
+- Cancellare immagini non usate.
+- Rigenerare immagini.
+
+- Migrazione su dominio.
+- Configurazione e verifica invio email contatti.
+- Verifica condivisione su FB.
+- Pagina privacy e configurazione plugin cookies.
+
+SICUREZZA:
+- Verifica sicurezza (soprattutto form contatti e ricerca).
+- Usare NONCE nel form della pagina blog: <?php wp_nonce_field( 'sf_blog_search_nonce', 'blog_search_nonce_field' ); ?>
 
 ACCESSIBILITA':
 - Verifica corretta definizione delle sezioni.
 - Verifica tag immagini.
 - Verifica corretta spiegazione link e menu.
+
+
+
 
 RESPONSIVE:
 - Fix Logo alignment.
@@ -22,17 +32,11 @@ NUOVE FUNZIONALITA'
 - Gestione immagine logo.
 - Check funzionamento installazione tema e ricaricamento dati dopo modifica a KKW_SITE_SECTIONS.
 - Lettura delle sezioni dalla tassonomia.
-- Gestione cookies.
-- Pagina privacy.
 
 BUGS:
 - Back-office: BUG menu configurazione tema (non si deve vedere nel menu principale).
 - Verifiche recupero articoli con cambio lingua: automatici e per ID.
 - Mettere immagini Mock, quando assenti.
-
-SICUREZZA:
-- Verifica sicurezza (soprattutto form contatti e ricerca).
-- Usare NONCE nel form della pagina blog: <?php wp_nonce_field( 'sf_blog_search_nonce', 'blog_search_nonce_field' ); ?>
 
 REFACTORING:
 - Refactoring functions.php in object oriented way.
