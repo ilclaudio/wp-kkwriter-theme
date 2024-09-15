@@ -98,7 +98,8 @@ $total_pages = $the_query->max_num_pages;
 									<label for="<?php echo $pt_label ; ?>">
 										<?php echo __( $pt_label , 'kk_writer_theme' ); ?>
 									</label> &nbsp;
-									<i class="fa-regular <?php echo KKW_ContentsManager::get_post_icon_by_group( $pt_name );?> fa-1x"></i>
+									<i class="fa-regular <?php echo KKW_ContentsManager::get_post_icon_by_group( $pt_name );?> fa-1x"
+										title="<?php echo __( ucfirst( $pt_name ), 'kk_writer_theme' ); ?>"></i>
 								</div>
 							<?php
 								}
@@ -164,9 +165,8 @@ $total_pages = $the_query->max_num_pages;
 												<div class="text-muted d-flex justify-content-between align-items-center">
 													<i class="fa-solid <?php echo $icon_name; ?>"
 														data-bs-toggle="<?php echo $post_wrapper->main_group; ?>"
-														title="<?php echo $post_wrapper->main_group; ?> "></i>
+														title="<?php echo __( ucfirst( $post_wrapper->main_group ), 'kk_writer_theme' ); ?> "></i>
 													<span><?php echo esc_attr( $post_wrapper->view_date ); ?></span>
-
 											</div>
 											</div>
 										</div>
