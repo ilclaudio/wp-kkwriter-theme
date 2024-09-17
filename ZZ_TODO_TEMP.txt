@@ -1,17 +1,19 @@
 
 **********   TEMA   **********
 
-
-- Aggiungere codice SEO.
-- Installazione della cache.
+- Verifica condivisione su FB e altri socials.
 - Configurazione e verifica invio email contatti.
-- Verifica condivisione su FB.
+- Verifica condivisione Calendar.
+
+- Controllo salvataggio testo.
+- Form contatti: Non invia email di conferma.
 - Pagina privacy e configurazione plugin cookies.
 - DMARC: Action Recommended: It doesn't look like DMARC has been set up on your domain (michelebattaglino.it). We recommend using the DMARC protocol 
 	because it helps protect your domain from unauthorized use.
 	Please check out this step-by-step guide for details on how to add the DMARC record to your domain's DNS.
 	https://wpmailsmtp.com/how-to-create-dmarc-record/
-- Form contatti: Non invia email di conferma.
+
+
 
 SICUREZZA:
 - Verifica sicurezza (soprattutto form contatti e ricerca).
@@ -22,9 +24,6 @@ ACCESSIBILITA':
 - Verifica tag immagini.
 - Verifica corretta spiegazione link e menu.
 
-RESPONSIVE:
-- Fix Logo alignment.
-- Allineare menu footer1 al centro e anche sezione socials su schermi piccoli.
 
 NUOVE FUNZIONALITA'
 - Gestione immagine logo.
