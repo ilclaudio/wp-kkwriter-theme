@@ -47,13 +47,13 @@ $text_message   = sanitize_text_field( isset( $postdata['text_message'] ) ? $pos
 $captcha_field  = sanitize_text_field( isset( $postdata['captcha-field'] ) ? $postdata['captcha-field'] : '' );
 $captcha_prefix = sanitize_text_field( isset( $postdata['captcha-prefix'] ) ? $postdata['captcha-prefix'] : '' );
 
-$receipt = '<b>'. __( 'A message was sent from the site by:', 'kk_writer_theme' ) . '</b><br/><br/>' .
+$base_text = '<b>'. __( 'A message was sent from the site by:', 'kk_writer_theme' ) . '</b><br/><br/>' .
 	'<b>'. __( 'Full name', 'kk_writer_theme' ) . ':</b> ' . $full_name  . '<br/>' .
 	'<b>'. __( 'E-mail', 'kk_writer_theme' ) . ':</b> ' . $email_address . '<br/>' .
 	'<b>'. __( 'Phone number', 'kk_writer_theme' ) . ':</b> ' . $phone_number . '<br/>' . '<br/>' .
 	'<b>'. __( 'Text of the message: ', 'kk_writer_theme' ) . ':</b>';
 
-$mail_text = $receipt . '<br/>' . '<br/>' . $text_message;
+$mail_text = $base_text . '<br/>' . '<br/>' . $text_message;
 
 // Message sending procedure.
 if ( 'yes' === $form_sent ) {
@@ -105,7 +105,7 @@ if ( 'yes' === $form_sent ) {
 			if ( 'on' === $receipt ) {
 				// 4b - Send confirmation email to the sender.
 				$testo_receipt = __( 'receipt', 'kk_writer_theme' );
-				$subject        .= '(' . $testo_receipt . ')';
+				$subject       .= '(' . $testo_receipt . ')';
 				$sent           = $sent && wp_mail( $email_address, $subject, $mail_text, $headers );
 				if ( ! $sent ) {
 					$result_text = $result_text . '<BR/>' . __( 'Confirmation email not sent.', 'kk_writer_theme' );
