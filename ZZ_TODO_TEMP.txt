@@ -1,10 +1,6 @@
 
 **********   TEMA   **********
 
-- Verifica condivisione su FB e altri socials.
-- Configurazione e verifica invio email contatti.
-- Verifica condivisione Calendar.
-
 - Controllo salvataggio testo.
 - Form contatti: Non invia email di conferma.
 - Pagina privacy e configurazione plugin cookies.
