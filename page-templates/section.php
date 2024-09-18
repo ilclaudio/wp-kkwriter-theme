@@ -126,7 +126,7 @@ $total_pages = $the_query->max_num_pages;
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
 						$post_wrapper  = KKW_ContentsManager::wrap_search_result( $post );
-						$image_wrapper = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'full' );
+						$image_wrapper = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'large' );
 					?>
 						<!-- CARD LIBRO -->
 						<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
