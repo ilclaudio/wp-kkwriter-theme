@@ -40,7 +40,7 @@ if ( $num_items > 0 ){
 			$first = true;
 			foreach ( $items as $item ) {
 				$img_id    = get_post_thumbnail_id( $item->id );
-				$img_array = wp_get_attachment_image_src( $img_id, 'carousel-item' );
+				$img_array = wp_get_attachment_image_src( $img_id, 'large' );
 				$img_src   = $img_array ? $img_array[0] : '';
 				$img_alt   = get_post_meta( $img_id, '_wp_attachment_image_alt', true );
 				$img_alt   = $img_alt ? $img_alt : $item->title;
