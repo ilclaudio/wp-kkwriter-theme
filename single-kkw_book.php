@@ -21,15 +21,15 @@ $icon_name           = 'fa-book';
 	while( have_posts() ) {
 		the_post();
 		$post_wrapper   = KKW_ContentsManager::wrap_search_result( $post );
-		$image_wrapper  = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'full' );
+		$image_wrapper  = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'large' );
 		$meta_tags      = get_post_meta( $post_wrapper->id );
 		// Manage front cover.
 		$front_cover_id    = $image_wrapper->id;
-		$front_image_array = wp_get_attachment_image_src( $front_cover_id, 'full' );
+		$front_image_array = wp_get_attachment_image_src( $front_cover_id, 'large' );
 		$front_image_src   = $front_image_array ? esc_url( $front_image_array[0] ) : '';
 		// Manage back cover.
 		$back_cover_id    = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_back_cover_id' );
-		$back_image_array = wp_get_attachment_image_src( $back_cover_id, 'full' );
+		$back_image_array = wp_get_attachment_image_src( $back_cover_id, 'large' );
 		$back_image_src   = $back_image_array ? esc_url( $back_image_array[0] ) : '';
 		// Unserialize related book data.
 		$serialized_books = KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_book_link' );

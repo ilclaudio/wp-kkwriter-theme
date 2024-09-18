@@ -1,13 +1,8 @@
 
 **********   TEMA   **********
 
-- favicon
 - qualità/dimensione immagini (sezioni, troppo grande)-->smush
 
-function custom_favicon() {
-    echo '<link rel="shortcut icon" href="' . get_template_directory_uri() . '/assets/ims/favicon.ico" />';
-}
-add_action('wp_head', 'custom_favicon');
 
 
 

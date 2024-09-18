@@ -13,7 +13,7 @@ $section_description = '';
 $prologue            = KKW_ContentsManager::get_page_prologue( $post->ID );
 $epilogue            = KKW_ContentsManager::get_page_epilogue( $post->ID );
 $quote               = KKW_ContentsManager::get_page_quote( $post->ID );
-$image_wrapper       = KKW_ContentsManager::wrap_featured_image( $post, 'full' );
+$image_wrapper       = KKW_ContentsManager::wrap_featured_image( $post, 'large' );
 ?>
 
 <main class="container">
