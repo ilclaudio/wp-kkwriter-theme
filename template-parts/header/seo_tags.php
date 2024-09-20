@@ -16,7 +16,6 @@ if ( kkw_get_option( 'seo_internal_management_enabled', 'kkw_opt_advanced_settin
 
 	<!-- SEO optimization -->
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<title><?php echo $og_data['shared_title']; ?></title>
 	<link rel="canonical" href="<?php echo $og_data['url']; ?>" />
 	<!-- OG DATA for page sharing -->
 	<meta property="og:locale" content="<?php echo $og_data['lang_locale']; ?>" />
