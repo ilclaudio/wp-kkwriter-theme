@@ -12,7 +12,7 @@ $page_desc     = $page_title;
 $keywords      = preg_replace( "/[^a-zA-Z0-9\s]/", '', $page_title . ' ' . $site_tagline );
 ?>
 
-<meta name="resource-type" content="<?php echo $resource_type; ?>" />
+<meta name="resource-type" content="document" />
 <meta name="description" content="<?php echo $page_desc; ?>" />
 <meta name="copyright" content="<?php echo $site_title; ?>" />
 <meta name="keywords" content="<?php echo $keywords; ?>"/>

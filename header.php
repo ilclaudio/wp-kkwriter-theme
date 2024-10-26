@@ -96,7 +96,7 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 							placeholder="<?php echo $label ?>"
 							aria-label="<?php $label ?>">
 
-						<?php wp_nonce_field( 'kkw_search_nonce', 'site_search_nonce_field' ); ?>
+						<?php wp_nonce_field( 'kkw_search_nonce', 'site_search_nonce_field', false ); ?>
 						<input type="hidden" name="redirection" id="redirection" value="yes" />
 
 						<button class="btn btn-outline-secondary" type="submit">
