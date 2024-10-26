@@ -74,7 +74,7 @@ if ( '' !== $search_string ) {
 
 		<FORM action="." id="search_site_form" method="GET"
 			role="search" aria-label="<?php echo __( 'Site search' , 'kk_writer_theme' ); ?>">
-			<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
+			<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field', false ); ?>
 
 			<!-- search BANNER -->
 			<div class="row mb-4 py-4 primary-bg">

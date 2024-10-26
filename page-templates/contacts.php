@@ -205,7 +205,7 @@ if ( 'yes' === $form_sent ) {
 				<!-- CONTACT FORM SECTION-->
 				<div id="kkw_contact_form_id">
 					<FORM action="." id="kkw_contact_form" name="kkw_contact_form" method="POST">
-						<?php wp_nonce_field( 'sf_contacts_nonce', 'contacts_nonce_field' ); ?>
+						<?php wp_nonce_field( 'sf_contacts_nonce', 'contacts_nonce_field', false ); ?>
 						<div class="container m-5 pt-4">
 							<!-- SITE CONTACTS -->
 							<div class="row">
