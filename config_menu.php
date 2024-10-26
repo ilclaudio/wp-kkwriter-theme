@@ -257,6 +257,14 @@ define(
 				'link'         => '',
 			),
 			array(
+				'slug'         => 'cookies-policy',
+				'title'        => 'Cookies Policy',
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'link'         => '',
+			),
+			array(
 				'slug'         => 'credits',
 				'title'        => 'Credits',
 				'content_type' => 'page',
