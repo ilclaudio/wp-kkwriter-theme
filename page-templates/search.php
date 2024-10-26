@@ -44,7 +44,13 @@ $the_query = null;
 
 if ( '' !== $search_string ) {
 	// Check the NONCE.
-	if ( isset( $_GET['site_search_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'kkw_search_nonce' ) ) {
+	if (
+		isset( $_GET['site_search_nonce_field'] ) && 
+		(
+			wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'kkw_search_nonce' ) ||
+			wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'sf_site_search_nonce' )
+		)
+	) {
 		$the_query = KKW_ContentsManager::search_contents(
 			$selected_contents,
 			$search_string,
