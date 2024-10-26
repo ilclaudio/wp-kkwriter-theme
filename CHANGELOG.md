@@ -9,6 +9,9 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - 
 - 
 
+## [0.0.4] - 2024-10-27
+### Fixed
+- Fixed bug in site search.
 
 
 ## [0.0.3] - 2024-10-26
