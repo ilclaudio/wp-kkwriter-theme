@@ -554,10 +554,10 @@ class KKW_ContentsManager
 			KKW_ARTICLE_GROUP['slug']                 => __( KKW_ARTICLE_GROUP['title-pl'], 'kk_writer_theme' ),
 			KKW_EVENT_GROUP['slug']                   => __( KKW_EVENT_GROUP['title-pl'], 'kk_writer_theme' ),
 			KKW_NEWS_GROUP['slug']                    => __( KKW_NEWS_GROUP['title-pl'], 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_BOOK ]['name']      => __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_REVIEW ]['name']    => __( KKW_POST_TYPES[ ID_PT_REVIEW ]['plural_label'], 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']   => __( KKW_POST_TYPES[ ID_PT_EXCERPT ]['plural_label'], 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name'] => __( KKW_POST_TYPES[ ID_PT_INTERVIEW ]['plural_label'], 'kk_writer_theme' ),
+			KKW_POST_TYPES[ ID_PT_BOOK ]['name']      => __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kkwdomain' ),
+			//KKW_POST_TYPES[ ID_PT_REVIEW ]['name']    => __( KKW_POST_TYPES[ ID_PT_REVIEW ]['plural_label'], 'kk_writer_theme' ),
+			// KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']   => __( KKW_POST_TYPES[ ID_PT_EXCERPT ]['plural_label'], 'kk_writer_theme' ),
+			// KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name'] => __( KKW_POST_TYPES[ ID_PT_INTERVIEW ]['plural_label'], 'kk_writer_theme' ),
 		);
 		return $ct;
 	}
