@@ -312,7 +312,6 @@ private function create_static_pages() {
 	 * @return void
 	 */
 	public static function register_menu_locations() {
-		error_log( '@@@ HERE WE REGISTER THE MENU POSITIONS @@@' );
 		register_nav_menus(
 			array(
 				KKW_MAIN_MENU_EN['location']             => KKW_MAIN_MENU_EN['name'],
