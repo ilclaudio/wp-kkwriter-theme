@@ -3,10 +3,7 @@
 
 ## MB
 - Privacy page and cookies management.
-- DMARC: Action Recommended: It doesn't look like DMARC has been set up on your domain (michelebattaglino.it). We recommend using the DMARC protocol 
-	because it helps protect your domain from unauthorized use.
-	Please check out this step-by-step guide for details on how to add the DMARC record to your domain's DNS.
-	https://wpmailsmtp.com/how-to-create-dmarc-record/
+- Add excerpts, reviews and interviews in the site search.
 
 ## BUGS
 - Back-office: BUG theme configuration menu (it should not be visible in the main menu).
