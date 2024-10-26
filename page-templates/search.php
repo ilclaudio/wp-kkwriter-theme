@@ -168,6 +168,9 @@ if ( '' !== $search_string ) {
 									<div class="card-wrapper ">
 										<div class="card kkw_no_border">
 											<div class="card-body mb-0">
+												<?php
+												if ( $img_src ){
+												?>
 												<a href="<?php echo esc_url( $result->detail_url ); ?>">
 													<img class="img-thumbnail float-sm-start me-2 text-nowrap"
 														src="<?php echo esc_url( $img_src ); ?>"
@@ -177,6 +180,9 @@ if ( '' !== $search_string ) {
 														alt="<?php echo esc_attr( $img_alt ); ?>"
 													>
 												</a>
+												<?php
+												}
+												?>
 												<span class="text" style="text-transform: uppercase;">
 													<?php echo esc_attr( $result->main_group ); ?>
 												</span>
