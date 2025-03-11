@@ -7,7 +7,7 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ## [Not released]
 - Fix configuration menu
-
+- Fixed HTML validity of some wrong pages.
 
 ## [0.0.5] - 2025-03-12
 ### Fixed

@@ -148,7 +148,7 @@ $total_pages = $the_query->max_num_pages;
 										</a>
 									</h5>
 									<p class="card-text">
-									<?php echo esc_attr( $post_wrapper->publisher); ?> - 
+										<?php echo esc_attr( $post_wrapper->publisher); ?> - 
 										<?php echo esc_attr( $post_wrapper->view_date); ?>
 									</p>
 								</div>
