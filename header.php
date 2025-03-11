@@ -49,6 +49,7 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 			),
 		);
 	?>
+</head>
 
 <body>
 	<div class="container">

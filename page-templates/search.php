@@ -190,7 +190,7 @@ if ( '' !== $search_string ) {
 												}
 												?>
 												<span class="text" style="text-transform: uppercase;">
-													<?php echo esc_attr( $result->main_group ); ?>
+													<?php echo esc_attr( __( $result->main_group, 'kk_writer_theme' ) ); ?>
 												</span>
 												<a class="text-color-secondary kkw_link" href="<?php echo esc_url( $result->detail_url ); ?>">
 													<h3 class="card-title h5 ">
