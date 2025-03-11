@@ -93,7 +93,10 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 				 ?>
 				<div class="col-12 col-lg-4 d-flex justify-content-lg-end justify-content-center align-items-center mb-3 mb-lg-0">
 					<FORM id="search_box" action="<?php echo $search_page_url; ?>" method="GET" class="d-flex" role="<?php $label ?>">
-						<input name="search_string" class="form-control me-2" type="search"
+						<label id="search_string_label" for="search_string" class="sr-only">
+							<?php echo __( 'Search', 'kk_writer_theme' ); ?>
+						</label>
+						<input id="search_string" name="search_string" class="form-control me-2" type="search"
 							placeholder="<?php echo $label ?>"
 							aria-label="<?php $label ?>">
 
