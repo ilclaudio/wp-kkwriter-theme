@@ -7,11 +7,11 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ## [Not released]
 - Fix configuration menu
-- 
+
 
 ## [0.0.5] - 2025-03-12
 ### Fixed
-- Fixed bug in site search.
+- Added missed closure for the head tag.
 
 ## [0.0.4] - 2024-10-27
 ### Fixed
