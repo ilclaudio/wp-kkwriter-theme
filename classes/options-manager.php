@@ -888,7 +888,7 @@ class KKW_ThemeOptionsManager
 	
 		$advanced_options->add_field(
 			array(
-				'id'   => 'multilingua',
+				'id'   => 'multilanguage',
 				'name' => __( 'Multilanguage', 'kk_writer_theme' ),
 				'type' => 'title',
 			)

@@ -112,27 +112,32 @@ try {
 
 						<!-- MULTILANGUAGE MAPS -->
 						<?php
-							$current_language = KKW_ThemeLangManager::get_current_language( 'slug' );
-							$sitemap_id       = $post->ID;
-							$maps             = KKW_ThemeLangManager::get_post_translations( $sitemap_id );
+							$selector_visibile = kkw_get_option( 'language_selector_visible', 'kkw_opt_advanced_settings' );
+							if ( 'true' === $selector_visibile ) {
+								$current_language = KKW_ThemeLangManager::get_current_language( 'slug' );
+								$sitemap_id       = $post->ID;
+								$maps             = KKW_ThemeLangManager::get_post_translations( $sitemap_id );
 						?>
-						<div class="box_change_map_lang text-center mt-5">
-							<ul>
-								<?php
-									foreach( $maps as $lang => $pid ) {
-										if ( $lang !== $current_language ) {
-											$map  = get_post( $pid );
-											$desc = $map->post_title . ' (' . strtoupper( $lang ). ')';
-								?>
-											<li>
-												<a title="<?php echo $desc ; ?>" href="<?php echo get_permalink( $pid ); ?>"><?php echo $desc; ?></a>
-											</li>
-								<?php
+							<div class="box_change_map_lang text-center mt-5">
+								<ul>
+									<?php
+										foreach( $maps as $lang => $pid ) {
+											if ( $lang !== $current_language ) {
+												$map  = get_post( $pid );
+												$desc = $map->post_title . ' (' . strtoupper( $lang ). ')';
+									?>
+												<li>
+													<a title="<?php echo $desc ; ?>" href="<?php echo get_permalink( $pid ); ?>"><?php echo $desc; ?></a>
+												</li>
+									<?php
+											}
 										}
-									}
-								?>
-							</ul>
-						</div>
+									?>
+								</ul>
+							</div>
+						<?php
+							}
+						?>
 
 					</div>
 				</div>
