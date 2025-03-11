@@ -5,10 +5,8 @@
  * @package KK_Writer_Theme
  */
 ?>
-
- <!-- The HEADER with the site title and the menu -->
+<!-- The HEADER with the site title and the menu -->
 <?php get_header(); ?>
-
 <?php
 	$carousel_first       = kkw_get_option( 'home_carousel_before_featured_enabled', 'kkw_opt_hp_layout' );
 	$carouse_visible      = kkw_get_option( 'home_carousel_visible', 'kkw_opt_hp_layout' );
