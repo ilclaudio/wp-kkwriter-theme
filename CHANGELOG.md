@@ -6,13 +6,16 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 ## [Not released]
+- Fix configuration menu
 - 
-- 
+
+## [0.0.5] - 2025-03-12
+### Fixed
+- Fixed bug in site search.
 
 ## [0.0.4] - 2024-10-27
 ### Fixed
 - Fixed bug in site search.
-
 
 ## [0.0.3] - 2024-10-26
 ### Fixed
