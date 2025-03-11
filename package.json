@@ -1,6 +1,6 @@
 {
 	"name": "wp-kkwriter-theme",
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"description": "A WordPress theme for WP KK-Writer plugin's content types",
 	"main": "index.js",
 	"scripts": {
