@@ -12,14 +12,46 @@ define( 'KKW_SEARCHABLE_POST_TYPES', array( KKW_DEFAULT_POST, KKW_POST_TYPES[ ID
  */
 class KKW_ThemeOptionsManager
 {
+	private $tab_group   = 'kkw_options';
+	private $parent_slug = 'kkw_opt_options';
+	private $capability  = 'manage_options';
+
+	public function build_conf_menu() {
+		add_action( 'cmb2_admin_init', array( $this, 'setup_options' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'setup_option_assets' ) );
+	}
+
+	public function setup_options(){
+		// 1 - Registers options page "Base options".
+		$this->add_opt_base_option( $this->parent_slug, $this->tab_group, $this->capability );
+		// 2 - Registers options page "Home Messages".
+		$this->add_opt_home_messages( 'kkw_opt_hp_messages', $this->tab_group, $this->capability );
+		// 3 - Registers options page "Home Page Layout".
+		$this->add_opt_hp_layout( 'kkw_opt_hp_layout', $this->tab_group, $this->capability );
+		// 4 - Registers options page "Site Contacts".
+		$this->add_opt_site_contacts( 'kkw_opt_site_contacts', $this->tab_group, $this->capability );
+		// 5 - Registers options page "Social media".
+		$this->add_opt_social_media( 'kkw_opt_social_media', $this->tab_group, $this->capability );
+		// 6 - Registers options page "Advanced settings".
+		$this->add_opt_advanced_settings( 'kkw_opt_advanced_settings', $this->tab_group, $this->capability );
+	}
+
+	public function setup_option_assets(){
+		$current_screen = get_current_screen();
+		// if(strpos($current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_kkw_options') {
+		if ( strpos( $current_screen->id, 'kkw_opt') !== false ) {
+			wp_enqueue_style( 'kkw_options_dialog', get_stylesheet_directory_uri() . '/admin/css/jquery-ui.css' );
+			// Hiding the submenu in the WordPress adminmenu.
+			wp_enqueue_script( 'kkw_options_dialog', get_stylesheet_directory_uri() . '/admin/js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), '1.0', true );
+		}
+	}
 
 	/**
 	 * 1 - Registers options page "Base options".
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_base_option( $option_key, $tab_group, $capability )
-	{
+	public function add_opt_base_option( $option_key, $tab_group, $capability ){
 		$result = true;
 		$args = array(
 			'id'           => $option_key . '_id',
@@ -27,16 +59,11 @@ class KKW_ThemeOptionsManager
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'tab_group'    => $tab_group,
-			// 'parent_slug'  => $parent_slug,
 			'tab_title'    => __( 'Base options', 'kk_writer_theme' ),
 			'capability'   => $capability,
 			'position'     => 3, // Menu position. Only applicable if 'parent_slug' is left empty.
 			'icon_url'     => 'dashicons-admin-tools', // Menu icon. Only applicable if 'parent_slug' is left empty.
 		);
-		// // 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 	$args['display_cb'] = 'kkw_options_display_with_tabs';
-		// }
 		$base_options = new_cmb2_box( $args );
 
 		$base_options->add_field(
@@ -153,22 +180,17 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_home_messages( $option_key, $tab_group, $capability )
-	{
+	public function add_opt_home_messages( $option_key, $tab_group, $capability ){
 		$args = array(
 			'id'           => $option_key . '_id',
 			'title'        => esc_html__( 'Messages', 'kk_writer_theme' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
-			// 'parent_slug'  => $parent_slug,
+			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'HP messages', 'kk_writer_theme' ),
 		);
-		// // 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 		$args['display_cb'] = 'kkw_options_display_with_tabs';
-		// }
 		$messages_options = new_cmb2_box( $args );
 
 		$messages_options->add_field(
@@ -257,22 +279,17 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_hp_layout( $option_key, $tab_group, $capability )
-	{
+	public function add_opt_hp_layout( $option_key, $tab_group, $capability ){
 		$args = array(
 			'id'           => $option_key . '_id',
 			'title'        => esc_html__( 'Home Page Layout', 'kk_writer_theme' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
-			// 'parent_slug'  => $parent_slug,
+			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'HP layout', 'kk_writer_theme' ),
 		);
-		// // 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 		$args['display_cb'] = 'kkw_options_display_with_tabs';
-		// }
 		$home_options = new_cmb2_box( $args );
 
 		// CAROUSEL Section (Home Page)
@@ -540,22 +557,17 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_site_contacts( $option_key, $tab_group, $capability )
-	{
+	public function add_opt_site_contacts( $option_key, $tab_group, $capability ){
 		$args = array(
 			'id'           => $option_key . '_id',
 			'title'        => esc_html__( 'Contacts', 'kk_writer_theme' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
-			// 'parent_slug'  => $parent_slug,
+			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'Site contacts', 'kk_writer_theme' ),	
 		);
-		// // 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 		$args['display_cb'] = 'kkw_options_display_with_tabs';
-		// }
 		$contacts_options = new_cmb2_box( $args );
 
 		$contacts_options->add_field(
@@ -632,22 +644,17 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_social_media( $option_key, $tab_group, $capability )
-	{
+	public function add_opt_social_media( $option_key, $tab_group, $capability ){
 		$args = array(
 			'id'           => $option_key . '_id',
 			'title'        => esc_html__( 'Social media', 'kk_writer_theme' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
-			// 'parent_slug'  => $parent_slug,
+			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'Social media', 'kk_writer_theme' ),
 		);
-		// // 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 		$args['display_cb'] = 'kkw_options_display_with_tabs';
-		// }
 		$social_options = new_cmb2_box( $args );
 
 		$social_options->add_field(
@@ -765,22 +772,17 @@ class KKW_ThemeOptionsManager
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_advanced_settings( $option_key, $tab_group, $capability )
-	{
+	public function add_opt_advanced_settings( $option_key, $tab_group, $capability ){
 		$args = array(
 			'id'           => $option_key . '_id',
 			'title'        => esc_html__( 'Advanced', 'kk_writer_theme' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'tab_title'    => __( 'Advanced', 'kk_writer_theme' ),
-			// 'parent_slug'  => $parent_slug,
+			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'capability'   => $capability,
 		);
-		// // 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 	$args['display_cb'] = 'kkw_options_display_with_tabs';
-		// }
 		$advanced_options = new_cmb2_box( $args );
 	
 		$advanced_options->add_field(

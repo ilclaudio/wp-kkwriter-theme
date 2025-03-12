@@ -2,7 +2,7 @@ let $j = jQuery.noConflict();
 let form = $j('.cmb-form');
 
 $j(function() {
-    $j('#toplevel_page_kkw_options').find('ul').addClass('hidden');
+    $j('#toplevel_page_kkw_opt_options').find('ul').addClass('hidden');
 
     form.data('serialize',form.serialize());
     $j('.nav-tab').each(function() {
@@ -12,9 +12,7 @@ $j(function() {
                 $j('#spinner-overlayer').remove();
                 e.preventDefault();
                 e.stopPropagation();
-
                 let link = $j(this).attr('href');
-
                 let modal = $j('<div>').html("Attenzione, le informazioni inserite nel form non sono state salvate, si vuole proseguire comunque?");
                 let args = {
                     title: "Attenzione!",

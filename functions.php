@@ -23,10 +23,6 @@ require get_template_directory() . '/activation.php';
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
 
-/**
- * Import the code to create the theme Configuration.
- */
-require get_template_directory() . '/admin/src/options.php';
 
 /**
  * Import the utils functions.

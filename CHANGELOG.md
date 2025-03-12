@@ -6,16 +6,20 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 ## [Not released]
-- Fix configuration menu
-- Fixed HTML validity of some wrong pages.
+- Refactoring of the Menu Manager.
+- Refactoring of the Activation Manager
+
 
 ## [0.0.5] - 2025-03-12
 ### Fixed
 - Added missed closure for the head tag.
+- Fixed HTML validity of some wrong pages.
+- Fixed and refactored the configuration menu.
+
 
 ## [0.0.4] - 2024-10-27
 ### Fixed
-- Fixed bug in site search.
+- Bug-fixing.
 
 ## [0.0.3] - 2024-10-26
 ### Fixed
