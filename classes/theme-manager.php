@@ -64,6 +64,10 @@ class KKW_ThemeManager {
 		$multi_lang = new KKW_ThemeLangManager();
 		$multi_lang->setup();
 
+		// Setup of the Options Configuration Section of the the.
+		$cnm = new KKW_ThemeOptionsManager();
+		$cnm->build_conf_menu();
+
 		// Register the menus.
 		KKW_ThemeActivationManager::register_menu_locations();
 
