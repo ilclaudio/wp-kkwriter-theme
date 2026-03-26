@@ -25,7 +25,9 @@ nbproject
 Thumbs.db
 
 # VSCode
-.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
 
 # Site status scanner
 tests/e2e/status-report/reports/*
