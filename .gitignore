@@ -8,3 +8,8 @@ node_modules/
 
 languages/*-backup-*.po~
 languages/*-backup-*.pot~
+
+# Ignore local AI context symlinks in project root
+/AGENTS
+/AGENTS.MD
+/CLAUDE.MD
