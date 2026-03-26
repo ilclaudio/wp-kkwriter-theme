@@ -47,14 +47,14 @@ if ( ! class_exists( 'KKW_NavigationManager' ) ) {
  * Import the Theme Activator Manager.
  */
 if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
-	include_once KKW_THEMA_PATH . '/classes/theme-activation-manager.php';
+	include_once KKW_THEME_PATH . '/classes/class-kkw-themeactivationmanager.php';
 }
 
 /**
  * Import the Options Manager.
  */
 if ( ! class_exists( 'KKW_ThemeOptionsManager' ) ) {
-	include_once KKW_THEMA_PATH . '/classes/options-manager.php';
+	include_once KKW_THEME_PATH . '/classes/options-manager.php';
 }
 
 
@@ -115,7 +115,7 @@ if ( ! function_exists( 'kkw_enqueue_js_variables' ) ) {
 		$wp_menu_tabs = array( '#nav-info', '#nav-reviews', '#nav-excerpts', '#nav-tracks', );
 		// Pass the variable using wp_localize_script.
 		wp_localize_script( 'kkw-js', 'wpMenuTabs', $wp_menu_tabs );
-	} 
+	}
 	add_action( 'wp_enqueue_scripts', 'kkw_enqueue_js_variables' );
 }
 

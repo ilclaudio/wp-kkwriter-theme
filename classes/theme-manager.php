@@ -14,7 +14,7 @@ if ( ! class_exists( 'KKW_ThemeLangManager' ) ) {
 }
 
 if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
-	include_once 'theme-activation-manager.php';
+	include_once 'class-kkw-themeactivationmanager.php';
 }
 
 /**

@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: contacts
- * 
+ *
  * KK Writer Theme: The CONTACTS page.
  * @package KK_Writer_Theme
  */
@@ -34,7 +34,7 @@ $nonce_error       = false;
 $form_sent         = 'no';
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-include_once( KKW_THEMA_PATH . '/template-parts/common/captcha.php' );
+include_once( KKW_THEME_PATH . '/template-parts/common/captcha.php' );
 
 $postdata = $_POST;
 
@@ -163,7 +163,7 @@ if ( 'yes' === $form_sent ) {
 				<img src="<?php echo esc_url( $post_img_src ); ?>"
 					class="bd-placeholder-img"
 					alt="<?php echo esc_attr( $post_img_alt ); ?>" />
-					
+
 				<div class="text-left mt-5">
 					<?php get_template_part( 'template-parts/common/social_footer' ); ?>
 				</div>
@@ -275,7 +275,7 @@ if ( 'yes' === $form_sent ) {
 														<input class="form-control border-bottom-only" name="captcha-field" id="captcha-field"
 															size="<?php echo esc_attr( $captcha_obj_image_width ); ?>" type="text"
 																placeholder="<?php echo esc_attr( __( 'Write here the verification code', 'kk_writer_theme' ) ); ?>" />
-														<input name="captcha-prefix" id="captcha-prefix" 
+														<input name="captcha-prefix" id="captcha-prefix"
 															type="hidden" value="<?php echo esc_attr( $captcha_obj_prefix ); ?>" />
 													</div>
 												</div>

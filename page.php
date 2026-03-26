@@ -25,13 +25,13 @@ $quote               = KKW_ContentsManager::get_page_quote( $post->ID );
 
 		<!-- BANNER -->
 		<section class="row mb-2 py-4 primary-bg">
-			<h1><?php echo $section; ?></h1>
+			<h1><?php echo esc_html( $section ); ?></h1>
 			<?php
-				if ( $section_description ){
+				if ( $section_description ) {
 			?>
 			<div class="col-12">
 				<div class="form-group col text-left mb-2">
-				<?php echo $section_description; ?>
+				<?php echo wp_kses_post( $section_description ); ?>
 				</div>
 			</div>
 			<?php
@@ -41,7 +41,7 @@ $quote               = KKW_ContentsManager::get_page_quote( $post->ID );
 
 		<!-- QUOTES, if present -->
 		<?php
-		 if( $quote ) {
+		if ( $quote ) {
 		?>
 		<section class="row pt-2 mb-2">
 			<div class="col-md-12 m-0 p-0">
@@ -55,12 +55,12 @@ $quote               = KKW_ContentsManager::get_page_quote( $post->ID );
 			</div>
 		</section>
 		<?php
-		 }
+		}
 		?>
 
 		<!-- PROLOGUE, if present -->
 		<?php
-			if( $prologue ) {
+			if ( $prologue ) {
 		?>
 				<section class="row py-2 mb-5 px-5">
 					<div class="col-md-12 m-0 p-0">
@@ -78,7 +78,7 @@ $quote               = KKW_ContentsManager::get_page_quote( $post->ID );
 
 		<!-- EPILOGUE, if present -->
 		<?php
-			if( $epilogue ) {
+			if ( $epilogue ) {
 		?>
 				<section class="row py-2 mt-2 mb-5 px-5">
 					<div class="col-md-12 m-0 p-0">
