@@ -13,3 +13,7 @@ languages/*-backup-*.pot~
 /AGENTS
 /AGENTS.MD
 /CLAUDE.MD
+/DEV
+.codex-tmp
+.claude
+.tmp
