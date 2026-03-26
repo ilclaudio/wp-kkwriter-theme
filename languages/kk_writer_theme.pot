@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-26 16:16+0000\n"
+"POT-Creation-Date: 2026-03-26 17:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -36,11 +36,11 @@ msgstr ""
 msgid "Add messages that will be displayed on the homepage."
 msgstr ""
 
-#: single.php:210
+#: single.php:220
 msgid "Add the event to your calendar (iCal)"
 msgstr ""
 
-#: single.php:244 classes/options-manager.php:592
+#: single.php:257 classes/options-manager.php:592
 msgid "Address"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: single-kkw_book.php:159
+#: single-kkw_book.php:160
 msgid "Back cover of the book"
 msgstr ""
 
@@ -84,12 +84,16 @@ msgstr ""
 msgid "BatClaudio"
 msgstr ""
 
+#: config-menu.php:308
+msgid "Biography"
+msgstr ""
+
 #. Name of the template
 #: page-templates/biography.php:2
 msgid "biography"
 msgstr ""
 
-#: classes/navigation-manager.php:78
+#: config-menu.php:311 classes/navigation-manager.php:78
 msgid "Blog"
 msgstr ""
 
@@ -97,7 +101,7 @@ msgstr ""
 msgid "blog"
 msgstr ""
 
-#: single-kkw_book.php:126 single.php:167
+#: single-kkw_book.php:127 single.php:169
 msgid "Blog post"
 msgstr ""
 
@@ -183,8 +187,9 @@ msgstr ""
 msgid "Confirmation email not sent."
 msgstr ""
 
-#: single.php:117 single.php:241 classes/options-manager.php:563
-#: classes/options-manager.php:576 page-templates/contacts.php:13
+#: config-menu.php:312 single.php:119 single.php:251
+#: classes/options-manager.php:563 classes/options-manager.php:576
+#: page-templates/contacts.php:13
 msgid "Contacts"
 msgstr ""
 
@@ -197,7 +202,11 @@ msgstr ""
 msgid "Contacts form"
 msgstr ""
 
-#: single-kkw_book.php:150
+#: config-menu.php:317
+msgid "Cookies Policy"
+msgstr ""
+
+#: single-kkw_book.php:151
 msgid "Cover of the book"
 msgstr ""
 
@@ -209,6 +218,10 @@ msgstr ""
 msgid "Creation date descending"
 msgstr ""
 
+#: config-menu.php:313
+msgid "Credits"
+msgstr ""
+
 #: classes/options-manager.php:225
 msgid "Danger"
 msgstr ""
@@ -217,7 +230,7 @@ msgstr ""
 msgid "Data reloaded successfully"
 msgstr ""
 
-#: single.php:99 single.php:183
+#: single.php:101 single.php:185
 msgid "Date and hour"
 msgstr ""
 
@@ -225,11 +238,11 @@ msgstr ""
 msgid "Delete the message"
 msgstr ""
 
-#: single-kkw_book.php:76 single.php:91
+#: single-kkw_book.php:77 single.php:93
 msgid "Description"
 msgstr ""
 
-#: single-kkw_book.php:70 single.php:85
+#: single-kkw_book.php:71 single.php:87
 msgid "Details"
 msgstr ""
 
@@ -237,7 +250,7 @@ msgstr ""
 msgid "Do you want to receive an email notification"
 msgstr ""
 
-#: single.php:247 classes/options-manager.php:600
+#: single.php:272 classes/options-manager.php:600
 #: page-templates/contacts.php:52 page-templates/contacts.php:237
 #: template-parts/common/social_sharing.php:85
 msgid "E-mail"
@@ -292,19 +305,31 @@ msgstr ""
 msgid "Error reloading data"
 msgstr ""
 
-#: single.php:197
+#: config-menu.php:310
+msgid "Essays"
+msgstr ""
+
+#: single.php:200
 msgid "Event end"
 msgstr ""
 
-#: single.php:229
+#: single.php:239
 msgid "Event location address"
 msgstr ""
 
-#: single.php:189
+#: single.php:191
 msgid "Event start"
 msgstr ""
 
-#: single-kkw_book.php:91 single-kkw_book.php:199
+#: config-menu.php:320
+msgid "Events"
+msgstr ""
+
+#: config-menu.php:318
+msgid "Example"
+msgstr ""
+
+#: single-kkw_book.php:92 single-kkw_book.php:200
 msgid "Excerpts"
 msgstr ""
 
@@ -312,7 +337,7 @@ msgstr ""
 msgid "Export from site"
 msgstr ""
 
-#: single.php:250
+#: single.php:278
 msgid "External link"
 msgstr ""
 
@@ -326,6 +351,10 @@ msgstr ""
 
 #: classes/options-manager.php:366
 msgid "Featured content section"
+msgstr ""
+
+#: config-menu.php:321
+msgid "Fiction"
 msgstr ""
 
 #: page-templates/search.php:108
@@ -430,7 +459,7 @@ msgid ""
 "If yes, the featured contents of the Home Page are chosen automatically."
 msgstr ""
 
-#: single-kkw_book.php:129
+#: single-kkw_book.php:130
 msgid "Image and description of the book"
 msgstr ""
 
@@ -438,7 +467,7 @@ msgstr ""
 msgid "Info"
 msgstr ""
 
-#: single-kkw_book.php:81 single-kkw_book.php:187
+#: single-kkw_book.php:82 single-kkw_book.php:188
 msgid "Informations"
 msgstr ""
 
@@ -547,6 +576,10 @@ msgstr ""
 msgid "Network url"
 msgstr ""
 
+#: config-menu.php:319
+msgid "News"
+msgstr ""
+
 #: classes/options-manager.php:800 classes/options-manager.php:808
 msgid "Newsletter"
 msgstr ""
@@ -595,7 +628,7 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-#: single.php:245
+#: single.php:262
 msgid "Person"
 msgstr ""
 
@@ -604,11 +637,11 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
-#: single.php:135 single.php:283
+#: single.php:137 single.php:313
 msgid "Photo gallery"
 msgstr ""
 
-#: single.php:108 single.php:224
+#: single.php:110 single.php:234
 msgid "Place"
 msgstr ""
 
@@ -618,6 +651,10 @@ msgstr ""
 
 #: page-templates/contacts.php:91
 msgid "Please, provide a valid email address."
+msgstr ""
+
+#: config-menu.php:309
+msgid "Poetry"
 msgstr ""
 
 #: classes/options-manager.php:965
@@ -630,6 +667,10 @@ msgstr ""
 
 #: template-parts/common/book_info.php:98
 msgid "Price"
+msgstr ""
+
+#: config-menu.php:316
+msgid "Privacy"
 msgstr ""
 
 #: template-parts/common/ordering.php:32
@@ -658,8 +699,8 @@ msgstr ""
 msgid "receipt"
 msgstr ""
 
-#: single-kkw_book.php:104 single-kkw_book.php:272 single.php:144
-#: single.php:302
+#: single-kkw_book.php:105 single-kkw_book.php:273 single.php:146
+#: single.php:332
 msgid "Related books"
 msgstr ""
 
@@ -687,7 +728,7 @@ msgstr ""
 msgid "Results found"
 msgstr ""
 
-#: single-kkw_book.php:86 single-kkw_book.php:193
+#: single-kkw_book.php:87 single-kkw_book.php:194
 msgid "Reviews"
 msgstr ""
 
@@ -832,7 +873,7 @@ msgstr ""
 msgid "Site Map"
 msgstr ""
 
-#: page-templates/blog.php:83 page-templates/search.php:76
+#: config-menu.php:314 page-templates/blog.php:83 page-templates/search.php:76
 #: page-templates/search.php:81
 msgid "Site search"
 msgstr ""
@@ -843,6 +884,10 @@ msgstr ""
 
 #: classes/options-manager.php:80
 msgid "Site title"
+msgstr ""
+
+#: config-menu.php:315
+msgid "Sitemap"
 msgstr ""
 
 #. Name of the template
@@ -875,7 +920,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: single-kkw_book.php:177 single-kkw_book.php:271
+#: single-kkw_book.php:178 single-kkw_book.php:272
 msgid "Tabs to switch among contents"
 msgstr ""
 
@@ -883,7 +928,7 @@ msgstr ""
 msgid "Tagline"
 msgstr ""
 
-#: single.php:246
+#: single.php:267
 msgid "Telephone"
 msgstr ""
 
@@ -997,7 +1042,7 @@ msgstr ""
 msgid "Title descending"
 msgstr ""
 
-#: single-kkw_book.php:96 single-kkw_book.php:205
+#: single-kkw_book.php:97 single-kkw_book.php:206
 msgid "Tracks"
 msgstr ""
 
@@ -1009,7 +1054,7 @@ msgstr ""
 msgid "Type the text to search and click on the Search button"
 msgstr ""
 
-#: single.php:126 single.php:264
+#: single.php:128 single.php:294
 msgid "Video"
 msgstr ""
 

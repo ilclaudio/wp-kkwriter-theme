@@ -289,3 +289,36 @@ define(
 		),
 	),
 );
+
+/**
+ *  This feature is used so that translation plugins like Loco Translate
+ *  can automatically extract these tags from the theme to translate.
+ *
+ *  @TODO: Check if it is possible to remove these duplications.
+ */
+if ( ! function_exists( 'kkw_translate_data' ) ) {
+	/**
+	 * Return translatable activation labels for static and archive pages.
+	 *
+	 * @return array<string, string>
+	 */
+	function kkw_translate_data() {
+		// Standard pages.
+		return array(
+			'Biography'      => __( 'Biography', 'kk_writer_theme' ),
+			'Poetry'         => __( 'Poetry', 'kk_writer_theme' ),
+			'Essays'         => __( 'Essays', 'kk_writer_theme' ),
+			'Blog'           => __( 'Blog', 'kk_writer_theme' ),
+			'Contacts'       => __( 'Contacts', 'kk_writer_theme' ),
+			'Credits'        => __( 'Credits', 'kk_writer_theme' ),
+			'Site search'    => __( 'Site search', 'kk_writer_theme' ),
+			'Sitemap'        => __( 'Sitemap', 'kk_writer_theme' ),
+			'Privacy'        => __( 'Privacy', 'kk_writer_theme' ),
+			'Cookies Policy' => __( 'Cookies Policy', 'kk_writer_theme' ),
+			'Example'        => __( 'Example', 'kk_writer_theme' ),
+			'News'           => __( 'News', 'kk_writer_theme' ),
+			'Events'         => __( 'Events', 'kk_writer_theme' ),
+			'Fiction'        => __( 'Fiction', 'kk_writer_theme' ),
+		);
+	}
+}

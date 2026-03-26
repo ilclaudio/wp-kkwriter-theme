@@ -20,6 +20,9 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Bug-fixing
 ## Security
 ## Changed
+- Updated bootstrap to the version 5.3.8.
+
+
 
 
 ## [0.0.5] - 2025-03-12
