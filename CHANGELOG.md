@@ -10,12 +10,23 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Refactoring of the Activation Manager
 
 
+
+## [0.0.6] - 2026-03-30
+## Added
+- Added e2e tests.
+- Added githooks.
+- Added context file for AI project management.
+### Fixed
+- Bug-fixing
+## Security
+## Changed
+
+
 ## [0.0.5] - 2025-03-12
 ### Fixed
 - Added missed closure for the head tag.
 - Fixed HTML validity of some wrong pages.
 - Fixed and refactored the configuration menu.
-
 
 ## [0.0.4] - 2024-10-27
 ### Fixed
