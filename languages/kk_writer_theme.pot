@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-26 15:05+0000\n"
+"POT-Creation-Date: 2026-03-26 16:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -28,15 +28,11 @@ msgstr ""
 msgid "A message was sent from the site by:"
 msgstr ""
 
-#: config_theme.php:106
-msgid "Accessibility"
-msgstr ""
-
-#: classes/options-manager.php:190
+#: classes/options-manager.php:212
 msgid "Add a mesage"
 msgstr ""
 
-#: classes/options-manager.php:178
+#: classes/options-manager.php:200
 msgid "Add messages that will be displayed on the homepage."
 msgstr ""
 
@@ -44,35 +40,23 @@ msgstr ""
 msgid "Add the event to your calendar (iCal)"
 msgstr ""
 
-#: single.php:244 classes/options-manager.php:580
+#: single.php:244 classes/options-manager.php:592
 msgid "Address"
 msgstr ""
 
-#: classes/options-manager.php:772 classes/options-manager.php:775
+#: classes/options-manager.php:778 classes/options-manager.php:781
 msgid "Advanced"
 msgstr ""
 
-#: classes/options-manager.php:789
+#: classes/options-manager.php:791
 msgid "Advanced configurations"
 msgstr ""
 
-#: classes/options-manager.php:833
+#: classes/options-manager.php:835
 msgid "API token"
 msgstr ""
 
-#: config_menu.php:54
-msgid "Article"
-msgstr ""
-
-#: config_menu.php:53
-msgid "article"
-msgstr ""
-
-#: config_menu.php:55
-msgid "Articles"
-msgstr ""
-
-#: classes/contents-manager.php:265
+#: classes/contents-manager.php:266
 msgid "at"
 msgstr ""
 
@@ -80,7 +64,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: classes/options-manager.php:317 classes/options-manager.php:370
+#: classes/options-manager.php:334 classes/options-manager.php:387
 msgid "Automatic selection enabled"
 msgstr ""
 
@@ -92,7 +76,7 @@ msgstr ""
 msgid "Back cover of the book"
 msgstr ""
 
-#: classes/options-manager.php:31
+#: classes/options-manager.php:62
 msgid "Base options"
 msgstr ""
 
@@ -100,20 +84,16 @@ msgstr ""
 msgid "BatClaudio"
 msgstr ""
 
-#: config_theme.php:132
-msgid "Biography"
-msgstr ""
-
 #. Name of the template
 #: page-templates/biography.php:2
 msgid "biography"
 msgstr ""
 
-#: config_theme.php:198 classes/navigation-manager.php:78
+#: classes/navigation-manager.php:78
 msgid "Blog"
 msgstr ""
 
-#: classes/contents-manager.php:209
+#: classes/contents-manager.php:210
 msgid "blog"
 msgstr ""
 
@@ -125,54 +105,54 @@ msgstr ""
 msgid "Blog search results"
 msgstr ""
 
-#: classes/options-manager.php:504
+#: classes/options-manager.php:521
 msgid "Blog section"
 msgstr ""
 
-#: classes/options-manager.php:388
+#: classes/options-manager.php:405
 msgid "Box 1 - Featured content"
 msgstr ""
 
-#: classes/options-manager.php:427
+#: classes/options-manager.php:444
 msgid "Box 2 - Featured content"
 msgstr ""
 
-#: classes/options-manager.php:466
+#: classes/options-manager.php:483
 msgid "Box 3 - Featured content"
 msgstr ""
 
-#: classes/options-manager.php:825
+#: classes/options-manager.php:827
 msgid "Brevo"
 msgstr ""
 
-#: page-templates/contacts.php:290 page-templates/search.php:87
+#: page-templates/contacts.php:290 page-templates/search.php:93
 msgid "Cancel"
 msgstr ""
 
-#: classes/options-manager.php:282
+#: classes/options-manager.php:299
 msgid "Carousel section"
 msgstr ""
 
-#: classes/options-manager.php:329
+#: classes/options-manager.php:346
 msgid "Choose contents"
 msgstr ""
 
-#: classes/options-manager.php:199
+#: classes/options-manager.php:221
 msgid "Choose the color"
 msgstr ""
 
-#: classes/options-manager.php:330
+#: classes/options-manager.php:347
 msgid "Choose the contents to show in the Home Page carousel."
 msgstr ""
 
-#: classes/options-manager.php:139
+#: classes/options-manager.php:166
 msgid ""
 "Choose the the footer logo. If it is not present, but the display of the "
 "logo in the footer is enabled, the header logo is shown with inverted colors."
 " It is recommended to upload an image in SVG format."
 msgstr ""
 
-#: classes/options-manager.php:572
+#: classes/options-manager.php:584
 msgid "City"
 msgstr ""
 
@@ -187,11 +167,11 @@ msgstr ""
 msgid "Close alert"
 msgstr ""
 
-#: classes/options-manager.php:505
+#: classes/options-manager.php:522
 msgid "Configure here the blog section."
 msgstr ""
 
-#: classes/options-manager.php:283
+#: classes/options-manager.php:300
 msgid "Configure here the carousel section."
 msgstr ""
 
@@ -203,9 +183,8 @@ msgstr ""
 msgid "Confirmation email not sent."
 msgstr ""
 
-#: config_theme.php:158 single.php:117 single.php:241
-#: classes/options-manager.php:547 classes/options-manager.php:564
-#: page-templates/contacts.php:13
+#: single.php:117 single.php:241 classes/options-manager.php:563
+#: classes/options-manager.php:576 page-templates/contacts.php:13
 msgid "Contacts"
 msgstr ""
 
@@ -216,10 +195,6 @@ msgstr ""
 
 #: page-templates/contacts.php:173
 msgid "Contacts form"
-msgstr ""
-
-#: config_theme.php:93
-msgid "Cookies policy"
 msgstr ""
 
 #: single-kkw_book.php:150
@@ -234,11 +209,7 @@ msgstr ""
 msgid "Creation date descending"
 msgstr ""
 
-#: config_theme.php:119
-msgid "Credits"
-msgstr ""
-
-#: classes/options-manager.php:203
+#: classes/options-manager.php:225
 msgid "Danger"
 msgstr ""
 
@@ -250,7 +221,7 @@ msgstr ""
 msgid "Date and hour"
 msgstr ""
 
-#: classes/options-manager.php:191
+#: classes/options-manager.php:213
 msgid "Delete the message"
 msgstr ""
 
@@ -266,7 +237,7 @@ msgstr ""
 msgid "Do you want to receive an email notification"
 msgstr ""
 
-#: single.php:247 classes/options-manager.php:588
+#: single.php:247 classes/options-manager.php:600
 #: page-templates/contacts.php:52 page-templates/contacts.php:237
 #: template-parts/common/social_sharing.php:85
 msgid "E-mail"
@@ -276,61 +247,49 @@ msgstr ""
 msgid "E-mail form the site"
 msgstr ""
 
-#: classes/options-manager.php:186
+#: classes/options-manager.php:208
 msgid ""
 "Each message is constructed with a short description (max 140 characters) "
 "and expiry date (optional)."
 msgstr ""
 
-#: classes/options-manager.php:984
+#: classes/options-manager.php:986
 msgid "Enable internal SEO management"
 msgstr ""
 
-#: classes/options-manager.php:900
+#: classes/options-manager.php:902
 msgid "Enable language selector"
 msgstr ""
 
-#: classes/options-manager.php:665
+#: classes/options-manager.php:672
 msgid ""
 "Enable the display of social media in the header and footer of the page."
 msgstr ""
 
-#: classes/options-manager.php:985
+#: classes/options-manager.php:987
 msgid ""
 "Enable the internal management of SEO and OG tags or disable it to delegate "
 "this job to an external plugin."
 msgstr ""
 
-#: classes/options-manager.php:941
+#: classes/options-manager.php:943
 msgid "Enable the REST API"
 msgstr ""
 
-#: classes/options-manager.php:962
+#: classes/options-manager.php:964
 msgid "Enable the XMLRPC API"
 msgstr ""
 
-#: classes/options-manager.php:223
+#: classes/options-manager.php:245
 msgid "End date"
 msgstr ""
 
-#: classes/options-manager.php:922
+#: classes/options-manager.php:924
 msgid "Enter the analytics code."
 msgstr ""
 
 #: activation.php:53
 msgid "Error reloading data"
-msgstr ""
-
-#: config_menu.php:25
-msgid "Essays"
-msgstr ""
-
-#: config_menu.php:65
-msgid "Event"
-msgstr ""
-
-#: config_menu.php:64
-msgid "event"
 msgstr ""
 
 #: single.php:197
@@ -345,15 +304,11 @@ msgstr ""
 msgid "Event start"
 msgstr ""
 
-#: config_menu.php:66
-msgid "Events"
-msgstr ""
-
 #: single-kkw_book.php:91 single-kkw_book.php:199
 msgid "Excerpts"
 msgstr ""
 
-#: classes/contents-manager.php:811
+#: classes/contents-manager.php:812
 msgid "Export from site"
 msgstr ""
 
@@ -369,15 +324,11 @@ msgstr ""
 msgid "Featured blog articles"
 msgstr ""
 
-#: classes/options-manager.php:349
+#: classes/options-manager.php:366
 msgid "Featured content section"
 msgstr ""
 
-#: config_menu.php:33
-msgid "Fiction"
-msgstr ""
-
-#: page-templates/search.php:102
+#: page-templates/search.php:108
 msgid "Filter by content type"
 msgstr ""
 
@@ -385,7 +336,7 @@ msgstr ""
 msgid "Filter by group"
 msgstr ""
 
-#: template-parts/header/main-menu.php:57
+#: template-parts/header/main-menu.php:56
 msgid "Flag of the language"
 msgstr ""
 
@@ -417,7 +368,7 @@ msgstr ""
 msgid "Follow me on"
 msgstr ""
 
-#: classes/options-manager.php:125
+#: classes/options-manager.php:152
 msgid "Footer logo visible"
 msgstr ""
 
@@ -429,23 +380,23 @@ msgstr ""
 msgid "Gmail"
 msgstr ""
 
-#: classes/options-manager.php:99
+#: classes/options-manager.php:126
 msgid "Header logo visible"
 msgstr ""
 
-#: classes/options-manager.php:264
+#: classes/options-manager.php:285
 msgid "Home Page Layout"
 msgstr ""
 
-#: classes/options-manager.php:177
+#: classes/options-manager.php:199
 msgid "Home page messages"
 msgstr ""
 
-#: classes/options-manager.php:270
+#: classes/options-manager.php:291
 msgid "HP layout"
 msgstr ""
 
-#: classes/options-manager.php:166
+#: classes/options-manager.php:192
 msgid "HP messages"
 msgstr ""
 
@@ -457,24 +408,24 @@ msgstr ""
 msgid "I'm pleased to share the post"
 msgstr ""
 
-#: classes/options-manager.php:842
+#: classes/options-manager.php:844
 msgid "ID of the list associated to the site."
 msgstr ""
 
-#: classes/options-manager.php:526
+#: classes/options-manager.php:543
 msgid "If yes, the blog section is shown after the featured content section."
 msgstr ""
 
-#: classes/options-manager.php:292
+#: classes/options-manager.php:309
 msgid "If yes, the carousel is shown before the featured content section."
 msgstr ""
 
-#: classes/options-manager.php:318
+#: classes/options-manager.php:335
 msgid ""
 "If yes, the contents of the Home Page carousel are chosen automatically."
 msgstr ""
 
-#: classes/options-manager.php:371
+#: classes/options-manager.php:388
 msgid ""
 "If yes, the featured contents of the Home Page are chosen automatically."
 msgstr ""
@@ -483,7 +434,7 @@ msgstr ""
 msgid "Image and description of the book"
 msgstr ""
 
-#: classes/options-manager.php:206
+#: classes/options-manager.php:228
 msgid "Info"
 msgstr ""
 
@@ -491,7 +442,7 @@ msgstr ""
 msgid "Informations"
 msgstr ""
 
-#: classes/options-manager.php:657
+#: classes/options-manager.php:664
 msgid "Insert here the links to your social media."
 msgstr ""
 
@@ -499,7 +450,7 @@ msgstr ""
 msgid "Insert the captcha code"
 msgstr ""
 
-#: classes/theme-manager.php:137
+#: classes/theme-manager.php:141
 msgid "Invalid username or password"
 msgstr ""
 
@@ -507,24 +458,24 @@ msgstr ""
 msgid "ISBN"
 msgstr ""
 
-#: classes/contents-manager.php:838
+#: classes/contents-manager.php:839
 msgid "It is not possible to download the .ics file."
 msgstr ""
 
-#: classes/options-manager.php:26
+#: classes/options-manager.php:58
 msgid "KKW Theme"
 msgstr ""
 
-#: classes/options-manager.php:416 classes/options-manager.php:455
-#: classes/options-manager.php:494
+#: classes/options-manager.php:433 classes/options-manager.php:472
+#: classes/options-manager.php:511
 msgid "Left"
 msgstr ""
 
-#: classes/options-manager.php:248
+#: classes/options-manager.php:270
 msgid "Link"
 msgstr ""
 
-#: classes/options-manager.php:249
+#: classes/options-manager.php:271
 msgid "Link to an in-depth page also external to the site."
 msgstr ""
 
@@ -532,39 +483,35 @@ msgstr ""
 msgid "Linkedin"
 msgstr ""
 
-#: classes/options-manager.php:841
+#: classes/options-manager.php:843
 msgid "List ID"
 msgstr ""
 
-#: classes/options-manager.php:871
+#: classes/options-manager.php:873
 msgid "Login"
 msgstr ""
 
-#: classes/options-manager.php:879
+#: classes/options-manager.php:881
 msgid "Login visible"
 msgstr ""
 
-#: classes/options-manager.php:138
+#: classes/options-manager.php:165
 msgid "Logo footer"
 msgstr ""
 
-#: classes/options-manager.php:112
+#: classes/options-manager.php:139
 msgid "Logo header"
 msgstr ""
 
-#: config_menu.php:94
-msgid "Main Menu"
-msgstr ""
-
-#: classes/options-manager.php:350
+#: classes/options-manager.php:367
 msgid "Manage the featured content in the Home Page."
 msgstr ""
 
-#: classes/options-manager.php:236
+#: classes/options-manager.php:258
 msgid "Max 140 characters"
 msgstr ""
 
-#: classes/options-manager.php:189
+#: classes/options-manager.php:211
 msgid "Message"
 msgstr ""
 
@@ -580,11 +527,11 @@ msgstr ""
 msgid "Message text"
 msgstr ""
 
-#: classes/options-manager.php:160
+#: classes/options-manager.php:186
 msgid "Messages"
 msgstr ""
 
-#: classes/options-manager.php:892
+#: classes/options-manager.php:894
 msgid "Multilanguage"
 msgstr ""
 
@@ -592,28 +539,19 @@ msgstr ""
 msgid "Name and surname"
 msgstr ""
 
-#: classes/options-manager.php:83
+#: classes/options-manager.php:110
 msgid "Network name"
 msgstr ""
 
-#: classes/options-manager.php:91
+#: classes/options-manager.php:118
 msgid "Network url"
 msgstr ""
 
-#: config_menu.php:76 config_menu.php:77
-msgid "News"
-msgstr ""
-
-#: config_menu.php:75
-msgid "news"
-msgstr ""
-
-#: config_theme.php:171 classes/options-manager.php:798
-#: classes/options-manager.php:806
+#: classes/options-manager.php:800 classes/options-manager.php:808
 msgid "Newsletter"
 msgstr ""
 
-#: classes/options-manager.php:819
+#: classes/options-manager.php:821
 msgid "Newsletter manager"
 msgstr ""
 
@@ -621,14 +559,14 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: classes/options-manager.php:105 classes/options-manager.php:131
-#: classes/options-manager.php:297 classes/options-manager.php:310
-#: classes/options-manager.php:323 classes/options-manager.php:363
-#: classes/options-manager.php:376 classes/options-manager.php:518
-#: classes/options-manager.php:531 classes/options-manager.php:670
-#: classes/options-manager.php:811 classes/options-manager.php:884
-#: classes/options-manager.php:905 classes/options-manager.php:947
-#: classes/options-manager.php:968 classes/options-manager.php:990
+#: classes/options-manager.php:132 classes/options-manager.php:158
+#: classes/options-manager.php:314 classes/options-manager.php:327
+#: classes/options-manager.php:340 classes/options-manager.php:380
+#: classes/options-manager.php:393 classes/options-manager.php:535
+#: classes/options-manager.php:548 classes/options-manager.php:677
+#: classes/options-manager.php:813 classes/options-manager.php:886
+#: classes/options-manager.php:907 classes/options-manager.php:949
+#: classes/options-manager.php:970 classes/options-manager.php:992
 msgid "No"
 msgstr ""
 
@@ -636,8 +574,8 @@ msgstr ""
 msgid "Nonce not valid."
 msgstr ""
 
-#: classes/options-manager.php:410 classes/options-manager.php:449
-#: classes/options-manager.php:488
+#: classes/options-manager.php:427 classes/options-manager.php:466
+#: classes/options-manager.php:505
 msgid "On which side the thumbnail wil be shown."
 msgstr ""
 
@@ -661,7 +599,7 @@ msgstr ""
 msgid "Person"
 msgstr ""
 
-#: classes/options-manager.php:596 page-templates/contacts.php:53
+#: classes/options-manager.php:608 page-templates/contacts.php:53
 #: page-templates/contacts.php:243
 msgid "Phone number"
 msgstr ""
@@ -682,11 +620,7 @@ msgstr ""
 msgid "Please, provide a valid email address."
 msgstr ""
 
-#: config_menu.php:17
-msgid "Poetry"
-msgstr ""
-
-#: classes/options-manager.php:963
+#: classes/options-manager.php:965
 msgid "Preferably, it should be disabled."
 msgstr ""
 
@@ -696,14 +630,6 @@ msgstr ""
 
 #: template-parts/common/book_info.php:98
 msgid "Price"
-msgstr ""
-
-#: config_menu.php:108
-msgid "Primary Footer Menu"
-msgstr ""
-
-#: config_theme.php:80
-msgid "Privacy policy"
 msgstr ""
 
 #: template-parts/common/ordering.php:32
@@ -753,11 +679,11 @@ msgstr ""
 msgid "Reloads theme activation data (menus, pages, taxonomies, etc.)"
 msgstr ""
 
-#: classes/options-manager.php:934
+#: classes/options-manager.php:936
 msgid "REST API"
 msgstr ""
 
-#: page-templates/search.php:141
+#: page-templates/search.php:147
 msgid "Results found"
 msgstr ""
 
@@ -765,22 +691,17 @@ msgstr ""
 msgid "Reviews"
 msgstr ""
 
-#: classes/options-manager.php:415 classes/options-manager.php:454
-#: classes/options-manager.php:493
+#: classes/options-manager.php:432 classes/options-manager.php:471
+#: classes/options-manager.php:510
 msgid "Right"
 msgstr ""
 
-#: config_theme.php:185 header.php:91 header.php:103
-#: page-templates/search.php:90
+#: header.php:92 header.php:97 header.php:107 page-templates/search.php:96
 msgid "Search"
 msgstr ""
 
-#: page-templates/search.php:126
+#: page-templates/search.php:132
 msgid "Search results"
-msgstr ""
-
-#: config_menu.php:121
-msgid "Secondary Footer Menu"
 msgstr ""
 
 #: template-parts/common/book_info.php:70
@@ -815,19 +736,19 @@ msgstr ""
 msgid "Section that contains the main menu of the site."
 msgstr ""
 
-#: classes/options-manager.php:790
+#: classes/options-manager.php:792
 msgid "Section to configure advanced settings."
 msgstr ""
 
-#: classes/options-manager.php:46
+#: classes/options-manager.php:73
 msgid "Section to configure base options."
 msgstr ""
 
-#: classes/options-manager.php:820
+#: classes/options-manager.php:822
 msgid "Selection of the program used to manage the newsletter of the site."
 msgstr ""
 
-#: classes/options-manager.php:977
+#: classes/options-manager.php:979
 msgid "SEO"
 msgstr ""
 
@@ -859,68 +780,68 @@ msgstr ""
 msgid "Share on WhatsApp"
 msgstr ""
 
-#: classes/options-manager.php:512
+#: classes/options-manager.php:529
 msgid "Show blog section"
 msgstr ""
 
-#: classes/options-manager.php:525
+#: classes/options-manager.php:542
 msgid "Show blog section after featured content"
 msgstr ""
 
-#: classes/options-manager.php:513
+#: classes/options-manager.php:530
 msgid "Show blog section in the Home Page."
 msgstr ""
 
-#: classes/options-manager.php:291
+#: classes/options-manager.php:308
 msgid "Show carousel before featured content"
 msgstr ""
 
-#: classes/options-manager.php:357
+#: classes/options-manager.php:374
 msgid "Show featured content"
 msgstr ""
 
-#: classes/options-manager.php:358
+#: classes/options-manager.php:375
 msgid "Show featured content section in the Home Page."
 msgstr ""
 
-#: classes/options-manager.php:664
+#: classes/options-manager.php:671
 msgid "Show social media icons"
 msgstr ""
 
-#: classes/options-manager.php:304
+#: classes/options-manager.php:321
 msgid "Show the Carousel section"
 msgstr ""
 
-#: classes/options-manager.php:214
+#: classes/options-manager.php:236
 msgid "Show the icon"
 msgstr ""
 
-#: classes/options-manager.php:305
+#: classes/options-manager.php:322
 msgid "Show the main carousel in the Home Page."
 msgstr ""
 
-#: classes/options-manager.php:45
+#: classes/options-manager.php:72
 msgid "Site configuration"
 msgstr ""
 
-#: classes/options-manager.php:553
+#: classes/options-manager.php:569
 msgid "Site contacts"
 msgstr ""
 
-#: config_theme.php:145 page-templates/sitemap.php:12
+#: page-templates/sitemap.php:12
 msgid "Site Map"
 msgstr ""
 
-#: page-templates/blog.php:83 page-templates/search.php:70
-#: page-templates/search.php:75
+#: page-templates/blog.php:83 page-templates/search.php:76
+#: page-templates/search.php:81
 msgid "Site search"
 msgstr ""
 
-#: classes/options-manager.php:64
+#: classes/options-manager.php:91
 msgid "Site short name"
 msgstr ""
 
-#: classes/options-manager.php:53
+#: classes/options-manager.php:80
 msgid "Site title"
 msgstr ""
 
@@ -929,28 +850,28 @@ msgstr ""
 msgid "sitemap"
 msgstr ""
 
-#: classes/options-manager.php:605
+#: classes/options-manager.php:617
 msgid "SMTP"
 msgstr ""
 
-#: classes/options-manager.php:622
+#: classes/options-manager.php:634
 msgid "SMTP sender email"
 msgstr ""
 
-#: classes/options-manager.php:613
+#: classes/options-manager.php:625
 msgid "SMTP sender name"
 msgstr ""
 
-#: classes/options-manager.php:639 classes/options-manager.php:645
-#: classes/options-manager.php:656
+#: classes/options-manager.php:650 classes/options-manager.php:656
+#: classes/options-manager.php:663
 msgid "Social media"
 msgstr ""
 
-#: classes/options-manager.php:942
+#: classes/options-manager.php:944
 msgid "Some plugin require the REST API to be enabled."
 msgstr ""
 
-#: classes/options-manager.php:204
+#: classes/options-manager.php:226
 msgid "Success"
 msgstr ""
 
@@ -958,7 +879,7 @@ msgstr ""
 msgid "Tabs to switch among contents"
 msgstr ""
 
-#: classes/options-manager.php:75
+#: classes/options-manager.php:102
 msgid "Tagline"
 msgstr ""
 
@@ -966,15 +887,15 @@ msgstr ""
 msgid "Telephone"
 msgstr ""
 
-#: classes/options-manager.php:856
+#: classes/options-manager.php:858
 msgid "Template ID"
 msgstr ""
 
-#: classes/options-manager.php:857
+#: classes/options-manager.php:859
 msgid "Template ID of the page that manages the double OptIn"
 msgstr ""
 
-#: classes/options-manager.php:235
+#: classes/options-manager.php:257
 msgid "Text"
 msgstr ""
 
@@ -982,55 +903,55 @@ msgstr ""
 msgid "Text of the message: "
 msgstr ""
 
-#: page-templates/search.php:81
+#: page-templates/search.php:87
 msgid "Text to search..."
 msgstr ""
 
-#: classes/options-manager.php:581
+#: classes/options-manager.php:593
 msgid "The address of the site."
 msgstr ""
 
-#: classes/options-manager.php:573
+#: classes/options-manager.php:585
 msgid "The city of the site."
 msgstr ""
 
-#: classes/options-manager.php:565
+#: classes/options-manager.php:577
 msgid "The contact shown in the footer."
 msgstr ""
 
-#: classes/options-manager.php:589
+#: classes/options-manager.php:601
 msgid "The e-mail of the site."
 msgstr ""
 
-#: classes/options-manager.php:113
+#: classes/options-manager.php:140
 msgid "The logo of the site, please load an SVG image."
 msgstr ""
 
-#: header.php:63 header.php:66
+#: header.php:64 header.php:67
 msgid "The logo of the site."
 msgstr ""
 
-#: classes/options-manager.php:84
+#: classes/options-manager.php:111
 msgid "The name of the network the site is part of."
 msgstr ""
 
-#: classes/options-manager.php:614
+#: classes/options-manager.php:626
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr ""
 
-#: classes/options-manager.php:597
+#: classes/options-manager.php:609
 msgid "The phone number of the site."
 msgstr ""
 
-#: classes/options-manager.php:623
+#: classes/options-manager.php:635
 msgid "The provider e-mail that must be used as sender."
 msgstr ""
 
-#: classes/options-manager.php:65
+#: classes/options-manager.php:92
 msgid "The short name of the site for sharing and SEO."
 msgstr ""
 
-#: classes/options-manager.php:76
+#: classes/options-manager.php:103
 msgid "The tagline of the site."
 msgstr ""
 
@@ -1038,11 +959,11 @@ msgstr ""
 msgid "The text of the message"
 msgstr ""
 
-#: classes/options-manager.php:54
+#: classes/options-manager.php:81
 msgid "The title of the site."
 msgstr ""
 
-#: classes/options-manager.php:92
+#: classes/options-manager.php:119
 msgid "The url of the network the site is part of."
 msgstr ""
 
@@ -1059,8 +980,8 @@ msgid ""
 "This is a WordPress theme for sites that uses the plugin: KK Writer Plugin."
 msgstr ""
 
-#: classes/options-manager.php:409 classes/options-manager.php:448
-#: classes/options-manager.php:487
+#: classes/options-manager.php:426 classes/options-manager.php:465
+#: classes/options-manager.php:504
 msgid "Thumbnail side"
 msgstr ""
 
@@ -1084,7 +1005,7 @@ msgstr ""
 msgid "Twitter"
 msgstr ""
 
-#: page-templates/search.php:146
+#: page-templates/search.php:152
 msgid "Type the text to search and click on the Search button"
 msgstr ""
 
@@ -1092,11 +1013,11 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
-#: classes/options-manager.php:205
+#: classes/options-manager.php:227
 msgid "Warning"
 msgstr ""
 
-#: classes/options-manager.php:913
+#: classes/options-manager.php:915
 msgid "Web Analytics Code"
 msgstr ""
 
@@ -1112,7 +1033,7 @@ msgstr ""
 msgid "Write here the verification code"
 msgstr ""
 
-#: classes/options-manager.php:955
+#: classes/options-manager.php:957
 msgid "XMLRPC API"
 msgstr ""
 
@@ -1120,22 +1041,22 @@ msgstr ""
 msgid "Year"
 msgstr ""
 
-#: classes/options-manager.php:104 classes/options-manager.php:130
-#: classes/options-manager.php:296 classes/options-manager.php:309
-#: classes/options-manager.php:322 classes/options-manager.php:362
-#: classes/options-manager.php:375 classes/options-manager.php:517
-#: classes/options-manager.php:530 classes/options-manager.php:669
-#: classes/options-manager.php:810 classes/options-manager.php:883
-#: classes/options-manager.php:904 classes/options-manager.php:946
-#: classes/options-manager.php:967 classes/options-manager.php:989
+#: classes/options-manager.php:131 classes/options-manager.php:157
+#: classes/options-manager.php:313 classes/options-manager.php:326
+#: classes/options-manager.php:339 classes/options-manager.php:379
+#: classes/options-manager.php:392 classes/options-manager.php:534
+#: classes/options-manager.php:547 classes/options-manager.php:676
+#: classes/options-manager.php:812 classes/options-manager.php:885
+#: classes/options-manager.php:906 classes/options-manager.php:948
+#: classes/options-manager.php:969 classes/options-manager.php:991
 msgid "Yes"
 msgstr ""
 
-#: classes/options-manager.php:126
+#: classes/options-manager.php:153
 msgid "Yes if the logo needs to be shown in the footer."
 msgstr ""
 
-#: classes/options-manager.php:100
+#: classes/options-manager.php:127
 msgid "Yes if the logo needs to be shown in the header."
 msgstr ""
 
