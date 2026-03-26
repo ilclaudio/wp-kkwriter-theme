@@ -15,7 +15,7 @@
 				false,
 				array(),
 			);
-		?>
+			?>
 
 		<!-- SECONDARY FOOTER -->
 		<?php
@@ -24,7 +24,7 @@
 				false,
 				array(),
 			);
-		?>
+			?>
 
 		<?php wp_footer(); ?>
 	</div>

@@ -2,7 +2,7 @@
 /**
  * Definition of the Authorization Manager.
  *
- * @package @package WP_KK_Writer_Plugin
+ * @package KK_Writer_Theme
  */
 
 

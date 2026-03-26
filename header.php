@@ -35,7 +35,7 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 				'current_lang' => $current_lang,
 			),
 		);
-	?>
+		?>
 
 	<!-- SEO - OG Internal Management -->
 	<?php
@@ -48,7 +48,7 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 				'current_lang' => $current_lang,
 			),
 		);
-	?>
+		?>
 </head>
 
 <body>
@@ -59,15 +59,15 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 				<!-- LOGO OF THE SITE -->
 				<div class="col-12 col-lg-4 text-center text-lg-left kkw_logoheader mb-3 mb-lg-0">
 					<?php
-						if ( $header_logo === 'true' ) {
-					?>
+					if ( $header_logo === 'true' ) {
+						?>
 					<a href="<?php echo get_site_url(); ?>" title="<?php echo __( 'The logo of the site.', 'kk_writer_theme' ); ?>">
 						<img height="100" class="m-0 p-0"
-							src="<?php echo get_template_directory_uri() . '/assets/img/LogoHeader.jpg' ?>"
+							src="<?php echo get_template_directory_uri() . '/assets/img/LogoHeader.jpg'; ?>"
 							alt="<?php echo __( 'The logo of the site.', 'kk_writer_theme' ); ?>" />
 					</a>
-					<?php
-						}
+						<?php
+					}
 					?>
 				</div>
 
@@ -75,30 +75,30 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 				<div class="col-12 col-lg-4 text-center mb-4 mb-lg-0">
 					<h1 class="kkw_sitetitle"><a href="<?php echo get_site_url(); ?>"><?php echo esc_html( $site_title, 'kk_writer_theme' ); ?></a></h1>
 					<?php
-						if ( $site_tagline ) {
-					?>
+					if ( $site_tagline ) {
+						?>
 						<div class="kkw_tagline">
 							<a href="<?php echo get_site_url(); ?>"><?php echo esc_html( $site_tagline, 'kk_writer_theme' ); ?></a>
 						</div>
-					<?php
-						}
+						<?php
+					}
 					?>
 				</div>
 
 				<!-- SITE SEARCH -->
-				 <?php
+				<?php
 					$search_page_id  = KKW_ThemeLangManager::get_page_by_slug( SLUG_SEARCH_SITE_EN );
 					$search_page_url = get_permalink( $search_page_id );
 					$label           = __( 'Search', 'kk_writer_theme' );
-				 ?>
+				?>
 				<div class="col-12 col-lg-4 d-flex justify-content-lg-end justify-content-center align-items-center mb-3 mb-lg-0">
-					<FORM id="search_box" action="<?php echo $search_page_url; ?>" method="GET" class="d-flex" role="<?php $label ?>">
+					<FORM id="search_box" action="<?php echo $search_page_url; ?>" method="GET" class="d-flex" role="<?php $label; ?>">
 						<label id="search_string_label" for="search_string" class="sr-only">
 							<?php echo __( 'Search', 'kk_writer_theme' ); ?>
 						</label>
 						<input id="search_string" name="search_string" class="form-control me-2" type="search"
-							placeholder="<?php echo $label ?>"
-							aria-label="<?php $label ?>">
+							placeholder="<?php echo $label; ?>"
+							aria-label="<?php $label; ?>">
 
 						<?php wp_nonce_field( 'kkw_search_nonce', 'site_search_nonce_field', false ); ?>
 						<input type="hidden" name="redirection" id="redirection" value="yes" />
@@ -119,6 +119,6 @@ $current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 				false,
 				array(),
 			);
-		?>
+			?>
 
 	</div> <!-- container -->

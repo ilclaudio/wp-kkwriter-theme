@@ -14,8 +14,8 @@
  */
 function kkw_add_update_theme_page() {
 	add_theme_page(
-		esc_html__( 'Reload theme data', 'kk_writer_theme'),
-		esc_html__( 'Reload theme data', 'kk_writer_theme'),
+		esc_html__( 'Reload theme data', 'kk_writer_theme' ),
+		esc_html__( 'Reload theme data', 'kk_writer_theme' ),
 		'edit_theme_options',
 		'reload-data-theme-options',
 		'kkw_reload_theme_default_data'
@@ -31,9 +31,9 @@ add_action( 'admin_menu', 'kkw_add_update_theme_page' );
  * @return void
  */
 function kkw_reload_theme_default_data() {
-	$is_reload  = false;
-	$result_ok  = false;
-	if ( isset( $_GET['action'] ) && $_GET['action'] === 'reload' ){
+	$is_reload = false;
+	$result_ok = false;
+	if ( isset( $_GET['action'] ) && $_GET['action'] === 'reload' ) {
 		// kkw_create_pages_on_theme_activation();
 		$activator = new KKW_ThemeActivationManager();
 		$result_ok = $activator->initialize_theme();
@@ -47,10 +47,10 @@ function kkw_reload_theme_default_data() {
 		esc_html__( 'Reloads theme activation data (menus, pages, taxonomies, etc.)', 'kk_writer_theme' ) . '</a></div>';
 
 	if ( $is_reload && $result_ok ) {
-		echo '<div id="kkw_admin_result_reload"><em>' . esc_html__( 'Data reloaded successfully', 'kk_writer_theme') . '</em></div>';
+		echo '<div id="kkw_admin_result_reload"><em>' . esc_html__( 'Data reloaded successfully', 'kk_writer_theme' ) . '</em></div>';
 	}
 	if ( $is_reload && ! $result_ok ) {
-		echo '<div id="kkw_admin_result_reload"><em>' . esc_html__( 'Error reloading data', 'kk_writer_theme') . '</em></div>';
+		echo '<div id="kkw_admin_result_reload"><em>' . esc_html__( 'Error reloading data', 'kk_writer_theme' ) . '</em></div>';
 	}
 	echo '</div>';
 	echo '</div>';

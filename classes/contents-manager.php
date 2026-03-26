@@ -6,28 +6,28 @@
  * @package KK_Writer_Theme
  */
 
- require_once( WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'wp-kkwriter-plugin' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'search-manager.php' );
+require_once WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'wp-kkwriter-plugin' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'search-manager.php';
 
 
 
-class KKW_WrappedImage{
+class KKW_WrappedImage {
 	public int $id;
 	public string $src;
 	public string $alt;
 	public string $size_string;
 
 	public function __construct( $post_wrapper, $size_string ) {
-		$this->id   = get_post_thumbnail_id( $post_wrapper->id );
-		$img_array  = wp_get_attachment_image_src( $this->id, $size_string );
-		$this->src  = $img_array ? $img_array[0] : '';
-		$this->alt  = get_post_meta( $this->id, '_wp_attachment_image_alt', true );
+		$this->id  = get_post_thumbnail_id( $post_wrapper->id );
+		$img_array = wp_get_attachment_image_src( $this->id, $size_string );
+		$this->src = $img_array ? $img_array[0] : '';
+		$this->alt = get_post_meta( $this->id, '_wp_attachment_image_alt', true );
 		if ( ! $this->alt ) {
 			switch ( $post_wrapper->type ) {
 				case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
-					$this->alt   = $post_wrapper->author . ' - ' . $post_wrapper->title;
+					$this->alt = $post_wrapper->author . ' - ' . $post_wrapper->title;
 					break;
 				default:
-					$this->alt  = $this->alt ? $this->alt : $post_wrapper->title;
+					$this->alt = $this->alt ? $this->alt : $post_wrapper->title;
 					break;
 			}
 		}
@@ -41,7 +41,7 @@ class KKW_WrappedExcerpt {
 
 	public function __construct( $parameters ) {
 		$this->id          = intval( $parameters['id'] );
-		$this->order       = intval ( $parameters['order'] );
+		$this->order       = intval( $parameters['order'] );
 		$this->title       = $parameters['title'];
 		$this->description = $parameters['description'];
 	}
@@ -57,7 +57,7 @@ class KKW_WrappedReview {
 
 	public function __construct( $parameters ) {
 		$this->id          = intval( $parameters['id'] );
-		$this->order       = intval ( $parameters['order'] );
+		$this->order       = intval( $parameters['order'] );
 		$this->author      = $parameters['author'];
 		$this->label       = $parameters['label'];
 		$this->title       = $parameters['title'];
@@ -66,39 +66,39 @@ class KKW_WrappedReview {
 }
 
 class KKW_WrappedItem {
-	public int $id = 0;
-	public string $type = '';
-	public string $slug = '';
-	public string $status = '';
-	public string $title = '';
-	public string $content = '';
-	public string $description = '';
-	public string $post_date = '';
-	public string $view_date = '';
-	public string $main_group = '';
-	public string $main_group_pl = '';
-	public string $main_group_url = '';
-	public string $detail_url = '';
-	public string $publisher = '';
-	public string $author = '';
-	public bool $show_price = false;
-	public string $price = '';
-	public string $pages = '';
-	public string $format = '';
-	public string $isbn = '';
-	public string $series = '';
-	public string $publisher_page = '';
+	public int $id                     = 0;
+	public string $type                = '';
+	public string $slug                = '';
+	public string $status              = '';
+	public string $title               = '';
+	public string $content             = '';
+	public string $description         = '';
+	public string $post_date           = '';
+	public string $view_date           = '';
+	public string $main_group          = '';
+	public string $main_group_pl       = '';
+	public string $main_group_url      = '';
+	public string $detail_url          = '';
+	public string $publisher           = '';
+	public string $author              = '';
+	public bool $show_price            = false;
+	public string $price               = '';
+	public string $pages               = '';
+	public string $format              = '';
+	public string $isbn                = '';
+	public string $series              = '';
+	public string $publisher_page      = '';
 	public string $publisher_book_page = '';
-	public string $shop_page = '';
+	public string $shop_page           = '';
 	public string $presentation_author = '';
- }
+}
 
 
 /**
  * The Activation manager.
  */
-class KKW_ContentsManager
-{
+class KKW_ContentsManager {
+
 	/**
 	 * Return a wrapped site item.
 	 * The items returned by this function have a subset of the full object fields
@@ -108,12 +108,13 @@ class KKW_ContentsManager
 	 */
 	public static function get_wrapped_item( $post_id ): KKW_WrappedItem {
 		$post    = get_post( $post_id );
-		$wrapped = self::wrap_search_result ($post );
+		$wrapped = self::wrap_search_result( $post );
 		return $wrapped;
 	}
 
 	/**
 	 * Summary of wrap_search_result
+	 *
 	 * @param mixed $post
 	 * @return KKW_WrappedItem
 	 */
@@ -121,16 +122,16 @@ class KKW_ContentsManager
 		if ( $post ) {
 			switch ( $post->post_type ) {
 				case KKW_POST_TYPES[ ID_PT_BOOK ]['name']:
-					$item = KKW_ContentsManager::wrap_book( $post );
+					$item = self::wrap_book( $post );
 					break;
 				case KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name']:
 				case KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']:
 				case KKW_POST_TYPES[ ID_PT_REVIEW ]['name']:
 				case KKW_DEFAULT_POST:
-					$item = KKW_ContentsManager::wrap_post( $post );
+					$item = self::wrap_post( $post );
 					break;
 				case KKW_DEFAULT_PAGE:
-					$item = KKW_ContentsManager::wrap_page( $post );
+					$item = self::wrap_page( $post );
 					break;
 				default:
 					$item = new KKW_WrappedItem();
@@ -145,9 +146,9 @@ class KKW_ContentsManager
 	public static function wrap_featured_image( $post, $size_string ): KKW_WrappedImage {
 		return new KKW_WrappedImage( $post, $size_string );
 	}
-	
-	public static function get_post_icon_by_group( $group ){
-		switch( $group ){
+
+	public static function get_post_icon_by_group( $group ) {
+		switch ( $group ) {
 			case KKW_EVENT_GROUP['slug']:
 				$icon_name = 'fa-calendar-days';
 				break;
@@ -156,10 +157,10 @@ class KKW_ContentsManager
 				break;
 			case KKW_ARTICLE_GROUP['slug']:
 					$icon_name = 'fa-feather-pointed';
-					break;
+				break;
 			default:
 				$icon_name = 'fa-feather-pointed';
-			}
+		}
 		return $icon_name;
 	}
 
@@ -197,16 +198,16 @@ class KKW_ContentsManager
 	}
 
 	private static function wrap_post( $post ): KKW_WrappedItem {
-		$item      = new KKW_WrappedItem();
-		$meta_tags = get_post_meta( $post->ID );
-		$has_meta  = count( $meta_tags ) > 0;
-		$group     = $has_meta && array_key_exists( 'kkw_group', $meta_tags ) && $meta_tags['kkw_group'][0] ?
+		$item              = new KKW_WrappedItem();
+		$meta_tags         = get_post_meta( $post->ID );
+		$has_meta          = count( $meta_tags ) > 0;
+		$group             = $has_meta && array_key_exists( 'kkw_group', $meta_tags ) && $meta_tags['kkw_group'][0] ?
 			$meta_tags['kkw_group'][0] : '';
-		$short_description      = $has_meta && array_key_exists( 'kkw_short_description', $meta_tags ) && $meta_tags['kkw_short_description'][0] ?
+		$short_description = $has_meta && array_key_exists( 'kkw_short_description', $meta_tags ) && $meta_tags['kkw_short_description'][0] ?
 			$meta_tags['kkw_short_description'][0] : '';
-		$view_date    = self::extractDateString( $meta_tags, $post );
-		$query_string = http_build_query( array( 'selected_contents' => array( $group ) ) );
-		$group_page   = __( 'blog', 'kk_writer_theme' );
+		$view_date         = self::extractDateString( $meta_tags, $post );
+		$query_string      = http_build_query( array( 'selected_contents' => array( $group ) ) );
+		$group_page        = __( 'blog', 'kk_writer_theme' );
 		// Fill the item array.
 		$item->id             = $post->ID;
 		$item->title          = $post->post_title;
@@ -214,12 +215,12 @@ class KKW_ContentsManager
 		$item->slug           = $post->post_name;
 		$item->description    = $short_description;
 		$item->content        = $post->content;
-		$item->post_date      = $post->post_date ;
+		$item->post_date      = $post->post_date;
 		$item->view_date      = $view_date;
 		$item->main_group     = $group;
 		$item->main_group_pl  = self::get_plural_group_by_slug( $group );
 		$item->main_group_url = get_site_url() . '/' . $group_page . '?' . $query_string;
-		$item->detail_url     = get_permalink( $post->ID) ;
+		$item->detail_url     = get_permalink( $post->ID );
 		return $item;
 	}
 
@@ -229,62 +230,62 @@ class KKW_ContentsManager
 		$desc      = '';
 		$view_date = self::extractDateString( $meta_tags, $post );
 		// Fill the wrapper.
-		$item->id             = $post->ID;
-		$item->title          = $post->post_title;
-		$item->type           = $post->post_type;
-		$item->slug           = $post->post_name;
-		$item->description    = $desc;
-		$item->content        = $post->content;
-		$item->post_date      = $post->post_date ;
-		$item->view_date      = $view_date;
-		$item->detail_url     = get_permalink( $post->ID) ;
+		$item->id          = $post->ID;
+		$item->title       = $post->post_title;
+		$item->type        = $post->post_type;
+		$item->slug        = $post->post_name;
+		$item->description = $desc;
+		$item->content     = $post->content;
+		$item->post_date   = $post->post_date;
+		$item->view_date   = $view_date;
+		$item->detail_url  = get_permalink( $post->ID );
 		return $item;
 	}
 
 	public static function extract_meta_tag( $meta_tags, $key ) {
 		$value = '';
 		if ( array_key_exists( $key, $meta_tags ) ) {
-			$value = $meta_tags[$key][0];
+			$value = $meta_tags[ $key ][0];
 		}
 		return $value;
 	}
 
-	public static function extractDateString( $meta_tags, $post, $type='start' ){
+	public static function extractDateString( $meta_tags, $post, $type = 'start' ) {
 		$view_date = '';
-		if ( array_key_exists('kkw_group', $meta_tags) &&
-					$meta_tags['kkw_group'][0]  === KKW_EVENT_GROUP['slug'] ) {
+		if ( array_key_exists( 'kkw_group', $meta_tags ) &&
+					$meta_tags['kkw_group'][0] === KKW_EVENT_GROUP['slug'] ) {
 			// It is an event with a start event date.
-			if ( array_key_exists( 'kkw_'. $type . '_date', $meta_tags ) ) {
-				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_'. $type . '_date'][0] );
+			if ( array_key_exists( 'kkw_' . $type . '_date', $meta_tags ) ) {
+				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags[ 'kkw_' . $type . '_date' ][0] );
 				$timestamp = $dateTime->getTimestamp();
 				$view_date = date_i18n( 'l j F Y', $timestamp );
 			} else {
 				$view_date = '';
 			}
-			if ( array_key_exists( 'kkw_'. $type . '_hour', $meta_tags ) ) {
-				$view_date = $view_date . ' ' . __( 'at' , 'kk_writer_theme' ) . ' ' . $meta_tags['kkw_'. $type . '_hour'][0];
+			if ( array_key_exists( 'kkw_' . $type . '_hour', $meta_tags ) ) {
+				$view_date = $view_date . ' ' . __( 'at', 'kk_writer_theme' ) . ' ' . $meta_tags[ 'kkw_' . $type . '_hour' ][0];
 			}
 		} else {
 			// It is not an event.
-			$dataUnix = get_post_time( 'U', false, $post->ID, true );
+			$dataUnix  = get_post_time( 'U', false, $post->ID, true );
 			$view_date = date_i18n( 'j F Y', $dataUnix );
 		}
 		return $view_date;
 	}
 
-	public static function extractCalendarDateString( $meta_tags, $type='start' ){
+	public static function extractCalendarDateString( $meta_tags, $type = 'start' ) {
 		$view_date = '';
-		if ( array_key_exists( 'kkw_group', $meta_tags ) && $meta_tags['kkw_group'][0]= 'event' ) {
+		if ( array_key_exists( 'kkw_group', $meta_tags ) && $meta_tags['kkw_group'][0] = 'event' ) {
 			// It is an event with a start event date.
-			if ( array_key_exists( 'kkw_'. $type . '_date', $meta_tags ) ) {
-				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags['kkw_'. $type . '_date'][0] );
+			if ( array_key_exists( 'kkw_' . $type . '_date', $meta_tags ) ) {
+				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags[ 'kkw_' . $type . '_date' ][0] );
 				$timestamp = $dateTime->getTimestamp();
 				$view_date = date_i18n( 'Y-m-d', $timestamp );
 			} else {
 				$view_date = '';
 			}
-			if ( array_key_exists( 'kkw_'. $type . '_hour', $meta_tags ) ) {
-				$view_date = $view_date . ' ' . $meta_tags['kkw_'. $type . '_hour'][0];
+			if ( array_key_exists( 'kkw_' . $type . '_hour', $meta_tags ) ) {
+				$view_date = $view_date . ' ' . $meta_tags[ 'kkw_' . $type . '_hour' ][0];
 			}
 		}
 		return $view_date;
@@ -292,10 +293,11 @@ class KKW_ContentsManager
 
 	/**
 	 * Retrieves the content to show in the Home Page Carousel.
+	 *
 	 * @return array
 	 */
 	public static function get_home_carousel_contents(): array {
-		$contents = array();
+		$contents         = array();
 		$carousel_auto_on = kkw_get_option( 'home_carousel_auto_on', 'kkw_opt_hp_layout' );
 		if ( $carousel_auto_on === 'true' ) {
 			// Get contents with the flag 'show_in_carousel' set.
@@ -306,33 +308,34 @@ class KKW_ContentsManager
 		}
 		$num_contents = count( $opt_content_ids );
 		$content_ids  = $num_contents > 0 ? $opt_content_ids : array();
-		foreach ( $content_ids as $id ){
+		foreach ( $content_ids as $id ) {
 			$item = self::get_wrapped_item( $id );
- 			array_push( $contents, $item );
+			array_push( $contents, $item );
 		}
 		return $contents;
 	}
 
 	/**
-	 * Search the content types of the site having that must be shown in the carousel. 
+	 * Search the content types of the site having that must be shown in the carousel.
+	 *
 	 * @return array
 	 */
 	private static function search_carousel_ids() {
-		$args= array(
-				'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ),
-				// @TODO: 'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'], KKW_DEFAULT_POST ),
-				'orderby'        => 'title',
-				'order'          => 'ASC',
-				'fields'         => 'ids',
-				'posts_per_page' => -1,
-				'meta_query' => array(
-					array(
-							'key'     => 'kkw_show_in_carousel',
-							'value'   => 'on',
-					),
+		$args = array(
+			'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ),
+			// @TODO: 'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'], KKW_DEFAULT_POST ),
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'fields'         => 'ids',
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				array(
+					'key'   => 'kkw_show_in_carousel',
+					'value' => 'on',
 				),
-			);
-		$query = new WP_Query( $args );
+			),
+		);
+		$query           = new WP_Query( $args );
 		$opt_content_ids = $query->posts;
 		return $opt_content_ids;
 	}
@@ -341,7 +344,7 @@ class KKW_ContentsManager
 		$selected_contents,
 		$sort_field = 'date',
 		$sort_order = 'DESC',
-		$number=-1
+		$number = -1
 	) {
 		// Manage query arguments.
 		$args = array(
@@ -352,13 +355,13 @@ class KKW_ContentsManager
 			'orderby'        => $sort_field,
 			'meta_query'     => array(
 				array(
-					'key'     => 'kkw_group',
-					'value'   => $selected_contents,
+					'key'   => 'kkw_group',
+					'value' => $selected_contents,
 				),
 			),
 		);
 		// Execute the query.
-		$the_query   = new WP_Query( $args );
+		$the_query = new WP_Query( $args );
 		return $the_query;
 	}
 
@@ -366,20 +369,20 @@ class KKW_ContentsManager
 		$groups,
 		$sort_field = 'date',
 		$sort_order = 'DESC',
-		$number=-1
-		) {
-		$args= array(
+		$number = -1
+	) {
+		$args  = array(
 			'post_type'      => array( KKW_DEFAULT_POST ),
 			'orderby'        => $sort_field,
 			'order'          => $sort_order,
 			'fields'         => 'ids',
 			'post_status'    => 'publish',
 			'posts_per_page' => $number,
-			'meta_query' => array(
+			'meta_query'     => array(
 				array(
-						'key'     => 'kkw_group',
-						'value'   => $groups,
-						'compare' => 'IN', 
+					'key'     => 'kkw_group',
+					'value'   => $groups,
+					'compare' => 'IN',
 				),
 			),
 		);
@@ -393,8 +396,8 @@ class KKW_ContentsManager
 		$sort_order,
 		$num_results
 	) {
-		$results = array();
-		$the_query = self::get_site_posts_query(
+		$results     = array();
+		$the_query   = self::get_site_posts_query(
 			$groups,
 			$sort_field,
 			$sort_order,
@@ -402,7 +405,7 @@ class KKW_ContentsManager
 		);
 		$content_ids = $the_query->posts;
 		if ( $content_ids ) {
-			foreach ( $content_ids as $id ){
+			foreach ( $content_ids as $id ) {
 				$item = self::get_wrapped_item( $id );
 				array_push( $results, $item );
 			}
@@ -424,11 +427,11 @@ class KKW_ContentsManager
 			'posts_per_page' => $num_results,
 			'post_status'    => 'publish',
 			'tax_query'      => array(
-					array(
-							'taxonomy' => 'section', 
-							'field'    => 'slug',
-							'terms'    => $section,
-					),
+				array(
+					'taxonomy' => 'section',
+					'field'    => 'slug',
+					'terms'    => $section,
+				),
 			),
 		);
 		if ( $sort_field === 'kkw_year' ) {
@@ -438,7 +441,7 @@ class KKW_ContentsManager
 			$args['orderby'] = $sort_field;
 		}
 		// Execute the query.
-		$the_query   = new WP_Query( $args );
+		$the_query = new WP_Query( $args );
 		return $the_query;
 	}
 
@@ -448,8 +451,8 @@ class KKW_ContentsManager
 		$sort_order,
 		$num_results
 	) {
-		$results = array();
-		$the_query = self::get_section_books_query(
+		$results     = array();
+		$the_query   = self::get_section_books_query(
 			$sections,
 			$sort_filed,
 			$sort_order,
@@ -457,7 +460,7 @@ class KKW_ContentsManager
 		);
 		$content_ids = $the_query->posts;
 		if ( $content_ids ) {
-			foreach ( $content_ids as $id ){
+			foreach ( $content_ids as $id ) {
 				$item = self::get_wrapped_item( $id );
 				array_push( $results, $item );
 			}
@@ -466,10 +469,11 @@ class KKW_ContentsManager
 	}
 
 	/**
-	* Given an $item menu returns the wrapped item to show in the site menus.
-	* @param mixed $item
-	* @return array
-	*/
+	 * Given an $item menu returns the wrapped item to show in the site menus.
+	 *
+	 * @param mixed $item
+	 * @return array
+	 */
 	public static function get_wrapped_menu_item( $item ) {
 		$wrapped = array(
 			'id'     => 0,
@@ -507,30 +511,29 @@ class KKW_ContentsManager
 		return $wrapped;
 	}
 
-	public static function get_image_metadata( $item, $image_size = "item-carousel", $partial_default_img_url = null ) {
-		$result = array(
+	public static function get_image_metadata( $item, $image_size = 'item-carousel', $partial_default_img_url = null ) {
+		$result        = array(
 			'title'         => '',
 			'image_url'     => '',
 			'image_alt'     => '',
 			'image_title'   => '',
 			'image_caption' => '',
 		);
-		$image_url = get_the_post_thumbnail_url( $item, $image_size );
+		$image_url     = get_the_post_thumbnail_url( $item, $image_size );
 		$image_caption = '';
 		if ( ! $image_url && $partial_default_img_url ) {
 			$image_url = get_template_directory_uri() . $partial_default_img_url;
 		}
-		$post_title  = get_the_title( $item );
-		$image_id    = get_post_thumbnail_id( $item->ID );
+		$post_title = get_the_title( $item );
+		$image_id   = get_post_thumbnail_id( $item->ID );
 
-		if( $image_id === 0 ) {
+		if ( $image_id === 0 ) {
 			$image_title = $post_title;
 			$image_alt   = $post_title;
-		}
-		else {
+		} else {
 			$image_title   = get_the_title( $image_id );
 			$image_title   = $image_title ? $image_title : $post_title;
-			$image_alt     = get_post_meta( $image_id, '_wp_attachment_image_alt', TRUE );
+			$image_alt     = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			$image_alt     = $image_alt ? $image_alt : $image_title;
 			$image_caption = wp_get_attachment_caption( $image_id );
 		}
@@ -546,18 +549,15 @@ class KKW_ContentsManager
 
 	/**
 	 * Returns the post type that can be searched.
-	 * 
+	 *
 	 * @return array
 	 */
 	public static function get_custom_contents_filters() {
 		$ct = array(
-			KKW_ARTICLE_GROUP['slug']                 => __( KKW_ARTICLE_GROUP['title-pl'], 'kk_writer_theme' ),
-			KKW_EVENT_GROUP['slug']                   => __( KKW_EVENT_GROUP['title-pl'], 'kk_writer_theme' ),
-			KKW_NEWS_GROUP['slug']                    => __( KKW_NEWS_GROUP['title-pl'], 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_BOOK ]['name']      => __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kkwdomain' ),
-			//KKW_POST_TYPES[ ID_PT_REVIEW ]['name']    => __( KKW_POST_TYPES[ ID_PT_REVIEW ]['plural_label'], 'kk_writer_theme' ),
-			// KKW_POST_TYPES[ ID_PT_EXCERPT ]['name']   => __( KKW_POST_TYPES[ ID_PT_EXCERPT ]['plural_label'], 'kk_writer_theme' ),
-			// KKW_POST_TYPES[ ID_PT_INTERVIEW ]['name'] => __( KKW_POST_TYPES[ ID_PT_INTERVIEW ]['plural_label'], 'kk_writer_theme' ),
+			KKW_ARTICLE_GROUP['slug']            => __( KKW_ARTICLE_GROUP['title-pl'], 'kk_writer_theme' ),
+			KKW_EVENT_GROUP['slug']              => __( KKW_EVENT_GROUP['title-pl'], 'kk_writer_theme' ),
+			KKW_NEWS_GROUP['slug']               => __( KKW_NEWS_GROUP['title-pl'], 'kk_writer_theme' ),
+			KKW_POST_TYPES[ ID_PT_BOOK ]['name'] => __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kkwdomain' ),
 		);
 		return $ct;
 	}
@@ -587,23 +587,23 @@ class KKW_ContentsManager
 		$key = array_search( KKW_EVENT_GROUP['slug'], $selected_contents );
 		if ( $key !== false ) {
 			array_push( $groups, KKW_EVENT_GROUP['slug'] );
-			unset( $selected_contents[$key] );
+			unset( $selected_contents[ $key ] );
 		}
 		// NEWS.
 		$key = array_search( KKW_NEWS_GROUP['slug'], $selected_contents );
 		if ( $key !== false ) {
 			array_push( $groups, KKW_NEWS_GROUP['slug'] );
-			unset( $selected_contents[$key] );
+			unset( $selected_contents[ $key ] );
 		}
 		// ARTICLES
 		$key = array_search( KKW_ARTICLE_GROUP['slug'], $selected_contents );
 		if ( $key !== false ) {
 			array_push( $groups, KKW_ARTICLE_GROUP['slug'] );
-			unset( $selected_contents[$key] );
+			unset( $selected_contents[ $key ] );
 		}
 
 		$text_like = '%' . $wpdb->esc_like( $search_string ) . '%';
-		$sql = "
+		$sql       = "
 			SELECT DISTINCT p.ID
 			FROM {$wpdb->posts} AS p
 			LEFT JOIN {$wpdb->postmeta} AS pm ON (p.ID = pm.post_id)
@@ -616,23 +616,22 @@ class KKW_ContentsManager
 				AND tt.description LIKE '%\"it\"%'
 		";
 
-
 		$cond_items = array();
 		$cond_1     = null;
 		$cond_2     = null;
 		if ( count( $selected_contents ) ) {
-			$values = implode("', '", $selected_contents  );
+			$values = implode( "', '", $selected_contents );
 			$cond_1 = " ( p.post_type IN ('$values') ) ";
 			array_push( $cond_items, $cond_1 );
-		} 
+		}
 		if ( count( $groups ) ) {
-			$values = implode("', '", $groups  );
+			$values = implode( "', '", $groups );
 			$cond_2 = " ( p.post_type='post' AND pm.meta_key= 'kkw_group' AND pm.meta_value IN ('$values') ) ";
 			array_push( $cond_items, $cond_2 );
 		}
 		if ( $cond_items > 0 ) {
 			$cond_post_type = join( ' OR ', $cond_items );
-			$sql = $sql . 'AND ' . $cond_post_type;
+			$sql            = $sql . 'AND ' . $cond_post_type;
 		}
 
 		$query_results = $wpdb->get_col( $wpdb->prepare( $sql, $text_like, $text_like ) );
@@ -642,14 +641,14 @@ class KKW_ContentsManager
 			'paged'          => get_query_var( 'paged', 1 ),
 			'posts_per_page' => $pagesize,
 			'post_type'      => $selected_contents,
-			'orderby'         => 'post__in',
-			's'               => $search_string,
+			'orderby'        => 'post__in',
+			's'              => $search_string,
 		);
 
 		if ( ! empty( $query_results ) ) {
 			$parameters['post__in'] = $query_results;
 		} else {
-			$parameters['post__in'] = array( 0 ) ;
+			$parameters['post__in'] = array( 0 );
 		}
 
 		$the_query = new WP_Query( $parameters );
@@ -658,31 +657,31 @@ class KKW_ContentsManager
 
 	public static function get_book_reviews( $post_id ) {
 		$reviews = array();
-		$args = array(
+		$args    = array(
 			'post_type'      => 'kkw_review',
 			'posts_per_page' => -1,
 			'meta_query'     => array(
 				array(
 					'key'     => 'kkw_book_link',
 					'value'   => '"' . $post_id . '"',
-					'compare' => 'LIKE'
-				)
-			)
+					'compare' => 'LIKE',
+				),
+			),
 		);
 		$query   = new WP_Query( $args );
 		$results = $query->get_posts();
 		if ( $results ) {
 			foreach ( $results as $pst ) {
-				$meta_tags = get_post_meta( $pst->ID );
+				$meta_tags  = get_post_meta( $pst->ID );
 				$parameters = array(
 					'id'          => $pst->ID,
 					'title'       => $pst->post_title,
-					'author'      => KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_author' ),
-					'order'       => KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_order' ),
+					'author'      => self::extract_meta_tag( $meta_tags, 'kkw_author' ),
+					'order'       => self::extract_meta_tag( $meta_tags, 'kkw_order' ),
 					'description' => $pst->post_content,
-					'label'       => KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_source_description' ),
+					'label'       => self::extract_meta_tag( $meta_tags, 'kkw_source_description' ),
 				);
-				$item  = new KKW_WrappedReview( $parameters );
+				$item       = new KKW_WrappedReview( $parameters );
 				array_push( $reviews, $item );
 			}
 		}
@@ -690,9 +689,10 @@ class KKW_ContentsManager
 		return $reviews;
 	}
 
-	public static function order_items( $items ){
-		usort($items,
-			function($a, $b) {
+	public static function order_items( $items ) {
+		usort(
+			$items,
+			function ( $a, $b ) {
 				return $a->order - $b->order;
 			}
 		);
@@ -701,29 +701,29 @@ class KKW_ContentsManager
 
 	public static function get_book_excerpts( $post_id ) {
 		$reviews = array();
-		$args = array(
+		$args    = array(
 			'post_type'      => 'kkw_excerpt',
 			'posts_per_page' => -1,
 			'meta_query'     => array(
 				array(
 					'key'     => 'kkw_book_link',
 					'value'   => '"' . $post_id . '"',
-					'compare' => 'LIKE'
-				)
-			)
+					'compare' => 'LIKE',
+				),
+			),
 		);
 		$query   = new WP_Query( $args );
 		$results = $query->get_posts();
 		if ( $results ) {
 			foreach ( $results as $pst ) {
-				$meta_tags = get_post_meta( $pst->ID );
+				$meta_tags  = get_post_meta( $pst->ID );
 				$parameters = array(
 					'id'          => $pst->ID,
 					'title'       => $pst->post_title,
-					'order'       => KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_order' ),
+					'order'       => self::extract_meta_tag( $meta_tags, 'kkw_order' ),
 					'description' => $pst->post_content,
 				);
-				$item  = new KKW_WrappedExcerpt( $parameters );
+				$item       = new KKW_WrappedExcerpt( $parameters );
 				array_push( $reviews, $item );
 			}
 		}
@@ -731,13 +731,13 @@ class KKW_ContentsManager
 		return $reviews;
 	}
 
-	public static function get_book_tracks( $post_id ){
+	public static function get_book_tracks( $post_id ) {
 		return array();
 	}
 
 	public static function get_og_data() {
 		global $post;
-		$og_data = array(
+		$og_data   = array(
 			'id'           => '',
 			'title'        => '',
 			'type'         => '',
@@ -757,23 +757,23 @@ class KKW_ContentsManager
 		);
 		$item_id   = $post && $post->ID ? $post->ID : '';
 		$item_type = $item_id && $post->post_type ? $post->post_type : '';
-		$types     = [ 'post', 'kkw_book' ];
+		$types     = array( 'post', 'kkw_book' );
 		if ( $item_id && in_array( $item_type, $types ) ) {
-			$img_id       = get_post_thumbnail_id( $item_id );
-			$img_array    = wp_get_attachment_image_src( $img_id, 'large' );
-			$file_path = $img_id ? get_attached_file( $img_id ) : '';
-			$file_info = $img_id ? wp_check_filetype( $file_path ) : '';
-			$img_type = $img_id ? $file_info['type'] : '';
-			$item_title   = $post->post_title ? $post->post_title : '';
-			$item_desc    = $post->post_content ? clean_and_truncate_text( $post->post_content, KKW_FEATURED_TEXT_MAX_SIZE ) : '';
-			$item_image   = $img_id && count( $img_array ) ? $img_array[0] : '';
-			$site_url     = site_url();
-			$parsed_url   = parse_url( $site_url );
-			$domain       = $parsed_url['host'];
-			$item_url     = get_permalink();
-			$short_name   = kkw_get_option( 'site_short_name', 'kkw_opt_options' );
-			$site_title   = kkw_get_option( 'site_title', 'kkw_opt_options' );
-			$site_tagline = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
+			$img_id                  = get_post_thumbnail_id( $item_id );
+			$img_array               = wp_get_attachment_image_src( $img_id, 'large' );
+			$file_path               = $img_id ? get_attached_file( $img_id ) : '';
+			$file_info               = $img_id ? wp_check_filetype( $file_path ) : '';
+			$img_type                = $img_id ? $file_info['type'] : '';
+			$item_title              = $post->post_title ? $post->post_title : '';
+			$item_desc               = $post->post_content ? clean_and_truncate_text( $post->post_content, KKW_FEATURED_TEXT_MAX_SIZE ) : '';
+			$item_image              = $img_id && count( $img_array ) ? $img_array[0] : '';
+			$site_url                = site_url();
+			$parsed_url              = parse_url( $site_url );
+			$domain                  = $parsed_url['host'];
+			$item_url                = get_permalink();
+			$short_name              = kkw_get_option( 'site_short_name', 'kkw_opt_options' );
+			$site_title              = kkw_get_option( 'site_title', 'kkw_opt_options' );
+			$site_tagline            = kkw_get_option( 'site_tagline', 'kkw_opt_options' );
 			$og_data['id']           = $item_id;
 			$og_data['title']        = $item_title;
 			$og_data['type']         = $item_type;
@@ -797,37 +797,38 @@ class KKW_ContentsManager
 	public static function download_ics_file_by_id( $eid ) {
 		$post = get_post( $eid );
 		if ( $post ) {
-			$post_wrapper = KKW_ContentsManager::wrap_search_result( $post );
+			$post_wrapper = self::wrap_search_result( $post );
 			$meta_tags    = get_post_meta( $post_wrapper->id );
 			$event_name   = esc_attr( $post_wrapper->title );
-			$description  = clean_and_truncate_text( $post_wrapper->description, KKW_FEATURED_TEXT_MAX_SIZE );;
-			$location     = esc_attr( KKW_ContentsManager::extract_meta_tag( $meta_tags, 'kkw_address' ) );
-			$start_time   = KKW_ContentsManager::extractCalendarDateString( $meta_tags, 'start' );
-			$end_time     = KKW_ContentsManager::extractCalendarDateString( $meta_tags, 'end');
-			$site_url     = site_url();
-			$parsed_url   = parse_url( $site_url );
-			$domain       = $parsed_url['host'];
-			$title        = kkw_get_option( 'site_title', 'kkw_opt_options' );
-			$prod_id      = __( 'Export from site', 'kk_writer_theme' ) . ': ' . $title;
+			$description  = clean_and_truncate_text( $post_wrapper->description, KKW_FEATURED_TEXT_MAX_SIZE );
+
+			$location   = esc_attr( self::extract_meta_tag( $meta_tags, 'kkw_address' ) );
+			$start_time = self::extractCalendarDateString( $meta_tags, 'start' );
+			$end_time   = self::extractCalendarDateString( $meta_tags, 'end' );
+			$site_url   = site_url();
+			$parsed_url = parse_url( $site_url );
+			$domain     = $parsed_url['host'];
+			$title      = kkw_get_option( 'site_title', 'kkw_opt_options' );
+			$prod_id    = __( 'Export from site', 'kk_writer_theme' ) . ': ' . $title;
 			// Set the header to download the .ics file.
-			header('Content-type: text/calendar; charset=utf-8');
-			header('Content-Disposition: attachment; filename=evento.ics');
+			header( 'Content-type: text/calendar; charset=utf-8' );
+			header( 'Content-Disposition: attachment; filename=evento.ics' );
 			// Create the file ICS.
-			$ics_content = "BEGIN:VCALENDAR\n";
+			$ics_content  = "BEGIN:VCALENDAR\n";
 			$ics_content .= "VERSION:2.0\n";
-			$ics_content .= "PRODID:-//" . $prod_id . "//NONSGML v1.0//EN\n";
+			$ics_content .= 'PRODID:-//' . $prod_id . "//NONSGML v1.0//EN\n";
 			$ics_content .= "CALSCALE:GREGORIAN\n";
 			$ics_content .= "METHOD:PUBLISH\n";
 			$ics_content .= "BEGIN:VEVENT\n";
-			$ics_content .= "UID:" . uniqid() . "@" . $domain . "\n";
-			$ics_content .= "DTSTAMP:" . gmdate( 'Ymd\THis\Z' ) . "\n";
-			$ics_content .= "DTSTART:" . gmdate( 'Ymd\THis\Z', strtotime( $start_time ) ) . "\n";
+			$ics_content .= 'UID:' . uniqid() . '@' . $domain . "\n";
+			$ics_content .= 'DTSTAMP:' . gmdate( 'Ymd\THis\Z' ) . "\n";
+			$ics_content .= 'DTSTART:' . gmdate( 'Ymd\THis\Z', strtotime( $start_time ) ) . "\n";
 			if ( $end_time ) {
-				$ics_content .= "DTEND:" . gmdate( 'Ymd\THis\Z', strtotime( $end_time ) ) . "\n";
+				$ics_content .= 'DTEND:' . gmdate( 'Ymd\THis\Z', strtotime( $end_time ) ) . "\n";
 			}
-			$ics_content .= "SUMMARY:" . addslashes( $event_name ) . "\n";
-			$ics_content .= "DESCRIPTION:" . addslashes( $description ) . "\n";
-			$ics_content .= "LOCATION:" . addslashes( $location ) . "\n";
+			$ics_content .= 'SUMMARY:' . addslashes( $event_name ) . "\n";
+			$ics_content .= 'DESCRIPTION:' . addslashes( $description ) . "\n";
+			$ics_content .= 'LOCATION:' . addslashes( $location ) . "\n";
 			$ics_content .= "TRANSP:OPAQUE\n";
 			$ics_content .= "STATUS:CONFIRMED\n";
 			$ics_content .= "END:VEVENT\n";
@@ -835,7 +836,7 @@ class KKW_ContentsManager
 			// Print the file file .ics.
 			echo $ics_content;
 		} else {
-			echo '<h4>' . __( 'It is not possible to download the .ics file.', 'kk_writer_theme' ) . '</h4>'; 
+			echo '<h4>' . __( 'It is not possible to download the .ics file.', 'kk_writer_theme' ) . '</h4>';
 		}
 		exit;
 	}
@@ -856,12 +857,11 @@ class KKW_ContentsManager
 	public static function get_plural_group_by_slug( $slug ) {
 		$groups = KKW_POST_GROUPS;
 		$plural = '';
-		foreach ( $groups as $grp ){
+		foreach ( $groups as $grp ) {
 			if ( $grp['slug'] === $slug ) {
 				return $grp['title-pl'];
 			}
 		}
 		return $plural;
 	}
-
 }

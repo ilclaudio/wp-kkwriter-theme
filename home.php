@@ -18,37 +18,37 @@
 
 	<!-- The Carousel section (if before featured) -->
 	<?php
-		if ( $carousel_first === 'true' && $carouse_visible === 'true' ) {
-			get_template_part( 'template-parts/home/carousel' );
-		}
+	if ( $carousel_first === 'true' && $carouse_visible === 'true' ) {
+		get_template_part( 'template-parts/home/carousel' );
+	}
 	?>
 
 	<!-- The BLOG section -->
 	<?php
-		if ( ( $blog_section_visible === 'true' ) && ( $blog_after === 'false' ) ) {
-			get_template_part( 'template-parts/home/blog-section' );
-		}
+	if ( ( $blog_section_visible === 'true' ) && ( $blog_after === 'false' ) ) {
+		get_template_part( 'template-parts/home/blog-section' );
+	}
 	?>
 
 	<!-- The Featured Contents section (Contenuti in evidenza) -->
 	<?php
-		if ( $featured_visible === 'true' ) {
-			get_template_part( 'template-parts/home/featured-contents' );
-		}
+	if ( $featured_visible === 'true' ) {
+		get_template_part( 'template-parts/home/featured-contents' );
+	}
 	?>
 
 	<!-- The Carousel section (if after featured) -->
 	<?php
-		if ( $carousel_first === 'false' && $carouse_visible === 'true' ) {
-			get_template_part( 'template-parts/home/carousel' );
-		}
+	if ( $carousel_first === 'false' && $carouse_visible === 'true' ) {
+		get_template_part( 'template-parts/home/carousel' );
+	}
 	?>
 
 	<!-- The BLOG section -->
 	<?php
-		if ( ( $blog_section_visible === 'true' ) && ( $blog_after === 'true' ) ) {
-			get_template_part( 'template-parts/home/blog-section' );
-		}
+	if ( ( $blog_section_visible === 'true' ) && ( $blog_after === 'true' ) ) {
+		get_template_part( 'template-parts/home/blog-section' );
+	}
 	?>
 
 </main>
