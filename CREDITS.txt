@@ -9,6 +9,9 @@ It would NOT have been possible to do it alone and in such a short time without 
 - Photo gallery: Lightbox2 by Lokesh Dhakar: (https://github.com/lokesh/lightbox2).
 - CookiesManager: CookieConsent by Orestbida: (https://github.com/orestbida/cookieconsent).
 - design-scuole-wordpress-theme: (https://github.com/italia/design-scuole-wordpress-theme).
+- Font Awesome Free by Fonticons, Inc.: Icons and webfonts (https://fontawesome.com). License: MIT + SIL OFL 1.1 + CC BY 4.0 (https://fontawesome.com/license/free).
+- Roboto font by Google: Typeface used in the theme (https://fonts.google.com/specimen/Roboto). License: Apache 2.0.
+- Titillium Web font by Accademia di Belle Arti di Urbino: Typeface used in the theme (https://fonts.google.com/specimen/Titillium+Web). License: SIL OFL 1.1.
 - ChatGpt by OpenAI: To quickly solve some programming problems (https://openai.com/chatgpt).
 - WordPress Forum: https://wordpress.org/support/forums/
 
