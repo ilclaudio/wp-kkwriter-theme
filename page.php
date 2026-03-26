@@ -7,12 +7,12 @@
 
 global $post;
 get_header();
-$section             = $post->post_title;
-$section_description = '';
-$prologue            = KKW_ContentsManager::get_page_prologue( $post->ID );
-$epilogue            = KKW_ContentsManager::get_page_epilogue( $post->ID );
-$quote               = KKW_ContentsManager::get_page_quote( $post->ID );
-// @TODO: Use this ? $image_metadata      = KKW_ContentsManager::get_image_metadata( $post )
+$kkw_section             = $post->post_title;
+$kkw_section_description = '';
+$kkw_prologue            = KKW_ContentsManager::get_page_prologue( $post->ID );
+$kkw_epilogue            = KKW_ContentsManager::get_page_epilogue( $post->ID );
+$kkw_quote               = KKW_ContentsManager::get_page_quote( $post->ID );
+// @TODO: Evaluate using image metadata helper for page hero rendering.
 ?>
 
 <main class="container">
@@ -23,71 +23,71 @@ $quote               = KKW_ContentsManager::get_page_quote( $post->ID );
 	<!-- BODY -->
 	<div class="container mt-2">
 
-		<!-- BANNER -->
-		<section class="row mb-2 py-4 primary-bg">
-			<h1><?php echo esc_html( $section ); ?></h1>
-			<?php
-				if ( $section_description ) {
-			?>
-			<div class="col-12">
-				<div class="form-group col text-left mb-2">
-				<?php echo wp_kses_post( $section_description ); ?>
-				</div>
-			</div>
-			<?php
-				}
-			?>
-		</section>
-
-		<!-- QUOTES, if present -->
-		<?php
-		if ( $quote ) {
-		?>
-		<section class="row pt-2 mb-2">
-			<div class="col-md-12 m-0 p-0">
-				<div class="px-3 py-0 bg-light border rounded text-end">
-						<blockquote class="blockquote">
-								<p class="mb-0">
-									<?php echo wpautop( wp_kses_post( $quote ) ); ?>
-								</p>
-						</blockquote>
-				</div>
-			</div>
-		</section>
-		<?php
-		}
-		?>
-
-		<!-- PROLOGUE, if present -->
-		<?php
-			if ( $prologue ) {
-		?>
-				<section class="row py-2 mb-5 px-5">
-					<div class="col-md-12 m-0 p-0">
-						<?php echo wpautop( wp_kses_post( $prologue ) ); ?>
+			<!-- BANNER -->
+			<section class="row mb-2 py-4 primary-bg">
+				<h1><?php echo esc_html( $kkw_section ); ?></h1>
+				<?php
+				if ( $kkw_section_description ) {
+					?>
+				<div class="col-12">
+					<div class="form-group col text-left mb-2">
+					<?php echo wp_kses_post( $kkw_section_description ); ?>
 					</div>
-				</section>
-		<?php
+				</div>
+					<?php
+				}
+				?>
+		</section>
+
+			<!-- QUOTES, if present -->
+			<?php
+			if ( $kkw_quote ) {
+				?>
+			<section class="row pt-2 mb-2">
+				<div class="col-md-12 m-0 p-0">
+					<div class="px-3 py-0 bg-light border rounded text-end">
+							<blockquote class="blockquote">
+									<p class="mb-0">
+										<?php echo wp_kses_post( wpautop( $kkw_quote ) ); ?>
+									</p>
+							</blockquote>
+					</div>
+			</div>
+		</section>
+				<?php
 			}
-		?>
+			?>
+
+			<!-- PROLOGUE, if present -->
+			<?php
+			if ( $kkw_prologue ) {
+				?>
+					<section class="row py-2 mb-5 px-5">
+						<div class="col-md-12 m-0 p-0">
+						<?php echo wp_kses_post( wpautop( $kkw_prologue ) ); ?>
+						</div>
+					</section>
+				<?php
+			}
+			?>
 
 		<!-- CONTENT of the page -->
 		<div class="row px-3 my-3 kkw_page_content">
 			<?php the_content(); ?>
 		</div>
 
-		<!-- EPILOGUE, if present -->
-		<?php
-			if ( $epilogue ) {
-		?>
-				<section class="row py-2 mt-2 mb-5 px-5">
-					<div class="col-md-12 m-0 p-0">
-						<?php echo wpautop( wp_kses_post( $epilogue ) ); ?>
-					</div>
-				</section>
-		<?php
+			<!-- EPILOGUE, if present -->
+			<?php
+			if ( $kkw_epilogue ) {
+				?>
+					<section class="row py-2 mt-2 mb-5 px-5">
+						<div class="col-md-12 m-0 p-0">
+						<?php echo wp_kses_post( wpautop( $kkw_epilogue ) ); ?>
+						</div>
+					</section>
+				<?php
 			}
-		?>
+			?>
 
 	</div>
 

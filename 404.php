@@ -1,15 +1,14 @@
 <?php
 /**
- * The template for displaying 404 pages (not found)
- * KK Writer Theme: The footer of the site.
+ * The template for displaying 404 pages (not found).
  *
  * @package KK_Writer_Theme
  */
 
 get_header();
-$section             = ''; // __( 'Page not found', 'kk_writer_theme' );
-$section_description = '';
-$site_url            = get_site_url();
+$kkw_section             = '';
+$kkw_section_description = '';
+$kkw_site_url            = home_url( '/' );
 ?>
 
 <main class="container" role="main">
@@ -22,23 +21,23 @@ $site_url            = get_site_url();
 
 		<!-- BANNER -->
 		<section class="row mb-2 py-4 primary-bg">
-			<h1><?php echo $section; ?></h1>
+			<h1><?php echo esc_html( $kkw_section ); ?></h1>
 			<?php
-				if ( $section_description ){
-			?>
+			if ( $kkw_section_description ) {
+				?>
 			<div class="col-12">
 				<div class="form-group col text-left mb-2">
-				<?php echo $section_description; ?>
+				<?php echo wp_kses_post( $kkw_section_description ); ?>
 				</div>
 			</div>
-			<?php
-				}
+				<?php
+			}
 			?>
 		</section>
 
 		<!-- 404 Message -->
 		<section class="section bg-white">
-			<div class="container ">
+			<div class="container">
 				<article class="article-wrapper">
 					<div class="box_404 text-center clearfix mb-5">
 
@@ -51,9 +50,20 @@ $site_url            = get_site_url();
 							<?php esc_html_e( 'Oops! The page you are looking for was not found.', 'kk_writer_theme' ); ?>
 							<br />
 							<?php
-								echo sprintf(
-									__( 'Click <a href="%s">here</a> to come back or use the menu to continue browsing.', 'kk_writer_theme' ), $site_url );
-							?>
+							/* translators: %s: Site home URL. */
+								printf(
+									wp_kses(
+										/* translators: %s: Site home URL. */
+										__( 'Click <a href="%s">here</a> to come back or use the menu to continue browsing.', 'kk_writer_theme' ),
+										array(
+											'a' => array(
+												'href' => array(),
+											),
+										)
+									),
+									esc_url( $kkw_site_url )
+								);
+								?>
 						</p>
 
 					</div>

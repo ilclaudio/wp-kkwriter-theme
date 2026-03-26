@@ -7,7 +7,7 @@
 
 global $post;
 get_header();
-$image_metadata = KKW_ContentsManager::get_image_metadata( $post );
+$kkw_image_metadata = KKW_ContentsManager::get_image_metadata( $post );
 ?>
 
 <main class="container">

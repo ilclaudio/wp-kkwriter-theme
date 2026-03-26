@@ -4,6 +4,7 @@
  *
  * @package KK_Writer_Theme
  */
+
 ?>
 
 	<div class="container">
