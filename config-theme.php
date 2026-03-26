@@ -76,7 +76,7 @@ define(
 		array(
 			'content_slug_it'  => 'privacy-it',
 			'content_slug_en'  => 'privacy',
-			'content_title_it' => __( 'Privacy policy', 'kk_writer_theme' ),
+			'content_title_it' => 'Privacy policy',
 			'content_title_en' => 'Privacy policy',
 			'content_it'       => 'La nostra Privacy Policy...',
 			'content_en'       => 'Our Privacy Policy...',
@@ -89,7 +89,7 @@ define(
 		array(
 			'content_slug_it'  => 'cookies-policy-it',
 			'content_slug_en'  => 'cookies-policy',
-			'content_title_it' => __( 'Cookies policy', 'kk_writer_theme' ),
+			'content_title_it' => 'Cookies policy',
 			'content_title_en' => 'Cookies policy',
 			'content_it'       => 'La nostra politica dei cookies...',
 			'content_en'       => 'Our Cookies Policy...',
@@ -102,7 +102,7 @@ define(
 		array(
 			'content_slug_it'  => 'accessibilita',
 			'content_slug_en'  => 'accessibility',
-			'content_title_it' => __( 'Accessibility', 'kk_writer_theme' ),
+			'content_title_it' => 'Accessibilità',
 			'content_title_en' => 'Accessibility',
 			'content_it'       => 'La dichiarazione di accessibilità...',
 			'content_en'       => 'The accessibility declaration...',
@@ -115,7 +115,7 @@ define(
 		array(
 			'content_slug_it'  => 'crediti',
 			'content_slug_en'  => 'credits',
-			'content_title_it' => __( 'Credits', 'kk_writer_theme' ),
+			'content_title_it' => 'Crediti',
 			'content_title_en' => 'Credits',
 			'content_it'       => 'I crediti...',
 			'content_en'       => 'The credits...',
@@ -128,7 +128,7 @@ define(
 		array(
 			'content_slug_it'  => 'biografia',
 			'content_slug_en'  => 'biography',
-			'content_title_it' => __( 'Biography', 'kk_writer_theme' ),
+			'content_title_it' => 'Biografia',
 			'content_title_en' => 'Biography',
 			'content_it'       => 'La biografia...' . KKW_TEXT_TEMPLATE_ACTIVE_IT,
 			'content_en'       => 'The biography...' . KKW_TEXT_TEMPLATE_ACTIVE_EN,
@@ -141,7 +141,7 @@ define(
 		array(
 			'content_slug_it'  => 'mappa-sito',
 			'content_slug_en'  => 'site-map',
-			'content_title_it' => __( 'Site Map', 'kk_writer_theme' ),
+			'content_title_it' => 'Mappa del sito',
 			'content_title_en' => 'Site map',
 			'content_it'       => 'La mappa del sito...' . KKW_TEXT_TEMPLATE_ACTIVE_IT,
 			'content_en'       => 'The map of the site...' . KKW_TEXT_TEMPLATE_ACTIVE_EN,
@@ -154,7 +154,7 @@ define(
 		array(
 			'content_slug_it'  => 'contatti',
 			'content_slug_en'  => 'contacts',
-			'content_title_it' => __( 'Contacts', 'kk_writer_theme' ),
+			'content_title_it' => 'Contatti',
 			'content_title_en' => 'Contacts',
 			'content_it'       => 'I nostri contatti...' . KKW_TEXT_TEMPLATE_ACTIVE_IT,
 			'content_en'       => 'Our contacts...' . KKW_TEXT_TEMPLATE_ACTIVE_EN,
@@ -167,7 +167,7 @@ define(
 		array(
 			'content_slug_it'  => 'newsletter-it',
 			'content_slug_en'  => 'newsletter',
-			'content_title_it' => __( 'Newsletter', 'kk_writer_theme' ),
+			'content_title_it' => 'Newsletter',
 			'content_title_en' => 'Newsletter',
 			'content_it'       => 'Registrati alla newsletter...' . KKW_TEXT_TEMPLATE_ACTIVE_IT,
 			'content_en'       => 'Register to the newsletter...' . KKW_TEXT_TEMPLATE_ACTIVE_EN,
@@ -181,7 +181,7 @@ define(
 		array(
 			'content_slug_it'  => 'ricerca',
 			'content_slug_en'  => SLUG_SEARCH_SITE_EN,
-			'content_title_it' => __( 'Search', 'kk_writer_theme' ),
+			'content_title_it' => 'Cerca',
 			'content_title_en' => 'Search',
 			'content_it'       => 'Ricerca cose nel sito ...' . KKW_TEXT_TEMPLATE_ACTIVE_IT,
 			'content_en'       => 'Search things in the site...' . KKW_TEXT_TEMPLATE_ACTIVE_EN,
@@ -194,7 +194,7 @@ define(
 		array(
 			'content_slug_it'  => 'articoli',
 			'content_slug_en'  => 'blog',
-			'content_title_it' => __( 'Blog', 'kk_writer_theme' ),
+			'content_title_it' => 'Blog',
 			'content_title_en' => 'Blog',
 			'content_it'       => 'Il blog ...' . KKW_TEXT_TEMPLATE_ACTIVE_IT,
 			'content_en'       => 'The blog...' . KKW_TEXT_TEMPLATE_ACTIVE_EN,
