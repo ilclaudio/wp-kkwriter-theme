@@ -4,8 +4,9 @@
  *
  * @package KK_Writer_Theme
  */
+
+get_header();
 ?>
-<?php get_header(); ?>
 
 
 <main class="container">

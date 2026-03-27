@@ -3,131 +3,142 @@
  * Template Name: contacts
  *
  * KK Writer Theme: The CONTACTS page.
+ *
  * @package KK_Writer_Theme
  */
-?>
 
-<?php
 global $post;
 get_header();
-$section             = __( 'Contacts' , 'kk_writer_theme' );
-$section_description = '';
+$kkw_section             = __( 'Contacts', 'kk_writer_theme' );
+$kkw_section_description = '';
 
-$post_img_id    = get_post_thumbnail_id( $post->id );
-$post_img_array = wp_get_attachment_image_src( $post_img_id, 'large' );
-$post_img_src   = $post_img_array ? $post_img_array[0] : '';
-$post_img_alt   = get_post_meta( $post_img_id, '_wp_attachment_image_alt', true );
-$post_img_alt   = $post_img_alt ? $post_img_alt : $post->title;
+$kkw_post_img_id    = get_post_thumbnail_id( $post->ID );
+$kkw_post_img_array = wp_get_attachment_image_src( $kkw_post_img_id, 'large' );
+$kkw_post_img_src   = $kkw_post_img_array ? $kkw_post_img_array[0] : '';
+$kkw_post_img_alt   = get_post_meta( $kkw_post_img_id, '_wp_attachment_image_alt', true );
+$kkw_post_img_alt   = $kkw_post_img_alt ? $kkw_post_img_alt : $post->post_title;
 
-$smtp_sender_email = kkw_get_option( 'smtp_sender_email', 'kkw_opt_site_contacts' );
-$smtp_sender_name  = kkw_get_option( 'smtp_sender_name', 'kkw_opt_site_contacts' );
-$site_email        = kkw_get_option( 'site_email', 'kkw_opt_site_contacts' );
-$site_title        = kkw_get_option( 'site_title', 'kkw_opt_options' );
-$website           = get_site_url();
-$show_error        = false;
-$show_sent         = false;
-$captcha_enabled   = false;
-$form_valid        = true;
-$sent              = false;
-$result_text       = '';
-$nonce_error       = false;
-$form_sent         = 'no';
+$kkw_smtp_sender_email = kkw_get_option( 'smtp_sender_email', 'kkw_opt_site_contacts' );
+$kkw_smtp_sender_name  = kkw_get_option( 'smtp_sender_name', 'kkw_opt_site_contacts' );
+$kkw_site_email        = kkw_get_option( 'site_email', 'kkw_opt_site_contacts' );
+$kkw_site_title        = kkw_get_option( 'site_title', 'kkw_opt_options' );
+$kkw_website           = get_site_url();
+$kkw_show_error        = false;
+$kkw_show_sent         = false;
+$kkw_captcha_enabled   = false;
+$kkw_form_valid        = true;
+$kkw_sent              = false;
+$kkw_result_text       = '';
+$kkw_nonce_error       = false;
+$kkw_form_sent         = 'no';
 
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-include_once( KKW_THEME_PATH . '/template-parts/common/captcha.php' );
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
+require_once KKW_THEME_PATH . '/template-parts/common/captcha.php';
 
-$postdata = $_POST;
+$kkw_postdata = filter_input_array( INPUT_POST, FILTER_UNSAFE_RAW );
+if ( ! is_array( $kkw_postdata ) ) {
+	$kkw_postdata = array();
+}
 
-$full_name      = sanitize_text_field( isset( $postdata['full_name'] ) ? $postdata['full_name'] : '' );
-$email_address  = sanitize_text_field( isset( $postdata['email_address'] ) ? $postdata['email_address'] : '' );
-$phone_number   = sanitize_text_field( isset( $postdata['phone_number'] ) ? $postdata['phone_number'] : '' );
-$receipt        = sanitize_text_field( isset( $postdata['receipt'] ) ? $postdata['receipt'] : '' );
-$form_sent      = sanitize_text_field( isset( $postdata['form_sent'] ) ? $postdata['form_sent'] : 'no' );
-$text_message   = sanitize_text_field( isset( $postdata['text_message'] ) ? $postdata['text_message'] : '' );
-$captcha_field  = sanitize_text_field( isset( $postdata['captcha-field'] ) ? $postdata['captcha-field'] : '' );
-$captcha_prefix = sanitize_text_field( isset( $postdata['captcha-prefix'] ) ? $postdata['captcha-prefix'] : '' );
+$kkw_get_post_field = static function ( $key, $default_value = '' ) use ( $kkw_postdata ) {
+	$raw_value = isset( $kkw_postdata[ $key ] ) ? $kkw_postdata[ $key ] : $default_value;
+	return sanitize_text_field( (string) $raw_value );
+};
 
-$base_text = '<b>'. __( 'A message was sent from the site by:', 'kk_writer_theme' ) . '</b><br/><br/>' .
-	'<b>'. __( 'Full name', 'kk_writer_theme' ) . ':</b> ' . $full_name  . '<br/>' .
-	'<b>'. __( 'E-mail', 'kk_writer_theme' ) . ':</b> ' . $email_address . '<br/>' .
-	'<b>'. __( 'Phone number', 'kk_writer_theme' ) . ':</b> ' . $phone_number . '<br/>' . '<br/>' .
-	'<b>'. __( 'Text of the message: ', 'kk_writer_theme' ) . ':</b>';
+$kkw_full_name      = $kkw_get_post_field( 'full_name' );
+$kkw_email_address  = $kkw_get_post_field( 'email_address' );
+$kkw_phone_number   = $kkw_get_post_field( 'phone_number' );
+$kkw_receipt        = $kkw_get_post_field( 'receipt' );
+$kkw_form_sent      = $kkw_get_post_field( 'form_sent', 'no' );
+$kkw_text_message   = $kkw_get_post_field( 'text_message' );
+$kkw_captcha_field  = $kkw_get_post_field( 'captcha-field' );
+$kkw_captcha_prefix = $kkw_get_post_field( 'captcha-prefix' );
 
-$mail_text = $base_text . '<br/>' . '<br/>' . $text_message;
+$kkw_base_text = sprintf(
+	'<b>%1$s</b><br/><br/><b>%2$s:</b> %3$s<br/><b>%4$s:</b> %5$s<br/><b>%6$s:</b> %7$s<br/><br/><b>%8$s:</b>',
+	__( 'A message was sent from the site by:', 'kk_writer_theme' ),
+	__( 'Full name', 'kk_writer_theme' ),
+	$kkw_full_name,
+	__( 'E-mail', 'kk_writer_theme' ),
+	$kkw_email_address,
+	__( 'Phone number', 'kk_writer_theme' ),
+	$kkw_phone_number,
+	__( 'Text of the message', 'kk_writer_theme' )
+);
+
+$kkw_mail_text = $kkw_base_text . '<br/><br/>' . $kkw_text_message;
 
 // Message sending procedure.
-if ( 'yes' === $form_sent ) {
+if ( 'yes' === $kkw_form_sent ) {
 
-	// Nonche check.
-	if ( isset( $postdata['contacts_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( $postdata['contacts_nonce_field'] ), 'sf_contacts_nonce' ) ) {
+	// Nonce check.
+	if ( isset( $kkw_postdata['contacts_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( (string) $kkw_postdata['contacts_nonce_field'] ), 'sf_contacts_nonce' ) ) {
 
 		// The NONCE is valid.
-		$nonce_error = false;
-		$name        = $full_name;
-		$to          = $site_email;
-		$subject     = __( '[ContactForm]', 'kk_writer_theme' ) . ' ' . __( 'E-mail form the site', 'kk_writer_theme' ) . ': '. $site_title;
-		$headers[]   = 'Content-Type: text/html; charset=UTF-8';
-		$headers[]   = 'From: ' . $smtp_sender_name . ' <' . $smtp_sender_email . '>';
+		$kkw_nonce_error = false;
+		$kkw_to          = $kkw_site_email;
+		$kkw_subject     = __( '[ContactForm]', 'kk_writer_theme' ) . ' ' . __( 'E-mail form the site', 'kk_writer_theme' ) . ': ' . $kkw_site_title;
+		$kkw_headers     = array();
+		$kkw_headers[]   = 'Content-Type: text/html; charset=UTF-8';
+		$kkw_headers[]   = 'From: ' . $kkw_smtp_sender_name . ' <' . $kkw_smtp_sender_email . '>';
 
-		// 1 - Controllo del captcha.
-		if ( $captcha_enabled ) {
-			$captcha_valid = $captcha_obj->check( $captcha_prefix, $captcha_field );
-			if ( ! $captcha_valid ) {
-				$result_text = $result_text . '<BR/>' . __( 'The verification code is not valid.', 'kk_writer_theme' );
+		// 1 - Captcha validation.
+		if ( $kkw_captcha_enabled ) {
+			$kkw_captcha_valid = $captcha_obj->check( $kkw_captcha_prefix, $kkw_captcha_field );
+			if ( ! $kkw_captcha_valid ) {
+				$kkw_result_text .= '<br/>' . __( 'The verification code is not valid.', 'kk_writer_theme' );
 			}
 		} else {
-			$captcha_valid = true;
+			$kkw_captcha_valid = true;
 		}
 
 		// 2 - Form fields validation
 		// 2a - Check mandatory fields
-		if ( '' === $full_name || '' === $email_address || '' === $text_message ) {
-			$form_valid     = $form_valid && true;
-			$result_text = $result_text . '<BR/>' . __( 'Please, fill all the mandatory fields', 'kk_writer_theme' );
+		if ( '' === $kkw_full_name || '' === $kkw_email_address || '' === $kkw_text_message ) {
+			$kkw_form_valid   = false;
+			$kkw_result_text .= '<br/>' . __( 'Please, fill all the mandatory fields', 'kk_writer_theme' );
 		}
 		// 2b - Check email address validity.
-		if ( ! ( filter_var( $email_address, FILTER_VALIDATE_EMAIL ) ) ) {
-			$form_valid  = $form_valid && true;
-			$result_text = $result_text . '<BR/>' . __( 'Please, provide a valid email address.', 'kk_writer_theme' );
+		if ( ! ( filter_var( $kkw_email_address, FILTER_VALIDATE_EMAIL ) ) ) {
+			$kkw_form_valid   = false;
+			$kkw_result_text .= '<br/>' . __( 'Please, provide a valid email address.', 'kk_writer_theme' );
 		}
 
 		// 3 - Check validity.
 		// The form is valid if the fields are valid and if the captcha is valid or not active.
-		$form_valid = $form_valid && ( $captcha_valid || ! $captcha_enabled );
+		$kkw_form_valid = $kkw_form_valid && ( $kkw_captcha_valid || ! $kkw_captcha_enabled );
 
 		// 4 - SEND EMAIL.
-		if ( $form_valid ) {
+		if ( $kkw_form_valid ) {
 			// 4a - Send email to the site.
-			$sent = wp_mail( $to, $subject, $mail_text, $headers );
-			if ( ! $sent ) {
-				$result_text = $result_text . '<BR/>' . __( 'Message not sent.', 'kk_writer_theme' );
+			$kkw_sent = wp_mail( $kkw_to, $kkw_subject, $kkw_mail_text, $kkw_headers );
+			if ( ! $kkw_sent ) {
+				$kkw_result_text .= '<br/>' . __( 'Message not sent.', 'kk_writer_theme' );
 			}
-			if ( 'on' === $receipt ) {
+			if ( 'on' === $kkw_receipt ) {
 				// 4b - Send confirmation email to the sender.
-				$testo_receipt = __( 'receipt', 'kk_writer_theme' );
-				$subject       .= '(' . $testo_receipt . ')';
-				$sent           = $sent && wp_mail( $email_address, $subject, $mail_text, $headers );
-				if ( ! $sent ) {
-					$result_text = $result_text . '<BR/>' . __( 'Confirmation email not sent.', 'kk_writer_theme' );
+				$kkw_receipt_text = __( 'receipt', 'kk_writer_theme' );
+				$kkw_subject     .= '(' . $kkw_receipt_text . ')';
+				$kkw_sent         = $kkw_sent && wp_mail( $kkw_email_address, $kkw_subject, $kkw_mail_text, $kkw_headers );
+				if ( ! $kkw_sent ) {
+					$kkw_result_text .= '<br/>' . __( 'Confirmation email not sent.', 'kk_writer_theme' );
 				}
 			}
 		}
 
-		// 5 - Show results.
-		if ( $form_sent && $sent ) {
-			$show_sent = true;
+			// 5 - Show results.
+		if ( 'yes' === $kkw_form_sent && $kkw_sent ) {
+			$kkw_show_sent = true;
 		}
-		if ( ( ! $form_valid ) || ( $form_sent && ! $sent ) ) {
-			$show_error  = true;
+		if ( ( ! $kkw_form_valid ) || ( 'yes' === $kkw_form_sent && ! $kkw_sent ) ) {
+			$kkw_show_error = true;
 		}
-
 	} else {
-		// Il NONCE non è valido.
-		$show_error = true;
-		$nonce_error  = true;
-		$result_text = $result_text . '<BR/>' . __( 'Nonce not valid.', 'kk_writer_theme' );
+		// The nonce is not valid.
+		$kkw_show_error   = true;
+		$kkw_nonce_error  = true;
+		$kkw_result_text .= '<br/>' . __( 'Nonce not valid.', 'kk_writer_theme' );
 	}
-
 }
 
 ?>
@@ -142,27 +153,27 @@ if ( 'yes' === $form_sent ) {
 	<div class="container mt-2">
 
 		<!-- BANNER -->
-		<section class="row mb-2 py-4 primary-bg">
-			<h1><?php echo $section; ?></h1>
-			<?php
-				if ( $section_description ){
-			?>
-			<div class="col-12">
-				<div class="form-group col text-left mb-2">
-				<?php echo $section_description; ?>
+			<section class="row mb-2 py-4 primary-bg">
+				<h1><?php echo esc_html( $kkw_section ); ?></h1>
+				<?php
+				if ( $kkw_section_description ) {
+					?>
+				<div class="col-12">
+					<div class="form-group col text-left mb-2">
+					<?php echo wp_kses_post( $kkw_section_description ); ?>
+					</div>
 				</div>
-			</div>
-			<?php
+					<?php
 				}
-			?>
+				?>
 		</section>
 
 		<div class="row">
 			<aside class="col-md-3 border-end mb-5 text-center my-5 kkw_img_contacts">
 				<!-- Post featured image -->
-				<img src="<?php echo esc_url( $post_img_src ); ?>"
+				<img src="<?php echo esc_url( $kkw_post_img_src ); ?>"
 					class="bd-placeholder-img"
-					alt="<?php echo esc_attr( $post_img_alt ); ?>" />
+					alt="<?php echo esc_attr( $kkw_post_img_alt ); ?>" />
 
 				<div class="text-left mt-5">
 					<?php get_template_part( 'template-parts/common/social_footer' ); ?>
@@ -170,42 +181,42 @@ if ( 'yes' === $form_sent ) {
 
 			</aside>
 
-			<section class="col-md-9" aria-label="<?php echo __( 'Contacts form' , 'kk_writer_theme' ); ?>">
+				<section class="col-md-9" aria-label="<?php echo esc_attr__( 'Contacts form', 'kk_writer_theme' ); ?>">
 
 				<!-- FEEDBACK MESSAGES SECTION-->
 				<div id="contacts_messages">
 					<?php
-					if ( $show_sent ) {
-					?>
-						<!-- ALERT OK -->
-						<div class="container my-12 p-2">
-							<div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
-							<?php echo esc_html( __( 'Message successfully sent', 'kk_writer_theme' ) ) . '&nbsp;.'; ?>
-								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
-								</button>
+					if ( $kkw_show_sent ) {
+						?>
+							<!-- ALERT OK -->
+							<div class="container my-12 p-2">
+								<div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+								<?php echo esc_html__( 'Message successfully sent.', 'kk_writer_theme' ); ?>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo esc_attr__( 'Close alert', 'kk_writer_theme' ); ?>">
+									</button>
+								</div>
 							</div>
-						</div>
-					<?php
+						<?php
 					}
-					if ( $show_error ) {
-					?>
-						<!-- ALERT KO -->
-						<div class="container my-12 p-2">
-							<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
-								<?php echo __( $result_text, 'kk_writer_theme' ); ?>
-								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo  __( 'Close alert', 'kk_writer_theme' );?>">
-								</button>
+					if ( $kkw_show_error ) {
+						?>
+							<!-- ALERT KO -->
+							<div class="container my-12 p-2">
+								<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+									<?php echo wp_kses_post( $kkw_result_text ); ?>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo esc_attr__( 'Close alert', 'kk_writer_theme' ); ?>">
+									</button>
+								</div>
 							</div>
-						</div>
-					<?php
+						<?php
 					}
 					?>
 				</div>
 
-				<!-- CONTACT FORM SECTION-->
-				<div id="kkw_contact_form_id">
-					<FORM action="." id="kkw_contact_form" name="kkw_contact_form" method="POST">
-						<?php wp_nonce_field( 'sf_contacts_nonce', 'contacts_nonce_field', false ); ?>
+					<!-- CONTACT FORM SECTION-->
+					<div id="kkw_contact_form_id">
+						<form action="." id="kkw_contact_form" name="kkw_contact_form" method="post">
+							<?php wp_nonce_field( 'sf_contacts_nonce', 'contacts_nonce_field', false ); ?>
 						<div class="container m-5 pt-4">
 							<!-- SITE CONTACTS -->
 							<div class="row">
@@ -215,44 +226,44 @@ if ( 'yes' === $form_sent ) {
 												<div class="row mb-4">
 													<div class="form-group col">
 														<label class="active" for="full_name">
-															<?php echo esc_html( __( 'Name and surname', 'kk_writer_theme' ) ); ?>&nbsp;*
+																<?php echo esc_html__( 'Name and surname', 'kk_writer_theme' ); ?>&nbsp;*
 														</label>
 														<input type="text" class="form-control border-bottom-only" name="full_name" id="full_name"
-															value="<?php echo esc_attr( $full_name ); ?>"
-															placeholder="<?php echo esc_attr( __( 'Your name and your surname', 'kk_writer_theme' ) ); ?>">
+															value="<?php echo esc_attr( $kkw_full_name ); ?>"
+																placeholder="<?php echo esc_attr__( 'Your name and your surname', 'kk_writer_theme' ); ?>">
 													</div>
 												</div>
 												<div class="row mb-4">
 													<div class="form-group col">
 														<label class="active" for="text_message">
-															<?php echo esc_html( __( 'Message text', 'kk_writer_theme' ) ); ?>&nbsp;*
+																<?php echo esc_html__( 'Message text', 'kk_writer_theme' ); ?>&nbsp;*
 														</label>
 														<input type="text" class="form-control border-bottom-only" name="text_message" id="text_message"
-															value="<?php echo esc_attr( $text_message ); ?>"
-															placeholder="<?php echo esc_attr( __( 'The text of the message', 'kk_writer_theme' ) ); ?>">
+															value="<?php echo esc_attr( $kkw_text_message ); ?>"
+																placeholder="<?php echo esc_attr__( 'The text of the message', 'kk_writer_theme' ); ?>">
 													</div>
 												</div>
 												<div class="row mb-4">
 													<div class="form-group col-md-6">
-														<label class="active" for="email_address"><?php echo esc_html( __( 'E-mail', 'kk_writer_theme' ) ); ?>&nbsp;*</label>
+															<label class="active" for="email_address"><?php echo esc_html__( 'E-mail', 'kk_writer_theme' ); ?>&nbsp;*</label>
 														<input type="email" class="form-control border-bottom-only" id="email_address" name="email_address"
-															value="<?php echo esc_attr( $email_address ); ?>"
-															placeholder="<?php echo esc_attr( __( 'Your e-mail address', 'kk_writer_theme' ) ); ?>">
+															value="<?php echo esc_attr( $kkw_email_address ); ?>"
+																placeholder="<?php echo esc_attr__( 'Your e-mail address', 'kk_writer_theme' ); ?>">
 													</div>
 													<div class="form-group col-md-6">
-														<label for="phone_number" class="active"><?php echo esc_html( __( 'Phone number', 'kk_writer_theme' ) ); ?></label>
+															<label for="phone_number" class="active"><?php echo esc_html__( 'Phone number', 'kk_writer_theme' ); ?></label>
 														<input type="tel" class="form-control border-bottom-only" id="phone_number" name="phone_number"
-															value="<?php echo esc_attr( $phone_number ); ?>"
-															placeholder="<?php echo esc_html( __( 'Your phone number', 'kk_writer_theme' ) ); ?>">
+															value="<?php echo esc_attr( $kkw_phone_number ); ?>"
+																placeholder="<?php echo esc_attr__( 'Your phone number', 'kk_writer_theme' ); ?>">
 													</div>
 												</div>
 												<!-- NOTIFICA -->
 												<div class="row mb-5">
 													<div class="form-group col-md-9">
 														<div class="toggles">
-															<label for="receipt">
-																<?php
-																echo esc_html( __( 'Do you want to receive an email notification', 'kk_writer_theme' ) ) . ' ?';
+																<label for="receipt">
+																	<?php
+																	echo esc_html__( 'Do you want to receive an email notification?', 'kk_writer_theme' );
 																	?>
 																<input type="checkbox" id="receipt" name="receipt">
 																<span class="lever"></span>
@@ -262,36 +273,36 @@ if ( 'yes' === $form_sent ) {
 												</div>
 												<!-- CAPTCHA -->
 												<?php
-												if ( $captcha_enabled ) {
-												?>
+												if ( $kkw_captcha_enabled ) {
+													?>
 												<div class="row mb-5" style="margin-top: 20px;">
 													<div class="form-group col-md-6" style="text-align: center">
-														<img src="<?php echo esc_url( $captcha_obj_image_src ); ?>"
-															alt="<?php echo esc_attr( __( 'Insert the captcha code', 'kk_writer_theme' ) ); ?>"
-															width="<?php echo esc_attr( $captcha_obj_image_width ); ?>"
-															height="<?php echo esc_attr( $captcha_obj_image_height ); ?>" />
+															<img src="<?php echo esc_url( $captcha_obj_image_src ); ?>"
+																alt="<?php echo esc_attr__( 'Insert the captcha code', 'kk_writer_theme' ); ?>"
+																width="<?php echo esc_attr( $captcha_obj_image_width ); ?>"
+																height="<?php echo esc_attr( $captcha_obj_image_height ); ?>" />
 													</div>
 													<div class="form-group col-md-6">
 														<input class="form-control border-bottom-only" name="captcha-field" id="captcha-field"
 															size="<?php echo esc_attr( $captcha_obj_image_width ); ?>" type="text"
-																placeholder="<?php echo esc_attr( __( 'Write here the verification code', 'kk_writer_theme' ) ); ?>" />
+																	placeholder="<?php echo esc_attr__( 'Write here the verification code', 'kk_writer_theme' ); ?>" />
 														<input name="captcha-prefix" id="captcha-prefix"
 															type="hidden" value="<?php echo esc_attr( $captcha_obj_prefix ); ?>" />
 													</div>
 												</div>
-												<?php
+													<?php
 												}
 												?>
 												<!-- SUBMIT -->
 												<div class="row mt-4">
 													<div class="form-group col text-center">
-														<input type="hidden" name="form_sent" id="form_sent" value="yes" />
-														<button type="button" class="mx-3 btn btn-outline-cancel">
-															<?php echo esc_html( __( 'Cancel', 'kk_writer_theme' ) ); ?>
-														</button>
-														<button type="submit" class="mx-3 btn btn-primary">
-															<?php echo esc_html( __( 'Confirm', 'kk_writer_theme' ) ); ?>
-														</button>
+															<input type="hidden" name="form_sent" id="form_sent" value="yes" />
+															<button type="button" class="mx-3 btn btn-outline-cancel">
+																<?php echo esc_html__( 'Cancel', 'kk_writer_theme' ); ?>
+															</button>
+															<button type="submit" class="mx-3 btn btn-primary">
+																<?php echo esc_html__( 'Confirm', 'kk_writer_theme' ); ?>
+															</button>
 													</div>
 												</div>
 										</div>
@@ -299,7 +310,7 @@ if ( 'yes' === $form_sent ) {
 								</div>
 							</div>
 						</div>
-					</FORM>
+						</form>
 				</div>
 
 			</section>

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2026-03-26 17:44+0000\n"
+"PO-Revision-Date: 2026-03-27 22:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -15,15 +15,15 @@ msgstr ""
 "X-Loco-Version: 2.6.11; wp-6.6.1\n"
 "X-Domain: kk_writer_theme"
 
-#: 404.php:45
+#: 404.php:44
 msgid "404"
 msgstr "404"
 
-#: page-templates/contacts.php:68
+#: page-templates/contacts.php:80
 msgid "[ContactForm]"
 msgstr "[FormContatto]"
 
-#: page-templates/contacts.php:50
+#: page-templates/contacts.php:59
 msgid "A message was sent from the site by:"
 msgstr "E' stato inviato un messaggio dal sito da parte di:"
 
@@ -93,10 +93,12 @@ msgid "biography"
 msgstr "biografia"
 
 #: config-menu.php:311 classes/navigation-manager.php:78
+#: page-templates/blog.php:12
 msgid "Blog"
 msgstr "Blog"
 
-#: classes/contents-manager.php:210
+#. Name of the template
+#: classes/contents-manager.php:210 page-templates/blog.php:2
 msgid "blog"
 msgstr "articoli"
 
@@ -104,7 +106,7 @@ msgstr "articoli"
 msgid "Blog post"
 msgstr "Articolo del blog"
 
-#: page-templates/blog.php:117
+#: page-templates/blog.php:131
 msgid "Blog search results"
 msgstr "Risultati della ricerca nel blog"
 
@@ -128,7 +130,7 @@ msgstr "Box 3 - Contenuto in evidenza"
 msgid "Brevo"
 msgstr "Brevo"
 
-#: page-templates/contacts.php:290 page-templates/search.php:93
+#: page-templates/contacts.php:301 page-templates/search.php:90
 msgid "Cancel"
 msgstr "Annulla"
 
@@ -162,7 +164,8 @@ msgstr ""
 msgid "City"
 msgstr "Città"
 
-#: 404.php:55
+#. %s: Site home URL.
+#: 404.php:57
 #, php-format
 msgid ""
 "Click <a href=\"%s\">here</a> to come back or use the menu to continue "
@@ -171,7 +174,7 @@ msgstr ""
 "Clicca <a href=\"%s\">qui</a> per tornare indietro oppure usa il menu per "
 "continuare la navigazione."
 
-#: page-templates/contacts.php:184 page-templates/contacts.php:196
+#: page-templates/contacts.php:195 page-templates/contacts.php:207
 msgid "Close alert"
 msgstr "Chiudi avviso"
 
@@ -183,17 +186,17 @@ msgstr "Configura la sezione del blog."
 msgid "Configure here the carousel section."
 msgstr "Configura la sezione del carosello."
 
-#: page-templates/contacts.php:293
+#: page-templates/contacts.php:304
 msgid "Confirm"
 msgstr "Conferma"
 
-#: page-templates/contacts.php:111
+#: page-templates/contacts.php:124
 msgid "Confirmation email not sent."
 msgstr "Email di conferma non inviata."
 
 #: config-menu.php:312 single.php:119 single.php:251
 #: classes/options-manager.php:563 classes/options-manager.php:576
-#: page-templates/contacts.php:13
+#: page-templates/contacts.php:12
 msgid "Contacts"
 msgstr "Contatti"
 
@@ -202,7 +205,7 @@ msgstr "Contatti"
 msgid "contacts"
 msgstr "contatti"
 
-#: page-templates/contacts.php:173
+#: page-templates/contacts.php:184
 msgid "Contacts form"
 msgstr "Form di contatto"
 
@@ -250,17 +253,19 @@ msgstr "Descrizione"
 msgid "Details"
 msgstr "Dettagli"
 
-#: page-templates/contacts.php:255
-msgid "Do you want to receive an email notification"
+#: page-templates/contacts.php:266
+#, fuzzy
+#| msgid "Do you want to receive an email notification"
+msgid "Do you want to receive an email notification?"
 msgstr "Vuoi ricevere una email di notifica"
 
 #: single.php:272 classes/options-manager.php:600
-#: page-templates/contacts.php:52 page-templates/contacts.php:237
+#: page-templates/contacts.php:62 page-templates/contacts.php:248
 #: template-parts/common/social_sharing.php:85
 msgid "E-mail"
 msgstr "E-mail"
 
-#: page-templates/contacts.php:68
+#: page-templates/contacts.php:80
 msgid "E-mail form the site"
 msgstr "E-mail del sito"
 
@@ -369,11 +374,11 @@ msgstr "Sezione degli eventi in evidenza"
 msgid "Fiction"
 msgstr "Narrativa"
 
-#: page-templates/search.php:108
+#: page-templates/search.php:105
 msgid "Filter by content type"
 msgstr "Filtra per tipo contenuto"
 
-#: page-templates/blog.php:85
+#: page-templates/blog.php:100
 msgid "Filter by group"
 msgstr "Filtra per gruppo"
 
@@ -413,7 +418,7 @@ msgstr "Seguimi su"
 msgid "Footer logo visible"
 msgstr "Logo del footer visibile"
 
-#: page-templates/contacts.php:51
+#: page-templates/contacts.php:60
 msgid "Full name"
 msgstr "Nome:"
 
@@ -495,7 +500,7 @@ msgstr "Informazioni"
 msgid "Insert here the links to your social media."
 msgstr "Inserisci qui i link ai tuoi social media."
 
-#: page-templates/contacts.php:270
+#: page-templates/contacts.php:281
 msgid "Insert the captcha code"
 msgstr "Inserisci il codice captcha"
 
@@ -564,15 +569,17 @@ msgstr "Massimo 140 caratteri."
 msgid "Message"
 msgstr "Messaggio"
 
-#: page-templates/contacts.php:103
+#: page-templates/contacts.php:116
 msgid "Message not sent."
 msgstr "Messaggio non inviato."
 
-#: page-templates/contacts.php:183
-msgid "Message successfully sent"
+#: page-templates/contacts.php:194
+#, fuzzy
+#| msgid "Message successfully sent"
+msgid "Message successfully sent."
 msgstr "Messaggio inviato con successo."
 
-#: page-templates/contacts.php:228
+#: page-templates/contacts.php:239
 msgid "Message text"
 msgstr "Testo del messaggio."
 
@@ -584,7 +591,7 @@ msgstr "Messaggi"
 msgid "Multilanguage"
 msgstr "Multilingua"
 
-#: page-templates/contacts.php:218
+#: page-templates/contacts.php:229
 msgid "Name and surname"
 msgstr "Nome e cognome"
 
@@ -623,7 +630,7 @@ msgstr "Avanti"
 msgid "No"
 msgstr "No"
 
-#: page-templates/contacts.php:128
+#: page-templates/contacts.php:140
 msgid "Nonce not valid."
 msgstr "Nonce non valido."
 
@@ -632,7 +639,7 @@ msgstr "Nonce non valido."
 msgid "On which side the thumbnail wil be shown."
 msgstr "Su quale lato verrà mostrata la miniatura."
 
-#: 404.php:51
+#: 404.php:50
 msgid "Oops! The page you are looking for was not found."
 msgstr "Ops! La pagina che stai cercando non è stata trovata."
 
@@ -640,7 +647,7 @@ msgstr "Ops! La pagina che stai cercando non è stata trovata."
 msgid "Order results by..."
 msgstr "Ordina i risultati per..."
 
-#: 404.php:46 404.php:49
+#: 404.php:45 404.php:48
 msgid "Page not found"
 msgstr "Pagina non trovata"
 
@@ -652,8 +659,8 @@ msgstr "Pagine"
 msgid "Person"
 msgstr "Persona"
 
-#: classes/options-manager.php:608 page-templates/contacts.php:53
-#: page-templates/contacts.php:243
+#: classes/options-manager.php:608 page-templates/contacts.php:64
+#: page-templates/contacts.php:254
 msgid "Phone number"
 msgstr "Numero di telefono"
 
@@ -665,11 +672,11 @@ msgstr "Galleria fotografica"
 msgid "Place"
 msgstr "Luogo"
 
-#: page-templates/contacts.php:86
+#: page-templates/contacts.php:99
 msgid "Please, fill all the mandatory fields"
 msgstr "Per favore, compila i campi obbligatori"
 
-#: page-templates/contacts.php:91
+#: page-templates/contacts.php:104
 msgid "Please, provide a valid email address."
 msgstr "Per favore, fornisci un indirizzo e-mail valido"
 
@@ -705,7 +712,7 @@ msgstr "Anno pubblicazione decrescente"
 msgid "Publisher"
 msgstr "Editore"
 
-#: page-templates/blog.php:159 template-parts/home/blog-section.php:52
+#: page-templates/blog.php:188 template-parts/home/blog-section.php:52
 #: template-parts/home/carousel.php:77
 #: template-parts/home/featured-contents.php:113
 #: template-parts/home/featured-contents.php:156
@@ -716,7 +723,7 @@ msgstr "Editore"
 msgid "Read more"
 msgstr "Leggi di più"
 
-#: page-templates/contacts.php:107
+#: page-templates/contacts.php:120
 msgid "receipt"
 msgstr "ricevuta"
 
@@ -725,7 +732,7 @@ msgstr "ricevuta"
 msgid "Related books"
 msgstr "Libri correlati"
 
-#: page-templates/blog.php:110
+#: page-templates/blog.php:124
 msgid "Reload"
 msgstr "Ricarica"
 
@@ -733,7 +740,7 @@ msgstr "Ricarica"
 msgid "Reload default data"
 msgstr "Ricarica i dati di default"
 
-#: activation.php:17 activation.php:18
+#: activation.php:16 activation.php:17
 msgid "Reload theme data"
 msgstr "Ricarica i dati del tema"
 
@@ -746,8 +753,11 @@ msgstr ""
 msgid "REST API"
 msgstr "API REST"
 
-#: page-templates/search.php:147
-msgid "Results found"
+#. %d: number of matching contents.
+#: page-templates/search.php:146
+#, fuzzy
+#| msgid "Results found"
+msgid "Results found: %d"
 msgstr "Risultati trovati"
 
 #: single-kkw_book.php:87 single-kkw_book.php:194
@@ -759,11 +769,11 @@ msgstr "Recensioni"
 msgid "Right"
 msgstr "Destra"
 
-#: header.php:92 header.php:97 header.php:107 page-templates/search.php:96
+#: header.php:92 header.php:97 header.php:107 page-templates/search.php:93
 msgid "Search"
 msgstr "Cerca"
 
-#: page-templates/search.php:132
+#: page-templates/search.php:127
 msgid "Search results"
 msgstr "Risultati della ricerca"
 
@@ -899,8 +909,8 @@ msgstr "Contatti del sito"
 msgid "Site Map"
 msgstr "Mappa del sito"
 
-#: config-menu.php:314 page-templates/blog.php:83 page-templates/search.php:76
-#: page-templates/search.php:81
+#: config-menu.php:314 page-templates/blog.php:98 page-templates/search.php:73
+#: page-templates/search.php:78
 msgid "Site search"
 msgstr "Cerca nel sito"
 
@@ -970,11 +980,13 @@ msgstr "ID modello della pagina che gestisce il doppio OptIn"
 msgid "Text"
 msgstr "Testo"
 
-#: page-templates/contacts.php:54
-msgid "Text of the message: "
+#: page-templates/contacts.php:66
+#, fuzzy
+#| msgid "Text of the message: "
+msgid "Text of the message"
 msgstr "Testo del messaggio:"
 
-#: page-templates/search.php:87
+#: page-templates/search.php:84
 msgid "Text to search..."
 msgstr "Testo da cercare..."
 
@@ -1030,7 +1042,7 @@ msgstr "Il nome da usare nelle condivisioni e nel SEO"
 msgid "The tagline of the site."
 msgstr "Il motto (sottotiolo) del sito."
 
-#: page-templates/contacts.php:232
+#: page-templates/contacts.php:243
 msgid "The text of the message"
 msgstr "Il testo del messaggio."
 
@@ -1042,11 +1054,11 @@ msgstr "Il titolo del sito."
 msgid "The url of the network the site is part of."
 msgstr "L'indirizzo del network di cui il sito fa parte."
 
-#: page-templates/contacts.php:76
+#: page-templates/contacts.php:89
 msgid "The verification code is not valid."
 msgstr "Il codice di verifica non è valido."
 
-#: page-templates/section.php:187
+#: page-templates/section.php:162
 msgid "There are no books in this section."
 msgstr "Non ci sono libri in questa sezione."
 
@@ -1082,7 +1094,7 @@ msgstr "Audio"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: page-templates/search.php:152
+#: page-templates/search.php:156
 msgid "Type the text to search and click on the Search button"
 msgstr "Scrivi il testo da cercare e clicca sul bottone Cerca"
 
@@ -1106,7 +1118,7 @@ msgstr "WhatsApp"
 msgid "WP KK Writer Theme"
 msgstr "WP KK Writer Theme"
 
-#: page-templates/contacts.php:277
+#: page-templates/contacts.php:288
 #| msgid "Write here the confirmation code"
 msgid "Write here the verification code"
 msgstr "Scrivi qui il codice di verifica"
@@ -1138,14 +1150,14 @@ msgstr "Sì se il il logo deve essere mostrato nel footer"
 msgid "Yes if the logo needs to be shown in the header."
 msgstr "Sì, se il logo deve essere visualizzato nell'intestazione."
 
-#: page-templates/contacts.php:240
+#: page-templates/contacts.php:251
 msgid "Your e-mail address"
 msgstr "Il tuo indirizzo email"
 
-#: page-templates/contacts.php:222
+#: page-templates/contacts.php:233
 msgid "Your name and your surname"
 msgstr "Il tuo nome e il tuo cognome"
 
-#: page-templates/contacts.php:246
+#: page-templates/contacts.php:257
 msgid "Your phone number"
 msgstr "Il tuo numero di telefono"

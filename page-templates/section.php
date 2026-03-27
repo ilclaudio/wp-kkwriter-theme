@@ -1,49 +1,51 @@
 <?php
 /**
  * Template Name: section
- * 
+ *
  * KK Writer Theme: The SECTION template.
  *
  * @package KK_Writer_Theme
  */
-?>
-<?php
+
 get_header();
 
 global $post;
-$section_label       = $post->post_title;
-$section             = sanitize_title( $post->post_title );
-$section_description = '';
+$kkw_section_label       = $post->post_title;
+$kkw_section             = sanitize_title( $post->post_title );
+$kkw_section_description = '';
 
 // Manage ordering parameters.
-$def_sort_order = 'DESC';
-$def_sort_field = 'kkw_year';
+$kkw_default_sort_order = 'DESC';
+$kkw_default_sort_field = 'kkw_year';
 
-$valid_sort_orders   = array( 'ASC', 'DESC' );
-$sort_order          = isset( $_GET['sort_order'] ) ? sanitize_text_field( $_GET['sort_order'] ) : $def_sort_order;
-$sort_order          = strtoupper( trim( $sort_order ) );
-if ( ! in_array( $sort_order, $valid_sort_orders ) ) {
-	$sort_order = $def_sort_order;
-}
-$valid_sort_fields = array( 'title', 'kkw_year' );
-$sort_field        = isset( $_GET['sort_field'] ) ? sanitize_text_field( $_GET['sort_field'] ) : $def_sort_field;
-if ( ! in_array( $sort_field, $valid_sort_fields ) ) {
-	$sort_field = $def_sort_field;
+$kkw_valid_sort_orders = array( 'ASC', 'DESC' );
+$kkw_sort_order_raw    = filter_input( INPUT_GET, 'sort_order', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+$kkw_sort_order        = is_string( $kkw_sort_order_raw ) ? sanitize_text_field( $kkw_sort_order_raw ) : $kkw_default_sort_order;
+$kkw_sort_order        = strtoupper( trim( $kkw_sort_order ) );
+if ( ! in_array( $kkw_sort_order, $kkw_valid_sort_orders, true ) ) {
+	$kkw_sort_order = $kkw_default_sort_order;
 }
 
-$the_query = KKW_ContentsManager::get_section_books_query(
-	$section,
-	$sort_field,
-	$sort_order,
+$kkw_valid_sort_fields = array( 'title', 'kkw_year' );
+$kkw_sort_field_raw    = filter_input( INPUT_GET, 'sort_field', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+$kkw_sort_field        = is_string( $kkw_sort_field_raw ) ? sanitize_text_field( $kkw_sort_field_raw ) : $kkw_default_sort_field;
+if ( ! in_array( $kkw_sort_field, $kkw_valid_sort_fields, true ) ) {
+	$kkw_sort_field = $kkw_default_sort_field;
+}
+
+$kkw_section_query = KKW_ContentsManager::get_section_books_query(
+	$kkw_section,
+	$kkw_sort_field,
+	$kkw_sort_order,
 	SECTIONS_CELLS_PER_PAGE
 );
 
-$prologue = KKW_ContentsManager::get_page_prologue( $post->ID );
-$epilogue = KKW_ContentsManager::get_page_epilogue( $post->ID );
-$quote    = KKW_ContentsManager::get_page_quote( $post->ID );
+$kkw_prologue = KKW_ContentsManager::get_page_prologue( $post->ID );
+$kkw_epilogue = KKW_ContentsManager::get_page_epilogue( $post->ID );
+$kkw_quote    = KKW_ContentsManager::get_page_quote( $post->ID );
 
-$num_results = $the_query->found_posts;
-$total_pages = $the_query->max_num_pages;
+$kkw_num_results = $kkw_section_query->found_posts;
+$kkw_total_pages = $kkw_section_query->max_num_pages;
 ?>
 
 <main class="container">
@@ -55,158 +57,124 @@ $total_pages = $the_query->max_num_pages;
 
 		<!-- BANNER -->
 		<section class="row mb-2 py-4 primary-bg">
-			<h1><?php echo ucfirst( $section_label ); ?></h1>
-			<?php
-				if ( $section_description ){
-			?>
-			<div class="col-12">
-				<div class="form-group col text-left mb-2">
-				<?php echo $section_description; ?>
+			<h1><?php echo esc_html( ucfirst( $kkw_section_label ) ); ?></h1>
+			<?php if ( '' !== $kkw_section_description ) : ?>
+				<div class="col-12">
+					<div class="form-group col text-left mb-2">
+						<?php echo wp_kses_post( wpautop( $kkw_section_description ) ); ?>
+					</div>
 				</div>
-			</div>
-			<?php
-				}
-			?>
+			<?php endif; ?>
 		</section>
-
 
 		<!-- QUOTES, if present -->
-		<?php
-		 if( $quote ) {
-		?>
-		<section class="row pt-2 mb-2">
-			<div class="col-md-12 m-0 p-0">
-				<div class="px-3 py-0 bg-light border rounded text-end">
-						<blockquote class="blockquote">
-								<p class="mb-0">
-									<?php echo wpautop( wp_kses_post( $quote ) ); ?>
-								</p>
+		<?php if ( '' !== $kkw_quote ) : ?>
+			<section class="row pt-2 mb-2">
+				<div class="col-md-12 m-0 p-0">
+					<div class="px-3 py-0 bg-light border rounded text-end">
+						<blockquote class="blockquote mb-0">
+							<?php echo wp_kses_post( wpautop( $kkw_quote ) ); ?>
 						</blockquote>
+					</div>
 				</div>
-			</div>
-		</section>
-		<?php
-		 }
-		?>
+			</section>
+		<?php endif; ?>
 
 		<!-- PROLOGUE, if present -->
-		<?php
-			if( $prologue ) {
-		?>
-				<section class="row py-2 mb-5 px-5">
-					<div class="col-md-12 m-0 p-0">
-						<?php echo wpautop( wp_kses_post( $prologue ) ); ?>
-					</div>
-				</section>
-		<?php
-			}
-		?>
+		<?php if ( '' !== $kkw_prologue ) : ?>
+			<section class="row py-2 mb-5 px-5">
+				<div class="col-md-12 m-0 p-0">
+					<?php echo wp_kses_post( wpautop( $kkw_prologue ) ); ?>
+				</div>
+			</section>
+		<?php endif; ?>
 
-		<!-- search filters and results -->
-		<?php
-		 if( $num_results ) {
-		?>
-		<div class="row">
-
-			<!-- Order results -->
-			<?php
+		<!-- Search filters and results -->
+		<?php if ( 0 < $kkw_num_results ) : ?>
+			<div class="row">
+				<!-- Order results -->
+				<?php
 				get_template_part(
 					'template-parts/common/ordering',
 					null,
 					array(
-					'num_results' => $num_results,
+						'num_results' => $kkw_num_results,
 					)
 				);
-			?>
+				?>
 
-			<!-- SECTION BOOKS (results) -->
-			<section class="col-md-12 px-5 pt-0 mt-2">
-				<div class="row mb-5">
-					<?php
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-						$post_wrapper  = KKW_ContentsManager::wrap_search_result( $post );
-						$image_wrapper = KKW_ContentsManager::wrap_featured_image( $post_wrapper, 'large' );
-					?>
-						<!-- CARD LIBRO -->
-						<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-							<div class="card h-100">
-								<a class="text-decoration-none" 
-									href="<?php echo $post_wrapper->detail_url; ?>">
-									<img class="card-img-top p-4 section-card-image"
-										src="<?php echo esc_url( $image_wrapper->src ); ?>"
-										alt="<?php echo esc_attr( $image_wrapper->alt ); ?>">
-								</a>
-								<div class="card-body">
-									<h6 class="card-author">
-										<?php echo esc_attr( $post_wrapper->author); ?>
-									</h6>
-									<h5 class="card-title">
-										<a class="text-decoration-none text-color-tertiary font-weight-bold"
-											href="<?php echo $post_wrapper->detail_url; ?>">
-											<?php echo esc_attr( $post_wrapper->title); ?>
-										</a>
-									</h5>
-									<p class="card-text">
-										<?php echo esc_attr( $post_wrapper->publisher); ?> - 
-										<?php echo esc_attr( $post_wrapper->view_date); ?>
-									</p>
+				<!-- SECTION BOOKS (results) -->
+				<section class="col-md-12 px-5 pt-0 mt-2">
+					<div class="row mb-5">
+						<?php
+						while ( $kkw_section_query->have_posts() ) {
+							$kkw_section_query->the_post();
+							$kkw_post_wrapper  = KKW_ContentsManager::wrap_search_result( $post );
+							$kkw_image_wrapper = KKW_ContentsManager::wrap_featured_image( $kkw_post_wrapper, 'large' );
+							?>
+							<!-- BOOK CARD -->
+							<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+								<div class="card h-100">
+									<a class="text-decoration-none" href="<?php echo esc_url( $kkw_post_wrapper->detail_url ); ?>">
+										<img class="card-img-top p-4 section-card-image"
+											src="<?php echo esc_url( $kkw_image_wrapper->src ); ?>"
+											alt="<?php echo esc_attr( $kkw_image_wrapper->alt ); ?>">
+									</a>
+									<div class="card-body">
+										<h6 class="card-author"><?php echo esc_html( $kkw_post_wrapper->author ); ?></h6>
+										<h5 class="card-title">
+											<a class="text-decoration-none text-color-tertiary font-weight-bold" href="<?php echo esc_url( $kkw_post_wrapper->detail_url ); ?>">
+												<?php echo esc_html( $kkw_post_wrapper->title ); ?>
+											</a>
+										</h5>
+										<p class="card-text">
+											<?php echo esc_html( $kkw_post_wrapper->publisher ); ?> -
+											<?php echo esc_html( $kkw_post_wrapper->view_date ); ?>
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
-					<?php
-					}
-					?>
+							<?php
+						}
+						?>
 
-					<!-- PAGINATION -->
-					<?php
-						if ( $total_pages > 1 ){
+						<!-- PAGINATION -->
+						<?php
+						if ( 1 < $kkw_total_pages ) {
 							get_template_part(
 								'template-parts/common/pagination',
 								null,
 								array(
-									'query' => $the_query,
+									'query' => $kkw_section_query,
 								)
 							);
 						}
-					?>
-				</div> <!-- row -->
-			</section>
-			
-		</div>
-		<?php
-		 }
-		?>
-
-		<!-- No results -->
-		<?php
-		 if( ! $num_results ) {
-		?>
-			<section class="row">
-				<div class="col-md-12 text-center fst-italic py-4 pt-5" style="min-height: 300px;">
-					<?php echo __( 'There are no books in this section.' , 'kk_writer_theme' ); ?>
-				</div>
-			</section>
-		<?php
-			}
-		?>
-
-		<!-- EPILOGUE, if present -->
-		<?php
-			if( $epilogue ) {
-		?>
-				<section class="row py-2 mt-2 mb-5 px-5">
-					<div class="col-md-12 m-0 p-0">
-						<?php echo wpautop( wp_kses_post( $epilogue ) ); ?>
+						?>
 					</div>
 				</section>
-		<?php
-			}
-		?>
-		
-	</div>
+			</div>
+		<?php endif; ?>
 
+		<!-- No results -->
+		<?php if ( 0 === (int) $kkw_num_results ) : ?>
+			<section class="row">
+				<div class="col-md-12 text-center fst-italic py-4 pt-5" style="min-height: 300px;">
+					<?php echo esc_html__( 'There are no books in this section.', 'kk_writer_theme' ); ?>
+				</div>
+			</section>
+		<?php endif; ?>
+
+		<!-- EPILOGUE, if present -->
+		<?php if ( '' !== $kkw_epilogue ) : ?>
+			<section class="row py-2 mt-2 mb-5 px-5">
+				<div class="col-md-12 m-0 p-0">
+					<?php echo wp_kses_post( wpautop( $kkw_epilogue ) ); ?>
+				</div>
+			</section>
+		<?php endif; ?>
+	</div>
 </main>
 
 <?php
+wp_reset_postdata();
 get_footer();
