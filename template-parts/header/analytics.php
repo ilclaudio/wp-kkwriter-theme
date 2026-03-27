@@ -1,12 +1,13 @@
 <?php
 /**
- * KK Writer Theme: The analytics code of the site.
+ * KKW Writer Theme analytics snippet template part.
  *
  * @package KK_Writer_Theme
  */
 
-global $post;
+$kkw_analytics_text = kkw_get_option( 'analytics_code', 'kkw_opt_advanced_settings' );
 
-$analytics_text = kkw_get_option( 'analytics_code', 'kkw_opt_advanced_settings' );
-echo $analytics_text;
-
+if ( is_string( $kkw_analytics_text ) && '' !== trim( $kkw_analytics_text ) ) {
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted admin-provided analytics snippet.
+	echo $kkw_analytics_text;
+}
