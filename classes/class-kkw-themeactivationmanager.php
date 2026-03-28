@@ -1,4 +1,4 @@
-<?php // phpcs:ignore Squiz.Commenting.FileComment.Missing -- File docblock is present below.
+<?php
 /**
  * KK Writer Theme: Activation Manager definition.
  *

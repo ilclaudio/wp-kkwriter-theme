@@ -253,11 +253,11 @@ $kkw_small_featured_img_height = (int) KKW_SMALL_FEATURED_IMG_HEIGHT;
 									height="<?php echo esc_attr( (string) $kkw_small_featured_img_height ); ?>"
 									alt="<?php echo esc_attr( $kkw_news_image['alt'] ); ?>">
 								<div class="col-lg-8 px-2">
-									<a class="kkw_link" href="<?php echo esc_url( $kkw_news_group_url ); ?>">
-										<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
-											<?php echo esc_html( __( $kkw_news_group, 'kk_writer_theme' ) ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?>
-										</strong>
-									</a>
+										<a class="kkw_link" href="<?php echo esc_url( $kkw_news_group_url ); ?>">
+											<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
+												<?php echo esc_html( $kkw_news_group ); ?>
+											</strong>
+										</a>
 									<a class="kkw_link" href="<?php echo esc_url( $kkw_news_detail ); ?>">
 										<h6 class="mb-0"><?php echo esc_html( clean_and_truncate_text( $kkw_news_title, KKW_SMALL_FEATURED_TEXT_MAX_SIZE ) ); ?></h6>
 									</a>
@@ -294,7 +294,7 @@ $kkw_small_featured_img_height = (int) KKW_SMALL_FEATURED_IMG_HEIGHT;
 								<div class="col-lg-8 px-2">
 									<a class="kkw_link" href="<?php echo esc_url( $kkw_event_group_url ); ?>">
 										<strong class="d-inline-block mt-1 mb-1 text-primary-emphasis text-capitalize">
-											<?php echo esc_html( __( $kkw_event_group, 'kk_writer_theme' ) ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?>
+												<?php echo esc_html( $kkw_event_group ); ?>
 										</strong>
 									</a>
 									<a class="kkw_link" href="<?php echo esc_url( $kkw_event_detail ); ?>">

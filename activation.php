@@ -32,14 +32,11 @@ add_action( 'admin_menu', 'kkw_add_update_theme_page' );
 function kkw_reload_theme_default_data() {
 	$is_reload = false;
 	$result_ok = false;
-	// phpcs:disable WordPress.Security.NonceVerification.Recommended -- Admin-only manual utility page.
 	if ( isset( $_GET['action'] ) && 'reload' === $_GET['action'] ) {
 		$activator = new KKW_ThemeActivationManager();
 		$result_ok = $activator->initialize_theme();
 		$is_reload = true;
 	}
-	// phpcs:enable WordPress.Security.NonceVerification.Recommended
-
 	echo "<div id='kkw_reload_theme_data'>";
 	echo '<h1>' . esc_html__( 'Reload default data', 'kk_writer_theme' ) . '</h1>';
 	echo '<div id="kkw_reload_theme_data_body">';

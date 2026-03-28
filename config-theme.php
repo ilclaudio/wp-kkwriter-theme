@@ -211,6 +211,11 @@ define(
 	'SUGGESTED_PLUGINS',
 	array(
 		array(
+			'name'     => 'KK Writer Plugin',
+			'slug'     => 'wp-kkwriter-plugin',
+			'required' => true,
+		),
+		array(
 			'name'     => 'Polylang - Multilanguage support',
 			'slug'     => 'polylang',
 			'required' => true,

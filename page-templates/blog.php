@@ -14,14 +14,12 @@ $kkw_section_description = '';
 
 // Manage ordering parameters.
 $kkw_valid_sort_orders = array( 'ASC', 'DESC' );
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Public read-only sorting via query string.
-$kkw_sort_order = isset( $_GET['sort_order'] ) ? sanitize_text_field( wp_unslash( $_GET['sort_order'] ) ) : 'ASC';
-$kkw_sort_order = strtoupper( trim( $kkw_sort_order ) );
+$kkw_sort_order        = isset( $_GET['sort_order'] ) ? sanitize_text_field( wp_unslash( $_GET['sort_order'] ) ) : 'ASC';
+$kkw_sort_order        = strtoupper( trim( $kkw_sort_order ) );
 if ( ! in_array( $kkw_sort_order, $kkw_valid_sort_orders, true ) ) {
 	$kkw_sort_order = 'ASC';
 }
 $kkw_valid_sort_fields = array( 'title', 'date' );
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Public read-only sorting via query string.
 $kkw_sort_field = isset( $_GET['sort_field'] ) ? sanitize_text_field( wp_unslash( $_GET['sort_field'] ) ) : 'title';
 if ( ! in_array( $kkw_sort_field, $kkw_valid_sort_fields, true ) ) {
 	$kkw_sort_field = 'title';

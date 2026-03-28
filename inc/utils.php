@@ -17,7 +17,7 @@ if ( ! function_exists( 'kkw_get_option' ) ) {
 	 * @param  mixed  $default    Optional default value.
 	 * @return mixed              Option value.
 	 */
-	function kkw_get_option( $key, $option_key, $default = false ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.defaultFound
+	function kkw_get_option( $key, $option_key, $default = false ) {
 		if ( function_exists( 'cmb2_get_option' ) ) {
 			// Use cmb2_get_option as it passes through some key filters.
 			return cmb2_get_option( $option_key, $key, $default );
@@ -63,8 +63,7 @@ if ( ! function_exists( 'clean_and_truncate_text' ) ) {
 	 * @param bool   $split If true, split at exact position; otherwise split at last space.
 	 * @return string       Cleaned and truncated text.
 	 */
-	function clean_and_truncate_text( $text, $size = 500, $split = false ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
-		// Remove HTML tags.
+	function clean_and_truncate_text( $text, $size = 500, $split = false ) {
 		$clean_text = wp_strip_all_tags( $text );
 		// Truncate to $size.
 		if ( strlen( $clean_text ) > $size ) {
