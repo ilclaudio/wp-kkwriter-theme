@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP KK Writer Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-16 16:41+0000\n"
-"PO-Revision-Date: 2026-03-27 22:48+0000\n"
+"PO-Revision-Date: 2026-03-28 12:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -55,11 +55,11 @@ msgstr "Configurazioni avanzate"
 msgid "API token"
 msgstr "Token dell'API"
 
-#: classes/contents-manager.php:266
+#: classes/contents-manager.php:272
 msgid "at"
 msgstr "alle"
 
-#: template-parts/common/book_info.php:28
+#: template-parts/common/book-info.php:27
 msgid "Author"
 msgstr "Autore"
 
@@ -67,7 +67,7 @@ msgstr "Autore"
 msgid "Automatic selection enabled"
 msgstr "Selezione automatica abilitata"
 
-#: template-parts/home/carousel.php:101
+#: template-parts/home/carousel.php:102
 msgid "Back"
 msgstr "Indietro"
 
@@ -92,13 +92,13 @@ msgstr "Biografia"
 msgid "biography"
 msgstr "biografia"
 
-#: config-menu.php:311 classes/navigation-manager.php:78
+#: config-menu.php:311 classes/navigation-manager.php:82
 #: page-templates/blog.php:12
 msgid "Blog"
 msgstr "Blog"
 
 #. Name of the template
-#: classes/contents-manager.php:210 page-templates/blog.php:2
+#: classes/contents-manager.php:216 page-templates/blog.php:2
 msgid "blog"
 msgstr "articoli"
 
@@ -126,6 +126,10 @@ msgstr "Box 2 - Contenuto in evidenza"
 msgid "Box 3 - Featured content"
 msgstr "Box 3 - Contenuto in evidenza"
 
+#: template-parts/common/breadcrumb.php:24
+msgid "Breadcrumb navigation"
+msgstr "Navigazione"
+
 #: classes/options-manager.php:827
 msgid "Brevo"
 msgstr "Brevo"
@@ -137,6 +141,10 @@ msgstr "Annulla"
 #: classes/options-manager.php:299
 msgid "Carousel section"
 msgstr "Sezione carosello"
+
+#: template-parts/common/pagination.php:11
+msgid "Centered navigation"
+msgstr "Navigazione centrata"
 
 #: classes/options-manager.php:346
 msgid "Choose contents"
@@ -217,17 +225,21 @@ msgstr "Cookies Policy"
 msgid "Cover of the book"
 msgstr "Copertina del libro"
 
-#: template-parts/common/ordering.php:42
+#: template-parts/common/ordering.php:40
 msgid "Creation date ascending"
 msgstr "Data di creazione crescente"
 
-#: template-parts/common/ordering.php:47
+#: template-parts/common/ordering.php:45
 msgid "Creation date descending"
 msgstr "Data di creazione decrescente"
 
 #: config-menu.php:313
 msgid "Credits"
 msgstr "Crediti"
+
+#: template-parts/header/main-menu.php:59
+msgid "Current language flag"
+msgstr "Bandiera della lingua corrente"
 
 #: classes/options-manager.php:225
 msgid "Danger"
@@ -261,7 +273,7 @@ msgstr "Vuoi ricevere una email di notifica"
 
 #: single.php:272 classes/options-manager.php:600
 #: page-templates/contacts.php:62 page-templates/contacts.php:248
-#: template-parts/common/social_sharing.php:85
+#: template-parts/common/social-sharing.php:71
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -276,6 +288,10 @@ msgid ""
 msgstr ""
 "Ogni messaggio è composto da una breve descrizione (max 140 caratteri) e da "
 "una data di scadenza (facoltativa)."
+
+#: template-parts/common/embed-video.php:19
+msgid "Embedded video"
+msgstr "Video incorporato"
 
 #: classes/options-manager.php:986
 msgid "Enable internal SEO management"
@@ -348,7 +364,7 @@ msgstr "Esempio"
 msgid "Excerpts"
 msgstr "Testi"
 
-#: classes/contents-manager.php:812
+#: classes/contents-manager.php:828
 msgid "Export from site"
 msgstr "Esportato dal sito"
 
@@ -356,11 +372,11 @@ msgstr "Esportato dal sito"
 msgid "External link"
 msgstr "Link esterno"
 
-#: template-parts/common/social_sharing.php:39
+#: template-parts/common/social-sharing.php:41
 msgid "Facebook"
 msgstr "Facebook"
 
-#: template-parts/home/blog-section.php:24
+#: template-parts/home/blog-section.php:28
 msgid "Featured blog articles"
 msgstr "Articoli del blog in evidenza"
 
@@ -382,37 +398,22 @@ msgstr "Filtra per tipo contenuto"
 msgid "Filter by group"
 msgstr "Filtra per gruppo"
 
-#: template-parts/header/main-menu.php:56
-msgid "Flag of the language"
+#. %s: language name.
+#: template-parts/header/main-menu.php:75
+#, fuzzy, php-format
+#| msgid "Flag of the language"
+msgid "Flag of the language: %s"
 msgstr "Bandiera della lingua"
 
-#: template-parts/common/social_footer.php:17
-#: template-parts/common/social_footer.php:22
-#: template-parts/common/social_footer.php:23
-#: template-parts/common/social_footer.php:30
-#: template-parts/common/social_footer.php:31
-#: template-parts/common/social_footer.php:38
-#: template-parts/common/social_footer.php:39
-#: template-parts/common/social_footer.php:46
-#: template-parts/common/social_footer.php:47
-#: template-parts/common/social_footer.php:54
-#: template-parts/common/social_footer.php:55
-#: template-parts/common/social_footer.php:62
-#: template-parts/common/social_footer.php:63
-#: template-parts/common/social_footer.php:70
-#: template-parts/common/social_footer.php:71
-#: template-parts/common/social_footer.php:78
-#: template-parts/common/social_footer.php:79
-#: template-parts/common/social_footer.php:86
-#: template-parts/common/social_footer.php:87
-#: template-parts/common/social_footer.php:94
-#: template-parts/common/social_footer.php:95
-#: template-parts/common/social_footer.php:102
-#: template-parts/common/social_footer.php:103
-#: template-parts/common/social_footer.php:110
-#: template-parts/common/social_footer.php:111
+#: template-parts/common/social-footer.php:87
 msgid "Follow me on"
 msgstr "Seguimi su"
+
+#. %s: social platform name.
+#: template-parts/common/social-footer.php:95
+#, php-format
+msgid "Follow me on %s"
+msgstr "Seguimi su %s"
 
 #: classes/options-manager.php:152
 msgid "Footer logo visible"
@@ -422,7 +423,7 @@ msgstr "Logo del footer visibile"
 msgid "Full name"
 msgstr "Nome:"
 
-#: template-parts/common/social_sharing.php:76
+#: template-parts/common/social-sharing.php:65
 msgid "Gmail"
 msgstr "Gmail"
 
@@ -450,7 +451,7 @@ msgstr "Messaggi della HP"
 msgid "https://www.wp-recipes.com"
 msgstr "https://www.wp-recipes.com"
 
-#: template-parts/common/social_sharing.php:5
+#: template-parts/common/social-sharing.php:13
 msgid "I'm pleased to share the post"
 msgstr "Condivido con piacere il post"
 
@@ -508,11 +509,11 @@ msgstr "Inserisci il codice captcha"
 msgid "Invalid username or password"
 msgstr "Nome o password sbagliati"
 
-#: template-parts/common/book_info.php:78
+#: template-parts/common/book-info.php:64
 msgid "ISBN"
 msgstr "ISBN"
 
-#: classes/contents-manager.php:839
+#: classes/contents-manager.php:856
 msgid "It is not possible to download the .ics file."
 msgstr "Non è possibile scaricare il file .ics."
 
@@ -533,7 +534,7 @@ msgstr "Link"
 msgid "Link to an in-depth page also external to the site."
 msgstr "Collegamento a una pagina di approfondimento esterna al sito."
 
-#: template-parts/common/social_sharing.php:58
+#: template-parts/common/social-sharing.php:53
 msgid "Linkedin"
 msgstr "Linkedin"
 
@@ -615,7 +616,7 @@ msgstr "Newsletter"
 msgid "Newsletter manager"
 msgstr "Gestore della newsletter"
 
-#: template-parts/home/carousel.php:107
+#: template-parts/home/carousel.php:108
 msgid "Next"
 msgstr "Avanti"
 
@@ -643,7 +644,7 @@ msgstr "Su quale lato verrà mostrata la miniatura."
 msgid "Oops! The page you are looking for was not found."
 msgstr "Ops! La pagina che stai cercando non è stata trovata."
 
-#: template-parts/common/ordering.php:17
+#: template-parts/common/ordering.php:15
 msgid "Order results by..."
 msgstr "Ordina i risultati per..."
 
@@ -651,7 +652,7 @@ msgstr "Ordina i risultati per..."
 msgid "Page not found"
 msgstr "Pagina non trovata"
 
-#: template-parts/common/book_info.php:74
+#: template-parts/common/book-info.php:60
 msgid "Pages"
 msgstr "Pagine"
 
@@ -688,11 +689,11 @@ msgstr "Poesia"
 msgid "Preferably, it should be disabled."
 msgstr "Preferibilmente dovrebbe essere disabilitato."
 
-#: template-parts/common/book_info.php:59
+#: template-parts/common/book-info.php:48
 msgid "Presentation of"
 msgstr "Presentazione di"
 
-#: template-parts/common/book_info.php:98
+#: template-parts/common/book-info.php:76
 msgid "Price"
 msgstr "Prezzo"
 
@@ -700,25 +701,25 @@ msgstr "Prezzo"
 msgid "Privacy"
 msgstr "Privacy"
 
-#: template-parts/common/ordering.php:32
+#: template-parts/common/ordering.php:30
 msgid "Publication year ascending"
 msgstr "Anno pubblicazione crescente"
 
-#: template-parts/common/ordering.php:37
+#: template-parts/common/ordering.php:35
 msgid "Publication year descending"
 msgstr "Anno pubblicazione decrescente"
 
-#: template-parts/common/book_info.php:36
+#: template-parts/common/book-info.php:35
 msgid "Publisher"
 msgstr "Editore"
 
-#: page-templates/blog.php:188 template-parts/home/blog-section.php:52
-#: template-parts/home/carousel.php:77
-#: template-parts/home/featured-contents.php:113
-#: template-parts/home/featured-contents.php:156
-#: template-parts/home/featured-contents.php:204
-#: template-parts/home/featured-contents.php:258
-#: template-parts/home/featured-contents.php:297
+#: page-templates/blog.php:188 template-parts/home/blog-section.php:59
+#: template-parts/home/carousel.php:82
+#: template-parts/home/featured-contents.php:121
+#: template-parts/home/featured-contents.php:166
+#: template-parts/home/featured-contents.php:214
+#: template-parts/home/featured-contents.php:267
+#: template-parts/home/featured-contents.php:306
 #| msgid "Read more..."
 msgid "Read more"
 msgstr "Leggi di più"
@@ -777,7 +778,7 @@ msgstr "Cerca"
 msgid "Search results"
 msgstr "Risultati della ricerca"
 
-#: template-parts/common/book_info.php:70
+#: template-parts/common/book-info.php:56
 msgid "Section"
 msgstr "Sezione"
 
@@ -787,29 +788,29 @@ msgstr "Sezione"
 msgid "section"
 msgstr "sezione"
 
-#: template-parts/footer/primary-footer.php:14
+#: template-parts/footer/primary-footer.php:22
 msgid ""
 "Section primary footer with site name, useful links and links to the socials."
 msgstr ""
 "Sezione principale del piè di pagina con il nome del sito, link utili e link "
 "ai social."
 
-#: template-parts/footer/secondary-footer.php:12
+#: template-parts/footer/secondary-footer.php:20
 msgid "Section secondary footer with administrative links"
 msgstr "Sezione footer secondario con link amministrativi"
 
-#: template-parts/home/carousel.php:17
+#: template-parts/home/carousel.php:21
 msgid ""
 "Section that contains a carousel with the most important contents of the "
 "site."
 msgstr ""
 "Sezione che contiene un carosello con i contenuti più importanti del sito."
 
-#: template-parts/home/blog-section.php:21
+#: template-parts/home/blog-section.php:26
 msgid "Section that contains some featured blog posts."
 msgstr "Sezione che contiene alcuni post del blog in evidenza."
 
-#: template-parts/header/main-menu.php:14
+#: template-parts/header/main-menu.php:22
 msgid "Section that contains the main menu of the site."
 msgstr "Sezione che contiene il menù principale del sito."
 
@@ -829,31 +830,31 @@ msgstr "Selezione del programma utilizzato per gestire la newsletter del sito."
 msgid "SEO"
 msgstr "SEO"
 
-#: template-parts/common/social_sharing.php:83
+#: template-parts/common/social-sharing.php:69
 msgid "Share by e-mail"
 msgstr "Invia e-mail"
 
-#: template-parts/common/social_sharing.php:25
+#: template-parts/common/social-sharing.php:32
 msgid "Share on"
 msgstr "Condividi su"
 
-#: template-parts/common/social_sharing.php:36
+#: template-parts/common/social-sharing.php:39
 msgid "Share on Facebook"
 msgstr "Condividi su Facebook"
 
-#: template-parts/common/social_sharing.php:74
+#: template-parts/common/social-sharing.php:63
 msgid "Share on Gmail"
 msgstr "Condividi con Gmail"
 
-#: template-parts/common/social_sharing.php:56
+#: template-parts/common/social-sharing.php:51
 msgid "Share on Linkedin"
 msgstr "Condividi su Linkedin"
 
-#: template-parts/common/social_sharing.php:47
+#: template-parts/common/social-sharing.php:45
 msgid "Share on Twitter"
 msgstr "Condividi su Twitter"
 
-#: template-parts/common/social_sharing.php:65
+#: template-parts/common/social-sharing.php:57
 msgid "Share on WhatsApp"
 msgstr "Condividi su WhatsApp"
 
@@ -1074,15 +1075,15 @@ msgstr ""
 msgid "Thumbnail side"
 msgstr "Lato della Thumbnail."
 
-#: template-parts/common/book_info.php:24
+#: template-parts/common/book-info.php:23
 msgid "Title"
 msgstr "Titolo"
 
-#: template-parts/common/ordering.php:22
+#: template-parts/common/ordering.php:20
 msgid "Title ascending"
 msgstr "Titolo crescente"
 
-#: template-parts/common/ordering.php:27
+#: template-parts/common/ordering.php:25
 msgid "Title descending"
 msgstr "Titolo decrescente"
 
@@ -1090,7 +1091,7 @@ msgstr "Titolo decrescente"
 msgid "Tracks"
 msgstr "Audio"
 
-#: template-parts/common/social_sharing.php:49
+#: template-parts/common/social-sharing.php:47
 msgid "Twitter"
 msgstr "Twitter"
 
@@ -1110,7 +1111,7 @@ msgstr "Avviso"
 msgid "Web Analytics Code"
 msgstr "Codice Web Analytics"
 
-#: template-parts/common/social_sharing.php:67
+#: template-parts/common/social-sharing.php:59
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
@@ -1127,7 +1128,7 @@ msgstr "Scrivi qui il codice di verifica"
 msgid "XMLRPC API"
 msgstr "API XMLRPC"
 
-#: template-parts/common/book_info.php:32
+#: template-parts/common/book-info.php:31
 msgid "Year"
 msgstr "Anno"
 

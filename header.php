@@ -26,29 +26,29 @@ $kkw_current_lang = KKW_ThemeLangManager::get_current_language( 'slug' );
 
 	<!-- META TAGS -->
 	<?php
-		get_template_part(
-			'template-parts/header/meta_tags',
-			false,
-			array(
-				'site_title'   => $kkw_site_title,
-				'site_tagline' => $kkw_site_tagline,
-				'current_lang' => $kkw_current_lang,
-			),
-		);
-		?>
+			get_template_part(
+				'template-parts/header/meta-tags',
+				false,
+				array(
+					'site_title'   => $kkw_site_title,
+					'site_tagline' => $kkw_site_tagline,
+					'current_lang' => $kkw_current_lang,
+				),
+			);
+			?>
 
 	<!-- SEO - OG Internal Management -->
 	<?php
-		get_template_part(
-			'template-parts/header/seo_tags',
-			false,
-			array(
-				'site_title'   => $kkw_site_title,
-				'site_tagline' => $kkw_site_tagline,
-				'current_lang' => $kkw_current_lang,
-			),
-		);
-		?>
+			get_template_part(
+				'template-parts/header/seo-tags',
+				false,
+				array(
+					'site_title'   => $kkw_site_title,
+					'site_tagline' => $kkw_site_tagline,
+					'current_lang' => $kkw_current_lang,
+				),
+			);
+			?>
 </head>
 
 <body>

@@ -1,4 +1,4 @@
-<?php // phpcs:ignoreFile WordPress.Files.FileName.NotHyphenatedLowercase
+<?php
 /**
  * KKW Writer Theme meta tags template part.
  *

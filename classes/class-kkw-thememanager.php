@@ -6,17 +6,15 @@
  */
 
 if ( ! class_exists( 'KKW_AuthorizationManager' ) ) {
-	include_once 'authorization-manager.php';
+	include_once 'class-kkw-authorizationmanager.php';
 }
-
 if ( ! class_exists( 'KKW_ThemeLangManager' ) ) {
-	include_once 'theme-lang-manager.php';
+	include_once 'class-kkw-themelangmanager.php';
 }
 
 if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
 	include_once 'class-kkw-themeactivationmanager.php';
 }
-
 /**
  * The manager that configures the theme.
  */
@@ -76,16 +74,26 @@ class KKW_ThemeManager {
 		flush_rewrite_rules();
 	}
 
+	/**
+	 * Register customizer-related hooks.
+	 *
+	 * @return void
+	 */
 	private function configure_customizer() {
 		add_action( 'admin_menu', array( $this, 'disable_customizer_menu' ) );
 	}
 
+	/**
+	 * Remove the customizer entry from the admin menu.
+	 *
+	 * @return void
+	 */
 	public function disable_customizer_menu() {
 		global $submenu;
-		if ( isset( $submenu[ 'themes.php' ] ) ) {
-			foreach ( $submenu[ 'themes.php' ] as $index => $menu_item ) {
+		if ( isset( $submenu['themes.php'] ) ) {
+			foreach ( $submenu['themes.php'] as $index => $menu_item ) {
 				foreach ( $menu_item as $value ) {
-					if ( strpos( $value,'customize' ) !== false) {
+					if ( strpos( $value, 'customize' ) !== false ) {
 							unset( $submenu['themes.php'][ $index ] );
 					}
 				}
@@ -93,54 +101,96 @@ class KKW_ThemeManager {
 		}
 	}
 
+	/**
+	 * Register permalink configuration hooks.
+	 *
+	 * @return void
+	 */
 	private function configure_permalink() {
 		add_action( 'after_setup_theme', array( $this, 'set_permalink_mode' ) );
 	}
 
-	public function set_permalink_mode(){
+	/**
+	 * Set the permalink structure for the site.
+	 *
+	 * @return void
+	 */
+	public function set_permalink_mode() {
 		$permalink_structure = '/%postname%/';
 		global $wp_rewrite;
-		$wp_rewrite->set_permalink_structure($permalink_structure);
+		$wp_rewrite->set_permalink_structure( $permalink_structure );
 		$wp_rewrite->flush_rules();
 	}
-	
+
+	/**
+	 * Register robots meta filters.
+	 *
+	 * @return void
+	 */
 	private function configure_custom_robots() {
 		add_filter( 'wp_robots', array( $this, 'get_robots_head' ) );
 	}
 
-	public function get_robots_head(){
-		$robots['index'] = true;
-		$robots['follow'] = true;
+	/**
+	 * Build robots directives for the head section.
+	 *
+	 * @return array<string, string|bool>
+	 */
+	public function get_robots_head() {
+		$robots['index']             = true;
+		$robots['follow']            = true;
 		$robots['max-image-preview'] = 'large';
-		$robots['max-snippet'] = '-1';
+		$robots['max-snippet']       = '-1';
 		$robots['max-video-preview'] = '-1';
 		return $robots;
 	}
 
-	private function create_ics_feed(){
+	/**
+	 * Register ICS feed endpoint.
+	 *
+	 * @return void
+	 */
+	private function create_ics_feed() {
 		// This adds a feed http://example.com/?feed=ics.
 		add_feed( 'ics', array( $this, 'download_ics_file_by_id' ) );
 	}
 
-	public function download_ics_file_by_id(){
+	/**
+	 * Download an ICS file for the requested event id.
+	 *
+	 * @return void
+	 */
+	public function download_ics_file_by_id() {
 		$eid = filter_input( INPUT_GET, 'eid', FILTER_VALIDATE_INT );
 		KKW_ContentsManager::download_ics_file_by_id( $eid );
-		exit(0);
+		exit( 0 );
 	}
 
+	/**
+	 * Disable XML-RPC when the related option is off.
+	 *
+	 * @return void
+	 */
 	private function disable_xmlrpc() {
 		if ( kkw_get_option( 'xmlrpc_api_enabled', 'kkw_opt_advanced_settings' ) === 'false' ) {
-			add_filter('xmlrpc_enabled', '__return_false');
+			add_filter( 'xmlrpc_enabled', '__return_false' );
 		}
 	}
 
+	/**
+	 * Register security filters for generator and login errors.
+	 *
+	 * @return void
+	 */
 	private function enable_security_configurations() {
 		add_filter( 'the_generator', '__return_null' );
-		// Hook per nascondere sovrascrivere il messaggio di errore in fase di login.
-		add_filter( 'login_errors', function( $message ){
+		// Override the login error message.
+		add_filter(
+			'login_errors',
+			function ( $message ) {
+				unset( $message );
 				return __( 'Invalid username or password', 'kk_writer_theme' );
 			}
 		);
 	}
-
 }

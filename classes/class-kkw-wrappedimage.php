@@ -1,10 +1,16 @@
 <?php
-
 /**
- * KK Writer Theme: Activation Manager definition.
+ * KK Writer Theme: Contents manager definitions.
  *
  * @package KK_Writer_Theme
  */
+
+// phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
+// phpcs:disable Squiz.Commenting.ClassComment.Missing
+// phpcs:disable Squiz.Commenting.VariableComment.Missing
+// phpcs:disable Squiz.Commenting.FunctionComment.Missing
+// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamTag
+// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamComment
 
 require_once WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'wp-kkwriter-plugin' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'search-manager.php';
 
@@ -205,7 +211,7 @@ class KKW_ContentsManager {
 			$meta_tags['kkw_group'][0] : '';
 		$short_description = $has_meta && array_key_exists( 'kkw_short_description', $meta_tags ) && $meta_tags['kkw_short_description'][0] ?
 			$meta_tags['kkw_short_description'][0] : '';
-		$view_date         = self::extractDateString( $meta_tags, $post );
+			$view_date     = self::extract_date_string( $meta_tags, $post );
 		$query_string      = http_build_query( array( 'selected_contents' => array( $group ) ) );
 		$group_page        = __( 'blog', 'kk_writer_theme' );
 		// Fill the item array.
@@ -225,10 +231,10 @@ class KKW_ContentsManager {
 	}
 
 	private static function wrap_page( $post ): KKW_WrappedItem {
-		$item      = new KKW_WrappedItem();
-		$meta_tags = get_post_meta( $post->ID );
-		$desc      = '';
-		$view_date = self::extractDateString( $meta_tags, $post );
+		$item          = new KKW_WrappedItem();
+		$meta_tags     = get_post_meta( $post->ID );
+		$desc          = '';
+			$view_date = self::extract_date_string( $meta_tags, $post );
 		// Fill the wrapper.
 		$item->id          = $post->ID;
 		$item->title       = $post->post_title;
@@ -250,15 +256,15 @@ class KKW_ContentsManager {
 		return $value;
 	}
 
-	public static function extractDateString( $meta_tags, $post, $type = 'start' ) {
+	public static function extract_date_string( $meta_tags, $post, $type = 'start' ) {
 		$view_date = '';
 		if ( array_key_exists( 'kkw_group', $meta_tags ) &&
-					$meta_tags['kkw_group'][0] === KKW_EVENT_GROUP['slug'] ) {
+				KKW_EVENT_GROUP['slug'] === $meta_tags['kkw_group'][0] ) {
 			// It is an event with a start event date.
 			if ( array_key_exists( 'kkw_' . $type . '_date', $meta_tags ) ) {
-				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags[ 'kkw_' . $type . '_date' ][0] );
-				$timestamp = $dateTime->getTimestamp();
-				$view_date = date_i18n( 'l j F Y', $timestamp );
+					$date_time = DateTime::createFromFormat( 'd-m-Y', $meta_tags[ 'kkw_' . $type . '_date' ][0] );
+					$timestamp = $date_time->getTimestamp();
+				$view_date     = date_i18n( 'l j F Y', $timestamp );
 			} else {
 				$view_date = '';
 			}
@@ -267,20 +273,20 @@ class KKW_ContentsManager {
 			}
 		} else {
 			// It is not an event.
-			$dataUnix  = get_post_time( 'U', false, $post->ID, true );
-			$view_date = date_i18n( 'j F Y', $dataUnix );
+				$data_unix = get_post_time( 'U', false, $post->ID, true );
+				$view_date = date_i18n( 'j F Y', $data_unix );
 		}
 		return $view_date;
 	}
 
-	public static function extractCalendarDateString( $meta_tags, $type = 'start' ) {
+	public static function extract_calendar_date_string( $meta_tags, $type = 'start' ) {
 		$view_date = '';
-		if ( array_key_exists( 'kkw_group', $meta_tags ) && $meta_tags['kkw_group'][0] = 'event' ) {
+		if ( array_key_exists( 'kkw_group', $meta_tags ) && KKW_EVENT_GROUP['slug'] === $meta_tags['kkw_group'][0] ) {
 			// It is an event with a start event date.
 			if ( array_key_exists( 'kkw_' . $type . '_date', $meta_tags ) ) {
-				$dateTime  = DateTime::createFromFormat( 'd-m-Y', $meta_tags[ 'kkw_' . $type . '_date' ][0] );
-				$timestamp = $dateTime->getTimestamp();
-				$view_date = date_i18n( 'Y-m-d', $timestamp );
+					$date_time = DateTime::createFromFormat( 'd-m-Y', $meta_tags[ 'kkw_' . $type . '_date' ][0] );
+					$timestamp = $date_time->getTimestamp();
+				$view_date     = date_i18n( 'Y-m-d', $timestamp );
 			} else {
 				$view_date = '';
 			}
@@ -299,7 +305,7 @@ class KKW_ContentsManager {
 	public static function get_home_carousel_contents(): array {
 		$contents         = array();
 		$carousel_auto_on = kkw_get_option( 'home_carousel_auto_on', 'kkw_opt_hp_layout' );
-		if ( $carousel_auto_on === 'true' ) {
+		if ( 'true' === $carousel_auto_on ) {
 			// Get contents with the flag 'show_in_carousel' set.
 			$opt_content_ids = self::search_carousel_ids();
 		} else {
@@ -323,11 +329,11 @@ class KKW_ContentsManager {
 	private static function search_carousel_ids() {
 		$args = array(
 			'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'] ),
-			// @TODO: 'post_type'      => array( KKW_POST_TYPES[ ID_PT_BOOK ]['name'], KKW_DEFAULT_POST ),
 			'orderby'        => 'title',
 			'order'          => 'ASC',
 			'fields'         => 'ids',
 			'posts_per_page' => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Needed for option-driven carousel selection.
 			'meta_query'     => array(
 				array(
 					'key'   => 'kkw_show_in_carousel',
@@ -353,6 +359,7 @@ class KKW_ContentsManager {
 			'paged'          => get_query_var( 'paged', 1 ),
 			'posts_per_page' => $number,
 			'orderby'        => $sort_field,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Needed to filter posts by custom group meta.
 			'meta_query'     => array(
 				array(
 					'key'   => 'kkw_group',
@@ -371,13 +378,14 @@ class KKW_ContentsManager {
 		$sort_order = 'DESC',
 		$number = -1
 	) {
-		$args  = array(
+		$args = array(
 			'post_type'      => array( KKW_DEFAULT_POST ),
 			'orderby'        => $sort_field,
 			'order'          => $sort_order,
 			'fields'         => 'ids',
 			'post_status'    => 'publish',
 			'posts_per_page' => $number,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Needed to filter site posts by custom group meta.
 			'meta_query'     => array(
 				array(
 					'key'     => 'kkw_group',
@@ -426,6 +434,7 @@ class KKW_ContentsManager {
 			'paged'          => get_query_var( 'paged', 1 ),
 			'posts_per_page' => $num_results,
 			'post_status'    => 'publish',
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- Needed to filter by section taxonomy.
 			'tax_query'      => array(
 				array(
 					'taxonomy' => 'section',
@@ -434,8 +443,9 @@ class KKW_ContentsManager {
 				),
 			),
 		);
-		if ( $sort_field === 'kkw_year' ) {
-			$args['orderby']  = 'meta_value_num';
+		if ( 'kkw_year' === $sort_field ) {
+			$args['orderby'] = 'meta_value_num';
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Needed for year sorting.
 			$args['meta_key'] = 'kkw_year';
 		} else {
 			$args['orderby'] = $sort_field;
@@ -485,9 +495,9 @@ class KKW_ContentsManager {
 			case 'custom':
 				$wrapped['id']     = 0;
 				$wrapped['link']   = esc_url( $item->url );
-				$wrapped['title']  = __( $item->title, 'kk_writer_theme' );
+				$wrapped['title']  = self::translate_dynamic_menu_label( $item->title );
 				$wrapped['type']   = $item->type;
-				$wrapped['active'] = ( $item->post_name !== 'home' ) ? false : is_home();
+				$wrapped['active'] = ( 'home' !== $item->post_name ) ? false : is_home();
 				break;
 			case 'post_type':
 			case 'taxonomy':
@@ -496,9 +506,9 @@ class KKW_ContentsManager {
 				$link              = get_permalink( $page_id );
 				$wrapped['id']     = intval( $page_id );
 				$wrapped['link']   = $link;
-				$wrapped['title']  = __( $item->title, 'kk_writer_theme' );
+				$wrapped['title']  = self::translate_dynamic_menu_label( $item->title );
 				$wrapped['type']   = $item->type;
-				$wrapped['active'] = ( $item->type !== 'custom' ) && is_page( $page_id );
+				$wrapped['active'] = ( 'custom' !== $item->type ) && is_page( $page_id );
 				break;
 			default:
 				$wrapped['id']     = 0;
@@ -508,7 +518,19 @@ class KKW_ContentsManager {
 				$wrapped['active'] = false;
 				break;
 		}
-		return $wrapped;
+			return $wrapped;
+	}
+
+		/**
+		 * Translate dynamic menu labels.
+		 *
+		 * @param string $label Menu label.
+		 * @return string
+		 */
+	private static function translate_dynamic_menu_label( $label ) {
+		$label = (string) $label;
+		// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic menu labels must use existing theme translations.
+		return __( $label, 'kk_writer_theme' );
 	}
 
 	public static function get_image_metadata( $item, $image_size = 'item-carousel', $partial_default_img_url = null ) {
@@ -527,7 +549,7 @@ class KKW_ContentsManager {
 		$post_title = get_the_title( $item );
 		$image_id   = get_post_thumbnail_id( $item->ID );
 
-		if ( $image_id === 0 ) {
+		if ( 0 === $image_id ) {
 			$image_title = $post_title;
 			$image_alt   = $post_title;
 		} else {
@@ -554,10 +576,10 @@ class KKW_ContentsManager {
 	 */
 	public static function get_custom_contents_filters() {
 		$ct = array(
-			KKW_ARTICLE_GROUP['slug']            => __( KKW_ARTICLE_GROUP['title-pl'], 'kk_writer_theme' ),
-			KKW_EVENT_GROUP['slug']              => __( KKW_EVENT_GROUP['title-pl'], 'kk_writer_theme' ),
-			KKW_NEWS_GROUP['slug']               => __( KKW_NEWS_GROUP['title-pl'], 'kk_writer_theme' ),
-			KKW_POST_TYPES[ ID_PT_BOOK ]['name'] => __( KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'], 'kkwdomain' ),
+			KKW_ARTICLE_GROUP['slug']            => KKW_ARTICLE_GROUP['title-pl'],
+			KKW_EVENT_GROUP['slug']              => KKW_EVENT_GROUP['title-pl'],
+			KKW_NEWS_GROUP['slug']               => KKW_NEWS_GROUP['title-pl'],
+			KKW_POST_TYPES[ ID_PT_BOOK ]['name'] => KKW_POST_TYPES[ ID_PT_BOOK ]['plural_label'],
 		);
 		return $ct;
 	}
@@ -568,9 +590,9 @@ class KKW_ContentsManager {
 	}
 	public static function get_post_groups_filters() {
 		$pg = array(
-			KKW_ARTICLE_GROUP['slug'] => __( KKW_ARTICLE_GROUP['title-pl'], 'kk_writer_theme' ),
-			KKW_EVENT_GROUP['slug']   => __( KKW_EVENT_GROUP['title-pl'], 'kk_writer_theme' ),
-			KKW_NEWS_GROUP['slug']    => __( KKW_NEWS_GROUP['title-pl'], 'kk_writer_theme' ),
+			KKW_ARTICLE_GROUP['slug'] => KKW_ARTICLE_GROUP['title-pl'],
+			KKW_EVENT_GROUP['slug']   => KKW_EVENT_GROUP['title-pl'],
+			KKW_NEWS_GROUP['slug']    => KKW_NEWS_GROUP['title-pl'],
 		);
 		return $pg;
 	}
@@ -584,20 +606,20 @@ class KKW_ContentsManager {
 		global $wpdb;
 		$groups = array();
 		// EVENTS.
-		$key = array_search( KKW_EVENT_GROUP['slug'], $selected_contents );
-		if ( $key !== false ) {
+			$key = array_search( KKW_EVENT_GROUP['slug'], $selected_contents, true );
+		if ( false !== $key ) {
 			array_push( $groups, KKW_EVENT_GROUP['slug'] );
 			unset( $selected_contents[ $key ] );
 		}
 		// NEWS.
-		$key = array_search( KKW_NEWS_GROUP['slug'], $selected_contents );
-		if ( $key !== false ) {
+			$key = array_search( KKW_NEWS_GROUP['slug'], $selected_contents, true );
+		if ( false !== $key ) {
 			array_push( $groups, KKW_NEWS_GROUP['slug'] );
 			unset( $selected_contents[ $key ] );
 		}
-		// ARTICLES
-		$key = array_search( KKW_ARTICLE_GROUP['slug'], $selected_contents );
-		if ( $key !== false ) {
+			// ARTICLES.
+			$key = array_search( KKW_ARTICLE_GROUP['slug'], $selected_contents, true );
+		if ( false !== $key ) {
 			array_push( $groups, KKW_ARTICLE_GROUP['slug'] );
 			unset( $selected_contents[ $key ] );
 		}
@@ -616,25 +638,28 @@ class KKW_ContentsManager {
 				AND tt.description LIKE '%\"it\"%'
 		";
 
-		$cond_items = array();
-		$cond_1     = null;
-		$cond_2     = null;
-		if ( count( $selected_contents ) ) {
-			$values = implode( "', '", $selected_contents );
-			$cond_1 = " ( p.post_type IN ('$values') ) ";
-			array_push( $cond_items, $cond_1 );
+			$cond_items  = array();
+			$sql_params  = array( $text_like, $text_like );
+			$post_types  = array_map( 'sanitize_key', $selected_contents );
+			$post_groups = array_map( 'sanitize_key', $groups );
+
+		if ( ! empty( $post_types ) ) {
+			$post_type_placeholders = implode( ', ', array_fill( 0, count( $post_types ), '%s' ) );
+			$cond_items[]           = " ( p.post_type IN ($post_type_placeholders) ) ";
+			$sql_params             = array_merge( $sql_params, $post_types );
 		}
-		if ( count( $groups ) ) {
-			$values = implode( "', '", $groups );
-			$cond_2 = " ( p.post_type='post' AND pm.meta_key= 'kkw_group' AND pm.meta_value IN ('$values') ) ";
-			array_push( $cond_items, $cond_2 );
+		if ( ! empty( $post_groups ) ) {
+			$group_placeholders = implode( ', ', array_fill( 0, count( $post_groups ), '%s' ) );
+			$cond_items[]       = " ( p.post_type = 'post' AND pm.meta_key = 'kkw_group' AND pm.meta_value IN ($group_placeholders) ) ";
+			$sql_params         = array_merge( $sql_params, $post_groups );
 		}
-		if ( $cond_items > 0 ) {
+		if ( ! empty( $cond_items ) ) {
 			$cond_post_type = join( ' OR ', $cond_items );
-			$sql            = $sql . 'AND ' . $cond_post_type;
+			$sql           .= 'AND (' . $cond_post_type . ')';
 		}
 
-		$query_results = $wpdb->get_col( $wpdb->prepare( $sql, $text_like, $text_like ) );
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Required for relevance ordering before WP_Query.
+			$query_results = $wpdb->get_col( $wpdb->prepare( $sql, $sql_params ) );
 
 		array_push( $selected_contents, 'post' );
 		$parameters = array(
@@ -660,6 +685,7 @@ class KKW_ContentsManager {
 		$args    = array(
 			'post_type'      => 'kkw_review',
 			'posts_per_page' => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Needed to match review posts linked to a specific book.
 			'meta_query'     => array(
 				array(
 					'key'     => 'kkw_book_link',
@@ -704,6 +730,7 @@ class KKW_ContentsManager {
 		$args    = array(
 			'post_type'      => 'kkw_excerpt',
 			'posts_per_page' => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Needed to match excerpt posts linked to a specific book.
 			'meta_query'     => array(
 				array(
 					'key'     => 'kkw_book_link',
@@ -732,6 +759,7 @@ class KKW_ContentsManager {
 	}
 
 	public static function get_book_tracks( $post_id ) {
+		unset( $post_id );
 		return array();
 	}
 
@@ -758,7 +786,7 @@ class KKW_ContentsManager {
 		$item_id   = $post && $post->ID ? $post->ID : '';
 		$item_type = $item_id && $post->post_type ? $post->post_type : '';
 		$types     = array( 'post', 'kkw_book' );
-		if ( $item_id && in_array( $item_type, $types ) ) {
+		if ( $item_id && in_array( $item_type, $types, true ) ) {
 			$img_id                  = get_post_thumbnail_id( $item_id );
 			$img_array               = wp_get_attachment_image_src( $img_id, 'large' );
 			$file_path               = $img_id ? get_attached_file( $img_id ) : '';
@@ -768,7 +796,7 @@ class KKW_ContentsManager {
 			$item_desc               = $post->post_content ? clean_and_truncate_text( $post->post_content, KKW_FEATURED_TEXT_MAX_SIZE ) : '';
 			$item_image              = $img_id && count( $img_array ) ? $img_array[0] : '';
 			$site_url                = site_url();
-			$parsed_url              = parse_url( $site_url );
+			$parsed_url              = wp_parse_url( $site_url );
 			$domain                  = $parsed_url['host'];
 			$item_url                = get_permalink();
 			$short_name              = kkw_get_option( 'site_short_name', 'kkw_opt_options' );
@@ -802,14 +830,14 @@ class KKW_ContentsManager {
 			$event_name   = esc_attr( $post_wrapper->title );
 			$description  = clean_and_truncate_text( $post_wrapper->description, KKW_FEATURED_TEXT_MAX_SIZE );
 
-			$location   = esc_attr( self::extract_meta_tag( $meta_tags, 'kkw_address' ) );
-			$start_time = self::extractCalendarDateString( $meta_tags, 'start' );
-			$end_time   = self::extractCalendarDateString( $meta_tags, 'end' );
-			$site_url   = site_url();
-			$parsed_url = parse_url( $site_url );
-			$domain     = $parsed_url['host'];
-			$title      = kkw_get_option( 'site_title', 'kkw_opt_options' );
-			$prod_id    = __( 'Export from site', 'kk_writer_theme' ) . ': ' . $title;
+			$location       = esc_attr( self::extract_meta_tag( $meta_tags, 'kkw_address' ) );
+			$start_time     = self::extract_calendar_date_string( $meta_tags, 'start' );
+			$end_time       = self::extract_calendar_date_string( $meta_tags, 'end' );
+			$site_url       = site_url();
+				$parsed_url = wp_parse_url( $site_url );
+			$domain         = $parsed_url['host'];
+			$title          = kkw_get_option( 'site_title', 'kkw_opt_options' );
+			$prod_id        = __( 'Export from site', 'kk_writer_theme' ) . ': ' . $title;
 			// Set the header to download the .ics file.
 			header( 'Content-type: text/calendar; charset=utf-8' );
 			header( 'Content-Disposition: attachment; filename=evento.ics' );
@@ -834,9 +862,10 @@ class KKW_ContentsManager {
 			$ics_content .= "END:VEVENT\n";
 			$ics_content .= "END:VCALENDAR\n";
 			// Print the file file .ics.
-			echo $ics_content;
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Plain-text ICS payload for file download.
+				echo $ics_content;
 		} else {
-			echo '<h4>' . __( 'It is not possible to download the .ics file.', 'kk_writer_theme' ) . '</h4>';
+			echo '<h4>' . esc_html__( 'It is not possible to download the .ics file.', 'kk_writer_theme' ) . '</h4>';
 		}
 		exit;
 	}

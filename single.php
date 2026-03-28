@@ -27,8 +27,8 @@ $kkw_section_description = '';
 			$kkw_start_date_str = '';
 			$kkw_end_date_str   = '';
 			if ( $kkw_is_event ) {
-				$kkw_start_date_str = KKW_ContentsManager::extractDateString( $kkw_meta_tags, $post, 'start' );
-				$kkw_end_date_str   = KKW_ContentsManager::extractDateString( $kkw_meta_tags, $post, 'end' );
+				$kkw_start_date_str = KKW_ContentsManager::extract_date_string( $kkw_meta_tags, $post, 'start' );
+				$kkw_end_date_str   = KKW_ContentsManager::extract_date_string( $kkw_meta_tags, $post, 'end' );
 			}
 			$kkw_address = KKW_ContentsManager::extract_meta_tag( $kkw_meta_tags, 'kkw_address' );
 			$kkw_person  = KKW_ContentsManager::extract_meta_tag( $kkw_meta_tags, 'kkw_contact_person' );

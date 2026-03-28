@@ -4,7 +4,6 @@
  *
  * @package KK_Writer_Theme
  */
-// phpcs:ignoreFile WordPress.Files.FileName.InvalidClassFileName
 
 /**
  * Manage custom roles and authorization capabilities.

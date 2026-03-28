@@ -32,14 +32,14 @@ require get_template_directory() . '/inc/utils.php';
  * Import the Contents Manager.
  */
 if ( ! class_exists( 'KKW_ContentsManager' ) ) {
-	require get_template_directory() . '/classes/contents-manager.php';
+	require get_template_directory() . '/classes/class-kkw-wrappedimage.php';
 }
 
 /**
  * Import the Navigation Manager.
  */
 if ( ! class_exists( 'KKW_NavigationManager' ) ) {
-	require get_template_directory() . '/classes/navigation-manager.php';
+	require get_template_directory() . '/classes/class-kkw-treeitem.php';
 }
 
 /**
@@ -53,7 +53,7 @@ if ( ! class_exists( 'KKW_ThemeActivationManager' ) ) {
  * Import the Options Manager.
  */
 if ( ! class_exists( 'KKW_ThemeOptionsManager' ) ) {
-	include_once KKW_THEME_PATH . '/classes/options-manager.php';
+	include_once KKW_THEME_PATH . '/classes/class-kkw-themeoptionsmanager.php';
 }
 
 
@@ -175,7 +175,7 @@ if ( ! function_exists( 'kkw_setup' ) ) {
 
 // SETUP THE THEME //////.
 if ( ! class_exists( 'KKW_ThemeManager' ) ) {
-	include_once 'classes/theme-manager.php';
+	include_once 'classes/class-kkw-thememanager.php';
 	global $kkw_theme_manager;
 	$kkw_theme_manager = new KKW_ThemeManager();
 	$kkw_theme_manager->theme_setup();

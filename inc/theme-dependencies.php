@@ -1,40 +1,25 @@
 <?php
-
-
 /**
- * Include the TGM_Plugin_Activation class.
+ * KKW Writer Theme: Theme plugin dependencies registration.
  *
- * Depending on your implementation, you may want to change the include call:
+ * Registers required and suggested plugins via TGM Plugin Activation.
  *
- * Parent Theme:
- * require_once get_template_directory() . '/path/to/class-tgm-plugin-activation.php';
- *
- * Child Theme:
- * require_once get_stylesheet_directory() . '/path/to/class-tgm-plugin-activation.php';
- *
- * Plugin:
- * require_once dirname( __FILE__ ) . '/path/to/class-tgm-plugin-activation.php';
+ * @package KK_Writer_Theme
  */
+
+defined( 'ABSPATH' ) || exit;
+
 require_once get_template_directory() . '/inc/vendor/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
 
 add_action( 'tgmpa_register', 'kkw_register_required_plugins' );
 
 /**
- * Register the required plugins for this theme.
+ * Register the suggested plugins for this theme via TGMPA.
  *
- * In this example, we register five plugins:
- * - one included with the TGMPA library
- * - two from an external source, one from an arbitrary source, one from a GitHub repository
- * - two from the .org repo, where one demonstrates the use of the `is_callable` argument
+ * Plugin list is defined in SUGGESTED_PLUGINS (config-theme.php).
+ * Hooked into `tgmpa_register` (fired on WP `init`, priority 10).
  *
- * The variables passed to the `tgmpa()` function should be:
- * - an array of plugin arrays;
- * - optionally a configuration array.
- * If you are not changing anything in the configuration array, you can remove the array and remove the
- * variable from the function call: `tgmpa( $plugins );`.
- * In that case, the TGMPA default settings will be used.
- *
- * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
+ * @return void
  */
 function kkw_register_required_plugins() {
 	/*
