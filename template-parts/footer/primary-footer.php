@@ -69,7 +69,7 @@ if ( 0 !== $kkw_menu_id ) {
 
 		<!-- SOCIALS -->
 		<div id="kkw_footer_socials" class="p-4 col-md-4 text-right" style="text-align: right !important;">
-			<?php get_template_part( 'template-parts/common/social_footer' ); ?>
+			<?php get_template_part( 'template-parts/common/social-footer' ); ?>
 		</div>
 	</div>
 </div>

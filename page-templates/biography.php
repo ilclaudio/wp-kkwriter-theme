@@ -84,7 +84,7 @@ $kkw_image_wrapper       = KKW_ContentsManager::wrap_featured_image( $post, 'lar
 							alt="<?php echo esc_attr( $kkw_image_wrapper->alt ); ?>">
 
 				<div class="text-left mt-5">
-					<?php get_template_part( 'template-parts/common/social_footer' ); ?>
+					<?php get_template_part( 'template-parts/common/social-footer' ); ?>
 				</div>
 
 			</aside>

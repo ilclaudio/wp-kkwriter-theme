@@ -1,29 +1,34 @@
 <?php
+/**
+ * KK Writer Theme: Captcha setup for contact forms.
+ *
+ * @package KK_Writer_Theme
+ */
 
-if ( is_plugin_active( plugin_basename( 'really-simple-captcha/really-simple-captcha.php' ) ) ) {
-	if ( class_exists( 'ReallySimpleCaptcha' ) ) {
-		$captcha_enabled          = true;
-		$captcha_obj              = new ReallySimpleCaptcha();
-		$captcha_obj->chars       = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-		$captcha_obj->char_length = '4';
-		// Width/Height dimensions of CAPTCHA image.
-		$captcha_obj->img_size = array( '72', '24' );
-		// Font color of CAPTCHA characters, in RGB (0 – 255).
-		$captcha_obj->fg = array( '0', '0', '0' );
-		// Background color of CAPTCHA image, in RGB (0 – 255).
-		$captcha_obj->bg = array( '255', '255', '255' );
-		// Font Size of CAPTCHA characters.
-		$captcha_obj->font_size = '16';
-		// Width between CAPTCHA characters.
-		$captcha_obj->font_char_width = '15';
-		// CAPTCHA image type. Can be 'png', 'jpeg', or 'gif'.
-		$captcha_obj->img_type    = 'png';
-		$captcha_obj_word         = $captcha_obj->generate_random_word();
-		$captcha_obj_prefix       = mt_rand();
-		$captcha_obj_image_name   = $captcha_obj->generate_image( $captcha_obj_prefix, $captcha_obj_word );
-		$captcha_obj_image_url    = get_bloginfo( 'wpurl' ) . '/wp-content/plugins/really-simple-captcha/tmp/';
-		$captcha_obj_image_src    = $captcha_obj_image_url . $captcha_obj_image_name;
-		$captcha_obj_image_width  = $captcha_obj->img_size[0];
-		$captcha_obj_image_height = $captcha_obj->img_size[1];
-	}
+$kkw_captcha_enabled          = false;
+$kkw_captcha_obj              = null;
+$kkw_captcha_obj_prefix       = '';
+$kkw_captcha_obj_image_src    = '';
+$kkw_captcha_obj_image_width  = '';
+$kkw_captcha_obj_image_height = '';
+
+if ( is_plugin_active( plugin_basename( 'really-simple-captcha/really-simple-captcha.php' ) ) && class_exists( 'ReallySimpleCaptcha' ) ) {
+	$kkw_captcha_enabled              = true;
+	$kkw_captcha_obj                  = new ReallySimpleCaptcha();
+	$kkw_captcha_obj->chars           = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+	$kkw_captcha_obj->char_length     = '4';
+	$kkw_captcha_obj->img_size        = array( '72', '24' );
+	$kkw_captcha_obj->fg              = array( '0', '0', '0' );
+	$kkw_captcha_obj->bg              = array( '255', '255', '255' );
+	$kkw_captcha_obj->font_size       = '16';
+	$kkw_captcha_obj->font_char_width = '15';
+	$kkw_captcha_obj->img_type        = 'png';
+
+	$kkw_captcha_obj_word         = $kkw_captcha_obj->generate_random_word();
+	$kkw_captcha_obj_prefix       = wp_rand();
+	$kkw_captcha_obj_image_name   = $kkw_captcha_obj->generate_image( $kkw_captcha_obj_prefix, $kkw_captcha_obj_word );
+	$kkw_captcha_obj_image_url    = trailingslashit( get_bloginfo( 'wpurl' ) ) . 'wp-content/plugins/really-simple-captcha/tmp/';
+	$kkw_captcha_obj_image_src    = $kkw_captcha_obj_image_url . $kkw_captcha_obj_image_name;
+	$kkw_captcha_obj_image_width  = $kkw_captcha_obj->img_size[0];
+	$kkw_captcha_obj_image_height = $kkw_captcha_obj->img_size[1];
 }

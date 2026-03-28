@@ -114,7 +114,7 @@ $kkw_icon_name           = 'fa-book';
 					<div class="mt-5">
 						<?php
 							get_template_part(
-								'template-parts/common/social_sharing',
+								'template-parts/common/social-sharing',
 								null,
 								array(),
 							);
@@ -214,7 +214,7 @@ $kkw_icon_name           = 'fa-book';
 								<!-- Book Informations -->
 								<?php
 										get_template_part(
-											'template-parts/common/book_info',
+											'template-parts/common/book-info',
 											null,
 											array(
 												'post_wrapper' => $kkw_post_wrapper,
@@ -227,7 +227,7 @@ $kkw_icon_name           = 'fa-book';
 								<!-- Book Reviews -->
 								<?php
 										get_template_part(
-											'template-parts/common/book_reviews',
+											'template-parts/common/book-reviews',
 											null,
 											array(
 												'post_wrapper' => $kkw_post_wrapper,
@@ -240,7 +240,7 @@ $kkw_icon_name           = 'fa-book';
 								<!-- Book Reviews -->
 								<?php
 										get_template_part(
-											'template-parts/common/book_excerpts',
+											'template-parts/common/book-excerpts',
 											null,
 											array(
 												'post_wrapper' => $kkw_post_wrapper,
@@ -253,7 +253,7 @@ $kkw_icon_name           = 'fa-book';
 								<!-- Book Tracks -->
 								<?php
 										get_template_part(
-											'template-parts/common/book_tracks',
+											'template-parts/common/book-tracks',
 											null,
 											array(
 												'post_wrapper' => $kkw_post_wrapper,
@@ -273,7 +273,7 @@ $kkw_icon_name           = 'fa-book';
 							<h4 class="text-color-secondary"><?php echo esc_html__( 'Related books', 'kk_writer_theme' ); ?></h4>
 							<?php
 							get_template_part(
-								'template-parts/common/related_books',
+								'template-parts/common/related-books',
 								null,
 								array(
 									'books'       => $kkw_books,

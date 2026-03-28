@@ -84,7 +84,7 @@ if ( 'yes' === $kkw_form_sent ) {
 
 		// 1 - Captcha validation.
 		if ( $kkw_captcha_enabled ) {
-			$kkw_captcha_valid = $captcha_obj->check( $kkw_captcha_prefix, $kkw_captcha_field );
+			$kkw_captcha_valid = $kkw_captcha_obj->check( $kkw_captcha_prefix, $kkw_captcha_field );
 			if ( ! $kkw_captcha_valid ) {
 				$kkw_result_text .= '<br/>' . __( 'The verification code is not valid.', 'kk_writer_theme' );
 			}
@@ -176,7 +176,7 @@ if ( 'yes' === $kkw_form_sent ) {
 					alt="<?php echo esc_attr( $kkw_post_img_alt ); ?>" />
 
 				<div class="text-left mt-5">
-					<?php get_template_part( 'template-parts/common/social_footer' ); ?>
+					<?php get_template_part( 'template-parts/common/social-footer' ); ?>
 				</div>
 
 			</aside>
@@ -277,17 +277,17 @@ if ( 'yes' === $kkw_form_sent ) {
 													?>
 												<div class="row mb-5" style="margin-top: 20px;">
 													<div class="form-group col-md-6" style="text-align: center">
-															<img src="<?php echo esc_url( $captcha_obj_image_src ); ?>"
+															<img src="<?php echo esc_url( $kkw_captcha_obj_image_src ); ?>"
 																alt="<?php echo esc_attr__( 'Insert the captcha code', 'kk_writer_theme' ); ?>"
-																width="<?php echo esc_attr( $captcha_obj_image_width ); ?>"
-																height="<?php echo esc_attr( $captcha_obj_image_height ); ?>" />
+																width="<?php echo esc_attr( $kkw_captcha_obj_image_width ); ?>"
+																height="<?php echo esc_attr( $kkw_captcha_obj_image_height ); ?>" />
 													</div>
 													<div class="form-group col-md-6">
 														<input class="form-control border-bottom-only" name="captcha-field" id="captcha-field"
-															size="<?php echo esc_attr( $captcha_obj_image_width ); ?>" type="text"
+															size="<?php echo esc_attr( $kkw_captcha_obj_image_width ); ?>" type="text"
 																	placeholder="<?php echo esc_attr__( 'Write here the verification code', 'kk_writer_theme' ); ?>" />
 														<input name="captcha-prefix" id="captcha-prefix"
-															type="hidden" value="<?php echo esc_attr( $captcha_obj_prefix ); ?>" />
+															type="hidden" value="<?php echo esc_attr( $kkw_captcha_obj_prefix ); ?>" />
 													</div>
 												</div>
 													<?php

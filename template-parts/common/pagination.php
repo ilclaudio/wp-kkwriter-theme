@@ -1,21 +1,33 @@
 <?php
- $the_query = $args['query'];
-?>
+/**
+ * KK Writer Theme: The pagination component.
+ *
+ * @package KK_Writer_Theme
+ */
 
-<nav class="pagination-wrapper justify-content-center" aria-label="Navigazione centrata">
-	<div class="row pt-5" id='pagination_links'>
+$kkw_query = isset( $args['query'] ) ? $args['query'] : null;
+
+?>
+<nav class="pagination-wrapper justify-content-center" aria-label="<?php echo esc_attr__( 'Centered navigation', 'kk_writer_theme' ); ?>">
+	<div class="row pt-5" id="pagination_links">
 		<?php
-		if ( $the_query ) {
-			$prev_label = '<svg class="icon icon-secondary" role="img" aria-labelledby="Chevron Left"><use href="' . get_template_directory_uri() . '/assets/svg/sprites.svg#it-chevron-left"></use></svg>';
-			$next_label = '<svg class="icon icon-secondary" role="img" aria-labelledby="Chevron Right"><use href="' . get_template_directory_uri() . '/assets/svg/sprites.svg#it-chevron-right"></use></svg>';
-			echo paginate_links(
+		if ( $kkw_query ) {
+			$kkw_sprite_url = trailingslashit( get_template_directory_uri() ) . 'assets/svg/sprites.svg';
+			$kkw_prev_label = '<svg class="icon icon-secondary" role="img" aria-label="Chevron Left"><use href="' . esc_url( $kkw_sprite_url . '#it-chevron-left' ) . '"></use></svg>';
+			$kkw_next_label = '<svg class="icon icon-secondary" role="img" aria-label="Chevron Right"><use href="' . esc_url( $kkw_sprite_url . '#it-chevron-right' ) . '"></use></svg>';
+
+			$kkw_pagination = paginate_links(
 				array(
-					'total'     => $the_query->max_num_pages,
-					'prev_text' => $prev_label,
-					'next_text' => $next_label,
-					'type'      => 'list', // Use 'plain' or 'list'.
+					'total'     => $kkw_query->max_num_pages,
+					'prev_text' => $kkw_prev_label,
+					'next_text' => $kkw_next_label,
+					'type'      => 'list',
 				)
 			);
+
+			if ( $kkw_pagination ) {
+				echo wp_kses_post( $kkw_pagination );
+			}
 		}
 		?>
 	</div>

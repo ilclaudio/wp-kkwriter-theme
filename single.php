@@ -156,7 +156,7 @@ $kkw_section_description = '';
 					<div class="mt-5">
 						<?php
 							get_template_part(
-								'template-parts/common/social_sharing',
+								'template-parts/common/social-sharing',
 								null,
 								array(),
 							);
@@ -295,7 +295,7 @@ $kkw_section_description = '';
 								<div class="p-3">
 									<?php
 									get_template_part(
-										'template-parts/common/embed_video',
+										'template-parts/common/embed-video',
 										null,
 										array(
 											'video'      => $kkw_video,
@@ -314,7 +314,7 @@ $kkw_section_description = '';
 								<div class="p-3">
 									<?php
 									get_template_part(
-										'template-parts/common/photo_gallery',
+										'template-parts/common/photo-gallery',
 										null,
 										array(
 											'gallery'     => $kkw_gallery,
@@ -333,7 +333,7 @@ $kkw_section_description = '';
 								<div class="p-3">
 									<?php
 									get_template_part(
-										'template-parts/common/related_books',
+										'template-parts/common/related-books',
 										null,
 										array(
 											'books'       => $kkw_books,
