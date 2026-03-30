@@ -24,7 +24,7 @@ define(
 		'slug'    => 'essays',
 		'title'   => 'Essays',
 		'en'      => 'Essays',
-		'it'      => 'Saggi',
+		'it'      => 'Saggistica',
 		'title_x' => 'Essays',
 	)
 );
