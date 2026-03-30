@@ -117,9 +117,10 @@ $kkw_small_featured_img_height = (int) KKW_SMALL_FEATURED_IMG_HEIGHT;
 						<?php echo esc_html( clean_and_truncate_text( $kkw_fc1_desc, KKW_FEATURED_TEXT_MAX_SIZE ) ); ?>
 					</p>
 					<small class="pt-2 text-body-secondary">
-						<a class="kkw_link" href="<?php echo esc_url( $kkw_fc1_detail ); ?>">
+						<a class="kkw_link" href="<?php echo esc_url( $kkw_fc1_detail ); ?>"
+							aria-label="<?php echo esc_attr( sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_fc1_title ) ); ?>">
 							<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
-							&nbsp;<i class="fa-solid fa-arrow-right"></i>
+							&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 						</a>
 					</small>
 				</div>
@@ -162,9 +163,10 @@ $kkw_small_featured_img_height = (int) KKW_SMALL_FEATURED_IMG_HEIGHT;
 						<?php echo esc_html( clean_and_truncate_text( $kkw_fc2_desc, KKW_FEATURED_TEXT_MAX_SIZE ) ); ?>
 					</p>
 					<small class="pt-2 text-body-secondary">
-						<a class="kkw_link" href="<?php echo esc_url( $kkw_fc2_detail ); ?>">
+						<a class="kkw_link" href="<?php echo esc_url( $kkw_fc2_detail ); ?>"
+							aria-label="<?php echo esc_attr( sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_fc2_title ) ); ?>">
 							<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
-							&nbsp;<i class="fa-solid fa-arrow-right"></i>
+							&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 						</a>
 					</small>
 				</div>
@@ -210,9 +212,10 @@ $kkw_small_featured_img_height = (int) KKW_SMALL_FEATURED_IMG_HEIGHT;
 						<?php echo esc_html( clean_and_truncate_text( $kkw_fc3_desc, KKW_FEATURED_TEXT_MAX_SIZE ) ); ?>
 					</p>
 					<small class="pt-2 text-body-secondary">
-						<a class="kkw_link" href="<?php echo esc_url( $kkw_fc3_detail ); ?>">
+						<a class="kkw_link" href="<?php echo esc_url( $kkw_fc3_detail ); ?>"
+							aria-label="<?php echo esc_attr( sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_fc3_title ) ); ?>">
 							<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
-							&nbsp;<i class="fa-solid fa-arrow-right"></i>
+							&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 						</a>
 					</small>
 				</div>
@@ -263,9 +266,10 @@ $kkw_small_featured_img_height = (int) KKW_SMALL_FEATURED_IMG_HEIGHT;
 									</a>
 									<p class="mb-0 kkw_featured_text"><?php echo esc_html( clean_and_truncate_text( $kkw_news_desc, 100 ) ); ?></p>
 									<small class="text-body-secondary">
-										<a class="kkw_link" href="<?php echo esc_url( $kkw_news_detail ); ?>">
+										<a class="kkw_link" href="<?php echo esc_url( $kkw_news_detail ); ?>"
+											aria-label="<?php echo esc_attr( sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_news_title ) ); ?>">
 											<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
-											&nbsp;<i class="fa-solid fa-arrow-right"></i>
+											&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</small>
 								</div>
@@ -302,9 +306,10 @@ $kkw_small_featured_img_height = (int) KKW_SMALL_FEATURED_IMG_HEIGHT;
 									</a>
 									<p class="mb-0 kkw_featured_text"><?php echo esc_html( clean_and_truncate_text( $kkw_event_desc, 100 ) ); ?></p>
 									<small class="text-body-secondary">
-										<a class="kkw_link" href="<?php echo esc_url( $kkw_event_detail ); ?>">
+										<a class="kkw_link" href="<?php echo esc_url( $kkw_event_detail ); ?>"
+											aria-label="<?php echo esc_attr( sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_event_title ) ); ?>">
 											<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
-											&nbsp;<i class="fa-solid fa-arrow-right"></i>
+											&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</small>
 								</div>

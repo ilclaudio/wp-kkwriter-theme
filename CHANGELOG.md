@@ -19,8 +19,11 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Added simple effect on mouse-over in search results and HP boxes.
 ### Fixed
 - Bug-fixing
-- Fixed the lyout if the search result.
+- Fixed the layout if the search result.
+- Various accebility fixes.
+- Fixed the style of the code according to WP standards.
 ## Security
+- Escaped all outputs.
 ## Changed
 - Updated bootstrap to the version 5.3.8.
 

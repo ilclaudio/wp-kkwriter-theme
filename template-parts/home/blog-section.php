@@ -55,9 +55,10 @@ $kkw_blog_img_height = (int) KKW_BLOG_SECTION_IMG_HEIGHT;
 						<?php echo esc_html( clean_and_truncate_text( $kkw_blog_desc, KKW_FEATURED_TEXT_MAX_SIZE ) ); ?>
 					</p>
 					<small class="text-body-secondary">
-						<a class="kkw_link" href="<?php echo esc_url( $kkw_blog_url ); ?>">
+						<a class="kkw_link" href="<?php echo esc_url( $kkw_blog_url ); ?>"
+							aria-label="<?php echo esc_attr( sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_blog_title ) ); ?>">
 							<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
-							&nbsp;<i class="fa-solid fa-arrow-right"></i>
+							&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 						</a>
 					</small>
 				</div>

@@ -39,6 +39,7 @@ if ( $kkw_post_wrapper ) {
 						<?php endif; ?>
 						<?php echo esc_html( $kkw_publisher ); ?>
 						<?php if ( $kkw_publisherurl ) : ?>
+							<span class="visually-hidden"><?php esc_html_e( '(opens in a new tab)', 'kk_writer_theme' ); ?></span>
 							</a>
 						<?php endif; ?>
 					</div>
@@ -68,6 +69,7 @@ if ( $kkw_post_wrapper ) {
 						<?php endif; ?>
 						<?php echo esc_html( $kkw_isbn ); ?>
 						<?php if ( $kkw_book_url ) : ?>
+							<span class="visually-hidden"><?php esc_html_e( '(opens in a new tab)', 'kk_writer_theme' ); ?></span>
 							</a>
 						<?php endif; ?>
 					</div>

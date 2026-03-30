@@ -86,9 +86,10 @@ $kkw_autoscroll_interval   = $kkw_autoscroll_interval > 0 ? $kkw_autoscroll_inte
 								</p>
 								<p class="card-text">
 									<small class="text-body-secondary">
-										<a class="kkw_link" href="<?php echo esc_url( $kkw_slide_url ); ?>">
+										<a class="kkw_link" href="<?php echo esc_url( $kkw_slide_url ); ?>"
+											aria-label="<?php echo esc_attr( sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_slide_title ) ); ?>">
 											<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
-											&nbsp;<i class="fa-solid fa-arrow-right"></i>
+											&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</small>
 								</p>

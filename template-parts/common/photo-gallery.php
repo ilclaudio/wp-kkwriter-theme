@@ -21,7 +21,8 @@ if ( ! empty( $kkw_gallery ) ) {
 			$kkw_src_thumb = $kkw_img_src;
 			?>
 			<div class="col-6 col-md-4 mb-4">
-				<a href="<?php echo esc_url( $kkw_src_image ); ?>" data-lightbox="gallery">
+				<a href="<?php echo esc_url( $kkw_src_image ); ?>" data-lightbox="gallery"
+					aria-label="<?php echo esc_attr( $kkw_img_alt ); ?>">
 					<img src="<?php echo esc_url( $kkw_src_thumb ); ?>"
 						class="img-fluid img-thumbnail"
 						alt="<?php echo esc_attr( $kkw_img_alt ); ?>">

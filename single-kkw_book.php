@@ -131,7 +131,8 @@ $kkw_icon_name           = 'fa-book';
 						<div id="kkw_book_section" class="container">
 							<div class="row">
 								<div id="kkw_current_cover_div" class="col-12 col-md-4 float-start">
-										<a id="current_cover_link" href="<?php echo esc_url( $kkw_image_wrapper->src ); ?>" data-lightbox="image-1">
+										<a id="current_cover_link" href="<?php echo esc_url( $kkw_image_wrapper->src ); ?>" data-lightbox="image-1"
+									aria-label="<?php echo esc_attr( $kkw_image_wrapper->alt ); ?>">
 										<img id="current_cover"
 											class="kkw_cover img-fluid rounded mb-2 border-img-2"
 												src="<?php echo esc_url( $kkw_image_wrapper->src ); ?>"

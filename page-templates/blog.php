@@ -182,9 +182,10 @@ $kkw_num_results = $kkw_query->found_posts;
 												<?php echo esc_html( clean_and_truncate_text( $kkw_post_wrapper->description, KKW_FEATURED_TEXT_MAX_SIZE ) ); ?>
 											</p>
 											<div class="text-center">
-												<a href="<?php echo esc_url( $kkw_post_wrapper->detail_url ); ?>" class="btn btn-secondary">
+												<a href="<?php echo esc_url( $kkw_post_wrapper->detail_url ); ?>" class="btn btn-secondary"
+													aria-label="<?php echo esc_attr( sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_post_wrapper->title ) ); ?>">
 													<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
-													&nbsp;<i class="fa-solid fa-arrow-right"></i>
+													&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 												</a>
 										</div>
 									</div>

@@ -278,6 +278,7 @@ $kkw_section_description = '';
 												<?php echo esc_html__( 'External link', 'kk_writer_theme' ); ?>:</span>
 												<a href="<?php echo esc_url( $kkw_link ); ?>" target="_blank" rel="noopener noreferrer">
 													<?php echo esc_html( $kkw_link ); ?>
+													<span class="visually-hidden"><?php esc_html_e( '(opens in a new tab)', 'kk_writer_theme' ); ?></span>
 												</a>
 											</li>
 										<?php

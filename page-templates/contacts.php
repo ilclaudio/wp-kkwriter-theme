@@ -215,7 +215,8 @@ if ( 'yes' === $kkw_form_sent ) {
 
 					<!-- CONTACT FORM SECTION-->
 					<div id="kkw_contact_form_id">
-						<form action="." id="kkw_contact_form" name="kkw_contact_form" method="post">
+						<form action="." id="kkw_contact_form" name="kkw_contact_form" method="post"
+							aria-label="<?php esc_attr_e( 'Contact form', 'kk_writer_theme' ); ?>">
 							<?php wp_nonce_field( 'sf_contacts_nonce', 'contacts_nonce_field', false ); ?>
 						<div class="container m-5 pt-4">
 							<!-- SITE CONTACTS -->
