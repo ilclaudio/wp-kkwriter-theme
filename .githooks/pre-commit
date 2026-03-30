@@ -2,5 +2,6 @@
 set -euo pipefail
 
 hook_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+"$hook_dir/check-committer.sh"
 "$hook_dir/check-staged-secrets.sh"
 "$hook_dir/check-staged-l10n.sh"
