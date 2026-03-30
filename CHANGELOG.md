@@ -11,6 +11,15 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 
+
+## [0.0.7] - 2026-04-06
+## Added.
+### Fixed
+## Security
+## Changed
+
+
+
 ## [0.0.6] - 2026-03-30
 ## Added
 - Added e2e tests.
@@ -28,9 +37,6 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 ## Changed
 - Updated bootstrap to the version 5.3.8.
 - Label translation.
-
-
-
 
 ## [0.0.5] - 2025-03-12
 ### Fixed
