@@ -104,7 +104,7 @@ if ( 'true' === $kkw_show_socials ) {
 			rel="noopener noreferrer"
 			class="mr-5 text-color-secondary margin-socials"
 		>
-			<i class="<?php echo esc_attr( $kkw_social_link['icon'] ); ?>"></i>
+			<i class="<?php echo esc_attr( $kkw_social_link['icon'] ); ?>" aria-hidden="true"></i>
 		</a>
 	<?php endforeach; ?>
 	<?php

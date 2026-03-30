@@ -86,10 +86,10 @@ $kkw_section_description = '';
 								title="<?php echo esc_attr( $kkw_post_wrapper->main_group ); ?>"></i>
 							<?php echo esc_html__( 'Details', 'kk_writer_theme' ); ?>
 						</div>
-						<div class="kkw_lateral_menu">
+						<div id="kkw_lateral_menu" class="kkw_lateral_menu">
 							<ul class="nav flex-column nav-menu">
 								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="#post_description">
+									<a class="nav-link active" aria-current="location" href="#post_description">
 										<span><?php echo esc_html__( 'Description', 'kk_writer_theme' ); ?></span>
 									</a>
 								</li>
@@ -97,7 +97,7 @@ $kkw_section_description = '';
 								if ( $kkw_has_date ) {
 									?>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#dates_and_hours">
+									<a class="nav-link" href="#dates_and_hours">
 										<span><?php echo esc_html__( 'Date and hour', 'kk_writer_theme' ); ?></span>
 									</a>
 								</li>
@@ -106,7 +106,7 @@ $kkw_section_description = '';
 								if ( $kkw_has_place ) {
 									?>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#place">
+									<a class="nav-link" href="#place">
 										<span><?php echo esc_html__( 'Place', 'kk_writer_theme' ); ?></span>
 									</a>
 								</li>
@@ -115,7 +115,7 @@ $kkw_section_description = '';
 								if ( $kkw_has_contacts ) {
 									?>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#contacts">
+									<a class="nav-link" href="#contacts">
 										<span><?php echo esc_html__( 'Contacts', 'kk_writer_theme' ); ?></span>
 									</a>
 								</li>
@@ -124,7 +124,7 @@ $kkw_section_description = '';
 								if ( $kkw_has_video ) {
 									?>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#video">
+									<a class="nav-link" href="#video">
 										<span><?php echo esc_html__( 'Video', 'kk_writer_theme' ); ?></span>
 									</a>
 								</li>
@@ -133,7 +133,7 @@ $kkw_section_description = '';
 								if ( $kkw_has_gallery ) {
 									?>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#photo_gallery">
+									<a class="nav-link" href="#photo_gallery">
 										<span><?php echo esc_html__( 'Photo gallery', 'kk_writer_theme' ); ?></span>
 									</a>
 								</li>
@@ -142,7 +142,7 @@ $kkw_section_description = '';
 								if ( $kkw_has_related_books ) {
 									?>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#related_books">
+									<a class="nav-link" href="#related_books">
 										<span><?php echo esc_html__( 'Related books', 'kk_writer_theme' ); ?></span>
 									</a>
 								</li>

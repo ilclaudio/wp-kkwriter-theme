@@ -71,27 +71,27 @@ $kkw_icon_name           = 'fa-book';
 								<?php echo esc_html__( 'Details', 'kk_writer_theme' ); ?>
 						</div>
 						<div id="kkw_lateral_menu" class="kkw_lateral_menu">
-							<ul class="nav flex-column nav-menu">
-								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="#nav-description">
-										<span><?php echo esc_html__( 'Description', 'kk_writer_theme' ); ?></span>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#nav-info">
-										<span><?php echo esc_html__( 'Informations', 'kk_writer_theme' ); ?></span>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#nav-reviews">
-										<span><?php echo esc_html__( 'Reviews', 'kk_writer_theme' ); ?></span>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#nav-excerpts">
-										<span><?php echo esc_html__( 'Excerpts', 'kk_writer_theme' ); ?></span>
-									</a>
-								</li>
+								<ul class="nav flex-column nav-menu">
+									<li class="nav-item">
+										<a class="nav-link active" aria-current="location" href="#nav-description">
+											<span><?php echo esc_html__( 'Description', 'kk_writer_theme' ); ?></span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#nav-info">
+											<span><?php echo esc_html__( 'Informations', 'kk_writer_theme' ); ?></span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#nav-reviews">
+											<span><?php echo esc_html__( 'Reviews', 'kk_writer_theme' ); ?></span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#nav-excerpts">
+											<span><?php echo esc_html__( 'Excerpts', 'kk_writer_theme' ); ?></span>
+										</a>
+									</li>
 								<li class="nav-item">
 									<a class="nav-link disabled" href="#nav-tracks"
 										aria-disabled="true"
@@ -103,11 +103,11 @@ $kkw_icon_name           = 'fa-book';
 								<?php
 								if ( $kkw_has_related_books ) {
 									?>
-									<li class="nav-item">
-										<a class="nav-link" aria-current="page" href="#nav-related-books">
-											<span><?php echo esc_html__( 'Related books', 'kk_writer_theme' ); ?></span>
-										</a>
-									</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#nav-related-books">
+												<span><?php echo esc_html__( 'Related books', 'kk_writer_theme' ); ?></span>
+											</a>
+										</li>
 									<?php
 								}
 								?>
@@ -188,25 +188,25 @@ $kkw_icon_name           = 'fa-book';
 								<button class="nav-link active" id="nav-info-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-info" type="button" role="tab" 
 									aria-controls="nav-info" aria-selected="true">
-									<i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;
+									<i class="fa-solid fa-circle-info" aria-hidden="true"></i>&nbsp;&nbsp;
 										<?php echo esc_html__( 'Informations', 'kk_writer_theme' ); ?>
 								</button>
 								<button class="nav-link" id="nav-reviews-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" 
 									aria-controls="nav-reviews" aria-selected="false">
-									<i class="fa-solid fa-marker"></i>&nbsp;&nbsp;
+									<i class="fa-solid fa-marker" aria-hidden="true"></i>&nbsp;&nbsp;
 										<?php echo esc_html__( 'Reviews', 'kk_writer_theme' ); ?>
 								</button>
 								<button class="nav-link" id="nav-excerpts-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-excerpts" type="button" role="tab"
 									aria-controls="nav-excerpts" aria-selected="false">
-									<i class="fa-solid fa-signature"></i>&nbsp;&nbsp;
+									<i class="fa-solid fa-signature" aria-hidden="true"></i>&nbsp;&nbsp;
 										<?php echo esc_html__( 'Excerpts', 'kk_writer_theme' ); ?>
 								</button>
 								<button class="nav-link" id="nav-tracks-tab"
 									data-bs-toggle="tab" data-bs-target="#nav-tracks" type="button" role="tab"
 									aria-controls="nav-tracks" aria-selected="false" disabled>
-									<i class="fa-solid fa-microphone"></i>&nbsp;&nbsp;
+									<i class="fa-solid fa-microphone" aria-hidden="true"></i>&nbsp;&nbsp;
 										<?php echo esc_html__( 'Tracks', 'kk_writer_theme' ); ?>
 								</button>
 							</div>

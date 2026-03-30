@@ -84,11 +84,13 @@ if ( ! function_exists( 'kkw_load_scripts_and_styles' ) ) {
 		wp_register_style( 'fontawesome-solid-css', get_template_directory_uri() . '/assets/fontawesome/css/solid.min.css', array(), $theme_version );
 		wp_enqueue_style( 'fontawesome-solid-css' );
 
-		// Import Lightbox stuff.
-		wp_register_style( 'lightbox-css', get_template_directory_uri() . '/assets/lightbox/css/lightbox.min.css', array(), $theme_version );
-		wp_enqueue_style( 'lightbox-css' );
-		wp_register_script( 'lightbox-js', get_template_directory_uri() . '/assets/lightbox/js/lightbox.min.js', array( 'jquery' ), $theme_version, true );
-		wp_enqueue_script( 'lightbox-js' );
+		// Import Lightbox stuff — only on single posts/CPTs that may include a photo gallery.
+		if ( is_singular() && ! is_page() ) {
+			wp_register_style( 'lightbox-css', get_template_directory_uri() . '/assets/lightbox/css/lightbox.min.css', array(), $theme_version );
+			wp_enqueue_style( 'lightbox-css' );
+			wp_register_script( 'lightbox-js', get_template_directory_uri() . '/assets/lightbox/js/lightbox.min.js', array( 'jquery' ), $theme_version, true );
+			wp_enqueue_script( 'lightbox-js' );
+		}
 
 		// Import CUSTOM styles.
 		wp_register_style( 'kkwritertheme_main_styles', get_template_directory_uri() . '/assets/custom/css/main.css', array(), $theme_version );
