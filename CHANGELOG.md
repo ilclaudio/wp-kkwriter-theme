@@ -16,8 +16,10 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Added e2e tests.
 - Added githooks.
 - Added context file for AI project management.
+- Added simple effect on mouse-over in search results and HP boxes.
 ### Fixed
 - Bug-fixing
+- Fixed the lyout if the search result.
 ## Security
 ## Changed
 - Updated bootstrap to the version 5.3.8.
