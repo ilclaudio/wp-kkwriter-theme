@@ -53,6 +53,7 @@ node_modules/
 *.sql
 *.sqlite
 
+# Languages stuff
 languages/*-backup-*.po~
 languages/*-backup-*.pot~
 
