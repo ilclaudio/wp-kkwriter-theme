@@ -384,6 +384,33 @@ class KKW_ThemeOptionsManager {
 		);
 		$home_options->add_field(
 			array(
+				'id'      => 'home_carousel_autoscroll_enabled',
+				'name'    => __( 'Enable auto-scrolling', 'kk_writer_theme' ),
+				'desc'    => __( 'If yes, the carousel slides advance automatically.', 'kk_writer_theme' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true'  => __( 'Yes', 'kk_writer_theme' ),
+					'false' => __( 'No', 'kk_writer_theme' ),
+				),
+			)
+		);
+		$home_options->add_field(
+			array(
+				'id'         => 'home_carousel_autoscroll_interval',
+				'name'       => __( 'Auto-scroll interval (seconds)', 'kk_writer_theme' ),
+				'desc'       => __( 'Seconds between slides when auto-scrolling is enabled. Default: 5.', 'kk_writer_theme' ),
+				'type'       => 'text_small',
+				'default'    => '5',
+				'attributes' => array(
+					'type' => 'number',
+					'min'  => '1',
+					'max'  => '60',
+				),
+			)
+		);
+		$home_options->add_field(
+			array(
 				'name'    => __( 'Choose contents', 'kk_writer_theme' ),
 				'desc'    => __( 'Choose the contents to show in the Home Page carousel.', 'kk_writer_theme' ),
 				'id'      => 'carousel_content',

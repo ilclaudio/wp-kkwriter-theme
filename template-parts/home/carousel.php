@@ -12,11 +12,19 @@ if ( empty( $kkw_carousel_items ) ) {
 	return;
 }
 
-$kkw_carousel_item_count = count( $kkw_carousel_items );
-$kkw_card_height         = (int) KKW_CAROUSEL_CARD_HEIGHT;
+$kkw_carousel_item_count   = count( $kkw_carousel_items );
+$kkw_card_height           = (int) KKW_CAROUSEL_CARD_HEIGHT;
+$kkw_autoscroll_enabled    = kkw_get_option( 'home_carousel_autoscroll_enabled', 'kkw_opt_hp_layout' );
+$kkw_autoscroll_interval   = (int) kkw_get_option( 'home_carousel_autoscroll_interval', 'kkw_opt_hp_layout', '5' );
+$kkw_autoscroll_interval   = $kkw_autoscroll_interval > 0 ? $kkw_autoscroll_interval * 1000 : 5000;
 ?>
 
-<div id="carouselExampleIndicators" class="mt-4 carousel slide">
+<div id="carouselExampleIndicators" class="mt-4 carousel slide"
+	<?php if ( 'true' === $kkw_autoscroll_enabled ) : ?>
+		data-bs-ride="carousel"
+		data-bs-interval="<?php echo esc_attr( (string) $kkw_autoscroll_interval ); ?>"
+		data-bs-pause="hover"
+	<?php endif; ?>>
 	<h3 class="visually-hidden">
 		<?php echo esc_html__( 'Section that contains a carousel with the most important contents of the site.', 'kk_writer_theme' ); ?>
 	</h3>
