@@ -13,15 +13,15 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 ## [0.0.7] - 2026-04-06
-## Added.
+### Added
 ### Fixed
-## Security
-## Changed
+### Security
+### Changed
 
 
 
 ## [0.0.6] - 2026-03-30
-## Added
+### Added
 - Added e2e tests.
 - Added githooks.
 - Added context file for AI project management.
@@ -31,10 +31,10 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Fixed the layout if the search result.
 - Various accebility fixes.
 - Fixed the style of the code according to WP standards.
-## Security
+### Security
 - Escaped all outputs.
 - Added missing nonce.
-## Changed
+### Changed
 - Updated bootstrap to the version 5.3.8.
 - Label translation.
 
