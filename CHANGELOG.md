@@ -14,6 +14,7 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ## [0.0.7] - 2026-04-06
 ### Added
+- Added manual scrolling of carousel items for tablet and mobile.
 ### Fixed
 ### Security
 ### Changed
