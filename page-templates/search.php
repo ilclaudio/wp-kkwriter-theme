@@ -76,12 +76,16 @@ if ( '' !== $kkw_search_string ) {
 			<!-- search BANNER -->
 			<div class="row mb-4 py-4 primary-bg">
 				<h1><?php echo esc_html__( 'Site search', 'kk_writer_theme' ); ?></h1>
-				<div class="col-12">
-					<div class="form-group col text-left mb-2">
-						<input type="text" name="search_string"
-							class="form-control"
-							value="<?php echo esc_attr( $kkw_search_string ); ?>"
-							placeholder="<?php echo esc_attr__( 'Text to search...', 'kk_writer_theme' ); ?>">
+					<div class="col-12">
+						<div class="form-group col text-left mb-2">
+							<label for="search_string" class="visually-hidden">
+								<?php echo esc_html__( 'Text to search', 'kk_writer_theme' ); ?>
+							</label>
+							<input type="text" name="search_string"
+								id="search_string"
+								class="form-control"
+								value="<?php echo esc_attr( $kkw_search_string ); ?>"
+								placeholder="<?php echo esc_attr__( 'Text to search...', 'kk_writer_theme' ); ?>">
 						<input type="hidden" name="is_reset" id="is_reset" value="">
 						<div class="mt-4">
 							<button type="reset" value="reset"
@@ -100,28 +104,31 @@ if ( '' !== $kkw_search_string ) {
 			<!-- search filters and results -->
 			<div class="row pt-4">
 
-				<!-- FILTERS columns -->
-				<aside class="col-md-3 border-end mb-5">
-					<h5 class="text-uppercase border-bottom"><?php echo esc_html__( 'Filter by content type', 'kk_writer_theme' ); ?></h5>
-					<fieldset class="font-larger">
-						<?php
-						foreach ( $kkw_content_types_filters as $kkw_ct_name => $kkw_ct_label ) {
-							$kkw_checkbox_id = sanitize_title( (string) $kkw_ct_name );
-							?>
-							<div class="form-check mb-2 mt-2">
-								<input type="checkbox" name="selected_contents[]" id="<?php echo esc_attr( $kkw_checkbox_id ); ?>"
-									value="<?php echo esc_attr( $kkw_ct_name ); ?>"
-									<?php checked( in_array( $kkw_ct_name, $kkw_selected_contents, true ) ); ?>
-								>
-								<label for="<?php echo esc_attr( $kkw_checkbox_id ); ?>">
-									<?php echo esc_html( (string) $kkw_ct_label ); ?>
-								</label>
-							</div>
+					<!-- FILTERS columns -->
+					<aside class="col-md-3 border-end mb-5">
+						<h5 class="text-uppercase border-bottom"><?php echo esc_html__( 'Filter by content type', 'kk_writer_theme' ); ?></h5>
+						<fieldset class="font-larger">
+							<legend class="visually-hidden">
+								<?php echo esc_html__( 'Filter by content type', 'kk_writer_theme' ); ?>
+							</legend>
 							<?php
-						}
-						?>
-					</fieldset>
-				</aside>
+							foreach ( $kkw_content_types_filters as $kkw_ct_name => $kkw_ct_label ) {
+								$kkw_checkbox_id = sanitize_title( (string) $kkw_ct_name );
+								?>
+								<div class="form-check mb-2 mt-2">
+									<input type="checkbox" name="selected_contents[]" id="<?php echo esc_attr( $kkw_checkbox_id ); ?>"
+										value="<?php echo esc_attr( $kkw_ct_name ); ?>"
+										<?php checked( in_array( $kkw_ct_name, $kkw_selected_contents, true ) ); ?>
+									>
+									<label for="<?php echo esc_attr( $kkw_checkbox_id ); ?>">
+										<?php echo esc_html( (string) $kkw_ct_label ); ?>
+									</label>
+								</div>
+								<?php
+							}
+							?>
+						</fieldset>
+					</aside>
 
 				<!-- RESULTS column -->
 				<section class="col-md-9" aria-label="<?php echo esc_attr__( 'Search results', 'kk_writer_theme' ); ?>">

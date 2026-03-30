@@ -35,7 +35,10 @@ class KKW_NavigationManager {
 					$post_parent  = $post->post_parent;
 					$post_parents = array();
 					while ( 0 !== $post_parent ) {
-						$post_tmp       = get_post( $post_parent );
+						$post_tmp = get_post( $post_parent );
+						if ( ! $post_tmp instanceof WP_Post ) {
+							break;
+						}
 						$post_parents[] = new KKW_BreadItem(
 							$post_tmp->post_title,
 							get_permalink( $post_tmp->ID ),

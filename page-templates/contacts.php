@@ -98,8 +98,8 @@ if ( 'yes' === $kkw_form_sent ) {
 			$kkw_form_valid   = false;
 			$kkw_result_text .= '<br/>' . __( 'Please, fill all the mandatory fields', 'kk_writer_theme' );
 		}
-		// 2b - Check email address validity.
-		if ( ! ( filter_var( $kkw_email_address, FILTER_VALIDATE_EMAIL ) ) ) {
+		// 2b - Check email address validity (only when non-empty; empty is already caught by 2a).
+		if ( '' !== $kkw_email_address && ! ( filter_var( $kkw_email_address, FILTER_VALIDATE_EMAIL ) ) ) {
 			$kkw_form_valid   = false;
 			$kkw_result_text .= '<br/>' . __( 'Please, provide a valid email address.', 'kk_writer_theme' );
 		}

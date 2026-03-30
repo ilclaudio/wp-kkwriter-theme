@@ -18,14 +18,16 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Added context file for AI project management.
 - Added simple effect on mouse-over in search results and HP boxes.
 ### Fixed
-- Bug-fixing
+- Bug-fixing: search page, contact formì, etc.
 - Fixed the layout if the search result.
 - Various accebility fixes.
 - Fixed the style of the code according to WP standards.
 ## Security
 - Escaped all outputs.
+- Added missing nonce.
 ## Changed
 - Updated bootstrap to the version 5.3.8.
+- Label translation.
 
 
 

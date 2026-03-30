@@ -33,14 +33,19 @@ function kkw_reload_theme_default_data() {
 	$is_reload = false;
 	$result_ok = false;
 	if ( isset( $_GET['action'] ) && 'reload' === $_GET['action'] ) {
+		check_admin_referer( 'kkw_reload_theme_data' );
 		$activator = new KKW_ThemeActivationManager();
 		$result_ok = $activator->initialize_theme();
 		$is_reload = true;
 	}
+	$reload_url = wp_nonce_url(
+		'themes.php?page=reload-data-theme-options&action=reload',
+		'kkw_reload_theme_data'
+	);
 	echo "<div id='kkw_reload_theme_data'>";
 	echo '<h1>' . esc_html__( 'Reload default data', 'kk_writer_theme' ) . '</h1>';
 	echo '<div id="kkw_reload_theme_data_body">';
-	echo '<div id="kkw_reload_theme_data_button"><a href="themes.php?page=reload-data-theme-options&action=reload" class="button button-primary">' .
+	echo '<div id="kkw_reload_theme_data_button"><a href="' . esc_url( $reload_url ) . '" class="button button-primary">' .
 		esc_html__( 'Reloads theme activation data (menus, pages, taxonomies, etc.)', 'kk_writer_theme' ) . '</a></div>';
 
 	if ( $is_reload && $result_ok ) {

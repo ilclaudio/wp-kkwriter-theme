@@ -21,7 +21,7 @@ $kkw_blog_img_width  = (int) KKW_BLOG_SECTION_IMG_WIDTH;
 $kkw_blog_img_height = (int) KKW_BLOG_SECTION_IMG_HEIGHT;
 ?>
 
-<div id="fc_first_row" class="row mt-3 mb-3 fc-row">
+<div id="home_blog_first_row" class="row mt-3 mb-3 fc-row">
 	<h3 class="visually-hidden">
 		<?php echo esc_html__( 'Section that contains some featured blog posts.', 'kk_writer_theme' ); ?>
 	</h3>
@@ -41,9 +41,12 @@ $kkw_blog_img_height = (int) KKW_BLOG_SECTION_IMG_HEIGHT;
 		if ( '' === $kkw_blog_img_alt ) {
 			$kkw_blog_img_alt = $kkw_blog_title;
 		}
+
+		/* translators: %s: blog post title. */
+		$kkw_read_more_aria_label = sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_blog_title );
 		?>
-		<div class="col-12 col-md-4 mb-4">
-			<div class="card">
+			<div class="col-12 col-md-4 mb-4">
+				<div class="card">
 				<img src="<?php echo esc_url( $kkw_blog_img_src ); ?>"
 					class="card-img-top bd-placeholder-img"
 					width="<?php echo esc_attr( (string) $kkw_blog_img_width ); ?>"
@@ -53,13 +56,13 @@ $kkw_blog_img_height = (int) KKW_BLOG_SECTION_IMG_HEIGHT;
 					<h5 class="card-title"><?php echo esc_html( $kkw_blog_title ); ?></h5>
 					<p class="card-text kkw_featured_text">
 						<?php echo esc_html( clean_and_truncate_text( $kkw_blog_desc, KKW_FEATURED_TEXT_MAX_SIZE ) ); ?>
-					</p>
-					<small class="text-body-secondary">
-						<a class="kkw_link" href="<?php echo esc_url( $kkw_blog_url ); ?>"
-							aria-label="<?php echo esc_attr( sprintf( __( 'Read more about: %s', 'kk_writer_theme' ), $kkw_blog_title ) ); ?>">
-							<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
-							&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-						</a>
+						</p>
+						<small class="text-body-secondary">
+							<a class="kkw_link" href="<?php echo esc_url( $kkw_blog_url ); ?>"
+								aria-label="<?php echo esc_attr( $kkw_read_more_aria_label ); ?>">
+								<?php echo esc_html__( 'Read more', 'kk_writer_theme' ); ?>
+								&nbsp;<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+							</a>
 					</small>
 				</div>
 			</div>

@@ -136,6 +136,7 @@ $kkw_total_pages = $kkw_section_query->max_num_pages;
 							</div>
 							<?php
 						}
+						wp_reset_postdata();
 						?>
 
 						<!-- PAGINATION -->
@@ -176,5 +177,4 @@ $kkw_total_pages = $kkw_section_query->max_num_pages;
 </main>
 
 <?php
-wp_reset_postdata();
 get_footer();
