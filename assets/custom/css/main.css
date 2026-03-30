@@ -522,3 +522,65 @@ h1, h2, h3, h4, h5, h6 {
 .kkw_page_content ul {
 	padding-left: 4em;
 }
+
+/* Search results: subtle image hover effect */
+#search_site_form .card-body .img-thumbnail {
+	transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+@media (hover: hover) {
+	#search_site_form .card-body a:hover .img-thumbnail,
+	#search_site_form .card-body a:focus-visible .img-thumbnail {
+		transform: scale(1.03);
+		box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+		filter: saturate(1.03);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#search_site_form .card-body a .img-thumbnail {
+		transition: none;
+	}
+
+	#search_site_form .card-body a:hover .img-thumbnail,
+	#search_site_form .card-body a:focus-visible .img-thumbnail {
+		transform: none;
+		box-shadow: none;
+		filter: none;
+	}
+}
+
+@media (max-width: 575.98px) {
+	#search_site_form .card-body > a:not(.kkw_link) {
+		display: block;
+		text-align: center;
+		margin: 0 0 0.75rem;
+	}
+
+	#search_site_form .card-body > a:not(.kkw_link) .img-thumbnail {
+		display: block;
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto !important;
+	}
+
+	#search_site_form .card-body > span.text {
+		display: block;
+		margin-bottom: 0.35rem;
+	}
+
+	#search_site_form .card-body > a.kkw_link {
+		display: block;
+		margin-bottom: 0.35rem;
+	}
+
+	#search_site_form .card-body > a.kkw_link .card-title {
+		margin-bottom: 0;
+	}
+
+	#search_site_form .card-body > .card-text {
+		display: block;
+		margin-top: 0.35rem;
+		margin-bottom: 0;
+	}
+}
