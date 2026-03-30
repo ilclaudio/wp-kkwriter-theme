@@ -93,8 +93,11 @@ $kkw_icon_name           = 'fa-book';
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link disabled" aria-current="page" href="#nav-tracks">
+									<a class="nav-link disabled" href="#nav-tracks"
+										aria-disabled="true"
+										tabindex="-1">
 										<span><?php echo esc_html__( 'Tracks', 'kk_writer_theme' ); ?></span>
+										<span class="visually-hidden"><?php esc_html_e( '(not available for this book)', 'kk_writer_theme' ); ?></span>
 									</a>
 								</li>
 								<?php

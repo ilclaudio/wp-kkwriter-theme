@@ -420,6 +420,24 @@ h1, h2, h3, h4, h5, h6 {
 	border-top: 2px solid #2f475e;
 }
 
+/* Disabled nav items in lateral menu */
+.kkw_lateral_menu .nav-link.disabled {
+	opacity: 0.38;
+	font-style: italic;
+	cursor: not-allowed;
+	pointer-events: auto;
+}
+
+/* Disabled tabs in book detail */
+#kkw_book_tabs .nav-tabs .nav-link:disabled,
+#kkw_book_tabs .nav-tabs button:disabled {
+	opacity: 0.38;
+	font-style: italic;
+	cursor: not-allowed;
+	background-color: #f0f0f0;
+	color: #999;
+}
+
 .kkw_share_section ul {
 	list-style-type: none;
 	padding-left: 0.8rem;
