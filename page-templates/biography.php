@@ -80,7 +80,6 @@ $kkw_image_wrapper       = KKW_ContentsManager::wrap_featured_image( $post, 'lar
 				<!-- Post featured image -->
 					<img src="<?php echo esc_url( $kkw_image_wrapper->src ); ?>"
 							class="card-img-top img-fluid"
-							style="max-height: 80%"
 							alt="<?php echo esc_attr( $kkw_image_wrapper->alt ); ?>">
 
 				<div class="text-left mt-5">

@@ -64,3 +64,4 @@ languages/*-backup-*.pot~
 .codex-tmp
 .claude
 .tmp
+.codex

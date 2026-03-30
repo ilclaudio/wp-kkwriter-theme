@@ -386,7 +386,7 @@ h1, h2, h3, h4, h5, h6 {
 /* CONTACTS */
 .kkw_img_contacts {
 	max-width: 80%;
-	max-height: auto;
+	max-height: none;
 }
 
 /* BLOG PAGE */
