@@ -88,11 +88,14 @@ $kkw_image_wrapper       = KKW_ContentsManager::wrap_featured_image( $post, 'lar
 
 			</aside>
 
-			<section class="col-md-9 my-3">
-				<!-- CONTACT FORM SECTION-->
-				<div id="kkw_contact_form_id">
-					<?php the_content(); ?>
-				</div>
+			<section class="col-md-9 my-3 kkw_page_content">
+				<!-- BIOGRAPHY SECTION -->
+				<?php
+				if ( have_posts() ) {
+					the_post();
+					the_content();
+				}
+				?>
 			</section>
 
 		</div>
